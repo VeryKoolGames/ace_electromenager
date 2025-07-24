@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch6ioi1a5wa3a"]
+
+[ext_resource type="Script" uid="uid://cwtice5ghbvj5" path="res://Assets/Scripts/player.gd" id="1_3b2lm"]
+[ext_resource type="Texture2D" uid="uid://bnapbj4wso7u6" path="res://icon.svg" id="1_pre2s"]
+[ext_resource type="Script" uid="uid://cane2476nvaiy" path="res://Assets/Scripts/aiming_arrow.gd" id="2_15at3"]
+[ext_resource type="Script" uid="uid://fpx7vinicqon" path="res://Assets/Scripts/ball_spawner.gd" id="4_340hg"]
+[ext_resource type="PackedScene" uid="uid://bua6ps1mia14x" path="res://Assets/Scenes/Ball/ball.tscn" id="5_340hg"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_3b2lm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pre2s")
+
+[node name="AimingArrow" type="Node2D" parent="."]
+position = Vector2(0, -157)
+script = ExtResource("2_15at3")
+
+[node name="Sprite2D" type="Sprite2D" parent="AimingArrow"]
+scale = Vector2(0.484375, 1)
+texture = ExtResource("1_pre2s")
+offset = Vector2(-2.06452, -64)
+
+[node name="BallSpawner" type="Node2D" parent="."]
+script = ExtResource("4_340hg")
+ball_scene = ExtResource("5_340hg")
+
+[node name="SpawnPoint" type="Node2D" parent="BallSpawner"]
+position = Vector2(0, -104)
