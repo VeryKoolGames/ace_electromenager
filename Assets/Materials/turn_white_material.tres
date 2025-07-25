@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ct2dmia76t6si"]
+
+[ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="1_av0wq"]
+
+[resource]
+shader = ExtResource("1_av0wq")
+shader_parameter/white_progress = 0.0

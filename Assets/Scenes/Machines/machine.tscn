@@ -1,20 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ysdhtre3o3c"]
+[gd_scene load_steps=6 format=3 uid="uid://d1ysdhtre3o3c"]
 
 [ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/machine.gd" id="1_cel1a"]
-[ext_resource type="Texture2D" uid="uid://bnapbj4wso7u6" path="res://icon.svg" id="1_humg4"]
+[ext_resource type="Texture2D" uid="uid://r4narwpo7eac" path="res://Assets/sprites/Group 131.png" id="2_cel1a"]
+[ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_wqhpu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww8f6"]
+resource_local_to_scene = true
+shader = ExtResource("2_wqhpu")
+shader_parameter/white_progress = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e0xt"]
-size = Vector2(129, 128)
+size = Vector2(63, 81)
 
-[node name="Machine" type="Node2D" node_paths=PackedStringArray("sprite")]
+[node name="WashingMachine" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cel1a")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_humg4")
+material = SubResource("ShaderMaterial_ww8f6")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cel1a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["machines"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.5, 0)
+position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_6e0xt")

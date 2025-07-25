@@ -2,7 +2,7 @@ extends Node2D
 
 var current_ball: Ball
 var aiming_direction
-var shooting_behavior: IShootingBehavior
+#var shooting_behavior: IShootingBehavior
 
 func _input(event: InputEvent) -> void:
 	if not GameState.is_in_game_mode():
@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 		shoot_ball()
 
 func shoot_ball() -> void:
-	shooting_behavior.shoot(global_position, get_shoot_direction())
+	#shooting_behavior.shoot(global_position, get_shoot_direction())
 	var mpos = get_global_mouse_position()
 	var dir  = (mpos - global_position).normalized()
 	# We should build a bar that fills up and that will give us the multiplication value here
