@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=7 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
+[ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/machine.tscn" id="3_fh41q"]
+[ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scenes/Main/score_manager.gd" id="3_tmbkf"]
+[ext_resource type="Script" uid="uid://d4g0i50hhx6nq" path="res://Assets/Scenes/Main/game_timer_manager.gd" id="4_tmbkf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amwe0"]
 size = Vector2(2017, 157)
@@ -42,3 +45,63 @@ position = Vector2(2024, 464)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
 position = Vector2(-47, 9.5)
 shape = SubResource("RectangleShape2D_g5ueo")
+
+[node name="Machine" parent="." instance=ExtResource("3_fh41q")]
+position = Vector2(304, 291)
+score_value = 5
+
+[node name="Score" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(960, 540)
+size_flags_horizontal = 0
+
+[node name="ScoreManager" type="Node" parent="Score"]
+script = ExtResource("3_tmbkf")
+
+[node name="ScoreLabel" type="Label" parent="Score/ScoreManager"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+offset_right = 450.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameTimer" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(960, 540)
+size_flags_horizontal = 0
+
+[node name="GameTimerManager" type="Node" parent="GameTimer"]
+script = ExtResource("4_tmbkf")
+
+[node name="Label" type="Label" parent="GameTimer/GameTimerManager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -441.0
+offset_top = -213.0
+offset_right = -117.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Timer: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="GameTimer/GameTimerManager"]
+wait_time = 120.0

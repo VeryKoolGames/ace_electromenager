@@ -1,9 +1,13 @@
 extends RigidBody2D
 class_name Ball
 
+# Ball properties
 var is_moving := false
-var start_velocity
+var start_velocity: Vector2
+var speed_reduction_on_wall_bounce := 0.8
+var speed_acceleration_on_machine_bounce = 4
 
+# Check if ball is stopped
 var previous_position: Vector2
 var time_since_last_check: float = 0.0
 var check_interval: float = 0.7
@@ -22,12 +26,12 @@ func _process(delta: float) -> void:
 func check_collisions(collision_info: KinematicCollision2D) -> void:
 	if collision_info:
 		start_velocity = start_velocity.bounce(collision_info.get_normal())
-		if collision_info.get_collider().is_in_group("machines"):
-			start_velocity.x *= 1.5
-			start_velocity.y *= 1.5
+		var collider = collision_info.get_collider()
+		if collider.is_in_group("machines"):
+			collider.owner.repair()
+			start_velocity *= speed_acceleration_on_machine_bounce
 		else:
-			start_velocity.x *= 0.8
-			start_velocity.y *= 0.8
+			start_velocity *= speed_reduction_on_wall_bounce
 
 func check_if_ball_is_stopped() -> void:
 	if time_since_last_check >= check_interval:
@@ -39,6 +43,6 @@ func check_if_ball_is_stopped() -> void:
 		else:
 			previous_position = global_position
 
-func shoot_ball(direction: Vector2) -> void:
-	start_velocity = direction * 4
+func shoot_ball(velocity: Vector2) -> void:
+	start_velocity = velocity * 4
 	is_moving = true

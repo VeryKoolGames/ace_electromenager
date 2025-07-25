@@ -18,12 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://Assets/Scripts/Events.gd"
+GameState="*res://Assets/Scripts/GameState.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
+[global_group]
+
+machines=""
 
 [input]
 
@@ -38,3 +44,4 @@ shoot={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
