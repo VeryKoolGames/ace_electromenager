@@ -23,12 +23,6 @@ size = Vector2(1422, 418)
 
 [node name="Main" type="Node2D"]
 
-[node name="PowerUpTripleShot" parent="." instance=ExtResource("4_c83bt")]
-position = Vector2(761, 220)
-
-[node name="PowerUpTripleShot2" parent="." instance=ExtResource("4_c83bt")]
-position = Vector2(1169, 220)
-
 [node name="Decors" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
@@ -185,6 +179,7 @@ one_shot = true
 [node name="MachineSpawner" type="Node" parent="."]
 script = ExtResource("9_7uvyi")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
+power_ups = Array[PackedScene]([ExtResource("4_c83bt")])
 
 [node name="Area2D" type="Area2D" parent="MachineSpawner"]
 position = Vector2(938, 297)
@@ -193,7 +188,11 @@ position = Vector2(938, 297)
 position = Vector2(30, 50)
 shape = SubResource("RectangleShape2D_qay54")
 
+[node name="PowerUpCooldown" type="Timer" parent="MachineSpawner"]
+one_shot = true
+
 [node name="PowerUpUI" type="Control" parent="."]
+z_index = 100
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0

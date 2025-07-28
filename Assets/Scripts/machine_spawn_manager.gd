@@ -6,10 +6,16 @@ var grid_size = min_distance
 @onready var spawn_shape = $Area2D/CollisionShape2D as CollisionShape2D
 @export var machines: Array[PackedScene]
 
+@onready var power_up_cooldown: Timer = $PowerUpCooldown
+@export var power_ups: Array[PackedScene]
+
 var grid_positions: Dictionary = {}
 
 func _ready() -> void:
+	power_up_cooldown.start(randf_range(5, 10))
+	power_up_cooldown.timeout.connect(spawn_power_up)
 	Events.on_machine_repaired.connect(replace_machine)
+	Events.on_power_up_gathered.connect(remove_power_up)
 	_get_spawn_area()
 	generate_grid()
 	spawn_machines(5)
@@ -43,6 +49,16 @@ func spawn_machine() -> bool:
 	spawn_machine_at(pos)
 	return true
 
+func spawn_power_up() -> bool:
+	var empty_positions = get_empty_positions()
+	if empty_positions.is_empty():
+		return false
+	
+	var pos = empty_positions[randi() % empty_positions.size()]
+	spawn_power_up_at(pos)
+	power_up_cooldown.start(randf_range(5, 10))
+	return true
+
 func spawn_machines(machine_count: int):
 	var empty_positions = get_empty_positions()
 	empty_positions.shuffle()
@@ -57,7 +73,7 @@ func get_empty_positions() -> Array:
 			empty.append(pos)
 	return empty
 
-func replace_machine(machine: Machine):
+func replace_machine(machine: Node):
 	for pos in grid_positions:
 		if grid_positions[pos] == machine:
 			grid_positions[pos] = null
@@ -65,11 +81,27 @@ func replace_machine(machine: Machine):
 	await get_tree().create_timer(randf_range(0.1, 0.5)).timeout
 	spawn_machine()
 
+func remove_power_up(power_up: ResPowerUp):
+	var node_to_remove = power_up.node
+	for pos in grid_positions:
+		if grid_positions[pos] == node_to_remove:
+			grid_positions[pos] = null
+			break
+
 func spawn_machine_at(position: Vector2):
-	var obj = _get_random_machine().instantiate() as Machine
+	var obj = _get_random_machine().instantiate() as Node
+	obj.global_position = position
+	add_child(obj)
+	grid_positions[position] = obj
+
+func spawn_power_up_at(position: Vector2):
+	var obj = _get_random_power_up().instantiate() as Node
 	obj.global_position = position
 	add_child(obj)
 	grid_positions[position] = obj
 
 func _get_random_machine() -> PackedScene:
 	return machines[randi_range(0, machines.size() - 1)]
+
+func _get_random_power_up() -> PackedScene:
+	return power_ups[randi_range(0, power_ups.size() - 1)]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0e7ig0yj3wpm"]
+[gd_scene load_steps=7 format=3 uid="uid://c0e7ig0yj3wpm"]
 
 [ext_resource type="Texture2D" uid="uid://bo35adutlk4d7" path="res://Assets/sprites/Group 147.png" id="1_n1i4t"]
 [ext_resource type="Script" uid="uid://dqda5q4qp27k" path="res://Assets/Scripts/power_up.gd" id="1_wc742"]
 [ext_resource type="Resource" uid="uid://sawtc1eosm3l" path="res://Assets/Resources/TripleShot.tres" id="2_26qk8"]
+[ext_resource type="Script" uid="uid://bwjid4t638k48" path="res://Assets/Scripts/scale_on_spawn_component.gd" id="4_li2t8"]
+[ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/scale_on_destroy_component.gd" id="5_00of3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wc742"]
 radius = 60.0083
@@ -22,5 +24,14 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_wc742")
+
+[node name="ScaleOnSpawnComponent" type="Node" parent="."]
+script = ExtResource("4_li2t8")
+spawn_speed = 0.1
+metadata/_custom_type_script = "uid://bwjid4t638k48"
+
+[node name="ScaleOnDestroyComponent" type="Node" parent="."]
+script = ExtResource("5_00of3")
+metadata/_custom_type_script = "uid://d315g88q7180c"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -10,3 +10,6 @@ enum PowerUpEnum {
 @export var type: PowerUpEnum
 @export var duration: float
 @export var sprite: Texture2D
+
+# Node to which this resource is attached
+var node: Node
