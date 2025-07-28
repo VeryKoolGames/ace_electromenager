@@ -27,6 +27,11 @@ offset = Vector2(-2.06452, -64)
 [node name="BallSpawner" type="Node2D" parent="."]
 script = ExtResource("4_340hg")
 ball_scene = ExtResource("5_340hg")
+spawn_cooldown = 2
 
 [node name="SpawnPoint" type="Node2D" parent="BallSpawner"]
 position = Vector2(0, -104)
+
+[node name="CooldownTimer" type="Timer" parent="BallSpawner"]
+wait_time = 2.0
+one_shot = true

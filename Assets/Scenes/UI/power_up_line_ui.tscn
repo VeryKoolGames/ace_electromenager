@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://18cfkcpcdxsb"]
+[gd_scene load_steps=5 format=3 uid="uid://18cfkcpcdxsb"]
 
 [ext_resource type="Texture2D" uid="uid://bo35adutlk4d7" path="res://Assets/sprites/Group 147.png" id="1_jgpi6"]
 [ext_resource type="Script" uid="uid://po4pte8sovrc" path="res://Assets/Scripts/power_up_line.gd" id="1_yap1t"]
+[ext_resource type="Script" uid="uid://bwjid4t638k48" path="res://Assets/Scripts/scale_on_spawn_component.gd" id="3_jrjw0"]
+[ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/scale_on_destroy_component.gd" id="4_mojvk"]
 
 [node name="PowerUpLineUI" type="ColorRect" node_paths=PackedStringArray("duration_timer", "progress_bar", "sprite_texture")]
 custom_minimum_size = Vector2(370, 112)
+pivot_offset = Vector2(185, 56)
 script = ExtResource("1_yap1t")
 duration_timer = NodePath("DurationTimer")
 progress_bar = NodePath("HBoxContainer/MarginContainer2/ProgressBar")
@@ -40,3 +43,17 @@ layout_mode = 2
 show_percentage = false
 
 [node name="DurationTimer" type="Timer" parent="."]
+
+[node name="ScaleOnSpawnComponent" type="Node" parent="."]
+script = ExtResource("3_jrjw0")
+scale_factor = 0.2
+spawn_speed = 0.2
+size_decrease_speed = 0.1
+metadata/_custom_type_script = "uid://bwjid4t638k48"
+
+[node name="ScaleOnDestroyComponent" type="Node" parent="."]
+script = ExtResource("4_mojvk")
+scale_factor = 0.2
+size_increase_speed = 0.1
+size_decrease_speed = 0.2
+metadata/_custom_type_script = "uid://d315g88q7180c"

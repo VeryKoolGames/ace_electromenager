@@ -1,8 +1,9 @@
 extends Node2D
 
+@onready var ball_spawner: BallSpawner = $BallSpawner
 var current_ball: Ball
 var shooting_behavior: ShootingBehavior
-var active_powerups: Dictionary = {}  # PowerUpEnum -> Timer
+var active_powerups: Dictionary = {}
 
 func _ready() -> void:
 	shooting_behavior = BasicShot.new()
@@ -52,10 +53,8 @@ func remove_powerup(type: ResPowerUp.PowerUpEnum) -> void:
 	Events.on_power_up_expired.emit(type)
 
 func rebuild_shooting_behavior() -> void:
-	# Start fresh with basic shot
 	shooting_behavior = BasicShot.new()
 	
-	# Reapply all active power-ups
 	for powerup_type in active_powerups.keys():
 		match powerup_type:
 			ResPowerUp.PowerUpEnum.TRIPLE_SHOT:
@@ -64,6 +63,7 @@ func rebuild_shooting_behavior() -> void:
 #shooting_behavior = DrillShot.new(shooting_behavior)
 
 func shoot_ball() -> void:
+	ball_spawner.start_cooldown()
 	shooting_behavior.shoot(self, get_shoot_direction(), current_ball)
 	current_ball = null
 

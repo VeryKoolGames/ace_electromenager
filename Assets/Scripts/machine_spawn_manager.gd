@@ -1,7 +1,7 @@
 extends Node
 
 var spawn_area: Rect2
-var min_distance = 200.0
+var min_distance = 150.0
 var grid_size = min_distance
 @onready var spawn_shape = $Area2D/CollisionShape2D as CollisionShape2D
 @export var machines: Array[PackedScene]

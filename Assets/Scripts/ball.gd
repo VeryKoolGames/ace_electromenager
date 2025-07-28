@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name Ball
 
+@onready var scale_on_destroy_component: ScaleOnDestroyComponent = $ScaleOnDestroyComponent
+
 # Ball properties
 var is_moving := false
 var start_velocity: Vector2
@@ -12,9 +14,6 @@ var previous_position: Vector2
 var time_since_last_check: float = 0.0
 var check_interval: float = 0.7
 var movement_threshold: float = 20.0
-
-# If spawned in triple shot we don't want to make it respawn on death
-var is_duplicate := false
 
 func _ready() -> void:
 	collision_layer = 2
@@ -43,9 +42,7 @@ func check_if_ball_is_stopped() -> void:
 		time_since_last_check = 0.0
 		var distance_moved = global_position.distance_to(previous_position)
 		if distance_moved <= movement_threshold:
-			if not is_duplicate:
-				Events.on_ball_stopped.emit()
-			queue_free()
+			scale_on_destroy_component.destroy()
 		else:
 			previous_position = global_position
 

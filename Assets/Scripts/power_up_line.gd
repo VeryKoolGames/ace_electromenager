@@ -7,6 +7,7 @@ class_name PowerUpLine
 var type: ResPowerUp.PowerUpEnum
 var start_duration: float
 var sprite: Texture2D
+@onready var scale_on_destroy_component: ScaleOnDestroyComponent = $ScaleOnDestroyComponent
 
 func _ready() -> void:
 	duration_timer.timeout.connect(on_timer_ended)
@@ -28,4 +29,4 @@ func reset_progress_duration():
 	duration_timer.start()
 
 func on_timer_ended() -> void:
-	queue_free()
+	scale_on_destroy_component.destroy()
