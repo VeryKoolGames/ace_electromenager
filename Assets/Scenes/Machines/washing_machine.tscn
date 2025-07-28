@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1ysdhtre3o3c"]
 
-[ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/machine.gd" id="1_cel1a"]
+[ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/Machines/machine.gd" id="1_cel1a"]
 [ext_resource type="Texture2D" uid="uid://r4narwpo7eac" path="res://Assets/sprites/Group 131.png" id="2_cel1a"]
 [ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_wqhpu"]
 

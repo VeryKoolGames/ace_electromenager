@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bua6ps1mia14x"]
 
-[ext_resource type="Script" uid="uid://brpjm223aokh1" path="res://Assets/Scripts/ball.gd" id="1_3vq5u"]
+[ext_resource type="Script" uid="uid://brpjm223aokh1" path="res://Assets/Scripts/Ball/ball.gd" id="1_3vq5u"]
 [ext_resource type="Texture2D" uid="uid://cca5oajla42fv" path="res://Assets/sprites/Group 134.png" id="2_3vq5u"]
-[ext_resource type="Script" uid="uid://dom31m8n84tmj" path="res://Assets/Scripts/trail.gd" id="3_kp77b"]
+[ext_resource type="Script" uid="uid://dom31m8n84tmj" path="res://Assets/Scripts/Utils/trail.gd" id="3_kp77b"]
 [ext_resource type="PackedScene" uid="uid://dmtcabx35to51" path="res://Assets/Scenes/Components/scale_on_spawn_component.tscn" id="4_ku2c1"]
 [ext_resource type="PackedScene" uid="uid://8jgjr8gp0rr0" path="res://Assets/Scenes/Components/scale_on_destroy_component.tscn" id="5_ku2c1"]
 

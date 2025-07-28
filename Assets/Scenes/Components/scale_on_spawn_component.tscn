@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmtcabx35to51"]
 
-[ext_resource type="Script" uid="uid://bwjid4t638k48" path="res://Assets/Scripts/scale_on_spawn_component.gd" id="1_oo8kc"]
+[ext_resource type="Script" uid="uid://bwjid4t638k48" path="res://Assets/Scripts/Components/scale_on_spawn_component.gd" id="1_oo8kc"]
 
 [node name="ScaleOnSpawnComponent" type="Node"]
 script = ExtResource("1_oo8kc")

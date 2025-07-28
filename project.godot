@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://Assets/Scripts/Events.gd"
-GameState="*res://Assets/Scripts/GameState.gd"
-OrientationManager="*res://Assets/Scripts/orientation_manager.gd"
+Events="*res://Assets/Scripts/Globals/Events.gd"
+GameState="*res://Assets/Scripts/Globals/GameState.gd"
+OrientationManager="*res://Assets/Scripts/Responsive/orientation_manager.gd"
 
 [display]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://8jgjr8gp0rr0"]
 
-[ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/scale_on_destroy_component.gd" id="1_mckqq"]
+[ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="1_mckqq"]
 
 [node name="ScaleOnDestroyComponent" type="Node"]
 script = ExtResource("1_mckqq")
