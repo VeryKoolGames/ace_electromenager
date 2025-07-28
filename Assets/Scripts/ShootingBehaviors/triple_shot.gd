@@ -17,6 +17,10 @@ func shoot(shooter: Node2D, direction: Vector2, ball: Ball) -> void:
 	var right_ball = ball.duplicate()
 	left_ball.global_position = ball.global_position
 	right_ball.global_position = ball.global_position
+	
+	shooter.apply_powerups_to_ball(left_ball)
+	shooter.apply_powerups_to_ball(right_ball)
+	
 	shooter.get_parent().add_child(left_ball)
 	shooter.get_parent().add_child(right_ball)
 	

@@ -13,9 +13,10 @@ radius = 17.0294
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.991342, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Ball" type="RigidBody2D" groups=["ball"]]
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("sprite") groups=["ball"]]
 gravity_scale = 0.0
 script = ExtResource("1_3vq5u")
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3vq5u")

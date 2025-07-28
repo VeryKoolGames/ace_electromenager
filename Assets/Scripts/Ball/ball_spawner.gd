@@ -16,6 +16,8 @@ func spawn_ball() -> void:
 	add_child(ball)
 	ball.global_position = spawn_point.global_position
 	owner.set_current_ball(ball)
+	if owner.has_power_up(ResPowerUp.PowerUpEnum.DRILL_SHOT):
+		ball.start_drilling_behavior()
 
 func on_cooldown_ended() -> void:
 	spawn_ball()

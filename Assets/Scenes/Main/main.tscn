@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=17 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Group 143.png" id="1_gkykh"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="PackedScene" uid="uid://b2vs8ovpc1ykl" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
+[ext_resource type="PackedScene" uid="uid://ciqr4oulck4q" path="res://Assets/Scenes/PowerUps/power_up_drill_shot.tscn" id="14_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
@@ -175,7 +176,7 @@ one_shot = true
 [node name="MachineSpawner" type="Node" parent="."]
 script = ExtResource("9_7uvyi")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
-power_ups = Array[PackedScene]([ExtResource("4_c83bt")])
+power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i")])
 
 [node name="Area2D" type="Area2D" parent="MachineSpawner"]
 position = Vector2(938, 297)

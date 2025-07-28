@@ -18,6 +18,6 @@ func add_or_update_power_up(power_up: ResPowerUp) -> void:
 
 func check_if_power_up_exists(type: ResPowerUp.PowerUpEnum) -> PowerUpLine:
 	for child in power_up_container.get_children():
-		if child is PowerUpLine and child.type == type:
+		if child is PowerUpLine and child.is_active and child.type == type:
 			return child
 	return null

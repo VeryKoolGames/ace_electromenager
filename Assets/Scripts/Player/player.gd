@@ -26,9 +26,7 @@ func add_powerup(power_up: ResPowerUp) -> void:
 	match power_up.type:
 		ResPowerUp.PowerUpEnum.TRIPLE_SHOT:
 			shooting_behavior = TripleShot.new(shooting_behavior)
-#ResPowerUp.PowerUpEnum.DRILL_SHOT:
-#shooting_behavior = DrillShot.new(shooting_behavior)
-	
+
 	var timer = Timer.new()
 	timer.wait_time = power_up.duration
 	timer.one_shot = true
@@ -59,13 +57,18 @@ func rebuild_shooting_behavior() -> void:
 		match powerup_type:
 			ResPowerUp.PowerUpEnum.TRIPLE_SHOT:
 				shooting_behavior = TripleShot.new(shooting_behavior)
-#ResPowerUp.PowerUpEnum.DRILL_SHOT:
-#shooting_behavior = DrillShot.new(shooting_behavior)
 
 func shoot_ball() -> void:
 	ball_spawner.start_cooldown()
+	apply_powerups_to_ball(current_ball)
 	shooting_behavior.shoot(self, get_shoot_direction(), current_ball)
 	current_ball = null
+
+func apply_powerups_to_ball(ball: Ball) -> void:
+	for powerup_type in active_powerups.keys():
+		match powerup_type:
+			ResPowerUp.PowerUpEnum.DRILL_SHOT:
+				ball.start_drilling_behavior()
 
 func get_shoot_direction() -> Vector2:
 	var mpos = get_global_mouse_position()
@@ -74,3 +77,9 @@ func get_shoot_direction() -> Vector2:
 
 func set_current_ball(new_ball: Ball):
 	current_ball = new_ball
+
+func has_power_up(type: ResPowerUp.PowerUpEnum) -> bool:
+	for powerup_type in active_powerups.keys():
+		if type == powerup_type:
+			return true
+	return false

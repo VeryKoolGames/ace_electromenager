@@ -1,10 +1,14 @@
 extends RigidBody2D
 class_name Ball
 
+# Components
 @onready var scale_on_destroy_component: ScaleOnDestroyComponent = $ScaleOnDestroyComponent
+
+@export var sprite: Sprite2D
 
 # Ball properties
 var is_moving := false
+var is_drilling := false
 var start_velocity: Vector2
 var speed_reduction_on_wall_bounce := 0.8
 var speed_acceleration_on_machine_bounce = 1.5
@@ -27,14 +31,21 @@ func _process(delta: float) -> void:
 		start_velocity *= 0.99
 		check_collisions(move_and_collide(start_velocity * delta))
 
+func start_drilling_behavior() -> void:
+	is_drilling = true
+	sprite.modulate.a = 0.85
+
 func check_collisions(collision_info: KinematicCollision2D) -> void:
 	if collision_info:
-		start_velocity = start_velocity.bounce(collision_info.get_normal())
 		var collider = collision_info.get_collider()
 		if collider.is_in_group("machines"):
 			collider.owner.repair()
-			start_velocity *=  speed_acceleration_on_machine_bounce
+			if is_drilling:
+				return
+			start_velocity = start_velocity.bounce(collision_info.get_normal())
+			start_velocity *= speed_acceleration_on_machine_bounce
 		else:
+			start_velocity = start_velocity.bounce(collision_info.get_normal())
 			start_velocity *= speed_reduction_on_wall_bounce
 
 func check_if_ball_is_stopped() -> void:
