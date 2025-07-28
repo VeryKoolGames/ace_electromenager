@@ -5,15 +5,20 @@ class_name Ball
 var is_moving := false
 var start_velocity: Vector2
 var speed_reduction_on_wall_bounce := 0.8
-var speed_acceleration_on_machine_bounce = 4
+var speed_acceleration_on_machine_bounce = 1.5
 
 # Check if ball is stopped
 var previous_position: Vector2
 var time_since_last_check: float = 0.0
 var check_interval: float = 0.7
-var movement_threshold: float = 70.0
+var movement_threshold: float = 20.0
+
+# If spawned in triple shot we don't want to make it respawn on death
+var is_duplicate := false
 
 func _ready() -> void:
+	collision_layer = 2
+	collision_mask = 1
 	previous_position = global_position
 
 func _process(delta: float) -> void:
@@ -29,7 +34,7 @@ func check_collisions(collision_info: KinematicCollision2D) -> void:
 		var collider = collision_info.get_collider()
 		if collider.is_in_group("machines"):
 			collider.owner.repair()
-			start_velocity *= speed_acceleration_on_machine_bounce
+			start_velocity *=  speed_acceleration_on_machine_bounce
 		else:
 			start_velocity *= speed_reduction_on_wall_bounce
 
@@ -38,7 +43,8 @@ func check_if_ball_is_stopped() -> void:
 		time_since_last_check = 0.0
 		var distance_moved = global_position.distance_to(previous_position)
 		if distance_moved <= movement_threshold:
-			Events.on_ball_stopped.emit()
+			if not is_duplicate:
+				Events.on_ball_stopped.emit()
 			queue_free()
 		else:
 			previous_position = global_position

@@ -1,5 +1,5 @@
 class_name ShootingBehavior
 extends Resource
 
-func shoot(ball: Ball, direction: Vector2):
+func shoot(shooter: Node2D, direction: Vector2, ball: Ball) -> void:
 	pass

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://18cfkcpcdxsb"]
+
+[ext_resource type="Texture2D" uid="uid://bo35adutlk4d7" path="res://Assets/sprites/Group 147.png" id="1_jgpi6"]
+[ext_resource type="Script" uid="uid://po4pte8sovrc" path="res://Assets/Scripts/power_up_line.gd" id="1_yap1t"]
+
+[node name="PowerUpLineUI" type="ColorRect" node_paths=PackedStringArray("duration_timer", "progress_bar", "sprite_texture")]
+custom_minimum_size = Vector2(370, 112)
+script = ExtResource("1_yap1t")
+duration_timer = NodePath("DurationTimer")
+progress_bar = NodePath("HBoxContainer/MarginContainer2/ProgressBar")
+sprite_texture = NodePath("HBoxContainer/MarginContainer/TextureRect")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(185, 56)
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_jgpi6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 35
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+show_percentage = false
+
+[node name="DurationTimer" type="Timer" parent="."]

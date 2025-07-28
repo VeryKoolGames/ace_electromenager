@@ -20,4 +20,5 @@ func time_to_minutes_secs(time : float):
 	return str(mins) + ":" + str(secs)
 
 func end_game() -> void:
+	GameState.current_game_state = GameState.GameStateEnum.END
 	Events.on_game_timer_ended.emit()

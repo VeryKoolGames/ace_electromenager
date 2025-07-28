@@ -1,21 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=17 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Group 143.png" id="1_gkykh"]
+[ext_resource type="Script" uid="uid://b6nqovjgd3yle" path="res://Assets/Scripts/orientation_component.gd" id="1_pmmhs"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="2_32s5x"]
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="3_fd4wd"]
-[ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/machine.tscn" id="3_fh41q"]
+[ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/washing_machine.tscn" id="3_fh41q"]
 [ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scenes/Main/score_manager.gd" id="3_tmbkf"]
 [ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="4_c83bt"]
 [ext_resource type="Script" uid="uid://d4g0i50hhx6nq" path="res://Assets/Scenes/Main/game_timer_manager.gd" id="4_tmbkf"]
+[ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/machine_spawn_manager.gd" id="9_7uvyi"]
+[ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
+[ext_resource type="PackedScene" uid="uid://b2vs8ovpc1ykl" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
+[ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scenes/Main/power_up_ui_manager.gd" id="13_cl72i"]
+[ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_amwe0"]
-size = Vector2(2017, 157)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
+size = Vector2(754, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5ueo"]
-size = Vector2(114, 1245)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qay54"]
+size = Vector2(1422, 418)
 
 [node name="Main" type="Node2D"]
+
+[node name="PowerUpTripleShot" parent="." instance=ExtResource("4_c83bt")]
+position = Vector2(761, 220)
+
+[node name="PowerUpTripleShot2" parent="." instance=ExtResource("4_c83bt")]
+position = Vector2(1169, 220)
 
 [node name="Decors" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -23,6 +35,26 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="OrientationComponent" type="Node" parent="Decors"]
+script = ExtResource("1_pmmhs")
+
+[node name="Background" type="ColorRect" parent="Decors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00392157, 0.72549, 0.517647, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Decors"]
+layout_mode = 1
+offset_left = 153.0
+offset_top = 119.0
+offset_right = 1755.0
+offset_bottom = 1084.0
+color = Color(0.960784, 0.447059, 0.329412, 1)
 
 [node name="TennisField" type="TextureRect" parent="Decors"]
 layout_mode = 1
@@ -32,9 +64,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -1610.0
-offset_top = -815.0
+offset_top = -754.0
 offset_right = 1610.0
-offset_bottom = 815.0
+offset_bottom = 876.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -43,9 +75,15 @@ texture = ExtResource("1_gkykh")
 
 [node name="Edges" type="TextureRect" parent="Decors"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1653.0
+offset_top = -1125.0
+offset_right = 1654.0
+offset_bottom = 1233.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -57,10 +95,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1431.0
-offset_top = 207.0
-offset_right = -272.0
-offset_bottom = -383.0
+offset_left = 1563.0
+offset_top = 263.0
+offset_right = -140.0
+offset_bottom = -327.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -68,45 +106,24 @@ pivot_offset = Vector2(137, 245)
 texture = ExtResource("3_fd4wd")
 stretch_mode = 2
 
-[node name="PowerUpTripleShot" parent="Decors" instance=ExtResource("4_c83bt")]
-position = Vector2(761, 220)
-
 [node name="Player" parent="." instance=ExtResource("1_amwe0")]
-position = Vector2(954, 812)
+position = Vector2(954, 912)
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="TopWall" type="StaticBody2D" parent="Walls"]
-position = Vector2(943, 0)
+[node name="FieldWall" type="StaticBody2D" parent="Walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
-position = Vector2(22.5, -68.5)
-shape = SubResource("RectangleShape2D_amwe0")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/FieldWall"]
+build_mode = 1
+polygon = PackedVector2Array(167, 1075, 165, 203, 242, 130, 1682, 129, 1757, 205, 1756, 1076)
 
-[node name="BottomWall" type="StaticBody2D" parent="Walls"]
-position = Vector2(943, 1224)
+[node name="Nest" type="StaticBody2D" parent="Walls"]
+position = Vector2(955, 597)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
-position = Vector2(22.5, -68.5)
-shape = SubResource("RectangleShape2D_amwe0")
-
-[node name="LeftWall" type="StaticBody2D" parent="Walls"]
-position = Vector2(0, 464)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
-position = Vector2(-47, 9.5)
-shape = SubResource("RectangleShape2D_g5ueo")
-
-[node name="RightWall" type="StaticBody2D" parent="Walls"]
-position = Vector2(2024, 464)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
-position = Vector2(-47, 9.5)
-shape = SubResource("RectangleShape2D_g5ueo")
-
-[node name="Machine" parent="." instance=ExtResource("3_fh41q")]
-position = Vector2(304, 291)
-score_value = 5
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Nest"]
+position = Vector2(5, -28)
+shape = SubResource("RectangleShape2D_c83bt")
+one_way_collision = true
 
 [node name="Score" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -163,3 +180,32 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="GameTimer/GameTimerManager"]
 wait_time = 120.0
+one_shot = true
+
+[node name="MachineSpawner" type="Node" parent="."]
+script = ExtResource("9_7uvyi")
+machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
+
+[node name="Area2D" type="Area2D" parent="MachineSpawner"]
+position = Vector2(938, 297)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MachineSpawner/Area2D"]
+position = Vector2(30, 50)
+shape = SubResource("RectangleShape2D_qay54")
+
+[node name="PowerUpUI" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_cl72i")
+power_up_line_scene = ExtResource("14_d2pdc")
+
+[node name="PowerUpContainer" type="VBoxContainer" parent="PowerUpUI"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 410.0
+offset_bottom = 636.0
+theme_override_constants/separation = 20
