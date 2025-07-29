@@ -19,7 +19,7 @@
 size = Vector2(754, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qay54"]
-size = Vector2(1422, 418)
+size = Vector2(1422, 461)
 
 [node name="Main" type="Node2D"]
 
@@ -182,7 +182,7 @@ power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i")]
 position = Vector2(938, 297)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MachineSpawner/Area2D"]
-position = Vector2(30, 50)
+position = Vector2(30, 71.5)
 shape = SubResource("RectangleShape2D_qay54")
 
 [node name="PowerUpCooldown" type="Timer" parent="MachineSpawner"]
