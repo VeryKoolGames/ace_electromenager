@@ -13,6 +13,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("ball") and not is_gathered:
 		is_gathered = true
-		body.start_drilling_behavior()
+		if res_power_up.type == ResPowerUp.PowerUpEnum.DRILL_SHOT:
+			body.start_drilling_behavior()
 		Events.on_power_up_gathered.emit(res_power_up)
 		scale_on_destroy_component.destroy()

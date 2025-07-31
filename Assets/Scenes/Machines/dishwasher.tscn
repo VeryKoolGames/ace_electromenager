@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2vs8ovpc1ykl"]
+[gd_scene load_steps=7 format=3 uid="uid://b2vs8ovpc1ykl"]
 
 [ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/Machines/machine.gd" id="1_dc80v"]
 [ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_fmy74"]
 [ext_resource type="Texture2D" uid="uid://dogkxx71lwepq" path="res://Assets/sprites/Four.png" id="3_dc80v"]
+[ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="4_fmy74"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmy74"]
 resource_local_to_scene = true
@@ -27,3 +29,7 @@ texture = ExtResource("3_dc80v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_6e0xt")
+
+[node name="UIScoreUpdateComponent" parent="." instance=ExtResource("4_fmy74")]
+offset_top = -119.0
+offset_bottom = -19.0
