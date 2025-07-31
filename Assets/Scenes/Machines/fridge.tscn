@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/Machines/machine.gd" id="1_xnqy7"]
 [ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_rp12w"]
-[ext_resource type="Texture2D" uid="uid://dg0ukne5ouo0v" path="res://Assets/sprites/Group 145.png" id="3_xnqy7"]
+[ext_resource type="Texture2D" uid="uid://dg0ukne5ouo0v" path="res://Assets/sprites/Frigo.png" id="3_xnqy7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xnqy7"]
 resource_local_to_scene = true

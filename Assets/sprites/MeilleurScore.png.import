@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brrvj0sm0bo5d"
-path="res://.godot/imported/Group 143.png-78364928f75cba857d8afe0c8bd6b6e6.ctex"
+uid="uid://ceejaliuib6fc"
+path="res://.godot/imported/MeilleurScore.png-ed73a0ba4648afc70ee43e6a82fb0547.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Group 143.png"
-dest_files=["res://.godot/imported/Group 143.png-78364928f75cba857d8afe0c8bd6b6e6.ctex"]
+source_file="res://Assets/sprites/MeilleurScore.png"
+dest_files=["res://.godot/imported/MeilleurScore.png-ed73a0ba4648afc70ee43e6a82fb0547.ctex"]
 
 [params]
 

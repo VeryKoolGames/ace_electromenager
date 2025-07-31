@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dogkxx71lwepq"
-path="res://.godot/imported/Group 146.png-c016c2b953e9d78b775a8cb7df71063d.ctex"
+uid="uid://d2hmddi54gdai"
+path="res://.godot/imported/Maquette EndGame1.png-ad8a6ad83c15430567b29f41eb26d157.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Group 146.png"
-dest_files=["res://.godot/imported/Group 146.png-c016c2b953e9d78b775a8cb7df71063d.ctex"]
+source_file="res://Assets/sprites/Maquette EndGame1.png"
+dest_files=["res://.godot/imported/Maquette EndGame1.png-ad8a6ad83c15430567b29f41eb26d157.ctex"]
 
 [params]
 
