@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3tnwvd0p6g41"
-path="res://.godot/imported/Group 144.png-9c34cc75b1b18646c2e9fac6649a3e61.ctex"
+uid="uid://duih57ttxxww5"
+path="res://.godot/imported/Banderole.png-6ab5dd9db9f818734122173cf0c7a1c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Group 144.png"
-dest_files=["res://.godot/imported/Group 144.png-9c34cc75b1b18646c2e9fac6649a3e61.ctex"]
+source_file="res://Assets/sprites/Banderole.png"
+dest_files=["res://.godot/imported/Banderole.png-6ab5dd9db9f818734122173cf0c7a1c5.ctex"]
 
 [params]
 

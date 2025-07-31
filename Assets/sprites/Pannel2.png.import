@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg0ukne5ouo0v"
-path="res://.godot/imported/Group 145.png-bdac9fc01b999928b7a3ad46646c19b9.ctex"
+uid="uid://ccplne1w8otuf"
+path="res://.godot/imported/Pannel2.png-681735008360eee5f6db91a5ea4f92e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Group 145.png"
-dest_files=["res://.godot/imported/Group 145.png-bdac9fc01b999928b7a3ad46646c19b9.ctex"]
+source_file="res://Assets/sprites/Pannel2.png"
+dest_files=["res://.godot/imported/Pannel2.png-681735008360eee5f6db91a5ea4f92e5.ctex"]
 
 [params]
 
