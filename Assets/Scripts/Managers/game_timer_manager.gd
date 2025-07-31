@@ -8,7 +8,7 @@ func _ready() -> void:
 	start_timer()
 
 func _process(delta: float) -> void:
-	timer_label.text = "Timer: " + time_to_minutes_secs(game_timer.time_left)
+	timer_label.text = time_to_minutes_secs(game_timer.time_left)
 
 func start_timer() -> void:
 	game_timer.start()

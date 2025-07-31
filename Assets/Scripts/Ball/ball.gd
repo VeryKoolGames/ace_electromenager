@@ -21,7 +21,7 @@ var movement_threshold: float = 20.0
 
 # Dynamic scaling properties
 @export var base_scale: Vector2 = Vector2.ONE
-@export var max_scale_multiplier: float = 1.2
+@export var max_scale_multiplier: float = 1.3
 @export var min_scale_multiplier: float = 0.8
 @export var scale_speed_threshold: float = 2000.0
 @export var scale_lerp_speed: float = 8.0

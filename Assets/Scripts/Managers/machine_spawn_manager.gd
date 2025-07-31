@@ -9,6 +9,7 @@ var grid_size = min_distance
 @onready var power_up_cooldown: Timer = $PowerUpCooldown
 @export var power_ups: Array[PackedScene]
 
+var has_game_ended := false
 var grid_positions: Dictionary = {}
 
 func _ready() -> void:
@@ -16,9 +17,13 @@ func _ready() -> void:
 	power_up_cooldown.timeout.connect(spawn_power_up)
 	Events.on_machine_repaired.connect(replace_machine)
 	Events.on_power_up_gathered.connect(remove_power_up)
+	Events.on_game_timer_ended.connect(on_game_ended)
 	_get_spawn_area()
 	generate_grid()
 	spawn_machines(5)
+
+func on_game_ended() -> void:
+	has_game_ended = true
 
 func _get_spawn_area() -> void:
 	var local_rect = spawn_shape.shape.get_rect()
@@ -40,24 +45,28 @@ func generate_grid():
 			)
 			grid_positions[pos] = null
 
-func spawn_machine() -> bool:
+func spawn_machine() -> void:
+	if has_game_ended:
+		return
 	var empty_positions = get_empty_positions()
 	if empty_positions.is_empty():
-		return false
+		return
 	
 	var pos = empty_positions[randi() % empty_positions.size()]
 	spawn_machine_at(pos)
-	return true
+	return
 
-func spawn_power_up() -> bool:
+func spawn_power_up() -> void:
+	if has_game_ended:
+		return
 	var empty_positions = get_empty_positions()
 	if empty_positions.is_empty():
-		return false
-	
+		return
+
 	var pos = empty_positions[randi() % empty_positions.size()]
 	spawn_power_up_at(pos)
 	power_up_cooldown.start(randf_range(5, 10))
-	return true
+	return
 
 func spawn_machines(machine_count: int):
 	var empty_positions = get_empty_positions()
@@ -74,12 +83,12 @@ func get_empty_positions() -> Array:
 	return empty
 
 func replace_machine(machine: Node):
+	await get_tree().create_timer(randf_range(0.1, 0.5)).timeout
+	spawn_machine()
 	for pos in grid_positions:
 		if grid_positions[pos] == machine:
 			grid_positions[pos] = null
 			break
-	await get_tree().create_timer(randf_range(0.1, 0.5)).timeout
-	spawn_machine()
 
 func remove_power_up(power_up: ResPowerUp):
 	var node_to_remove = power_up.node

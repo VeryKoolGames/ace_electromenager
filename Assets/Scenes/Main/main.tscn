@@ -81,22 +81,6 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(1653.5, 1179)
 texture = ExtResource("2_32s5x")
 
-[node name="Chair" type="TextureRect" parent="Decors"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1563.0
-offset_top = 263.0
-offset_right = -140.0
-offset_bottom = -327.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(137, 245)
-texture = ExtResource("3_fd4wd")
-stretch_mode = 2
-
 [node name="Player" parent="." instance=ExtResource("1_amwe0")]
 position = Vector2(954, 912)
 
@@ -128,15 +112,33 @@ size_flags_horizontal = 0
 [node name="ScoreManager" type="Node" parent="Score"]
 script = ExtResource("3_tmbkf")
 
+[node name="ScoreLabel2" type="Label" parent="Score/ScoreManager"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = -406.0
+offset_right = 596.0
+offset_bottom = -231.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_font_sizes/font_size = 48
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ScoreLabel" type="Label" parent="Score/ScoreManager"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -175.0
-offset_right = 450.0
+offset_left = 146.0
+offset_top = -319.0
+offset_right = 596.0
+offset_bottom = -144.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 48
-text = "Score: "
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_font_sizes/font_size = 128
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -158,12 +160,31 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -441.0
-offset_top = -213.0
-offset_right = -117.0
-offset_bottom = -2.0
+offset_left = -552.0
+offset_top = -319.0
+offset_right = -225.0
+offset_bottom = -108.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_font_sizes/font_size = 128
+text = "02:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GameTimer/GameTimerManager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -549.0
+offset_top = -406.0
+offset_right = -225.0
+offset_bottom = -195.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_font_sizes/font_size = 48
 text = "Timer: "
 horizontal_alignment = 1
@@ -205,3 +226,16 @@ offset_top = 41.0
 offset_right = 410.0
 offset_bottom = 636.0
 theme_override_constants/separation = 20
+
+[node name="RefChair" type="Node2D" parent="."]
+position = Vector2(1680, 507)
+
+[node name="Sprite2D" type="Sprite2D" parent="RefChair"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fd4wd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RefChair"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RefChair/StaticBody2D"]
+position = Vector2(0.5, 28)
+polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)

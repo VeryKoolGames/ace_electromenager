@@ -5,6 +5,7 @@ class_name Machine
 @export var sprite: Sprite2D
 @export var score_value := 0
 @onready var static_body = $StaticBody2D
+@onready var score_update_ui_component = $UIScoreUpdateComponent
 
 func _enter_tree() -> void:
 	var target_scale = scale
@@ -20,6 +21,7 @@ func repair() -> void:
 
 	switch_texture_to_white()
 	scale_up_and_down()
+	show_score_ui()
 	Events.on_player_scored.emit(score_value)
 	Events.on_machine_repaired.emit(self)
 
@@ -32,3 +34,6 @@ func scale_up_and_down() -> void:
 	tween.tween_property(self, "scale", scale + Vector2(0.3, 0.3), 0.1)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1).set_delay(0.2)
 	tween.tween_callback(func(): self.queue_free())
+
+func show_score_ui() -> void:
+	score_update_ui_component.show_score(score_value)

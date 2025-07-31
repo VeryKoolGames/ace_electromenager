@@ -9,4 +9,4 @@ func _ready() -> void:
 
 func on_score_received(score_value: int) -> void:
 	current_score += score_value
-	score_label.text = "Score: " + str(current_score)
+	score_label.text = str(current_score)
