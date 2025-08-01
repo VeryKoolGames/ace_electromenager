@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq78x6xcm7yce"]
+
+[ext_resource type="Texture2D" uid="uid://b6a45wq318l42" path="res://Assets/sprites/ArrowShadow.png" id="1_1upm3"]
+[ext_resource type="Texture2D" uid="uid://d21h63ije38ig" path="res://Assets/sprites/ArrowOutline.png" id="1_6ldg8"]
+[ext_resource type="Texture2D" uid="uid://dh2r6qo86pl08" path="res://Assets/sprites/ArrowBG.png" id="3_hlygf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ArrowShadow" type="Sprite2D" parent="."]
+modulate = Color(0.733005, 0.733005, 0.733005, 1)
+position = Vector2(0, 11)
+texture = ExtResource("1_1upm3")
+
+[node name="ArrowOutline" type="Sprite2D" parent="."]
+texture = ExtResource("1_6ldg8")
+
+[node name="Arrow_Fill" type="Sprite2D" parent="."]
+modulate = Color(0.605274, 0.605274, 0.605274, 1)
+position = Vector2(0, 1)
+texture = ExtResource("3_hlygf")
+
+[node name="Mask" type="Sprite2D" parent="."]
+modulate = Color(0.605274, 0.605274, 0.605274, 1)
+clip_children = 1
+position = Vector2(0, 1)
+texture = ExtResource("3_hlygf")
+
+[node name="Force_Level" type="Sprite2D" parent="Mask"]
+modulate = Color(0.983867, 0.463931, 0.223168, 1)
+position = Vector2(0, -1)
+texture = ExtResource("3_hlygf")
