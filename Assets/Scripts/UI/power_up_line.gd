@@ -1,4 +1,4 @@
-extends ColorRect
+extends Panel
 class_name PowerUpLine
 
 @export var duration_timer: Timer
