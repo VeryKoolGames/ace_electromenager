@@ -7,7 +7,7 @@ func _ready() -> void:
 	game_timer.timeout.connect(end_game)
 	start_timer()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	timer_label.text = time_to_minutes_secs(game_timer.time_left)
 
 func start_timer() -> void:

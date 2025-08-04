@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://kdl6ju7vpr6x"]
+[gd_scene load_steps=3 format=3 uid="uid://kdl6ju7vpr6x"]
 
 [ext_resource type="Script" uid="uid://clukwyfdnwbh3" path="res://Assets/Scripts/Components/ui_score_update_component.gd" id="1_0jutu"]
+[ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="2_h21gs"]
 
 [node name="UIScoreUpdateComponent" type="Control"]
 visible = false
@@ -14,6 +15,19 @@ offset_bottom = -63.0
 pivot_offset = Vector2(50, 50)
 script = ExtResource("1_0jutu")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 403.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_h21gs")
+stretch_mode = 3
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -21,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_font_sizes/font_size = 32
 text = "+ 5"
 horizontal_alignment = 1

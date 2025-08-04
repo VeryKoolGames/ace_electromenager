@@ -4,6 +4,8 @@ const MIN_ROT = deg_to_rad(-90)
 const MAX_ROT = deg_to_rad( 90)
 
 func _process(_delta):
+	if not GameState.is_in_game_mode():
+		return
 	var mpos = get_global_mouse_position()
 	var dir  = (mpos - global_position)
 
