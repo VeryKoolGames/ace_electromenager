@@ -440,7 +440,7 @@ rotation = 3.73259
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="EndGameUI/Star"]
+[node name="ScoreLabel" type="RichTextLabel" parent="EndGameUI/Star"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
