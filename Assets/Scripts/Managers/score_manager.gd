@@ -11,7 +11,6 @@ func on_score_received(score_value: int) -> void:
 	current_score += score_value
 	score_label.text = str(current_score)
 	
-	# TODO Should equilibrate this value right now it is always 1
 	var intensity = clamp(score_value / 10.0, 1.0, 2.0)
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
