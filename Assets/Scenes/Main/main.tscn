@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=27 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -8,7 +8,11 @@
 [ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scripts/Managers/score_manager.gd" id="3_tmbkf"]
 [ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="4_c83bt"]
 [ext_resource type="Script" uid="uid://d4g0i50hhx6nq" path="res://Assets/Scripts/Managers/game_timer_manager.gd" id="4_tmbkf"]
+[ext_resource type="Script" uid="uid://bq7w2enmpx8oo" path="res://Assets/Scripts/UI/end_game_ui.gd" id="6_g20yk"]
+[ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="6_swae5"]
+[ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="8_lypba"]
 [ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/Managers/machine_spawn_manager.gd" id="9_7uvyi"]
+[ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="9_g20yk"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="PackedScene" uid="uid://b2vs8ovpc1ykl" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
@@ -17,6 +21,132 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(754, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g20yk"]
+texture = ExtResource("8_lypba")
+texture_margin_left = 43.0
+texture_margin_top = 23.5
+texture_margin_right = 45.0
+region_rect = Rect2(0, 0, 126, 160.75)
+
+[sub_resource type="Animation" id="Animation_g20yk"]
+resource_name = "star_rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.174533, -6.10865]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oaiys"]
+_data = {
+&"star_rotation": SubResource("Animation_g20yk")
+}
+
+[sub_resource type="Animation" id="Animation_oaiys"]
+resource_name = "end_game_enter"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-765, 152), Vector2(-765, 152), Vector2(150, 152), Vector2(40, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Banner:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.26667, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2041, 495), Vector2(-137, 495), Vector2(-137, 495), Vector2(-137, 25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.1, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-764, 632), Vector2(-764, 632), Vector2(150, 632), Vector2(76, 632)]
+}
+
+[sub_resource type="Animation" id="Animation_lcdef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-765, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-764, 632)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Banner:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2030, 494.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyic7"]
+_data = {
+&"RESET": SubResource("Animation_lcdef"),
+&"end_game_enter": SubResource("Animation_oaiys")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qay54"]
 size = Vector2(1422, 461)
@@ -100,7 +230,7 @@ position = Vector2(5, -28)
 shape = SubResource("RectangleShape2D_c83bt")
 one_way_collision = true
 
-[node name="Score" type="Control" parent="."]
+[node name="GameUI" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
@@ -109,40 +239,71 @@ offset_bottom = 1080.0
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 
-[node name="ScoreManager" type="Node" parent="Score"]
+[node name="ScoreAndTimerContainer" type="GridContainer" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 306.0
+offset_top = -363.0
+offset_right = -234.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 900
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="ScoreManager" type="VBoxContainer" parent="GameUI/ScoreAndTimerContainer"]
+layout_mode = 2
+theme_override_constants/separation = -20
 script = ExtResource("3_tmbkf")
 
-[node name="ScoreLabel2" type="Label" parent="Score/ScoreManager"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 146.0
-offset_top = -406.0
-offset_right = 596.0
-offset_bottom = -231.0
-grow_vertical = 0
+[node name="ScoreLabel2" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_font_sizes/font_size = 48
 text = "Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="Score/ScoreManager"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 146.0
-offset_top = -319.0
-offset_right = 596.0
-offset_bottom = -144.0
-grow_vertical = 0
+[node name="ScoreLabel" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_font_sizes/font_size = 128
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameTimer" type="Control" parent="."]
+[node name="GameTimerManager" type="VBoxContainer" parent="GameUI/ScoreAndTimerContainer"]
+layout_mode = 2
+theme_override_constants/separation = -20
+script = ExtResource("4_tmbkf")
+
+[node name="Label2" type="Label" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_font_sizes/font_size = 48
+text = "Timer: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_font_sizes/font_size = 128
+text = "02:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+wait_time = 2.0
+one_shot = true
+
+[node name="EndGameUI" type="Control" parent="."]
+visible = false
+z_index = 10
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
@@ -150,63 +311,178 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
+script = ExtResource("6_g20yk")
 
-[node name="GameTimerManager" type="Node" parent="GameTimer"]
-script = ExtResource("4_tmbkf")
-
-[node name="Label" type="Label" parent="GameTimer/GameTimerManager"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+[node name="Background" type="ColorRect" parent="EndGameUI"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -552.0
-offset_top = -319.0
-offset_right = -225.0
-offset_bottom = -108.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
-theme_override_font_sizes/font_size = 128
-text = "02:00"
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Banner" type="TextureRect" parent="EndGameUI"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2030.0
+offset_top = -45.5
+offset_right = 2305.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_swae5")
+
+[node name="Label" type="RichTextLabel" parent="EndGameUI/Banner"]
+modulate = Color(0.960784, 0.447059, 0.329412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_italics_font_size = 64
+bbcode_enabled = true
+text = "[i][b]PARTIE TERMINEE[/b][/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="GameTimer/GameTimerManager"]
-anchors_preset = 3
-anchor_left = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI"]
+layout_mode = 1
+anchors_preset = 2
 anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -764.0
+offset_top = -448.0
+offset_right = -175.0
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="EndGameUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 150
+
+[node name="Panel" type="Panel" parent="EndGameUI/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g20yk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndGameUI/VBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -549.0
-offset_top = -406.0
-offset_right = -225.0
-offset_bottom = -195.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
-theme_override_font_sizes/font_size = 48
-text = "Timer: "
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_font_sizes/italics_font_size = 64
+bbcode_enabled = true
+text = "[i]REJOUER[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="GameTimer/GameTimerManager"]
-wait_time = 120.0
-one_shot = true
+[node name="Panel2" type="Panel" parent="EndGameUI/VBoxContainer"]
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g20yk")
 
-[node name="MachineSpawner" type="Node" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="EndGameUI/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_font_sizes/italics_font_size = 64
+bbcode_enabled = true
+text = "[i]LEADERBOARD[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star" type="Control" parent="EndGameUI"]
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 0
+offset_left = -765.0
+offset_top = 152.0
+offset_right = -265.0
+offset_bottom = 652.0
+rotation = -0.0872665
+
+[node name="TextureRect" type="TextureRect" parent="EndGameUI/Star"]
+modulate = Color(0.980392, 0.792157, 0.592157, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -5.81184
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("9_g20yk")
+
+[node name="TextureRect2" type="TextureRect" parent="EndGameUI/Star"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 5.98638
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("9_g20yk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndGameUI/Star"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_constants/line_separation = -50
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 128
+bbcode_enabled = true
+text = "[b]451[/b]
+PTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EndGameUI/Star"]
+libraries = {
+&"": SubResource("AnimationLibrary_oaiys")
+}
+autoplay = "star_rotation"
+speed_scale = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EndGameUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_iyic7")
+}
+
+[node name="Spawner" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("9_7uvyi")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
 power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i")])
 
-[node name="Area2D" type="Area2D" parent="MachineSpawner"]
+[node name="Area2D" type="Area2D" parent="Spawner"]
 position = Vector2(938, 297)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MachineSpawner/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D"]
 position = Vector2(30, 71.5)
 shape = SubResource("RectangleShape2D_qay54")
 
-[node name="PowerUpCooldown" type="Timer" parent="MachineSpawner"]
+[node name="PowerUpCooldown" type="Timer" parent="Spawner"]
 one_shot = true
 
 [node name="PowerUpUI" type="Control" parent="."]

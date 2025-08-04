@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://drf66dvcj6n1f"]
+
+[ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_mrngu"]
+[ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
+[ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="2_mrngu"]
+[ext_resource type="Script" uid="uid://cwpw40varbtgy" path="res://Assets/Scripts/UI/leaderboard_container.gd" id="3_mrngu"]
+[ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="6_mrngu"]
+[ext_resource type="PackedScene" uid="uid://dhb6ym1ispdjl" path="res://Assets/Scenes/UI/leaderboard_line.tscn" id="6_o2pn0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
+texture = ExtResource("2_mrngu")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+region_rect = Rect2(0, 0, 126, 126)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2pn0"]
+texture = ExtResource("6_mrngu")
+texture_margin_left = 50.0
+texture_margin_right = 50.0
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrngu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.678431, 0.486275, 1)
+
+[node name="Banner" type="TextureRect" parent="."]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -515.0
+offset_right = 138.0
+offset_bottom = -424.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ry3e1")
+
+[node name="Label" type="RichTextLabel" parent="Banner"]
+modulate = Color(0.960784, 0.447059, 0.329412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "[i]TABLEAU DES SCORES[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaderboardContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -713.0
+offset_top = -381.0
+offset_right = 928.0
+offset_bottom = 521.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_mrngu")
+
+[node name="BackgroundPannel" type="Panel" parent="LeaderboardContainer"]
+modulate = Color(0, 0.552941, 0.396078, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vkddw")
+
+[node name="ScoreScrollSpace" type="ScrollContainer" parent="LeaderboardContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeaderboardLineContainer" type="VBoxContainer" parent="LeaderboardContainer/ScoreScrollSpace"]
+custom_minimum_size = Vector2(1650, 0)
+layout_mode = 2
+
+[node name="LeaderboardLine" parent="LeaderboardContainer/ScoreScrollSpace/LeaderboardLineContainer" instance=ExtResource("6_o2pn0")]
+layout_mode = 2
+
+[node name="NoScoreLabel" type="Label" parent="LeaderboardContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_font_sizes/font_size = 82
+text = "Pas encore de parties enregistrées"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="LeaderboardContainer"]
+
+[node name="LeftContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 244.0
+grow_vertical = 2
+
+[node name="MarginBackButton" type="MarginContainer" parent="LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 40
+
+[node name="Panel" type="Panel" parent="LeftContainer/MarginBackButton"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o2pn0")
+
+[node name="Button" type="Button" parent="LeftContainer/MarginBackButton"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MarginGlobalButton" type="MarginContainer" parent="LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 130
+theme_override_constants/margin_right = 40
+
+[node name="Panel" type="Panel" parent="LeftContainer/MarginGlobalButton"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o2pn0")
+
+[node name="Button" type="Button" parent="LeftContainer/MarginGlobalButton"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MarginSelfButton" type="MarginContainer" parent="LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 40
+
+[node name="Panel" type="Panel" parent="LeftContainer/MarginSelfButton"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o2pn0")
+
+[node name="Button" type="Button" parent="LeftContainer/MarginSelfButton"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
