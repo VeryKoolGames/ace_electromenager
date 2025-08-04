@@ -11,3 +11,7 @@ signal on_power_up_activated(power_up: ResPowerUp)
 signal on_power_up_expired(power_up: ResPowerUp)
 
 signal on_machine_repaired(machine: Machine)
+
+signal on_shot_released(strength: float)
+
+signal on_game_state_advanced

@@ -18,9 +18,13 @@ func _ready() -> void:
 	Events.on_machine_repaired.connect(replace_machine)
 	Events.on_power_up_gathered.connect(remove_power_up)
 	Events.on_game_timer_ended.connect(on_game_ended)
+	Events.on_game_state_advanced.connect(on_game_state_advanced)
 	_get_spawn_area()
 	generate_grid()
-	spawn_machines(5)
+	spawn_machines(3)
+
+func on_game_state_advanced() -> void:
+	spawn_machines(2)
 
 func on_game_ended() -> void:
 	has_game_ended = true

@@ -52,6 +52,7 @@ func stop_charging_shot() -> Dictionary:
 		animate_shot(true)
 	else:
 		animate_shot(false)
+	Events.on_shot_released.emit(bar_value)
 	reset_values()
 	return ret
 
