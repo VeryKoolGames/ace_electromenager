@@ -14,6 +14,7 @@ func start_timer() -> void:
 	game_timer.start()
 
 func time_to_minutes_secs(time : float):
+	@warning_ignore("integer_division")
 	var mins = int(time) / 60
 	time -= mins * 60
 	var secs = int(time)

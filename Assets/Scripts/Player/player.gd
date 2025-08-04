@@ -5,6 +5,7 @@ extends Node2D
 var current_ball: Ball
 var shooting_behavior: ShootingBehavior
 var active_powerups: Dictionary = {}
+@onready var raquette: Raquette = $RaquetteSprite
 
 func _ready() -> void:
 	shooting_behavior = BasicShot.new()
@@ -15,8 +16,10 @@ func _input(event: InputEvent) -> void:
 		return
 	if current_ball and event.is_action_pressed("shoot"):
 		aiming_arrow.start_charging_shot()
+		raquette.play_prepare_raquette_shoot_anim()
 	elif current_ball and event.is_action_released("shoot") and aiming_arrow.is_player_shooting:
 		shoot_ball(aiming_arrow.stop_charging_shot())
+		raquette.play_raquette_shoot_anim()
 
 func on_power_up_picked_up(power_up: ResPowerUp) -> void:
 	if power_up.type in active_powerups:

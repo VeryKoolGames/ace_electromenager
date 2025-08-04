@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch6ioi1a5wa3a"]
+[gd_scene load_steps=7 format=3 uid="uid://ch6ioi1a5wa3a"]
 
 [ext_resource type="Script" uid="uid://cwtice5ghbvj5" path="res://Assets/Scripts/Player/player.gd" id="1_3b2lm"]
 [ext_resource type="Texture2D" uid="uid://c3tnwvd0p6g41" path="res://Assets/sprites/Raquette.png" id="2_wp0h6"]
 [ext_resource type="PackedScene" uid="uid://d28a62ng3fy67" path="res://Arrow_Ben.tscn" id="3_fg6bc"]
+[ext_resource type="Script" uid="uid://ianf0n73dkr4" path="res://Assets/Scripts/Player/raquette.gd" id="3_wp0h6"]
 [ext_resource type="Script" uid="uid://fpx7vinicqon" path="res://Assets/Scripts/Ball/ball_spawner.gd" id="4_340hg"]
 [ext_resource type="PackedScene" uid="uid://bua6ps1mia14x" path="res://Assets/Scenes/Ball/ball.tscn" id="5_340hg"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3b2lm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 15)
+[node name="RaquetteSprite" type="Sprite2D" parent="."]
+position = Vector2(9, 18)
 rotation = -0.698132
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_wp0h6")
+offset = Vector2(0, -145)
+script = ExtResource("3_wp0h6")
 
 [node name="AimingArrow" parent="." instance=ExtResource("3_fg6bc")]
 position = Vector2(0, -119)

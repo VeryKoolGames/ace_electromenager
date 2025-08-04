@@ -26,7 +26,7 @@ func init(power_up: ResPowerUp):
 	type = power_up.type
 	power_up_name = power_up.name
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not duration_timer.is_stopped():
 		progress_bar.value = duration_timer.time_left
 
