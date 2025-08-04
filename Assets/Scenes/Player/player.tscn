@@ -11,6 +11,7 @@
 script = ExtResource("1_3b2lm")
 
 [node name="RaquetteSprite" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(9, 18)
 rotation = -0.698132
 scale = Vector2(0.5, 0.5)
