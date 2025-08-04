@@ -7,6 +7,6 @@
 script = ExtResource("1_hg3by")
 name = "Drill Shot"
 type = 1
-duration = 15.0
+duration = 5.0
 sprite = ExtResource("2_hg3by")
 metadata/_custom_type_script = "uid://1624y4xhog4a"
