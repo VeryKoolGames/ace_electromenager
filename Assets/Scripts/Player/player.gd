@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var ball_spawner: BallSpawner = $BallSpawner
+@onready var aiming_arrow: AimingArrow = $AimingArrow
 var current_ball: Ball
 var shooting_behavior: ShootingBehavior
 var active_powerups: Dictionary = {}
@@ -13,7 +14,9 @@ func _input(event: InputEvent) -> void:
 	if not GameState.is_in_game_mode():
 		return
 	if current_ball and event.is_action_pressed("shoot"):
-		shoot_ball()
+		aiming_arrow.start_charging_shot()
+	elif current_ball and event.is_action_released("shoot") and aiming_arrow.is_player_shooting:
+		shoot_ball(aiming_arrow.stop_charging_shot())
 
 func on_power_up_picked_up(power_up: ResPowerUp) -> void:
 	if power_up.type in active_powerups:
@@ -58,10 +61,10 @@ func rebuild_shooting_behavior() -> void:
 			ResPowerUp.PowerUpEnum.TRIPLE_SHOT:
 				shooting_behavior = TripleShot.new(shooting_behavior)
 
-func shoot_ball() -> void:
+func shoot_ball(data: Dictionary) -> void:
 	ball_spawner.start_cooldown()
 	apply_powerups_to_ball(current_ball)
-	shooting_behavior.shoot(self, get_shoot_direction(), current_ball)
+	shooting_behavior.shoot(self, get_shoot_direction(data), current_ball)
 	current_ball = null
 
 func apply_powerups_to_ball(ball: Ball) -> void:
@@ -70,10 +73,9 @@ func apply_powerups_to_ball(ball: Ball) -> void:
 			ResPowerUp.PowerUpEnum.DRILL_SHOT:
 				ball.start_drilling_behavior()
 
-func get_shoot_direction() -> Vector2:
-	var mpos = get_global_mouse_position()
-	var dir = (mpos - global_position).normalized()
-	return dir * 1000
+func get_shoot_direction(data: Dictionary) -> Vector2:
+	print(data)
+	return data.get("shot_direction") * (data.get("shot_strength") * 10)
 
 func set_current_ball(new_ball: Ball):
 	current_ball = new_ball

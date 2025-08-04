@@ -1,11 +1,15 @@
 extends Resource
-class_name ResLeaderboardLine
+class_name ResPowerUp
 
-var name: String
-var place: int
-var score: int
+enum PowerUpEnum {
+	TRIPLE_SHOT,
+	DRILL_SHOT,
+}
 
-func _init(_name: String, _place: int, _score: int) -> void:
-	name = _name
-	place = _place
-	score = _score
+@export var name: String
+@export var type: PowerUpEnum
+@export var duration: float
+@export var sprite: Texture2D
+
+# Node to which this resource is attached
+var node: Node
