@@ -16,8 +16,12 @@ func start_timer() -> void:
 func time_to_minutes_secs(time : float):
 	var mins = int(time) / 60
 	time -= mins * 60
-	var secs = int(time) 
-	return str(mins) + ":" + str(secs)
+	var secs = int(time)
+	if secs < 10:
+		secs = "0" + str(secs)
+	else:
+		secs = str(secs)
+	return "0" + str(mins) + ":" + secs
 
 func end_game() -> void:
 	GameState.current_game_state = GameState.GameStateEnum.END

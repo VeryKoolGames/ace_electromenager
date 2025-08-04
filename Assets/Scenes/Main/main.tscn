@@ -212,7 +212,7 @@ pivot_offset = Vector2(1653.5, 1179)
 texture = ExtResource("2_32s5x")
 
 [node name="Player" parent="." instance=ExtResource("1_amwe0")]
-position = Vector2(954, 912)
+position = Vector2(953, 912)
 
 [node name="Walls" type="Node" parent="."]
 

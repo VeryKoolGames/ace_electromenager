@@ -1,6 +1,7 @@
 extends Node2D
 class_name AimingArrow
 
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 @onready var strength_texture_bar: TextureProgressBar = $Mask/StrengthTextureBar
 @export var fill_speed := 0.0
 var fill_direction = 1
@@ -47,6 +48,10 @@ func stop_charging_shot() -> Dictionary:
 		"shot_strength": bar_value,
 		"shot_direction": shot_direction.normalized()
 	}
+	if bar_value >= 90:
+		animate_shot(true)
+	else:
+		animate_shot(false)
 	reset_values()
 	return ret
 
@@ -56,3 +61,13 @@ func reset_values() -> void:
 	bar_value = 0
 	var tween = create_tween()
 	tween.tween_property(strength_texture_bar, "value", 0, 0.1)
+
+func animate_shot(is_perfect_shot: bool) -> void:
+	# If the player scored above 90 we want to reward him with a small animation
+	if is_perfect_shot:
+		gpu_particles_2d.emitting = true
+	var scale_factor = Vector2(0.4, 0.4) if is_perfect_shot else Vector2(0.1, 0.1)
+	var tween = create_tween()
+	var target_scale: Vector2 = scale
+	tween.tween_property(self, "scale", target_scale + scale_factor, 0.1)
+	tween.tween_property(self, "scale", target_scale, 0.1)
