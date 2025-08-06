@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmo8uuwm4fweb"]
+
+[ext_resource type="Texture2D" uid="uid://c1s5gv6dvyx7e" path="res://Assets/sprites/SP_Etincelle.png" id="1_iobrf"]
+
+[sub_resource type="Curve" id="Curve_fudof"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.078534, 1), 0.0, 0.0, 0, 0, Vector2(0.111693, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_dr7jk"]
+curve = SubResource("Curve_fudof")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i1os8"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 163.97
+emission_ring_inner_radius = 160.0
+emission_ring_cone_angle = 90.0
+inherit_velocity_ratio = -1.087
+spread = 180.0
+orbit_velocity_min = -0.129
+orbit_velocity_max = -0.00499991
+radial_velocity_min = -150.0
+radial_velocity_max = -150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_dr7jk")
+color = Color(0.466181, 0.466181, 0.466181, 0.356863)
+turbulence_noise_strength = 0.3
+turbulence_noise_scale = 9.694
+
+[node name="Particule_Charge" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 11
+texture = ExtResource("1_iobrf")
+lifetime = 1.25
+process_material = SubResource("ParticleProcessMaterial_i1os8")
