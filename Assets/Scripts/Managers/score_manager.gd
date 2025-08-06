@@ -1,4 +1,5 @@
 extends Node
+class_name ScoreManager
 
 var has_scored_recently := false
 var current_score := 0

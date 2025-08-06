@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 Events="*res://Assets/Scripts/Globals/Events.gd"
 GameState="*res://Assets/Scripts/Globals/GameState.gd"
 OrientationManager="*res://Assets/Scripts/Responsive/orientation_manager.gd"
+SaveSystem="*res://Assets/Scripts/Globals/save_system.gd"
+PlayerData="*res://player_data.gd"
 
 [display]
 

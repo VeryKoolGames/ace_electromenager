@@ -340,6 +340,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+wait_time = 20.0
 one_shot = true
 
 [node name="EndGameUI" type="Control" parent="."]
@@ -556,6 +557,15 @@ text = "Enregistre ton score"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ErrorLabel" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+text = "L'email et le pseudonyme doivent être remplies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 150
@@ -566,7 +576,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Email"
 
-[node name="LineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="EmailLineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 z_index = 100
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -582,7 +592,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Nom"
 
-[node name="LineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="NameLineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 z_index = 100
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -609,6 +619,37 @@ text = "Enregistrer"
 [node name="CancelButton" type="Button" parent="EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Annuler"
+
+[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "Merci, ton score a bien été enregistré"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AlreadyRegisteredLabel" type="Label" parent="EndGameUI/SaveScorePopUp/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "Tu es deja enregistré en tant que blabla veut tu peux enregistrer ton score ou créer un nouveau pseudo"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="EndGameUI/SaveScorePopUp"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EndGameUI"]
 libraries = {
