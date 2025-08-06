@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=31 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -13,10 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="8_lypba"]
 [ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/Managers/machine_spawn_manager.gd" id="9_7uvyi"]
 [ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="9_g20yk"]
+[ext_resource type="Script" uid="uid://bbl4kprjww6pb" path="res://Assets/Scripts/UI/save_score_pop_up.gd" id="10_iyic7"]
+[ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="10_lcdef"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="PackedScene" uid="uid://b2vs8ovpc1ykl" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
-[ext_resource type="PackedScene" uid="uid://ciqr4oulck4q" path="res://Assets/Scenes/PowerUps/power_up_drill_shot.tscn" id="14_cl72i"]
+[ext_resource type="PackedScene" uid="uid://ciqr4oulck4q" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="14_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 
@@ -148,6 +150,14 @@ _data = {
 &"RESET": SubResource("Animation_lcdef"),
 &"end_game_enter": SubResource("Animation_oaiys")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyic7"]
+texture = ExtResource("10_lcdef")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.00784314, 0.678431, 0.486275, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qay54"]
 size = Vector2(1422, 461)
@@ -469,6 +479,104 @@ speed_scale = 0.2
 libraries = {
 &"": SubResource("AnimationLibrary_iyic7")
 }
+
+[node name="SaveScorePopUp" type="Control" parent="EndGameUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_iyic7")
+
+[node name="Panel" type="Panel" parent="EndGameUI/SaveScorePopUp"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -468.0
+offset_top = 84.0
+offset_right = 443.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iyic7")
+
+[node name="MarginContainer" type="MarginContainer" parent="EndGameUI/SaveScorePopUp/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Enregistre ton score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Email"
+
+[node name="LineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 160
+alignment = 1
+
+[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Nom"
+
+[node name="LineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 380.0
+offset_top = -209.0
+offset_right = -370.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Enregistrer"
+
+[node name="CancelButton" type="Button" parent="EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Annuler"
 
 [node name="Spawner" type="Node2D" parent="."]
 y_sort_enabled = true

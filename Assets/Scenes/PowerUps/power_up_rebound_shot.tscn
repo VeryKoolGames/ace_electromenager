@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ciqr4oulck4q"]
 
 [ext_resource type="Script" uid="uid://dqda5q4qp27k" path="res://Assets/Scripts/PowerUps/power_up.gd" id="1_g5jtf"]
-[ext_resource type="Resource" uid="uid://dnofwpxo6wy3j" path="res://Assets/Resources/DrillShot.tres" id="2_g5jtf"]
+[ext_resource type="Resource" uid="uid://dnofwpxo6wy3j" path="res://Assets/Resources/ReboundShot.tres" id="2_g5jtf"]
 [ext_resource type="Texture2D" uid="uid://bnapbj4wso7u6" path="res://icon.svg" id="3_g5jtf"]
 [ext_resource type="Script" uid="uid://bwjid4t638k48" path="res://Assets/Scripts/Components/scale_on_spawn_component.gd" id="4_ela0w"]
 [ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="5_a3dnb"]
@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wc742"]
 radius = 44.0114
 
-[node name="PowerUpTripleShot" type="Node2D"]
+[node name="PowerUpReboundShot" type="Node2D"]
 script = ExtResource("1_g5jtf")
 res_power_up = ExtResource("2_g5jtf")
 

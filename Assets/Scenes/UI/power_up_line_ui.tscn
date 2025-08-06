@@ -51,20 +51,22 @@ theme_override_constants/margin_top = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Drill Shot"
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+modulate = Color(0.00784314, 0.678431, 0.486275, 1)
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
 show_percentage = false
 
 [node name="DurationTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="ScaleOnSpawnComponent" type="Node" parent="."]
 script = ExtResource("3_jrjw0")

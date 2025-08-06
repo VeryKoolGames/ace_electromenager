@@ -12,12 +12,12 @@ func _ready() -> void:
 	cooldown_timer.timeout.connect(on_cooldown_ended)
 
 func spawn_ball() -> void:
-	var ball = ball_scene.instantiate() as RigidBody2D
+	var ball = ball_scene.instantiate() as Ball
 	add_child(ball)
 	ball.global_position = spawn_point.global_position
 	owner.set_current_ball(ball)
-	if owner.has_power_up(ResPowerUp.PowerUpEnum.DRILL_SHOT):
-		ball.start_drilling_behavior()
+	if owner.has_power_up(ResPowerUp.PowerUpEnum.REBOUND_SHOT):
+		ball.start_bouncing_behavior()
 
 func on_cooldown_ended() -> void:
 	spawn_ball()

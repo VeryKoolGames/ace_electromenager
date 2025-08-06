@@ -3,12 +3,13 @@ class_name Ball
 
 # Components
 @onready var scale_on_destroy_component: ScaleOnDestroyComponent = $ScaleOnDestroyComponent
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 @export var sprite: Sprite2D
 
 # Ball properties
 var is_moving := false
-var is_drilling := false
+var is_bouncing := false
 var start_velocity: Vector2
 var speed_reduction_on_wall_bounce := 0.8
 var speed_acceleration_on_machine_bounce = 1.5
@@ -35,6 +36,11 @@ func _ready() -> void:
 	collision_layer = 2
 	collision_mask = 1
 	previous_position = global_position
+	Events.on_power_up_expired.connect(remove_power_ups)
+
+func remove_power_ups(type: ResPowerUp.PowerUpEnum) -> void:
+	if type == ResPowerUp.PowerUpEnum.REBOUND_SHOT:
+		is_bouncing = false
 
 func _process(delta: float) -> void:
 	if is_moving:
@@ -44,10 +50,6 @@ func _process(delta: float) -> void:
 		update_scale_based_on_velocity(delta)
 		update_rotation_based_on_velocity(delta)
 		check_collisions(move_and_collide(start_velocity * delta))
-
-func start_drilling_behavior() -> void:
-	is_drilling = true
-	sprite.modulate.a = 0.85
 
 func update_scale_based_on_velocity(delta: float) -> void:
 	var current_speed = start_velocity.length()
@@ -61,15 +63,19 @@ func update_rotation_based_on_velocity(delta: float) -> void:
 	var rotation_speed = max(current_speed * rotation_speed_multiplier * 0.001, min_rotation_speed)
 	sprite.rotation += rotation_speed * delta * randf_range(0.8, 1.2)
 
+func start_bouncing_behavior() -> void:
+	is_bouncing = true
+
 func check_collisions(collision_info: KinematicCollision2D) -> void:
 	if collision_info:
 		var collider = collision_info.get_collider()
 		if collider.is_in_group("machines"):
 			collider.owner.repair()
-			if is_drilling:
-				return
-			start_velocity = start_velocity.bounce(collision_info.get_normal())
-			start_velocity *= speed_acceleration_on_machine_bounce
+			if is_bouncing:
+				start_velocity = start_velocity.bounce(collision_info.get_normal())
+				start_velocity *= speed_acceleration_on_machine_bounce
+			else:
+				queue_free()
 		else:
 			start_velocity = start_velocity.bounce(collision_info.get_normal())
 			start_velocity *= speed_reduction_on_wall_bounce

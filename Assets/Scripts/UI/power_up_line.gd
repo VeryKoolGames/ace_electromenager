@@ -34,5 +34,6 @@ func reset_progress_duration():
 	duration_timer.start()
 
 func on_timer_ended() -> void:
+	progress_bar.value = 0
 	is_active = false
 	scale_on_destroy_component.destroy()

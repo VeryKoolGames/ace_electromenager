@@ -3,7 +3,7 @@ class_name ResPowerUp
 
 enum PowerUpEnum {
 	TRIPLE_SHOT,
-	DRILL_SHOT,
+	REBOUND_SHOT,
 }
 
 @export var name: String

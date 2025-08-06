@@ -73,8 +73,8 @@ func shoot_ball(data: Dictionary) -> void:
 func apply_powerups_to_ball(ball: Ball) -> void:
 	for powerup_type in active_powerups.keys():
 		match powerup_type:
-			ResPowerUp.PowerUpEnum.DRILL_SHOT:
-				ball.start_drilling_behavior()
+			ResPowerUp.PowerUpEnum.REBOUND_SHOT:
+				ball.start_bouncing_behavior()
 
 func get_shoot_direction(data: Dictionary) -> Vector2:
 	print(data)
