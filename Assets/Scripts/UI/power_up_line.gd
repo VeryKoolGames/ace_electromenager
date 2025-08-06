@@ -19,6 +19,7 @@ func _ready() -> void:
 	power_up_label.text = power_up_name
 	duration_timer.start()
 	sprite_texture.texture = sprite
+	Events.on_game_timer_ended.connect(on_game_ended)
 
 func init(power_up: ResPowerUp):
 	start_duration = power_up.duration
@@ -36,4 +37,7 @@ func reset_progress_duration():
 func on_timer_ended() -> void:
 	progress_bar.value = 0
 	is_active = false
+	scale_on_destroy_component.destroy()
+
+func on_game_ended() -> void:
 	scale_on_destroy_component.destroy()

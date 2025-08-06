@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=10 format=3 uid="uid://drf66dvcj6n1f"]
 
 [ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_mrngu"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="2_mrngu"]
 [ext_resource type="Script" uid="uid://cwpw40varbtgy" path="res://Assets/Scripts/UI/leaderboard_container.gd" id="3_mrngu"]
+[ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="3_o2pn0"]
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="6_mrngu"]
 [ext_resource type="PackedScene" uid="uid://dhb6ym1ispdjl" path="res://Assets/Scenes/UI/leaderboard_line.tscn" id="6_o2pn0"]
 
@@ -61,6 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/italics_font = ExtResource("3_o2pn0")
 theme_override_font_sizes/bold_italics_font_size = 64
 theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64

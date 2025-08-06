@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhb6ym1ispdjl"]
+[gd_scene load_steps=7 format=3 uid="uid://dhb6ym1ispdjl"]
 
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="1_j01v2"]
 [ext_resource type="Script" uid="uid://dj1r3873on434" path="res://Assets/Scripts/UI/leaderboard_line.gd" id="1_ppopq"]
 [ext_resource type="Texture2D" uid="uid://5p0cbfyh86sb" path="res://Assets/sprites/Couronne.png" id="2_ppopq"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="4_cme76"]
+[ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="5_wli0t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vqn08"]
 texture = ExtResource("1_j01v2")
@@ -64,6 +66,7 @@ theme_override_constants/margin_bottom = 20
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/bold_font = ExtResource("4_cme76")
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 82
@@ -80,6 +83,7 @@ theme_override_constants/margin_bottom = 20
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.25098, 0.6, 0.341176, 1)
+theme_override_fonts/normal_font = ExtResource("5_wli0t")
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
@@ -95,6 +99,7 @@ theme_override_constants/margin_bottom = 20
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/bold_font = ExtResource("4_cme76")
 theme_override_font_sizes/bold_font_size = 82
 bbcode_enabled = true
 text = "[b]335 pts[/b]"
