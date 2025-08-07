@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://k73aey2e7jrd"]
 
-[ext_resource type="Texture2D" uid="uid://bqu81cje3ht2t" path="res://Assets/sprites/SP_Rond.png" id="1_vrsvj"]
-[ext_resource type="Texture2D" uid="uid://c1s5gv6dvyx7e" path="res://Assets/sprites/SP_Etincelle.png" id="2_fe0hk"]
+[ext_resource type="Texture2D" uid="uid://c1s5gv6dvyx7e" path="res://Assets/sprites/SP_Etincelle.png" id="1_c40ui"]
+[ext_resource type="Texture2D" uid="uid://bqu81cje3ht2t" path="res://Assets/sprites/SP_Rond.png" id="2_p61qu"]
 
 [sub_resource type="Curve" id="Curve_qk128"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -17,8 +17,9 @@ point_count = 4
 [node name="Etincelles" type="CPUParticles2D" parent="."]
 position = Vector2(0, -15)
 amount = 5
-texture = ExtResource("2_fe0hk")
+texture = ExtResource("1_c40ui")
 lifetime = 0.7
+preprocess = 0.7
 emission_shape = 1
 emission_sphere_radius = 21.53
 spread = 48.63
@@ -37,8 +38,9 @@ color = Color(1, 0.792157, 0.262745, 1)
 
 [node name="Fumée" type="CPUParticles2D" parent="."]
 amount = 7
-texture = ExtResource("1_vrsvj")
+texture = ExtResource("2_p61qu")
 lifetime = 1.2
+speed_scale = 0.6
 emission_shape = 1
 emission_sphere_radius = 21.53
 gravity = Vector2(0, -150)

@@ -56,6 +56,8 @@ func _on_request_completed(result, response_code, headers, body):
 		label.show()
 		already_registered_label.hide()
 		SaveSystem.save_player_on_disc(email, pseudo)
+	else:
+		save_button.disabled = false
 
 func on_cancel_button_pressed() -> void:
 	queue_free()

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="2_h21gs"]
 
 [node name="UIScoreUpdateComponent" type="Control"]
-visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0

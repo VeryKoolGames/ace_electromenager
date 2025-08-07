@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=11 format=3 uid="uid://drf66dvcj6n1f"]
 
 [ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_mrngu"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="3_o2pn0"]
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="6_mrngu"]
 [ext_resource type="PackedScene" uid="uid://dhb6ym1ispdjl" path="res://Assets/Scenes/UI/leaderboard_line.tscn" id="6_o2pn0"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="7_q2rrb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
 texture = ExtResource("2_mrngu")
@@ -87,6 +88,7 @@ offset_bottom = 521.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_mrngu")
+leaderboard_line_scene = ExtResource("6_o2pn0")
 
 [node name="BackgroundPannel" type="Panel" parent="LeaderboardContainer"]
 modulate = Color(0, 0.552941, 0.396078, 1)
@@ -105,12 +107,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
 [node name="LeaderboardLineContainer" type="VBoxContainer" parent="LeaderboardContainer/ScoreScrollSpace"]
 custom_minimum_size = Vector2(1650, 0)
-layout_mode = 2
-
-[node name="LeaderboardLine" parent="LeaderboardContainer/ScoreScrollSpace/LeaderboardLineContainer" instance=ExtResource("6_o2pn0")]
 layout_mode = 2
 
 [node name="NoScoreLabel" type="Label" parent="LeaderboardContainer"]
@@ -122,10 +122,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
-theme_override_font_sizes/font_size = 82
+theme_override_fonts/font = ExtResource("7_q2rrb")
+theme_override_font_sizes/font_size = 90
 text = "Pas encore de parties enregistrées"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="HTTPRequest" type="HTTPRequest" parent="LeaderboardContainer"]
 

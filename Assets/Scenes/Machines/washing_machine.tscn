@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/Machines/machine.gd" id="1_cel1a"]
 [ext_resource type="Texture2D" uid="uid://r4narwpo7eac" path="res://Assets/sprites/MachineALaver.png" id="2_cel1a"]
 [ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_wqhpu"]
-[ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="4_xxf2o"]
+[ext_resource type="PackedScene" uid="uid://k73aey2e7jrd" path="res://Assets/Scenes/SmokeParticles.tscn" id="4_d43yx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ww8f6"]
 resource_local_to_scene = true
@@ -29,6 +29,5 @@ texture = ExtResource("2_cel1a")
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_6e0xt")
 
-[node name="UIScoreUpdateComponent" parent="." instance=ExtResource("4_xxf2o")]
-offset_top = -120.0
-offset_bottom = -20.0
+[node name="SmokeParticles" parent="." instance=ExtResource("4_d43yx")]
+position = Vector2(12, -44)

@@ -10,4 +10,5 @@ func scale_on_spawn() -> void:
 	scale = Vector2.ZERO
 	show()
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
+	tween.tween_property(self, "scale", Vector2(1.2, 1.2), 0.3)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.2)

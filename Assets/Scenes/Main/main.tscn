@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=35 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="4_c83bt"]
 [ext_resource type="Script" uid="uid://d4g0i50hhx6nq" path="res://Assets/Scripts/Managers/game_timer_manager.gd" id="4_tmbkf"]
 [ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="5_o5d14"]
+[ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="5_umyng"]
 [ext_resource type="Script" uid="uid://bq7w2enmpx8oo" path="res://Assets/Scripts/UI/end_game_ui.gd" id="6_g20yk"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="6_swae5"]
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="6_yehcq"]
@@ -19,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="10_lcdef"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="10_yehcq"]
-[ext_resource type="PackedScene" uid="uid://b2vs8ovpc1ykl" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
+[ext_resource type="PackedScene" uid="uid://b6kkr3s5xpkl0" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://ciqr4oulck4q" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="14_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
@@ -277,26 +278,26 @@ offset_bottom = 1080.0
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 
-[node name="ScoreAndTimerContainer" type="GridContainer" parent="GameUI"]
+[node name="ScoreAndTimerContainer" type="HBoxContainer" parent="GameUI"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 306.0
-offset_top = -363.0
-offset_right = -234.0
-offset_bottom = -59.0
+offset_left = 51.0
+offset_top = -320.0
+offset_right = 51.0
+offset_bottom = -104.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/h_separation = 900
-theme_override_constants/v_separation = 0
-columns = 2
+theme_override_constants/separation = 850
+alignment = 1
 
 [node name="ScoreManager" type="VBoxContainer" parent="GameUI/ScoreAndTimerContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 script = ExtResource("3_tmbkf")
+score_ui_component_scene = ExtResource("5_umyng")
 
 [node name="ScoreLabel2" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
 layout_mode = 2
@@ -316,6 +317,15 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScoreBufferLabel" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
+theme_override_fonts/font = ExtResource("6_yehcq")
+theme_override_font_sizes/font_size = 40
+text = "+ 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GameTimerManager" type="VBoxContainer" parent="GameUI/ScoreAndTimerContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -331,6 +341,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("6_yehcq")
@@ -340,7 +351,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
-wait_time = 20.0
+wait_time = 120.0
 one_shot = true
 
 [node name="EndGameUI" type="Control" parent="."]
