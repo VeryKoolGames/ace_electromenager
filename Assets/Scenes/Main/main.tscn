@@ -278,28 +278,17 @@ offset_bottom = 1080.0
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 
-[node name="ScoreAndTimerContainer" type="HBoxContainer" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 51.0
-offset_top = -320.0
-offset_right = 51.0
-offset_bottom = -104.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 850
-alignment = 1
-
-[node name="ScoreManager" type="VBoxContainer" parent="GameUI/ScoreAndTimerContainer"]
+[node name="ScoreManager" type="VBoxContainer" parent="GameUI"]
 layout_mode = 2
+offset_left = 298.0
+offset_top = 749.0
+offset_right = 474.0
+offset_bottom = 976.0
 theme_override_constants/separation = 0
 script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")
 
-[node name="ScoreLabel2" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
+[node name="ScoreLabel2" type="Label" parent="GameUI/ScoreManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
@@ -308,7 +297,7 @@ text = "Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
+[node name="ScoreLabel" type="Label" parent="GameUI/ScoreManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("6_yehcq")
@@ -317,7 +306,11 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreBufferLabel" type="Label" parent="GameUI/ScoreAndTimerContainer/ScoreManager"]
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/ScoreManager"]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ScoreBufferLabel" type="Label" parent="GameUI/ScoreManager/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
 theme_override_fonts/font = ExtResource("6_yehcq")
@@ -326,12 +319,23 @@ text = "+ 5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameTimerManager" type="VBoxContainer" parent="GameUI/ScoreAndTimerContainer"]
-layout_mode = 2
+[node name="GameTimerManager" type="VBoxContainer" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -607.0
+offset_top = -331.0
+offset_right = -207.0
+offset_bottom = -115.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/separation = 0
 script = ExtResource("4_tmbkf")
 
-[node name="Label2" type="Label" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+[node name="Label2" type="Label" parent="GameUI/GameTimerManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
@@ -340,7 +344,7 @@ text = "Timer: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+[node name="Label" type="Label" parent="GameUI/GameTimerManager"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
@@ -350,7 +354,7 @@ text = "02:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="GameUI/ScoreAndTimerContainer/GameTimerManager"]
+[node name="Timer" type="Timer" parent="GameUI/GameTimerManager"]
 wait_time = 120.0
 one_shot = true
 

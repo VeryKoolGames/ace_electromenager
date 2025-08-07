@@ -4,19 +4,22 @@ class_name ScoreManager
 var current_score := 0
 var score_buffer := 0
 @onready var score_label: Label = $ScoreLabel
-@onready var score_buffer_label: Label = $ScoreBufferLabel
 @export var score_ui_component_scene: PackedScene
+@onready var score_buffer_label: Label = $MarginContainer/ScoreBufferLabel
 
 var buffer_timer: Timer
 var is_transferring_score := false
+var multiplier := 1.0
+var is_first_score := true
+
+var score_label_original_position: Vector2
 
 func _ready() -> void:
 	Events.on_player_scored.connect(on_score_received)
 	Events.on_machine_repaired.connect(spawn_score_component)
 	
-	# Create timer for buffer timeout
 	buffer_timer = Timer.new()
-	buffer_timer.wait_time = 1.0  # Wait 1 second after last score
+	buffer_timer.wait_time = 1.0
 	buffer_timer.one_shot = true
 	buffer_timer.timeout.connect(_transfer_buffer_to_score)
 	add_child(buffer_timer)
@@ -26,12 +29,19 @@ func _ready() -> void:
 	score_buffer_label.modulate.a = 0
 
 func on_score_received(score_value: int) -> void:
+	if score_buffer >= 10:
+		var multiplier_tier = min(int(score_buffer / 10), 9)
+		multiplier = multiplier_tier
+		score_value *= multiplier
 	score_buffer += score_value
 	
 	if score_buffer > 0:
+		if is_first_score:
+			score_label_original_position = score_buffer_label.global_position
+			is_first_score = false
+		score_buffer_label.global_position = score_label_original_position
 		score_buffer_label.text = "+" + str(score_buffer)
 		score_buffer_label.modulate.a = 1
-		
 		var buffer_tween = create_tween()
 		buffer_tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 		buffer_tween.tween_property(score_buffer_label, "scale", Vector2(1.2, 1.2), 0.1)
@@ -53,7 +63,6 @@ func _transfer_buffer_to_score() -> void:
 	var target_position = score_buffer_label.global_position
 	target_position.y -= 100
 	score_buffer_tween.tween_property(score_buffer_label, "global_position", target_position, 0.1)
-	
 	var start_score = current_score
 	current_score += buffer_amount
 	
@@ -86,8 +95,8 @@ func spawn_score_component(machine: Machine) -> void:
 	get_tree().root.add_child(score_component)
 	score_component.show_score(machine.score_value)
 	
-	var target_pos = score_buffer_label.global_position
-	target_pos.x += 40
+	var target_pos = score_label_original_position
+	target_pos.x += 20
 	target_pos.y -= 30
 	var tween = create_tween()
 	

@@ -3,13 +3,14 @@ class_name Raquette
 
 var is_facing_right := true
 
-func _process(_delta: float) -> void:
-	rotate_raquette()
+func _input(event):
+	if event is InputEventScreenTouch and event.pressed:
+		handle_input_position(event.position)
+	elif event is InputEventMouseButton and event.pressed:
+		handle_input_position(event.position)
 
-func rotate_raquette() -> void:
-	var mpos = get_global_mouse_position()
-	var shot_direction  = (mpos - global_position)
-
+func handle_input_position(pos: Vector2):
+	var shot_direction = (pos - global_position)
 	if shot_direction.x < 0:
 		is_facing_right = false
 		switch_rotation(40)
