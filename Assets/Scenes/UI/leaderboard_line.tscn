@@ -14,12 +14,16 @@ texture_margin_right = 27.5
 texture_margin_bottom = 59.5
 region_rect = Rect2(0, 0, 126, 160)
 
-[node name="LeaderboardLine" type="MarginContainer"]
+[node name="LeaderboardLine" type="MarginContainer" node_paths=PackedStringArray("crown_texture", "place_label", "points_label", "name_label")]
 custom_minimum_size = Vector2(1544, 170)
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
 script = ExtResource("1_ppopq")
+crown_texture = NodePath("HBoxContainer2/HBoxContainer/MarginContainer/CrownTexture")
+place_label = NodePath("HBoxContainer2/HBoxContainer/MarginContainer2/PlaceLabel")
+points_label = NodePath("HBoxContainer2/MarginContainer/PointsLabel")
+name_label = NodePath("HBoxContainer2/HBoxContainer/MarginContainer3/NameLabel")
 first_place_crown_color = Color(1, 0.792157, 0.266667, 1)
 second_place_crown_color = Color(0.819608, 0.819608, 0.819608, 1)
 third_place_crown_color = Color(0.960784, 0.447059, 0.329412, 1)

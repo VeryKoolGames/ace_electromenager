@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://drf66dvcj6n1f"]
 
-[ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_mrngu"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="2_mrngu"]
 [ext_resource type="Script" uid="uid://cwpw40varbtgy" path="res://Assets/Scripts/UI/leaderboard_container.gd" id="3_mrngu"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="3_o2pn0"]
+[ext_resource type="PackedScene" uid="uid://dc3cwl6agjgts" path="res://Assets/Scenes/UI/self_leaderboard_line.tscn" id="5_q2rrb"]
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="6_mrngu"]
 [ext_resource type="PackedScene" uid="uid://dhb6ym1ispdjl" path="res://Assets/Scenes/UI/leaderboard_line.tscn" id="6_o2pn0"]
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="7_q2rrb"]
@@ -29,7 +29,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mrngu")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -89,6 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_mrngu")
 leaderboard_line_scene = ExtResource("6_o2pn0")
+self_leaderboard_line_scene = ExtResource("5_q2rrb")
 
 [node name="BackgroundPannel" type="Panel" parent="LeaderboardContainer"]
 modulate = Color(0, 0.552941, 0.396078, 1)
@@ -125,6 +125,37 @@ theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
 theme_override_fonts/font = ExtResource("7_q2rrb")
 theme_override_font_sizes/font_size = 90
 text = "Pas encore de parties enregistrées"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LoadingLabel" type="Label" parent="LeaderboardContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.141176, 0.341176, 0.396078, 1)
+theme_override_fonts/font = ExtResource("7_q2rrb")
+theme_override_font_sizes/font_size = 128
+text = "CHARGEMENT ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="LeaderboardContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.141176, 0.341176, 0.396078, 1)
+theme_override_fonts/font = ExtResource("7_q2rrb")
+theme_override_font_sizes/font_size = 128
+text = "Une erreur de communication s'est produite veuillez réessayer"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
