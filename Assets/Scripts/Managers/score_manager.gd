@@ -92,11 +92,11 @@ func spawn_score_component(machine: Machine) -> void:
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var screen_pos = canvas_transform * machine.global_position
 	score_component.global_position = screen_pos
-	get_tree().root.add_child(score_component)
+	$PowerUpContainer.add_child(score_component)
 	score_component.show_score(machine.score_value)
 	
 	var target_pos = score_label_original_position
-	target_pos.x += 20
+	target_pos.x += 100
 	target_pos.y -= 30
 	var tween = create_tween()
 	

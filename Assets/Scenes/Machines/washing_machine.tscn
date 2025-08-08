@@ -11,22 +11,22 @@ shader = ExtResource("2_wqhpu")
 shader_parameter/white_progress = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e0xt"]
-size = Vector2(63, 81)
+size = Vector2(77, 97)
 
 [node name="WashingMachine" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cel1a")
 sprite = NodePath("Sprite2D")
-score_value = 5
+score_value = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ww8f6")
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_cel1a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["machines"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.5, -4.5)
+position = Vector2(0.5, -6.5)
 shape = SubResource("RectangleShape2D_6e0xt")
 
 [node name="SmokeParticles" parent="." instance=ExtResource("4_d43yx")]

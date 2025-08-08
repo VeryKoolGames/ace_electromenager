@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=41 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="8_lypba"]
 [ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/Managers/machine_spawn_manager.gd" id="9_7uvyi"]
 [ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="9_g20yk"]
+[ext_resource type="PackedScene" uid="uid://bkqrb8awldbnr" path="res://Assets/Scenes/Machines/microwave.tscn" id="9_j3v3k"]
+[ext_resource type="Resource" uid="uid://dbngedwqt8ssj" path="res://Assets/Resources/GameLength.tres" id="9_oe2gw"]
 [ext_resource type="Script" uid="uid://bbl4kprjww6pb" path="res://Assets/Scripts/UI/save_score_pop_up.gd" id="10_iyic7"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="10_lcdef"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
@@ -116,7 +118,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Banner:position")
+tracks/2/path = NodePath("MarginContainer/Banner:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -156,7 +158,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Banner:position")
+tracks/1/path = NodePath("MarginContainer/Banner:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -199,7 +201,6 @@ _data = {
 [node name="Main" type="Node2D"]
 
 [node name="ResponsiveLayer" type="CanvasLayer" parent="."]
-layer = -1
 
 [node name="Decors" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
@@ -228,7 +229,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 150
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 150
 
 [node name="ColorRect" type="ColorRect" parent="ResponsiveLayer/Decors/MarginContainer"]
@@ -272,101 +273,6 @@ visible = false
 position = Vector2(964, 544)
 texture = ExtResource("3_wi0v3")
 
-[node name="GameUI" type="Control" parent="ResponsiveLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(960, 540)
-size_flags_horizontal = 0
-
-[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 249.0
-offset_top = -331.0
-offset_right = 549.0
-offset_bottom = -104.0
-grow_vertical = 0
-theme_override_constants/separation = 0
-script = ExtResource("3_tmbkf")
-score_ui_component_scene = ExtResource("5_umyng")
-
-[node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
-theme_override_fonts/font = ExtResource("5_o5d14")
-theme_override_font_sizes/font_size = 48
-text = "Score: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
-theme_override_fonts/font = ExtResource("6_yehcq")
-theme_override_font_sizes/font_size = 100
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
-layout_mode = 2
-theme_override_constants/margin_right = 30
-
-[node name="ScoreBufferLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
-theme_override_fonts/font = ExtResource("6_yehcq")
-theme_override_font_sizes/font_size = 40
-text = "+ 5"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameTimerManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -607.0
-offset_top = -331.0
-offset_right = -207.0
-offset_bottom = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 0
-script = ExtResource("4_tmbkf")
-
-[node name="Label2" type="Label" parent="ResponsiveLayer/GameUI/GameTimerManager"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
-theme_override_fonts/font = ExtResource("5_o5d14")
-theme_override_font_sizes/font_size = 48
-text = "Timer: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="ResponsiveLayer/GameUI/GameTimerManager"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
-theme_override_fonts/font = ExtResource("6_yehcq")
-theme_override_font_sizes/font_size = 100
-text = "02:00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="ResponsiveLayer/GameUI/GameTimerManager"]
-wait_time = 120.0
-one_shot = true
-
 [node name="PlayerPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
 anchors_preset = 7
@@ -382,6 +288,17 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Player" parent="ResponsiveLayer/PlayerPos" instance=ExtResource("1_amwe0")]
+
+[node name="Spawner" type="Node2D" parent="ResponsiveLayer" node_paths=PackedStringArray("spawn_control")]
+y_sort_enabled = true
+script = ExtResource("9_7uvyi")
+spawn_control = NodePath("../SpawnZone")
+machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2"), ExtResource("9_j3v3k")])
+power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i"), ExtResource("22_nfnlt")])
+
+[node name="PowerUpCooldown" type="Timer" parent="ResponsiveLayer/Spawner"]
+wait_time = 120.0
+one_shot = true
 
 [node name="NestPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
@@ -428,19 +345,17 @@ texture = ExtResource("3_fd4wd")
 position = Vector2(0.5, 28)
 polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)
 
-[node name="SpawnZoneContainer" type="MarginContainer" parent="ResponsiveLayer"]
+[node name="SpawnZone" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 166.0
+offset_right = -200.0
+offset_bottom = -466.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 500
-
-[node name="SpawnZone" type="Control" parent="ResponsiveLayer/SpawnZoneContainer"]
-layout_mode = 2
 
 [node name="Walls" type="Node" parent="ResponsiveLayer"]
 
@@ -509,6 +424,105 @@ grow_vertical = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/BotWall/Area2D"]
 shape = SubResource("RectangleShape2D_oe2gw")
 
+[node name="GameUI" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+size_flags_horizontal = 0
+
+[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 249.0
+offset_top = -331.0
+offset_right = 549.0
+offset_bottom = -104.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+script = ExtResource("3_tmbkf")
+score_ui_component_scene = ExtResource("5_umyng")
+
+[node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 48
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_fonts/font = ExtResource("6_yehcq")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ScoreBufferLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
+theme_override_fonts/font = ExtResource("6_yehcq")
+theme_override_font_sizes/font_size = 40
+text = "+ 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerUpContainer" type="Node2D" parent="ResponsiveLayer/GameUI/ScoreManager"]
+position = Vector2(-249, -749)
+
+[node name="GameTimerManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -607.0
+offset_top = -331.0
+offset_right = -207.0
+offset_bottom = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 0
+script = ExtResource("4_tmbkf")
+game_length = ExtResource("9_oe2gw")
+
+[node name="Label2" type="Label" parent="ResponsiveLayer/GameUI/GameTimerManager"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 48
+text = "Timer: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ResponsiveLayer/GameUI/GameTimerManager"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_fonts/font = ExtResource("6_yehcq")
+theme_override_font_sizes/font_size = 100
+text = "02:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="ResponsiveLayer/GameUI/GameTimerManager"]
+wait_time = 120.0
+one_shot = true
+
 [node name="PowerUpUI" type="Control" parent="ResponsiveLayer"]
 z_index = 100
 layout_mode = 3
@@ -551,22 +565,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.607843)
 
-[node name="Banner" type="TextureRect" parent="ResponsiveLayer/EndGameUI"]
-modulate = Color(0.996078, 0.945098, 0.784314, 1)
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 2030.0
-offset_top = -45.5
-offset_right = 2305.0
-offset_bottom = 45.5
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_swae5")
+theme_override_constants/margin_top = 20
 
-[node name="Label" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/Banner"]
+[node name="Banner" type="TextureRect" parent="ResponsiveLayer/EndGameUI/MarginContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+texture = ExtResource("6_swae5")
+expand_mode = 1
+
+[node name="Label" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/MarginContainer/Banner"]
 modulate = Color(0.960784, 0.447059, 0.329412, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -842,17 +855,6 @@ autowrap_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_iyic7")
 }
-
-[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_control")]
-y_sort_enabled = true
-script = ExtResource("9_7uvyi")
-spawn_control = NodePath("../ResponsiveLayer/SpawnZoneContainer/SpawnZone")
-machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
-power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i"), ExtResource("22_nfnlt")])
-
-[node name="PowerUpCooldown" type="Timer" parent="Spawner"]
-wait_time = 120.0
-one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

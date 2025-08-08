@@ -2,14 +2,17 @@ extends Node
 
 @onready var timer_label: Label = $Label
 @onready var game_timer: Timer = $Timer
+@export var game_length: ResFloatValue
 
-var game_states_tresholds: Dictionary = {
-	90: false,
-	30: false,
-}
+var game_states_tresholds: Dictionary
 
 func _ready() -> void:
+	game_states_tresholds = {
+		int(game_length.value / 2): false,
+		int(game_length.value / 3): false,
+	}
 	game_timer.timeout.connect(end_game)
+	game_timer.wait_time = game_length.value
 	start_timer()
 
 func _process(_delta: float) -> void:

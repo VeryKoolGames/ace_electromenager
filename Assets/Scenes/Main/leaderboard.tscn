@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=12 format=3 uid="uid://drf66dvcj6n1f"]
 
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="2_mrngu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="6_mrngu"]
 [ext_resource type="PackedScene" uid="uid://dhb6ym1ispdjl" path="res://Assets/Scenes/UI/leaderboard_line.tscn" id="6_o2pn0"]
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="7_q2rrb"]
+[ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="8_vkddw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
 texture = ExtResource("2_mrngu")
@@ -132,7 +133,7 @@ autowrap_mode = 2
 [node name="LeftContainer" type="VBoxContainer" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 244.0
+offset_right = 247.0
 grow_vertical = 2
 
 [node name="MarginBackButton" type="MarginContainer" parent="LeftContainer"]
@@ -141,16 +142,12 @@ theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 150
 theme_override_constants/margin_right = 40
 
-[node name="Panel" type="Panel" parent="LeftContainer/MarginBackButton"]
-custom_minimum_size = Vector2(0, 120)
+[node name="TextureButton" type="TextureButton" parent="LeftContainer/MarginBackButton"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_o2pn0")
-
-[node name="Button" type="Button" parent="LeftContainer/MarginBackButton"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
+texture_normal = ExtResource("8_vkddw")
 
 [node name="MarginGlobalButton" type="MarginContainer" parent="LeftContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 130
@@ -166,6 +163,7 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="MarginSelfButton" type="MarginContainer" parent="LeftContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 10
