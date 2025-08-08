@@ -15,14 +15,16 @@ func shoot(shooter: Node2D, direction: Vector2, ball: Ball) -> void:
 	
 	var left_ball = ball.duplicate()
 	var right_ball = ball.duplicate()
-	left_ball.global_position = ball.global_position
-	right_ball.global_position = ball.global_position
+	left_ball.global_position = ball.position
+	right_ball.global_position = ball.position
+	print(ball.global_position)
 	
 	shooter.apply_powerups_to_ball(left_ball)
 	shooter.apply_powerups_to_ball(right_ball)
 	
-	shooter.get_parent().add_child(left_ball)
-	shooter.get_parent().add_child(right_ball)
+	shooter.get_parent().call_deferred("add_child", left_ball)
+	shooter.get_parent().call_deferred("add_child", right_ball)
+	#shooter.get_parent().add_child(right_ball)
 	
 	left_ball.shoot_ball(left_dir)
 	right_ball.shoot_ball(right_dir)

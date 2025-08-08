@@ -11,16 +11,21 @@ extends Control
 @onready var label: Label = $Panel/Label
 @onready var error_label: Label = $Panel/MarginContainer/VBoxContainer/ErrorLabel
 @onready var already_registered_label: Label = $Panel/AlreadyRegisteredLabel
+@onready var panel: Panel = $Panel
 
 var email: String
 var pseudo: String
+var original_panel_position: Vector2
 
 func _ready() -> void:
+	print(get_viewport().size)
+	original_panel_position = Vector2(900.0, 170)
+	email_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
 	save_button.pressed.connect(on_save_button_pressed)
 	cancel_button.pressed.connect(on_cancel_button_pressed)
 	http_request.request_completed.connect(_on_request_completed)
-	if SaveSystem.has_saved_player():
-		show_already_registered_screen()
+	#if SaveSystem.has_saved_player():
+		#show_already_registered_screen()
 
 func show_already_registered_screen() -> void:
 	margin_container.hide()
@@ -61,3 +66,13 @@ func _on_request_completed(result, response_code, headers, body):
 
 func on_cancel_button_pressed() -> void:
 	queue_free()
+
+func zoom_on_mail_line_edit(toggled_on: bool) -> void:
+	print(get_viewport().size)
+	var tween = create_tween()
+	if toggled_on:
+		var move_up = (get_viewport().size.y * 0.5)
+		var move_center = get_viewport().size.x / 2 - panel.size.x / 2
+		tween.tween_property(panel, "position", original_panel_position - Vector2(move_center, move_up), 0.3)
+	else:
+		tween.tween_property(panel, "position", original_panel_position, 0.3)

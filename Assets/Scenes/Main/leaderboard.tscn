@@ -22,16 +22,9 @@ texture = ExtResource("6_mrngu")
 texture_margin_left = 50.0
 texture_margin_right = 50.0
 
-[node name="Leaderboard" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Leaderboard" type="CanvasLayer"]
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,22 +32,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00784314, 0.678431, 0.486275, 1)
 
-[node name="Banner" type="TextureRect" parent="."]
-modulate = Color(0.996078, 0.945098, 0.784314, 1)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -515.0
-offset_right = 138.0
-offset_bottom = -424.0
+offset_bottom = 91.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ry3e1")
+theme_override_constants/margin_top = 20
 
-[node name="Label" type="RichTextLabel" parent="Banner"]
+[node name="Banner" type="TextureRect" parent="MarginContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+texture = ExtResource("1_ry3e1")
+expand_mode = 1
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/Banner"]
 modulate = Color(0.960784, 0.447059, 0.329412, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -73,54 +65,39 @@ text = "[i]TABLEAU DES SCORES[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeaderboardContainer" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -713.0
-offset_top = -381.0
-offset_right = 928.0
-offset_bottom = 521.0
+[node name="LeaderboardContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 script = ExtResource("3_mrngu")
 leaderboard_line_scene = ExtResource("6_o2pn0")
 self_leaderboard_line_scene = ExtResource("5_q2rrb")
 
 [node name="BackgroundPannel" type="Panel" parent="LeaderboardContainer"]
 modulate = Color(0, 0.552941, 0.396078, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vkddw")
 
 [node name="ScoreScrollSpace" type="ScrollContainer" parent="LeaderboardContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="LeaderboardLineContainer" type="VBoxContainer" parent="LeaderboardContainer/ScoreScrollSpace"]
 custom_minimum_size = Vector2(1650, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="NoScoreLabel" type="Label" parent="LeaderboardContainer"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
 theme_override_fonts/font = ExtResource("7_q2rrb")
 theme_override_font_sizes/font_size = 90
@@ -131,12 +108,7 @@ autowrap_mode = 2
 
 [node name="LoadingLabel" type="Label" parent="LeaderboardContainer"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.341176, 0.396078, 1)
 theme_override_fonts/font = ExtResource("7_q2rrb")
 theme_override_font_sizes/font_size = 128
@@ -146,12 +118,8 @@ vertical_alignment = 1
 
 [node name="ErrorLabel" type="Label" parent="LeaderboardContainer"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.341176, 0.396078, 1)
 theme_override_fonts/font = ExtResource("7_q2rrb")
 theme_override_font_sizes/font_size = 128
@@ -163,7 +131,6 @@ autowrap_mode = 2
 [node name="HTTPRequest" type="HTTPRequest" parent="LeaderboardContainer"]
 
 [node name="LeftContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 244.0

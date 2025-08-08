@@ -57,9 +57,6 @@ func load_player_from_disc():
 	var loaded_data = json.data
 	if loaded_data.has("email") and loaded_data.has("pseudo"):
 		player_data = loaded_data
-		print("Player data loaded successfully!")
-		print("Email: ", player_data.email, " | Pseudo: ", player_data.pseudo)
-		print("Last saved: ", player_data.get("save_date", "Unknown"))
 		return true
 	else:
 		print("Error: Invalid save file format")

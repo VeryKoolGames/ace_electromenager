@@ -34,7 +34,7 @@ func _on_request_completed(result, response_code, headers, body):
 		var data = JSON.parse_string(body.get_string_from_utf8())
 		_process_players_data(data)
 	else:
-		error_label.show()
+		error_label.show
 
 func _retrieve_player_scores_data() -> void:
 	loading_label.show()

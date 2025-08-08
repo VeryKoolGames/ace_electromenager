@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=39 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="3_fd4wd"]
 [ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/washing_machine.tscn" id="3_fh41q"]
 [ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scripts/Managers/score_manager.gd" id="3_tmbkf"]
+[ext_resource type="Texture2D" uid="uid://cgvu0gggcdn52" path="res://Assets/sprites/Maquette.png" id="3_wi0v3"]
 [ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="4_c83bt"]
 [ext_resource type="Script" uid="uid://d4g0i50hhx6nq" path="res://Assets/Scripts/Managers/game_timer_manager.gd" id="4_tmbkf"]
 [ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="5_o5d14"]
@@ -29,7 +30,13 @@
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="26_dacag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
-size = Vector2(754, 8)
+size = Vector2(762, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi0v3"]
+size = Vector2(29, 2280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
+size = Vector2(3404, 15)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g20yk"]
 texture = ExtResource("8_lypba")
@@ -189,19 +196,22 @@ _data = {
 &"end_game_enter": SubResource("Animation_oaiys")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qay54"]
-size = Vector2(1422, 461)
-
 [node name="Main" type="Node2D"]
 
-[node name="Decors" type="Control" parent="."]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="ResponsiveLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="Background" type="ColorRect" parent="Decors"]
+[node name="Decors" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="ResponsiveLayer/Decors"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,77 +220,69 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00392157, 0.72549, 0.517647, 1)
 
-[node name="ColorRect" type="ColorRect" parent="Decors"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/Decors"]
 layout_mode = 1
-offset_left = 153.0
-offset_top = 119.0
-offset_right = 1755.0
-offset_bottom = 1084.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 150
+
+[node name="ColorRect" type="ColorRect" parent="ResponsiveLayer/Decors/MarginContainer"]
+layout_mode = 2
 color = Color(0.960784, 0.447059, 0.329412, 1)
 
-[node name="TennisField" type="TextureRect" parent="Decors"]
+[node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/Decors"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1610.0
-offset_top = -754.0
-offset_right = 1610.0
-offset_bottom = 876.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(1610, 815)
-texture = ExtResource("1_gkykh")
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_right = 120
 
-[node name="Edges" type="TextureRect" parent="Decors"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1653.0
-offset_top = -1125.0
-offset_right = 1654.0
-offset_bottom = 1233.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(1653.5, 1179)
+[node name="Edges" type="TextureRect" parent="ResponsiveLayer/Decors/MarginContainer2"]
+layout_mode = 2
 texture = ExtResource("2_32s5x")
+expand_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("1_amwe0")]
-position = Vector2(953, 912)
+[node name="MarginContainer3" type="MarginContainer" parent="ResponsiveLayer/Decors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 20
 
-[node name="Walls" type="Node" parent="."]
+[node name="TennisField" type="TextureRect" parent="ResponsiveLayer/Decors/MarginContainer3"]
+layout_mode = 2
+texture = ExtResource("1_gkykh")
+expand_mode = 1
 
-[node name="FieldWall" type="StaticBody2D" parent="Walls"]
+[node name="Maquette" type="Sprite2D" parent="ResponsiveLayer/Decors"]
+visible = false
+position = Vector2(964, 544)
+texture = ExtResource("3_wi0v3")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/FieldWall"]
-build_mode = 1
-polygon = PackedVector2Array(167, 1075, 165, 203, 242, 130, 1682, 129, 1757, 205, 1756, 1076)
-
-[node name="Nest" type="StaticBody2D" parent="Walls"]
-position = Vector2(955, 597)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Nest"]
-position = Vector2(5, -28)
-shape = SubResource("RectangleShape2D_c83bt")
-one_way_collision = true
-
-[node name="GameUI" type="Control" parent="."]
-custom_minimum_size = Vector2(1920, 1080)
+[node name="GameUI" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 
-[node name="ScoreManager" type="VBoxContainer" parent="GameUI"]
+[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -294,7 +296,7 @@ theme_override_constants/separation = 0
 script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")
 
-[node name="ScoreLabel2" type="Label" parent="GameUI/ScoreManager"]
+[node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
@@ -303,7 +305,7 @@ text = "Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="GameUI/ScoreManager"]
+[node name="ScoreLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
@@ -313,11 +315,11 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="GameUI/ScoreManager"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
 layout_mode = 2
 theme_override_constants/margin_right = 30
 
-[node name="ScoreBufferLabel" type="Label" parent="GameUI/ScoreManager/MarginContainer"]
+[node name="ScoreBufferLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
 theme_override_fonts/font = ExtResource("6_yehcq")
@@ -326,7 +328,7 @@ text = "+ 5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameTimerManager" type="VBoxContainer" parent="GameUI"]
+[node name="GameTimerManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -342,7 +344,7 @@ grow_vertical = 0
 theme_override_constants/separation = 0
 script = ExtResource("4_tmbkf")
 
-[node name="Label2" type="Label" parent="GameUI/GameTimerManager"]
+[node name="Label2" type="Label" parent="ResponsiveLayer/GameUI/GameTimerManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
@@ -351,7 +353,7 @@ text = "Timer: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="GameUI/GameTimerManager"]
+[node name="Label" type="Label" parent="ResponsiveLayer/GameUI/GameTimerManager"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
@@ -361,23 +363,180 @@ text = "02:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="GameUI/GameTimerManager"]
+[node name="Timer" type="Timer" parent="ResponsiveLayer/GameUI/GameTimerManager"]
 wait_time = 120.0
 one_shot = true
 
-[node name="EndGameUI" type="Control" parent="."]
+[node name="PlayerPos" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Player" parent="ResponsiveLayer/PlayerPos" instance=ExtResource("1_amwe0")]
+
+[node name="NestPos" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 144.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nest" type="StaticBody2D" parent="ResponsiveLayer/NestPos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/NestPos/Nest"]
+shape = SubResource("RectangleShape2D_c83bt")
+one_way_collision = true
+
+[node name="RefPos" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 45.0
+offset_right = -262.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ResponsiveLayer/RefPos/RefChair"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fd4wd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ResponsiveLayer/RefPos/RefChair"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ResponsiveLayer/RefPos/RefChair/StaticBody2D"]
+position = Vector2(0.5, 28)
+polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)
+
+[node name="SpawnZoneContainer" type="MarginContainer" parent="ResponsiveLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 500
+
+[node name="SpawnZone" type="Control" parent="ResponsiveLayer/SpawnZoneContainer"]
+layout_mode = 2
+
+[node name="Walls" type="Node" parent="ResponsiveLayer"]
+
+[node name="LeftWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = 595.0
+offset_right = -360.0
+offset_bottom = -585.0
+grow_vertical = 2
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/LeftWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/LeftWall/Area2D"]
+shape = SubResource("RectangleShape2D_wi0v3")
+
+[node name="RightWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -140.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/RightWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/RightWall/Area2D"]
+shape = SubResource("RectangleShape2D_wi0v3")
+
+[node name="TopWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 115.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/TopWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/TopWall/Area2D"]
+shape = SubResource("RectangleShape2D_oe2gw")
+
+[node name="BotWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/BotWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/BotWall/Area2D"]
+shape = SubResource("RectangleShape2D_oe2gw")
+
+[node name="PowerUpUI" type="Control" parent="ResponsiveLayer"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("13_cl72i")
+power_up_line_scene = ExtResource("14_d2pdc")
+
+[node name="PowerUpContainer" type="VBoxContainer" parent="ResponsiveLayer/PowerUpUI"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 410.0
+offset_bottom = 636.0
+theme_override_constants/separation = 20
+
+[node name="EndGameUI" type="Control" parent="ResponsiveLayer"]
 visible = false
 z_index = 10
-custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 script = ExtResource("6_g20yk")
 
-[node name="Background" type="ColorRect" parent="EndGameUI"]
+[node name="Background" type="ColorRect" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -386,22 +545,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.607843)
 
-[node name="Banner" type="TextureRect" parent="EndGameUI"]
+[node name="Banner" type="TextureRect" parent="ResponsiveLayer/EndGameUI"]
 modulate = Color(0.996078, 0.945098, 0.784314, 1)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 2030.0
-offset_top = -45.5
-offset_right = 2305.0
-offset_bottom = 45.5
+offset_left = -137.0
+offset_top = -515.0
+offset_right = 138.0
+offset_bottom = -424.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_swae5")
 
-[node name="Label" type="RichTextLabel" parent="EndGameUI/Banner"]
+[node name="Label" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/Banner"]
 modulate = Color(0.960784, 0.447059, 0.329412, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -416,28 +575,28 @@ text = "[i][b]PARTIE TERMINEE[/b][/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -764.0
+offset_left = 76.0
 offset_top = -448.0
-offset_right = -175.0
+offset_right = 665.0
 grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="EndGameUI/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_right = 150
 
-[node name="Panel" type="Panel" parent="EndGameUI/VBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g20yk")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="EndGameUI/VBoxContainer/MarginContainer/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -452,12 +611,12 @@ text = "[i]REJOUER[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="EndGameUI/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
 custom_minimum_size = Vector2(120, 180)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g20yk")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="EndGameUI/VBoxContainer/Panel2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/VBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -472,16 +631,16 @@ text = "[i]CLASSEMENT[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Star" type="Control" parent="EndGameUI"]
+[node name="Star" type="Control" parent="ResponsiveLayer/EndGameUI"]
 custom_minimum_size = Vector2(500, 500)
 anchors_preset = 0
-offset_left = -765.0
+offset_left = 40.0
 offset_top = 152.0
-offset_right = -265.0
+offset_right = 540.0
 offset_bottom = 652.0
 rotation = -0.0872665
 
-[node name="TextureRect" type="TextureRect" parent="EndGameUI/Star"]
+[node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/EndGameUI/Star"]
 modulate = Color(0.980392, 0.792157, 0.592157, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -493,7 +652,7 @@ rotation = -3.55806
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
-[node name="TextureRect2" type="TextureRect" parent="EndGameUI/Star"]
+[node name="TextureRect2" type="TextureRect" parent="ResponsiveLayer/EndGameUI/Star"]
 modulate = Color(0.996078, 0.945098, 0.784314, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -505,7 +664,7 @@ rotation = 3.73259
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
-[node name="ScoreLabel" type="RichTextLabel" parent="EndGameUI/Star"]
+[node name="ScoreLabel" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/Star"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -524,14 +683,14 @@ PTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EndGameUI/Star"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI/Star"]
 libraries = {
 &"": SubResource("AnimationLibrary_oaiys")
 }
 autoplay = "star_rotation"
 speed_scale = 0.2
 
-[node name="SaveScorePopUp" type="Control" parent="EndGameUI"]
+[node name="SaveScorePopUp" type="Control" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -541,21 +700,21 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("10_iyic7")
 
-[node name="Panel" type="Panel" parent="EndGameUI/SaveScorePopUp"]
+[node name="Panel" type="Panel" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -60.0
-offset_top = -952.0
+offset_top = 170.0
 offset_right = 851.0
-offset_bottom = -1187.0
+offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_iyic7")
 
-[node name="MarginContainer" type="MarginContainer" parent="EndGameUI/SaveScorePopUp/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -564,22 +723,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 200
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 50
 
-[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Enregistre ton score"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ErrorLabel" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
@@ -588,39 +747,39 @@ text = "L'email et le pseudonyme doivent être remplies"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Email"
 
-[node name="EmailLineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="EmailLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 z_index = 100
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 max_length = 20
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 160
 alignment = 1
 
-[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Nom"
 
-[node name="NameLineEdit" type="LineEdit" parent="EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="NameLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 z_index = 100
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 max_length = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI/SaveScorePopUp/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -634,15 +793,15 @@ grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="SaveButton" type="Button" parent="EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Enregistrer"
 
-[node name="CancelButton" type="Button" parent="EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
+[node name="CancelButton" type="Button" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Annuler"
 
-[node name="Label" type="Label" parent="EndGameUI/SaveScorePopUp/Panel"]
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -656,7 +815,7 @@ text = "Merci, ton score a bien été enregistré"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AlreadyRegisteredLabel" type="Label" parent="EndGameUI/SaveScorePopUp/Panel"]
+[node name="AlreadyRegisteredLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -671,61 +830,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="HTTPRequest" type="HTTPRequest" parent="EndGameUI/SaveScorePopUp"]
+[node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EndGameUI"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI"]
 libraries = {
 &"": SubResource("AnimationLibrary_iyic7")
 }
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_control")]
 y_sort_enabled = true
 script = ExtResource("9_7uvyi")
+spawn_control = NodePath("../ResponsiveLayer/SpawnZoneContainer/SpawnZone")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
 power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i"), ExtResource("22_nfnlt")])
-
-[node name="Area2D" type="Area2D" parent="Spawner"]
-position = Vector2(938, 297)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D"]
-position = Vector2(30, 71.5)
-shape = SubResource("RectangleShape2D_qay54")
 
 [node name="PowerUpCooldown" type="Timer" parent="Spawner"]
 wait_time = 120.0
 one_shot = true
-
-[node name="PowerUpUI" type="Control" parent="."]
-z_index = 100
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-script = ExtResource("13_cl72i")
-power_up_line_scene = ExtResource("14_d2pdc")
-
-[node name="PowerUpContainer" type="VBoxContainer" parent="PowerUpUI"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 41.0
-offset_right = 410.0
-offset_bottom = 636.0
-theme_override_constants/separation = 20
-
-[node name="RefChair" type="Node2D" parent="."]
-position = Vector2(1680, 507)
-
-[node name="Sprite2D" type="Sprite2D" parent="RefChair"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_fd4wd")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RefChair"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RefChair/StaticBody2D"]
-position = Vector2(0.5, 28)
-polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -734,6 +855,3 @@ script = ExtResource("19_oaiys")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_dacag")
 autoplay = true
-
-[node name="PowerUpTripleShot" parent="." instance=ExtResource("22_nfnlt")]
-position = Vector2(823, 497)

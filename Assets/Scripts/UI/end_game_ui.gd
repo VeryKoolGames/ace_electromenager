@@ -12,5 +12,5 @@ func on_game_ended() -> void:
 	PlayerData.score = score_manager.current_score
 	show()
 	animation_player.play("end_game_enter")
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.5).timeout
 	score_label.text = "[b]%d[/b]\nPTS" % score_manager.current_score
