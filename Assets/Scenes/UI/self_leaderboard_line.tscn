@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc3cwl6agjgts"]
+
+[ext_resource type="Script" uid="uid://dj1r3873on434" path="res://Assets/Scripts/UI/leaderboard_line.gd" id="1_f8xlg"]
+[ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="2_ejvk4"]
+[ext_resource type="Texture2D" uid="uid://lv5s7iakxqgx" path="res://Assets/sprites/You_Arrow.png" id="2_otad6"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="3_otad6"]
+[ext_resource type="Texture2D" uid="uid://5p0cbfyh86sb" path="res://Assets/sprites/Couronne.png" id="4_jy2n1"]
+[ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="5_t5xr5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vqn08"]
+texture = ExtResource("2_ejvk4")
+texture_margin_left = 72.0
+texture_margin_top = 25.5
+texture_margin_right = 27.5
+texture_margin_bottom = 59.5
+region_rect = Rect2(0, 0, 126, 160)
+
+[node name="SelfLeaderboardLine" type="MarginContainer" node_paths=PackedStringArray("crown_texture", "place_label", "points_label", "name_label")]
+offset_right = 1810.0
+offset_bottom = 190.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+script = ExtResource("1_f8xlg")
+crown_texture = NodePath("MarginContainer/HBoxContainer2/HBoxContainer/MarginContainer/CrownTexture")
+place_label = NodePath("MarginContainer/HBoxContainer2/HBoxContainer/MarginContainer2/PlaceLabel")
+points_label = NodePath("MarginContainer/HBoxContainer2/MarginContainer/PointsLabel")
+name_label = NodePath("MarginContainer/HBoxContainer2/HBoxContainer/MarginContainer3/NameLabel")
+first_place_crown_color = Color(1, 0.792157, 0.266667, 1)
+second_place_crown_color = Color(0.819608, 0.819608, 0.819608, 1)
+third_place_crown_color = Color(0.960784, 0.447059, 0.329412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_otad6")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_right = 158.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("3_otad6")
+theme_override_font_sizes/font_size = 32
+text = "VOUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+modulate = Color(1, 0.792157, 0.266667, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vqn08")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PlaceLabel" type="Label" parent="MarginContainer/HBoxContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("3_otad6")
+theme_override_font_sizes/font_size = 64
+text = "01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CrownTexture" type="TextureRect" parent="MarginContainer/HBoxContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_jy2n1")
+stretch_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer2/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("5_t5xr5")
+theme_override_font_sizes/font_size = 64
+text = "Bonjour 01"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("3_otad6")
+theme_override_font_sizes/font_size = 64
+text = "335 pts"
+horizontal_alignment = 1
+vertical_alignment = 1

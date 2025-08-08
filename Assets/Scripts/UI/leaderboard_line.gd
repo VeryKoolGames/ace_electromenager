@@ -1,10 +1,10 @@
 extends MarginContainer
 class_name LeaderboardLine
 
-@onready var crown_texture: TextureRect = $HBoxContainer2/HBoxContainer/MarginContainer/CrownTexture
-@onready var place_label: Label = $HBoxContainer2/HBoxContainer/MarginContainer2/PlaceLabel
-@onready var points_label: Label = $HBoxContainer2/MarginContainer/PointsLabel
-@onready var name_label: Label = $HBoxContainer2/HBoxContainer/MarginContainer3/NameLabel
+@export var crown_texture: TextureRect
+@export var place_label: Label
+@export var points_label: Label
+@export var name_label: Label
 
 @export var first_place_crown_color: Color
 @export var second_place_crown_color: Color
