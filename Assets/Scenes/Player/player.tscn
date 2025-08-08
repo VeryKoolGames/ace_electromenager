@@ -27,6 +27,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("4_340hg")
 ball_scene = ExtResource("5_340hg")
 spawn_cooldown = 2
+fast_spawn_cooldown = 0.5
 
 [node name="SpawnPoint" type="Node2D" parent="BallSpawner"]
 position = Vector2(0, -76)

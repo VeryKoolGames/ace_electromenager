@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=37 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqr4oulck4q" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="14_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
+[ext_resource type="PackedScene" uid="uid://chnpgfe3nlcy5" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="26_dacag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
@@ -681,7 +682,7 @@ libraries = {
 y_sort_enabled = true
 script = ExtResource("9_7uvyi")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2")])
-power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i")])
+power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i"), ExtResource("22_nfnlt")])
 
 [node name="Area2D" type="Area2D" parent="Spawner"]
 position = Vector2(938, 297)
@@ -733,3 +734,6 @@ script = ExtResource("19_oaiys")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_dacag")
 autoplay = true
+
+[node name="PowerUpTripleShot" parent="." instance=ExtResource("22_nfnlt")]
+position = Vector2(823, 497)

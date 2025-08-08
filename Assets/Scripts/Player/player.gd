@@ -77,7 +77,6 @@ func apply_powerups_to_ball(ball: Ball) -> void:
 				ball.start_bouncing_behavior()
 
 func get_shoot_direction(data: Dictionary) -> Vector2:
-	print(data)
 	return data.get("shot_direction") * (data.get("shot_strength") * 10)
 
 func set_current_ball(new_ball: Ball):

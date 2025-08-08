@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_r27jd")
-name = "Triple Shot"
+name = "Tir Triple"
 type = 0
 duration = 10.0
 sprite = ExtResource("2_sextf")

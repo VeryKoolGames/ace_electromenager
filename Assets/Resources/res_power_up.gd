@@ -4,6 +4,7 @@ class_name ResPowerUp
 enum PowerUpEnum {
 	TRIPLE_SHOT,
 	REBOUND_SHOT,
+	FAST_SPAWN_SHOT,
 }
 
 @export var name: String

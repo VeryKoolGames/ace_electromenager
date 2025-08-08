@@ -8,7 +8,7 @@ signal on_game_timer_ended
 # Power Ups
 signal on_power_up_gathered(power_up: ResPowerUp)
 signal on_power_up_activated(power_up: ResPowerUp)
-signal on_power_up_expired(power_up: ResPowerUp)
+signal on_power_up_expired(type: ResPowerUp.PowerUpEnum)
 
 signal on_machine_repaired(machine: Machine)
 
