@@ -369,6 +369,7 @@ one_shot = true
 
 [node name="PlayerPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -384,6 +385,7 @@ grow_vertical = 0
 
 [node name="NestPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -402,6 +404,7 @@ one_way_collision = true
 
 [node name="RefPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -443,6 +446,7 @@ layout_mode = 2
 
 [node name="LeftWall" type="Control" parent="ResponsiveLayer/Walls"]
 layout_mode = 3
+anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 140.0
@@ -458,6 +462,7 @@ shape = SubResource("RectangleShape2D_wi0v3")
 
 [node name="RightWall" type="Control" parent="ResponsiveLayer/Walls"]
 layout_mode = 3
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -473,6 +478,7 @@ shape = SubResource("RectangleShape2D_wi0v3")
 
 [node name="TopWall" type="Control" parent="ResponsiveLayer/Walls"]
 layout_mode = 3
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
@@ -552,10 +558,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -515.0
-offset_right = 138.0
-offset_bottom = -424.0
+offset_left = 2030.0
+offset_top = -45.5
+offset_right = 2305.0
+offset_bottom = 45.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_swae5")
@@ -580,9 +586,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 76.0
+offset_left = -764.0
 offset_top = -448.0
-offset_right = 665.0
+offset_right = -175.0
 grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
@@ -634,9 +640,9 @@ vertical_alignment = 1
 [node name="Star" type="Control" parent="ResponsiveLayer/EndGameUI"]
 custom_minimum_size = Vector2(500, 500)
 anchors_preset = 0
-offset_left = 40.0
+offset_left = -765.0
 offset_top = 152.0
-offset_right = 540.0
+offset_right = -265.0
 offset_bottom = 652.0
 rotation = -0.0872665
 
@@ -707,9 +713,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -60.0
-offset_top = 170.0
+offset_top = -952.0
 offset_right = 851.0
-offset_bottom = -65.0
+offset_bottom = -1187.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_iyic7")
