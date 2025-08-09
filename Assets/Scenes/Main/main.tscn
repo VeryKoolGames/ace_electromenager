@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=42 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -13,22 +13,25 @@
 [ext_resource type="Script" uid="uid://bq7w2enmpx8oo" path="res://Assets/Scripts/UI/end_game_ui.gd" id="6_g20yk"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="6_swae5"]
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="6_yehcq"]
-[ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="8_lypba"]
 [ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/Managers/machine_spawn_manager.gd" id="9_7uvyi"]
 [ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="9_g20yk"]
 [ext_resource type="PackedScene" uid="uid://bkqrb8awldbnr" path="res://Assets/Scenes/Machines/microwave.tscn" id="9_j3v3k"]
 [ext_resource type="Resource" uid="uid://dbngedwqt8ssj" path="res://Assets/Resources/GameLength.tres" id="9_oe2gw"]
-[ext_resource type="Script" path="res://Assets/Scripts/UI/save_score_pop_up.gd" id="10_iyic7"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="10_lcdef"]
+[ext_resource type="Script" uid="uid://bbl4kprjww6pb" path="res://Assets/Scripts/UI/save_score_pop_up.gd" id="10_iyic7"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="10_yehcq"]
 [ext_resource type="PackedScene" uid="uid://b6kkr3s5xpkl0" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
 [ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
-[ext_resource type="Script" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
-[ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
+[ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
+[ext_resource type="PackedScene" uid="uid://chnpgfe3nlcy5" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
+[ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="26_dacag"]
+[ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="28_ad0oj"]
+[ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
+[ext_resource type="Texture2D" uid="uid://bmr8afsaxl0d7" path="res://Assets/sprites/ButtonShape2.png" id="30_sack4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -38,13 +41,6 @@ size = Vector2(29, 2280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
 size = Vector2(3404, 15)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g20yk"]
-texture = ExtResource("8_lypba")
-texture_margin_left = 43.0
-texture_margin_top = 23.5
-texture_margin_right = 45.0
-region_rect = Rect2(0, 0, 126, 160.75)
 
 [sub_resource type="Animation" id="Animation_g20yk"]
 resource_name = "star_rotation"
@@ -81,14 +77,75 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyic7"]
-texture = ExtResource("10_lcdef")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-modulate_color = Color(0.00784314, 0.678431, 0.486275, 1)
+texture = ExtResource("28_ad0oj")
+texture_margin_left = 11.0
+texture_margin_top = 12.5
+texture_margin_right = 11.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(0, 0.75, 126, 143.5)
 
-[sub_resource type="Animation" id="Animation_lcdef"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8766"]
+texture = ExtResource("29_ns2ik")
+texture_margin_left = 13.5
+texture_margin_top = 18.5
+texture_margin_right = 20.5
+texture_margin_bottom = 18.0
+region_rect = Rect2(4, 4.75, 183, 180.5)
+modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
+
+[sub_resource type="Animation" id="Animation_nfxtm"]
+resource_name = "show_end_screen"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1000, 167), Vector2(-1000, 167), Vector2(33, 167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1000, 632), Vector2(-1000, 632), Vector2(50, 632)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SaveScorePopUp:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.02, 2.2, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3000, 500), Vector2(0, 500), Vector2(0, 500), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tpyc1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -100,7 +157,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-765, 152)]
+"values": [Vector2(33, 167)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,89 +169,37 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-764, 632)]
+"values": [Vector2(67, 632)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/Banner:position")
+tracks/2/path = NodePath("SaveScorePopUp:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2030, 494.5)]
+"values": [Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SaveScorePopUp/Panel:position")
+tracks/3/path = NodePath("MarginContainer:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(900, -952)]
+"values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_oaiys"]
-resource_name = "end_game_enter"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Star:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-765, 152), Vector2(-765, 152), Vector2(150, 152), Vector2(40, 152)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Banner:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 1.26667, 1.53333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2041, 495), Vector2(-137, 495), Vector2(-137, 495), Vector2(-137, 25)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.8, 2.1, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-764, 632), Vector2(-764, 632), Vector2(150, 632), Vector2(76, 632)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SaveScorePopUp/Panel:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.73333, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(900, -952), Vector2(900, -952), Vector2(900, 170)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyic7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad0oj"]
 _data = {
-&"RESET": SubResource("Animation_lcdef"),
-&"end_game_enter": SubResource("Animation_oaiys")
+&"RESET": SubResource("Animation_tpyc1"),
+&"show_end_screen": SubResource("Animation_nfxtm")
 }
 
 [node name="Main" type="Node2D"]
@@ -563,7 +568,9 @@ color = Color(0, 0, 0, 0.607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 111.0
 grow_horizontal = 2
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 
 [node name="Banner" type="TextureRect" parent="ResponsiveLayer/EndGameUI/MarginContainer"]
@@ -573,7 +580,7 @@ layout_mode = 2
 texture = ExtResource("6_swae5")
 expand_mode = 1
 
-[node name="Label" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/MarginContainer/Banner"]
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/MarginContainer/Banner"]
 modulate = Color(0.960784, 0.447059, 0.329412, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -581,21 +588,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/bold_italics_font = ExtResource("10_yehcq")
-theme_override_font_sizes/bold_italics_font_size = 64
-bbcode_enabled = true
-text = "[i][b]PARTIE TERMINEE[/b][/i]"
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 64
+text = "PARTIE TERMINEE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -764.0
+offset_left = 67.0
 offset_top = -448.0
-offset_right = -175.0
+offset_right = 630.0
 grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
@@ -604,53 +610,63 @@ alignment = 1
 layout_mode = 2
 theme_override_constants/margin_right = 150
 
-[node name="Panel" type="Panel" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 180)
+[node name="ReplayButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_g20yk")
+texture_normal = ExtResource("24_tpyc1")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.996078, 0.945098, 0.784314, 1)
-theme_override_font_sizes/italics_font_size = 64
-bbcode_enabled = true
-text = "[i]REJOUER[/i]"
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 48
+text = "REJOUER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
-custom_minimum_size = Vector2(120, 180)
+[node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_g20yk")
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/VBoxContainer/Panel2"]
+[node name="LeaderboardButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("24_tpyc1")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.996078, 0.945098, 0.784314, 1)
-theme_override_font_sizes/italics_font_size = 64
-bbcode_enabled = true
-text = "[i]CLASSEMENT[/i]"
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 48
+text = "CLASSEMENT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Star" type="Control" parent="ResponsiveLayer/EndGameUI"]
 custom_minimum_size = Vector2(500, 500)
-anchors_preset = 0
-offset_left = -765.0
-offset_top = 152.0
-offset_right = -265.0
-offset_bottom = 652.0
+layout_mode = 1
+offset_left = 33.0
+offset_top = 167.0
+offset_right = 533.0
+offset_bottom = 667.0
 rotation = -0.0872665
 
 [node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/EndGameUI/Star"]
@@ -661,7 +677,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.55806
+rotation = 0.174533
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
@@ -673,7 +689,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 3.73259
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
@@ -705,53 +720,68 @@ speed_scale = 0.2
 
 [node name="SaveScorePopUp" type="Control" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
-anchors_preset = 15
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1032.0
+offset_top = 263.0
+offset_right = -100.0
+offset_bottom = 29.0
 grow_horizontal = 2
-grow_vertical = 2
+pivot_offset = Vector2(466, 423)
 mouse_filter = 2
 script = ExtResource("10_iyic7")
 
 [node name="Panel" type="Panel" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -952.0
-offset_right = 851.0
-offset_bottom = -1187.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_iyic7")
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -117.0
+offset_bottom = -187.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 200
+pivot_offset = Vector2(407.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxTexture_iyic7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+custom_minimum_size = Vector2(815, 659)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_top = 20
 
-[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("6_yehcq")
 theme_override_font_sizes/font_size = 64
-text = "Enregistre ton score"
+text = "Publiez votre score"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "et tentez de gagner un prix exclusif !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
@@ -760,59 +790,85 @@ text = "L'email et le pseudonyme doivent être remplies"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 150
-alignment = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
 
-[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.341176, 0.639216, 0.392157, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
 theme_override_font_sizes/font_size = 32
-text = "Email"
+text = "PSEUDONYME (sera public)"
 
-[node name="EmailLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NameLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 z_index = 100
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
+theme_override_colors/selection_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_placeholder_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_t8766")
+placeholder_text = "Ace Challenger Pro Player"
 max_length = 20
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 160
-alignment = 1
+theme_override_constants/margin_top = 20
 
-[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.341176, 0.639216, 0.392157, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
 theme_override_font_sizes/font_size = 32
-text = "Nom"
+text = "ADRESSE E-MAIL (reste privée)"
 
-[node name="NameLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="EmailLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 z_index = 100
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
+theme_override_colors/selection_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_placeholder_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_t8766")
+placeholder_text = "example@ace.com"
 max_length = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+[node name="VBoxContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_right = 40
+
+[node name="SaveButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("30_sack4")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 380.0
-offset_top = -209.0
-offset_right = -370.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 20
-alignment = 1
+grow_vertical = 2
+theme_override_constants/margin_bottom = 10
 
-[node name="SaveButton" type="Button" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton/MarginContainer"]
 layout_mode = 2
-text = "Enregistrer"
-
-[node name="CancelButton" type="Button" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Annuler"
+theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 36
+text = "PUBLIER"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 visible = false
@@ -822,23 +878,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Merci, ton score a bien été enregistré"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AlreadyRegisteredLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_o5d14")
-theme_override_font_sizes/font_size = 32
-text = "Tu es deja enregistré en tant que blabla veut tu peux enregistrer ton score ou créer un nouveau pseudo"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -847,7 +890,7 @@ autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI"]
 libraries = {
-&"": SubResource("AnimationLibrary_iyic7")
+&"": SubResource("AnimationLibrary_ad0oj")
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]

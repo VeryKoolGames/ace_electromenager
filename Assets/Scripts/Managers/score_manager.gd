@@ -10,7 +10,6 @@ var score_buffer := 0
 var buffer_timer: Timer
 var is_transferring_score := false
 var multiplier := 1.0
-var is_first_score := true
 
 var score_label_original_position: Vector2
 
@@ -27,6 +26,8 @@ func _ready() -> void:
 	score_label.text = str(current_score)
 	score_buffer_label.text = ""
 	score_buffer_label.modulate.a = 0
+	await get_tree().process_frame
+	score_label_original_position = score_buffer_label.global_position
 
 func on_score_received(score_value: int) -> void:
 	if score_buffer >= 10:
@@ -36,10 +37,7 @@ func on_score_received(score_value: int) -> void:
 	score_buffer += score_value
 	
 	if score_buffer > 0:
-		if is_first_score:
-			score_label_original_position = score_buffer_label.global_position
-			is_first_score = false
-		score_buffer_label.global_position = score_label_original_position
+		score_buffer_label.position = score_label_original_position
 		score_buffer_label.text = "+" + str(score_buffer)
 		score_buffer_label.modulate.a = 1
 		var buffer_tween = create_tween()
@@ -59,7 +57,7 @@ func _transfer_buffer_to_score() -> void:
 	
 	var score_buffer_tween = create_tween()
 	score_buffer_tween.set_parallel()
-	score_buffer_tween.tween_property(score_buffer_label, "modulate:a", 0, 0.15)
+	score_buffer_tween.tween_property(score_buffer_label, "modulate:a", 0, 0.1)
 	var target_position = score_buffer_label.global_position
 	target_position.y -= 100
 	score_buffer_tween.tween_property(score_buffer_label, "global_position", target_position, 0.1)
@@ -67,8 +65,9 @@ func _transfer_buffer_to_score() -> void:
 	current_score += buffer_amount
 	
 	var score_tween = create_tween()
-	score_tween.tween_method(update_score_display, start_score, current_score, 0.3)
+	score_tween.tween_method(update_score_display, start_score, current_score, 0.2)
 	await score_tween.finished
+	score_buffer_label.position = score_label_original_position
 	
 	var intensity = clamp(buffer_amount / 10.0, 1.0, 1.3)
 	var celebration_tween = create_tween()
@@ -87,7 +86,6 @@ func update_score_display(value: int) -> void:
 	score_label.text = str(value)
 
 func spawn_score_component(machine: Machine) -> void:
-	var machine_score = machine.score_value
 	var score_component = score_ui_component_scene.instantiate() as Control
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var screen_pos = canvas_transform * machine.global_position
