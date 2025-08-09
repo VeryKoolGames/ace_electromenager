@@ -21,7 +21,7 @@ func _process_players_data(data: Array) -> void:
 			line = leaderboard_line_scene.instantiate() as LeaderboardLine
 		else:
 			line = self_leaderboard_line_scene.instantiate() as LeaderboardLine
-		var line_data = ResLeaderboardLine.new(data[index].get("name"), index + 1, data[index].get("highest_score"))
+		var line_data = ResLeaderboardLine.new(data[index].get("pseudo"), index + 1, data[index].get("highest_score"))
 		leaderboard_line_container.add_child(line)
 		line.populate_line(line_data)
 

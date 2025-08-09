@@ -72,3 +72,4 @@ func animate_shot(is_perfect_shot: bool) -> void:
 	var target_scale: Vector2 = scale
 	tween.tween_property(self, "scale", target_scale + scale_factor, 0.1)
 	tween.tween_property(self, "scale", target_scale, 0.1)
+	tween.tween_property(self, "scale", Vector2.ZERO, 0.1)

@@ -23,11 +23,12 @@ script = ExtResource("3_wp0h6")
 position = Vector2(0, -119)
 scale = Vector2(0.5, 0.5)
 
-[node name="BallSpawner" type="Node2D" parent="."]
+[node name="BallSpawner" type="Node2D" parent="." node_paths=PackedStringArray("aiming_arrow")]
 script = ExtResource("4_340hg")
 ball_scene = ExtResource("5_340hg")
 spawn_cooldown = 2
 fast_spawn_cooldown = 0.5
+aiming_arrow = NodePath("../AimingArrow")
 
 [node name="SpawnPoint" type="Node2D" parent="BallSpawner"]
 position = Vector2(0, -76)

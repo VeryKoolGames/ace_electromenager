@@ -4,10 +4,13 @@ class_name BallSpawner
 @export var ball_scene: PackedScene
 @export var spawn_cooldown := 0
 @export var fast_spawn_cooldown := 0.0
+@export var aiming_arrow: Node2D
+var aiming_arrow_base_scale: Vector2
 @onready var spawn_point: Node2D = $SpawnPoint
 @onready var cooldown_timer: Timer = $CooldownTimer
 
 func _ready() -> void:
+	aiming_arrow_base_scale = aiming_arrow.scale
 	spawn_ball()
 	cooldown_timer.wait_time = spawn_cooldown
 	cooldown_timer.timeout.connect(on_cooldown_ended)
@@ -17,6 +20,7 @@ func _ready() -> void:
 func spawn_ball() -> void:
 	if owner.current_ball:
 		return
+	scale_raquette()
 	var ball = ball_scene.instantiate() as Ball
 	call_deferred("add_child", ball)
 	ball.global_position = spawn_point.position
@@ -38,3 +42,7 @@ func on_fast_show_power_up_picked_up(power_up: ResPowerUp) -> void:
 func on_fast_show_power_up_expired(type: ResPowerUp.PowerUpEnum) -> void:
 	if type == ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT:
 		cooldown_timer.wait_time = spawn_cooldown
+
+func scale_raquette() -> void:
+	var tween = create_tween()
+	tween.tween_property(aiming_arrow, "scale", aiming_arrow_base_scale, 0.1)
