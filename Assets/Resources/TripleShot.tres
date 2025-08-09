@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ResPowerUp" load_steps=3 format=3 uid="uid://sawtc1eosm3l"]
 
 [ext_resource type="Script" uid="uid://1624y4xhog4a" path="res://Assets/Resources/res_power_up.gd" id="1_r27jd"]
-[ext_resource type="Texture2D" uid="uid://bo35adutlk4d7" path="res://Assets/sprites/Objet1.png" id="2_sextf"]
+[ext_resource type="Texture2D" uid="uid://t33ba8532mme" path="res://Assets/sprites/Item_Icon3.png" id="2_sextf"]
 
 [resource]
 script = ExtResource("1_r27jd")

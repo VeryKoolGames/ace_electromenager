@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ResFloatValue" load_steps=2 format=3 uid="uid://dbngedwqt8ssj"]
 
-[ext_resource type="Script" uid="uid://cxen80npuihu6" path="res://ResFloatValue.gd" id="1_b1arq"]
+[ext_resource type="Script" path="res://ResFloatValue.gd" id="1_b1arq"]
 
 [resource]
 script = ExtResource("1_b1arq")

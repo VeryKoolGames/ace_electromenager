@@ -1,17 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://18cfkcpcdxsb"]
+[gd_scene load_steps=11 format=3 uid="uid://18cfkcpcdxsb"]
 
-[ext_resource type="Texture2D" uid="uid://bo35adutlk4d7" path="res://Assets/sprites/Objet1.png" id="1_jgpi6"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="1_nc54y"]
 [ext_resource type="Script" uid="uid://po4pte8sovrc" path="res://Assets/Scripts/UI/power_up_line.gd" id="1_yap1t"]
 [ext_resource type="Script" uid="uid://bwjid4t638k48" path="res://Assets/Scripts/Components/scale_on_spawn_component.gd" id="3_jrjw0"]
+[ext_resource type="Texture2D" uid="uid://b0vhamdxbt0kh" path="res://Assets/sprites/Item_Icon2.png" id="3_y843w"]
 [ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="4_mojvk"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="4_y843w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y843w"]
 texture = ExtResource("1_nc54y")
-texture_margin_left = 12.0
-texture_margin_top = 52.0
+texture_margin_left = 26.0
+texture_margin_top = 35.0
 texture_margin_right = 30.0
+texture_margin_bottom = 68.0
+expand_margin_bottom = 22.0
 region_rect = Rect2(0, 0, 126, 160)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y843w"]
+bg_color = Color(0.960784, 0.447059, 0.333333, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8haas"]
+bg_color = Color(0.980392, 0.792157, 0.592157, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsjn6"]
+bg_color = Color(0.964706, 0.478431, 0.360784, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="PowerUpLineUI" type="Panel" node_paths=PackedStringArray("duration_timer", "progress_bar", "sprite_texture", "power_up_label")]
 custom_minimum_size = Vector2(370, 112)
@@ -22,7 +46,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_y843w")
 script = ExtResource("1_yap1t")
 duration_timer = NodePath("DurationTimer")
 progress_bar = NodePath("HBoxContainer/MarginContainer2/VBoxContainer/ProgressBar")
-sprite_texture = NodePath("HBoxContainer/MarginContainer/TextureRect")
+sprite_texture = NodePath("HBoxContainer/MarginContainer/Panel/TextureRect")
 power_up_label = NodePath("HBoxContainer/MarginContainer2/VBoxContainer/Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -37,32 +61,50 @@ theme_override_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = -6
+theme_override_constants/margin_bottom = 22
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(80.07, 0)
 layout_mode = 2
-texture = ExtResource("1_jgpi6")
-expand_mode = 3
-stretch_mode = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_y843w")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 0.0699997
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y843w")
+expand_mode = 4
+stretch_mode = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = 9
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 9
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Drill Shot"
+theme_override_colors/font_color = Color(0, 0.678431, 0.486275, 1)
+theme_override_fonts/font = ExtResource("4_y843w")
+theme_override_font_sizes/font_size = 22
+text = "Triple shot"
+uppercase = true
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
-modulate = Color(0.00784314, 0.678431, 0.486275, 1)
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_8haas")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dsjn6")
+value = 55.26
 show_percentage = false
 
 [node name="DurationTimer" type="Timer" parent="."]

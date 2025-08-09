@@ -17,12 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="9_g20yk"]
 [ext_resource type="PackedScene" uid="uid://bkqrb8awldbnr" path="res://Assets/Scenes/Machines/microwave.tscn" id="9_j3v3k"]
 [ext_resource type="Resource" uid="uid://dbngedwqt8ssj" path="res://Assets/Resources/GameLength.tres" id="9_oe2gw"]
+[ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="10_lcdef"]
 [ext_resource type="Script" uid="uid://bbl4kprjww6pb" path="res://Assets/Scripts/UI/save_score_pop_up.gd" id="10_iyic7"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="10_yehcq"]
 [ext_resource type="PackedScene" uid="uid://b6kkr3s5xpkl0" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
+[ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
-[ext_resource type="PackedScene" uid="uid://ciqr4oulck4q" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="14_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="PackedScene" uid="uid://chnpgfe3nlcy5" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
@@ -292,7 +293,7 @@ y_sort_enabled = true
 script = ExtResource("9_7uvyi")
 spawn_control = NodePath("../SpawnZone")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2"), ExtResource("9_j3v3k")])
-power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("14_cl72i"), ExtResource("22_nfnlt")])
+power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("22_nfnlt"), ExtResource("11_oe2gw")])
 
 [node name="PowerUpCooldown" type="Timer" parent="ResponsiveLayer/Spawner"]
 wait_time = 120.0
