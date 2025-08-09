@@ -14,9 +14,11 @@ func _ready() -> void:
 func on_game_ended() -> void:
 	PlayerData.score = score_manager.current_score
 	animation_player.play("show_end_screen")
+	await get_tree().process_frame
 	show()
 	await get_tree().create_timer(1.5).timeout
 	score_label.text = "[b]%d[/b]\nPTS" % score_manager.current_score
 
 func on_replay_button_clicked() -> void:
+	GameState.set_game_mode()
 	get_tree().change_scene_to_file("res://Assets/Scenes/Main/main.tscn")

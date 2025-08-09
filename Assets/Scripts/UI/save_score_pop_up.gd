@@ -1,15 +1,14 @@
 extends Control
 
-@onready var save_button: TextureButton = $Panel/VBoxContainer/SaveButton
 @onready var http_request: HTTPRequest = $HTTPRequest
-@onready var email_line_edit: LineEdit = $Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/EmailLineEdit
-@onready var name_line_edit: LineEdit = $Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/NameLineEdit
+@onready var name_line_edit: LineEdit = $Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer/NameLineEdit
+@onready var email_line_edit: LineEdit = $Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer/EmailLineEdit
 
-@onready var margin_container: MarginContainer = $Panel/MarginContainer
-@onready var v_box_container: VBoxContainer = $Panel/MarginContainer/VBoxContainer
+@onready var margin_container: ScrollContainer = $Panel/ScrollContainer
 @onready var label: Label = $Panel/Label
-@onready var error_label: Label = $Panel/MarginContainer/VBoxContainer/ErrorLabel
+@onready var error_label: Label = $Panel/ScrollContainer/VBoxContainer/ErrorLabel
 @onready var panel: Panel = $Panel
+@onready var save_button: TextureButton = $Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton
 
 var is_zoomed := false
 var email: String
@@ -19,13 +18,15 @@ var original_panel_position: Vector2
 func _ready() -> void:
 	email_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
 	name_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
+	email_line_edit.text_submitted.connect(unzoom_line_edit)
+	name_line_edit.text_submitted.connect(unzoom_line_edit)
 	save_button.pressed.connect(on_save_button_pressed)
 	http_request.request_completed.connect(_on_request_completed)
 	if SaveSystem.has_saved_player():
 		email_line_edit.text = SaveSystem.player_data.get("email")
 		name_line_edit.text = SaveSystem.player_data.get("pseudo")
 	await get_tree().process_frame
-	original_panel_position = email_line_edit.position
+	original_panel_position = panel.global_position
 
 func on_save_button_pressed() -> void:
 	email = email_line_edit.text
@@ -48,11 +49,10 @@ func on_save_button_pressed() -> void:
 	var headers = ["Content-Type: application/json"]
 	http_request.request("https://niseko-backend.onrender.com/save_player", headers, HTTPClient.METHOD_POST, json)
 
-func _on_request_completed(result, response_code, headers, body):
+func _on_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:
 		var data = JSON.parse_string(body.get_string_from_utf8())
 		margin_container.hide()
-		v_box_container.hide()
 		label.show()
 		SaveSystem.save_player_on_disc(email, pseudo)
 	else:
@@ -61,12 +61,13 @@ func _on_request_completed(result, response_code, headers, body):
 func zoom_on_mail_line_edit(toggled_on: bool) -> void:
 	if is_zoomed and not toggled_on:
 		return
-	var tween = create_tween()
 	if toggled_on:
+		var tween = create_tween()
 		is_zoomed = true
-		var move_up = 0
+		var move_up = -20
 		var move_center = get_viewport().size.x / 2 - panel.size.x / 2
 		tween.tween_property(panel, "global_position", Vector2(move_center, move_up), 0.3)
-	else:
-		is_zoomed = false
-		tween.tween_property(panel, "position", original_panel_position, 0.3)
+
+func unzoom_line_edit(_new_text: String) -> void:
+	var tween = create_tween()
+	tween.tween_property(panel, "global_position", original_panel_position, 0.3)
