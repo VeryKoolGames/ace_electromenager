@@ -1,11 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://d28a62ng3fy67"]
+[gd_scene load_steps=13 format=3 uid="uid://d28a62ng3fy67"]
 
 [ext_resource type="Texture2D" uid="uid://b6a45wq318l42" path="res://Assets/sprites/ArrowShadow.png" id="1_1upm3"]
 [ext_resource type="Texture2D" uid="uid://d21h63ije38ig" path="res://Assets/sprites/ArrowOutline.png" id="1_6ldg8"]
 [ext_resource type="Script" uid="uid://cane2476nvaiy" path="res://Assets/Scripts/Player/aiming_arrow.gd" id="1_rtyix"]
 [ext_resource type="Texture2D" uid="uid://dh2r6qo86pl08" path="res://Assets/sprites/ArrowBG.png" id="3_hlygf"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="4_hlygf"]
+[ext_resource type="Material" uid="uid://cecrbc2mxgwrs" path="res://Assets/Shaders/M_UV_Tiling.tres" id="5_g06xe"]
 [ext_resource type="Texture2D" uid="uid://cejlij7pycc2g" path="res://Assets/sprites/SP_Star.png" id="6_g06xe"]
+
+[sub_resource type="Curve" id="Curve_2u67p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.530242, 0.884681), 0.0, 0.0, 0, 0, Vector2(0.989919, 0.00426471), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b720g"]
+curve = SubResource("Curve_2u67p")
+
+[sub_resource type="Gradient" id="Gradient_1yd8r"]
+offsets = PackedFloat32Array(0.00226244, 0.995475)
+colors = PackedColorArray(0.815686, 0.188235, 0.196078, 1, 1, 0.792157, 0.266667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x472e"]
+gradient = SubResource("Gradient_1yd8r")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ubv2x"]
 resource_local_to_scene = true
@@ -17,7 +32,8 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.6
 scale_max = 0.8
 scale_over_velocity_max = 141.08
-color = Color(1, 0.792157, 0.262745, 1)
+color_initial_ramp = SubResource("GradientTexture1D_x472e")
+alpha_curve = SubResource("CurveTexture_b720g")
 
 [node name="AimingArrow" type="Node2D"]
 script = ExtResource("1_rtyix")
@@ -34,7 +50,7 @@ texture = ExtResource("1_6ldg8")
 offset = Vector2(0, -130)
 
 [node name="Arrow_Fill" type="Sprite2D" parent="."]
-modulate = Color(0.605274, 0.605274, 0.605274, 1)
+modulate = Color(0.658566, 0.662842, 0.648122, 1)
 texture = ExtResource("3_hlygf")
 offset = Vector2(0, -130)
 
@@ -45,6 +61,7 @@ texture = ExtResource("3_hlygf")
 offset = Vector2(0, -130)
 
 [node name="StrengthTextureBar" type="TextureProgressBar" parent="Mask"]
+material = ExtResource("5_g06xe")
 offset_left = -71.0
 offset_top = -251.0
 offset_right = 69.0
