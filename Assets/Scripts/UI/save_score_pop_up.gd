@@ -1,36 +1,31 @@
 extends Control
 
-@onready var save_button: Button = $Panel/VBoxContainer/SaveButton
-@onready var cancel_button: Button = $Panel/VBoxContainer/CancelButton
-@onready var email_line_edit: LineEdit = $Panel/MarginContainer/VBoxContainer/HBoxContainer/EmailLineEdit
-@onready var name_line_edit: LineEdit = $Panel/MarginContainer/VBoxContainer/HBoxContainer2/NameLineEdit
+@onready var save_button: TextureButton = $Panel/VBoxContainer/SaveButton
 @onready var http_request: HTTPRequest = $HTTPRequest
+@onready var email_line_edit: LineEdit = $Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/EmailLineEdit
+@onready var name_line_edit: LineEdit = $Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/NameLineEdit
 
 @onready var margin_container: MarginContainer = $Panel/MarginContainer
-@onready var v_box_container: VBoxContainer = $Panel/VBoxContainer
+@onready var v_box_container: VBoxContainer = $Panel/MarginContainer/VBoxContainer
 @onready var label: Label = $Panel/Label
 @onready var error_label: Label = $Panel/MarginContainer/VBoxContainer/ErrorLabel
-@onready var already_registered_label: Label = $Panel/AlreadyRegisteredLabel
 @onready var panel: Panel = $Panel
 
+var is_zoomed := false
 var email: String
 var pseudo: String
 var original_panel_position: Vector2
 
 func _ready() -> void:
-	print(get_viewport().size)
-	original_panel_position = Vector2(900.0, 170)
 	email_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
+	name_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
 	save_button.pressed.connect(on_save_button_pressed)
-	cancel_button.pressed.connect(on_cancel_button_pressed)
 	http_request.request_completed.connect(_on_request_completed)
-	#if SaveSystem.has_saved_player():
-		#show_already_registered_screen()
-
-func show_already_registered_screen() -> void:
-	margin_container.hide()
-	already_registered_label.text = "Tu es deja enregistré en tant que " + SaveSystem.player_data.get("pseudo") + " tu peux enregistrer ton score ou créer un nouveau pseudo"
-	already_registered_label.show()
+	if SaveSystem.has_saved_player():
+		email_line_edit.text = SaveSystem.player_data.get("email")
+		name_line_edit.text = SaveSystem.player_data.get("pseudo")
+	await get_tree().process_frame
+	original_panel_position = email_line_edit.position
 
 func on_save_button_pressed() -> void:
 	email = email_line_edit.text
@@ -59,20 +54,19 @@ func _on_request_completed(result, response_code, headers, body):
 		margin_container.hide()
 		v_box_container.hide()
 		label.show()
-		already_registered_label.hide()
 		SaveSystem.save_player_on_disc(email, pseudo)
 	else:
 		save_button.disabled = false
 
-func on_cancel_button_pressed() -> void:
-	queue_free()
-
 func zoom_on_mail_line_edit(toggled_on: bool) -> void:
-	print(get_viewport().size)
+	if is_zoomed and not toggled_on:
+		return
 	var tween = create_tween()
 	if toggled_on:
-		var move_up = (get_viewport().size.y * 0.5)
+		is_zoomed = true
+		var move_up = 0
 		var move_center = get_viewport().size.x / 2 - panel.size.x / 2
-		tween.tween_property(panel, "position", original_panel_position - Vector2(move_center, move_up), 0.3)
+		tween.tween_property(panel, "global_position", Vector2(move_center, move_up), 0.3)
 	else:
+		is_zoomed = false
 		tween.tween_property(panel, "position", original_panel_position, 0.3)
