@@ -4,6 +4,8 @@ class_name Raquette
 var is_facing_right := true
 
 func _input(event):
+	if not GameState.is_in_game_mode():
+		return
 	if event is InputEventScreenTouch and event.pressed:
 		handle_input_position(event.position)
 	elif event is InputEventMouseButton and event.pressed:
