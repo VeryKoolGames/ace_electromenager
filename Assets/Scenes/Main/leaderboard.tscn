@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=14 format=3 uid="uid://drf66dvcj6n1f"]
 
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="2_mrngu"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ccplne1w8otuf" path="res://Assets/sprites/Pannel2.png" id="6_mrngu"]
 [ext_resource type="PackedScene" uid="uid://dhb6ym1ispdjl" path="res://Assets/Scenes/UI/leaderboard_line.tscn" id="6_o2pn0"]
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="7_q2rrb"]
-[ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="8_vkddw"]
+[ext_resource type="Texture2D" uid="uid://c6k75j71jbvva" path="res://Assets/sprites/ButtonShape3.png" id="8_vkddw"]
+[ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="9_4yrqk"]
+[ext_resource type="FontFile" uid="uid://beqh1umr2231" path="res://Assets/Fonts/Dienstag_Light.otf" id="9_vqn08"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
 texture = ExtResource("2_mrngu")
@@ -133,18 +135,32 @@ autowrap_mode = 2
 [node name="LeftContainer" type="VBoxContainer" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 247.0
+offset_right = 230.0
 grow_vertical = 2
 
 [node name="MarginBackButton" type="MarginContainer" parent="LeftContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 35
-theme_override_constants/margin_top = 150
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 105
 
 [node name="TextureButton" type="TextureButton" parent="LeftContainer/MarginBackButton"]
 layout_mode = 2
 texture_normal = ExtResource("8_vkddw")
+texture_pressed = ExtResource("9_4yrqk")
+
+[node name="Label" type="Label" parent="LeftContainer/MarginBackButton/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_vqn08")
+theme_override_font_sizes/font_size = 128
+text = "←"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginGlobalButton" type="MarginContainer" parent="LeftContainer"]
 visible = false
