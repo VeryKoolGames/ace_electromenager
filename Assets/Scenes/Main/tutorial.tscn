@@ -1,0 +1,339 @@
+[gd_scene load_steps=24 format=3 uid="uid://clwemynit8mdd"]
+
+[ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
+[ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="2_6rwrp"]
+[ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="3_paycb"]
+[ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/Managers/machine_spawn_manager.gd" id="4_wu0vg"]
+[ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="5_jrs6e"]
+[ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/washing_machine.tscn" id="6_tywnt"]
+[ext_resource type="PackedScene" uid="uid://b6kkr3s5xpkl0" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="7_3t7ke"]
+[ext_resource type="PackedScene" uid="uid://bkqrb8awldbnr" path="res://Assets/Scenes/Machines/microwave.tscn" id="8_ht2wp"]
+[ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="9_gejnh"]
+[ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="10_oea5r"]
+[ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_v6o7g"]
+[ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="12_l8q8i"]
+[ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scripts/Managers/score_manager.gd" id="13_w35ne"]
+[ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="14_j2r2r"]
+[ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="15_377uc"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="16_ia1vl"]
+[ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="19_5qcfn"]
+[ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="20_oedxg"]
+[ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="29_o7e8p"]
+[ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="30_c1lqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
+size = Vector2(762, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi0v3"]
+size = Vector2(29, 2280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
+size = Vector2(3404, 15)
+
+[node name="Main" type="Node2D"]
+
+[node name="ResponsiveLayer" type="CanvasLayer" parent="."]
+
+[node name="Decors" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="ResponsiveLayer/Decors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00392157, 0.72549, 0.517647, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/Decors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 150
+
+[node name="ColorRect" type="ColorRect" parent="ResponsiveLayer/Decors/MarginContainer"]
+layout_mode = 2
+color = Color(0.960784, 0.447059, 0.329412, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/Decors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_right = 120
+
+[node name="Edges" type="TextureRect" parent="ResponsiveLayer/Decors/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("1_wbeqx")
+expand_mode = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="ResponsiveLayer/Decors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 20
+
+[node name="TennisField" type="TextureRect" parent="ResponsiveLayer/Decors/MarginContainer3"]
+layout_mode = 2
+texture = ExtResource("2_6rwrp")
+expand_mode = 1
+
+[node name="PlayerPos" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Player" parent="ResponsiveLayer/PlayerPos" instance=ExtResource("3_paycb")]
+
+[node name="Spawner" type="Node2D" parent="ResponsiveLayer" node_paths=PackedStringArray("spawn_control")]
+y_sort_enabled = true
+script = ExtResource("4_wu0vg")
+spawn_control = NodePath("../SpawnZone")
+machines = Array[PackedScene]([ExtResource("5_jrs6e"), ExtResource("6_tywnt"), ExtResource("7_3t7ke"), ExtResource("8_ht2wp")])
+power_ups = Array[PackedScene]([ExtResource("9_gejnh"), ExtResource("10_oea5r"), ExtResource("11_v6o7g")])
+
+[node name="PowerUpCooldown" type="Timer" parent="ResponsiveLayer/Spawner"]
+wait_time = 120.0
+one_shot = true
+
+[node name="NestPos" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 144.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nest" type="StaticBody2D" parent="ResponsiveLayer/NestPos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/NestPos/Nest"]
+shape = SubResource("RectangleShape2D_c83bt")
+one_way_collision = true
+
+[node name="RefPos" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 45.0
+offset_right = -262.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ResponsiveLayer/RefPos/RefChair"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_l8q8i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ResponsiveLayer/RefPos/RefChair"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ResponsiveLayer/RefPos/RefChair/StaticBody2D"]
+position = Vector2(0.5, 28)
+polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)
+
+[node name="SpawnZone" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 166.0
+offset_right = -200.0
+offset_bottom = -466.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Walls" type="Node" parent="ResponsiveLayer"]
+
+[node name="LeftWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = 595.0
+offset_right = -360.0
+offset_bottom = -585.0
+grow_vertical = 2
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/LeftWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/LeftWall/Area2D"]
+shape = SubResource("RectangleShape2D_wi0v3")
+
+[node name="RightWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -140.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/RightWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/RightWall/Area2D"]
+shape = SubResource("RectangleShape2D_wi0v3")
+
+[node name="TopWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 115.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/TopWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/TopWall/Area2D"]
+shape = SubResource("RectangleShape2D_oe2gw")
+
+[node name="BotWall" type="Control" parent="ResponsiveLayer/Walls"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Area2D" type="StaticBody2D" parent="ResponsiveLayer/Walls/BotWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResponsiveLayer/Walls/BotWall/Area2D"]
+shape = SubResource("RectangleShape2D_oe2gw")
+
+[node name="GameUI" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+size_flags_horizontal = 0
+
+[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 249.0
+offset_top = -331.0
+offset_right = 549.0
+offset_bottom = -104.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+script = ExtResource("13_w35ne")
+score_ui_component_scene = ExtResource("14_j2r2r")
+
+[node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 48
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_fonts/font = ExtResource("16_ia1vl")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ScoreBufferLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
+theme_override_fonts/font = ExtResource("16_ia1vl")
+theme_override_font_sizes/font_size = 40
+text = "+ 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerUpContainer" type="Node2D" parent="ResponsiveLayer/GameUI/ScoreManager"]
+position = Vector2(-249, -749)
+
+[node name="PowerUpUI" type="Control" parent="ResponsiveLayer"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_5qcfn")
+power_up_line_scene = ExtResource("20_oedxg")
+
+[node name="PowerUpContainer" type="VBoxContainer" parent="ResponsiveLayer/PowerUpUI"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 410.0
+offset_bottom = 636.0
+theme_override_constants/separation = 20
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("29_o7e8p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_c1lqy")
+autoplay = true

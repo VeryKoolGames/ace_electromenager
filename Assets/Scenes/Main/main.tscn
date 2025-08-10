@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=41 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -24,13 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
-[ext_resource type="Script" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
+[ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="26_dacag"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="28_ad0oj"]
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
-[ext_resource type="Texture2D" uid="uid://bmr8afsaxl0d7" path="res://Assets/sprites/ButtonShape2.png" id="30_sack4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -729,6 +728,7 @@ offset_top = 263.0
 offset_right = -100.0
 offset_bottom = 29.0
 grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(466, 423)
 mouse_filter = 2
 script = ExtResource("10_iyic7")
@@ -847,11 +847,11 @@ max_length = 20
 [node name="VBoxContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_top = -20
 
 [node name="SaveButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("30_sack4")
+texture_normal = ExtResource("24_tpyc1")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton"]
 layout_mode = 1
