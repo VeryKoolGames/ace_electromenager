@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=53 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -26,7 +26,10 @@
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
+[ext_resource type="Texture2D" uid="uid://cfx6tafkyp2nr" path="res://Assets/sprites/PauseIcon.png" id="21_iroru"]
+[ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="22_3jb74"]
 [ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
+[ext_resource type="Texture2D" uid="uid://rrau5ijpvooe" path="res://Assets/sprites/MaquettePauseMenu.png" id="22_s0kou"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="25_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="26_ad0oj"]
@@ -35,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="32_sack4"]
 [ext_resource type="Script" uid="uid://b48kebaav8b0k" path="res://Assets/Scripts/pause_menu.gd" id="33_t8766"]
-[ext_resource type="Texture2D" uid="uid://bnapbj4wso7u6" path="res://icon.svg" id="34_iroru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -45,6 +47,14 @@ size = Vector2(29, 2280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
 size = Vector2(3404, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jb74"]
+texture = ExtResource("22_3jb74")
+texture_margin_left = 15.0
+texture_margin_top = 18.0
+texture_margin_right = 16.5
+texture_margin_bottom = 15.0
+region_rect = Rect2(0, 0, 126, 125.75)
 
 [sub_resource type="Animation" id="Animation_g20yk"]
 resource_name = "star_rotation"
@@ -621,12 +631,12 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
 
 [node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
 layout_mode = 2
-texture_normal = ExtResource("34_iroru")
+texture_normal = ExtResource("21_iroru")
 
 [node name="Control" type="Control" parent="ResponsiveLayer/PauseMenu"]
 process_mode = 2
@@ -646,6 +656,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.580392)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 52.0
+offset_right = 300.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 115)
+theme_override_constants/separation = 30
+
+[node name="Panel" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 64
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 0.196078)
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.819608, 0.819608, 0.67451, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "CLIQUEZ POUR REPRENDRE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PowerUpUI" type="Control" parent="ResponsiveLayer"]
 z_index = 100
@@ -1082,6 +1149,11 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("19_oaiys")
+
+[node name="MaquettePauseMenu" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(952, 1604)
+texture = ExtResource("22_s0kou")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_dacag")

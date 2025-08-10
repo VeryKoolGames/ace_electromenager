@@ -6,20 +6,28 @@ var current_ball: Ball
 var shooting_behavior: ShootingBehavior
 var active_powerups: Dictionary = {}
 @onready var raquette: Raquette = $RaquetteSprite
+var borders_size := 150
 
 func _ready() -> void:
 	shooting_behavior = BasicShot.new()
 	Events.on_power_up_gathered.connect(on_power_up_picked_up)
 
 func _input(event: InputEvent) -> void:
+	check_if_click_is_outside_borders()
 	if not GameState.is_in_game_mode():
 		return
-	if current_ball and event.is_action_pressed("shoot"):
+	if current_ball and event.is_action_pressed("shoot") and check_if_click_is_outside_borders():
 		aiming_arrow.start_charging_shot()
 		raquette.play_prepare_raquette_shoot_anim()
-	elif current_ball and event.is_action_released("shoot") and aiming_arrow.is_player_shooting:
+	elif current_ball and event.is_action_released("shoot") and aiming_arrow.is_player_shooting and check_if_click_is_outside_borders():
 		shoot_ball(aiming_arrow.stop_charging_shot())
 		raquette.play_raquette_shoot_anim()
+
+func check_if_click_is_outside_borders() -> bool:
+	var x_mouse_pos = get_global_mouse_position().x
+	if x_mouse_pos < borders_size or x_mouse_pos > get_viewport().size.x - borders_size:
+		return false
+	return true
 
 func on_power_up_picked_up(power_up: ResPowerUp) -> void:
 	if power_up.type in active_powerups:
@@ -39,21 +47,16 @@ func add_powerup(power_up: ResPowerUp) -> void:
 	timer.timeout.connect(func(): remove_powerup(power_up.type))
 	add_child(timer)
 	timer.start()
-
 	active_powerups[power_up.type] = timer
-	
 	Events.on_power_up_activated.emit(power_up)
 
 func remove_powerup(type: ResPowerUp.PowerUpEnum) -> void:
 	if type not in active_powerups:
 		return
-	
 	var timer = active_powerups[type]
 	timer.queue_free()
 	active_powerups.erase(type)
-	
 	rebuild_shooting_behavior()
-	
 	Events.on_power_up_expired.emit(type)
 
 func rebuild_shooting_behavior() -> void:
