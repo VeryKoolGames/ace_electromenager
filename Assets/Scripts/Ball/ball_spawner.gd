@@ -2,7 +2,7 @@ extends Node2D
 class_name BallSpawner
 
 @export var ball_scene: PackedScene
-@export var spawn_cooldown := 0
+@export var spawn_cooldown: ResFloatValue
 @export var fast_spawn_cooldown := 0.0
 @export var aiming_arrow: Node2D
 var aiming_arrow_base_scale: Vector2
@@ -12,7 +12,7 @@ var aiming_arrow_base_scale: Vector2
 func _ready() -> void:
 	aiming_arrow_base_scale = aiming_arrow.scale
 	spawn_ball()
-	cooldown_timer.wait_time = spawn_cooldown
+	cooldown_timer.wait_time = spawn_cooldown.value
 	cooldown_timer.timeout.connect(on_cooldown_ended)
 	Events.on_power_up_activated.connect(on_fast_show_power_up_picked_up)
 	Events.on_power_up_expired.connect(on_fast_show_power_up_expired)
@@ -41,7 +41,7 @@ func on_fast_show_power_up_picked_up(power_up: ResPowerUp) -> void:
 
 func on_fast_show_power_up_expired(type: ResPowerUp.PowerUpEnum) -> void:
 	if type == ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT:
-		cooldown_timer.wait_time = spawn_cooldown
+		cooldown_timer.wait_time = spawn_cooldown.value
 
 func scale_raquette() -> void:
 	var tween = create_tween()

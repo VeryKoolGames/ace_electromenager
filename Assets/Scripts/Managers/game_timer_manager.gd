@@ -13,9 +13,15 @@ func _ready() -> void:
 	}
 	game_timer.timeout.connect(end_game)
 	game_timer.wait_time = game_length.value
+	timer_label.text = time_to_minutes_secs(game_length.value)
+	Events.on_game_started.connect(on_game_start)
+
+func on_game_start() -> void:
 	start_timer()
 
 func _process(_delta: float) -> void:
+	if game_timer.is_stopped():
+		return
 	timer_label.text = time_to_minutes_secs(game_timer.time_left)
 	check_game_states_tresholds()
 

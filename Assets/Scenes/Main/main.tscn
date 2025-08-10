@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=48 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="26_dacag"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="28_ad0oj"]
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
+[ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="32_sack4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -201,6 +202,81 @@ tracks/3/keys = {
 _data = {
 &"RESET": SubResource("Animation_tpyc1"),
 &"show_end_screen": SubResource("Animation_nfxtm")
+}
+
+[sub_resource type="Animation" id="Animation_ns2ik"]
+resource_name = "game_start"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.4, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3000, 500), Vector2(0, 500), Vector2(0, 500), Vector2(-3000, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.95, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sack4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8766"]
+_data = {
+&"RESET": SubResource("Animation_sack4"),
+&"game_start": SubResource("Animation_ns2ik")
 }
 
 [node name="Main" type="Node2D"]
@@ -570,7 +646,10 @@ color = Color(0, 0, 0, 0.607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 111.0
+offset_left = 3000.0
+offset_top = 500.0
+offset_right = 3000.0
+offset_bottom = 611.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
@@ -601,9 +680,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 67.0
+offset_left = -1000.0
 offset_top = -448.0
-offset_right = 713.0
+offset_right = -354.0
 grow_vertical = 0
 theme_override_constants/separation = 0
 alignment = 1
@@ -669,9 +748,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 0
-offset_left = 33.0
+offset_left = -1000.0
 offset_top = 167.0
-offset_right = 533.0
+offset_right = -500.0
 offset_bottom = 667.0
 rotation = -0.0872665
 
@@ -900,6 +979,64 @@ autowrap_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_ad0oj")
 }
+
+[node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("32_sack4")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/CountdownStartUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.580392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/CountdownStartUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_t8766")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/CountdownStartUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -3000.0
+offset_top = 500.0
+offset_right = -3000.0
+offset_bottom = 611.0
+grow_horizontal = 2
+pivot_offset = Vector2(960, 55.5)
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+
+[node name="Banner" type="TextureRect" parent="ResponsiveLayer/CountdownStartUI/MarginContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+texture = ExtResource("6_swae5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ResponsiveLayer/CountdownStartUI/MarginContainer/Banner"]
+modulate = Color(0.960784, 0.447059, 0.329412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 64
+text = "C'EST PARTI !"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
