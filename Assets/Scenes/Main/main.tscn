@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=53 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="32_sack4"]
 [ext_resource type="Script" uid="uid://b48kebaav8b0k" path="res://Assets/Scripts/pause_menu.gd" id="33_t8766"]
+[ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="36_s0kou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -759,7 +760,10 @@ color = Color(0, 0, 0, 0.607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 111.0
+offset_left = 3000.0
+offset_top = 500.0
+offset_right = 3000.0
+offset_bottom = 611.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
@@ -790,9 +794,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 67.0
+offset_left = -1000.0
 offset_top = -448.0
-offset_right = 713.0
+offset_right = -354.0
 grow_vertical = 0
 theme_override_constants/separation = 0
 alignment = 1
@@ -858,9 +862,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 0
-offset_left = 33.0
+offset_left = -1000.0
 offset_top = 167.0
-offset_right = 533.0
+offset_right = -500.0
 offset_bottom = 667.0
 rotation = -0.0872665
 
@@ -1118,7 +1122,10 @@ libraries = {
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 111.0
+offset_left = -3000.0
+offset_top = 500.0
+offset_right = -3000.0
+offset_bottom = 611.0
 grow_horizontal = 2
 pivot_offset = Vector2(960, 55.5)
 theme_override_constants/margin_left = 0
@@ -1144,6 +1151,11 @@ theme_override_font_sizes/font_size = 64
 text = "C'EST PARTI !"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RepaireParticlesManager" type="Node" parent="ResponsiveLayer"]
+script = ExtResource("36_s0kou")
+
+[node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

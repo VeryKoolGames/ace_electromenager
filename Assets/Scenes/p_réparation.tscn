@@ -37,7 +37,9 @@ turbulence_noise_scale = 4.56
 [node name="P_Réparation" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 3
 texture = ExtResource("1_ff6ec")
+one_shot = true
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_ku1tu")

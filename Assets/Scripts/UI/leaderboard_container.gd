@@ -41,7 +41,7 @@ func _retrieve_player_scores_data() -> void:
 	http_request.request("https://niseko-backend.onrender.com/get_all_players")
 
 func check_if_self(data: Dictionary) -> bool:
-	if data.get("pseudo") == SaveSystem.get_player_data().get("pseudo") and data.get("email") == SaveSystem.get_player_data().get("email"):
+	if data.get("email") == SaveSystem.get_player_data().get("email"):
 		return true
 	return false
 	
