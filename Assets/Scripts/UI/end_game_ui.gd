@@ -6,9 +6,9 @@ extends Control
 @onready var replay_button: TextureButton = $VBoxContainer/MarginContainer/ReplayButton
 @onready var leaderboard_button: TextureButton = $VBoxContainer/MarginContainer2/LeaderboardButton
 
-
 func _ready() -> void:
 	replay_button.pressed.connect(on_replay_button_clicked)
+	leaderboard_button.pressed.connect(on_leaderboard_button_clicked)
 	Events.on_game_timer_ended.connect(on_game_ended)
 
 func on_game_ended() -> void:
@@ -20,5 +20,7 @@ func on_game_ended() -> void:
 	score_label.text = "[b]%d[/b]\nPTS" % score_manager.current_score
 
 func on_replay_button_clicked() -> void:
-	GameState.set_game_mode()
-	get_tree().change_scene_to_file("res://Assets/Scenes/Main/main.tscn")
+	TransitionManager.play_transition(TransitionManager.MainScenesEnum.GAME)
+
+func on_leaderboard_button_clicked() -> void:
+	TransitionManager.play_transition(TransitionManager.MainScenesEnum.LEADERBOARD)

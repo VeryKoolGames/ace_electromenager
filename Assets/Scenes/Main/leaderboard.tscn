@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=15 format=3 uid="uid://drf66dvcj6n1f"]
 
+[ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_li4bx"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="2_mrngu"]
 [ext_resource type="Script" uid="uid://cwpw40varbtgy" path="res://Assets/Scripts/UI/leaderboard_container.gd" id="3_mrngu"]
@@ -26,6 +27,7 @@ texture_margin_left = 50.0
 texture_margin_right = 50.0
 
 [node name="Leaderboard" type="CanvasLayer"]
+script = ExtResource("1_li4bx")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -143,12 +145,12 @@ layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 105
 
-[node name="TextureButton" type="TextureButton" parent="LeftContainer/MarginBackButton"]
+[node name="BackButton" type="TextureButton" parent="LeftContainer/MarginBackButton"]
 layout_mode = 2
 texture_normal = ExtResource("8_vkddw")
 texture_pressed = ExtResource("9_4yrqk")
 
-[node name="Label" type="Label" parent="LeftContainer/MarginBackButton/TextureButton"]
+[node name="Label" type="Label" parent="LeftContainer/MarginBackButton/BackButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

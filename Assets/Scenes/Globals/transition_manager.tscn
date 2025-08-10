@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3ddgs78y6a1"]
+
+[ext_resource type="Script" uid="uid://c7mrxtnp6msn" path="res://Assets/Scripts/UI/transition_ui.gd" id="1_wykoa"]
+[ext_resource type="Texture2D" uid="uid://du1ad2baoir4g" path="res://Assets/sprites/Transition.png" id="2_p410w"]
+
+[node name="TransitionManager" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_wykoa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -4514.0
+offset_top = -2257.0
+offset_bottom = 2257.0
+grow_vertical = 2
+pivot_offset = Vector2(2257, 2257)
+texture = ExtResource("2_p410w")
+stretch_mode = 2

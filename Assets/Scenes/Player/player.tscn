@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch6ioi1a5wa3a"]
+[gd_scene load_steps=8 format=3 uid="uid://ch6ioi1a5wa3a"]
 
 [ext_resource type="Script" uid="uid://cwtice5ghbvj5" path="res://Assets/Scripts/Player/player.gd" id="1_3b2lm"]
 [ext_resource type="Texture2D" uid="uid://c3tnwvd0p6g41" path="res://Assets/sprites/Raquette.png" id="2_wp0h6"]
@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://ianf0n73dkr4" path="res://Assets/Scripts/Player/raquette.gd" id="3_wp0h6"]
 [ext_resource type="Script" uid="uid://fpx7vinicqon" path="res://Assets/Scripts/Ball/ball_spawner.gd" id="4_340hg"]
 [ext_resource type="PackedScene" uid="uid://bua6ps1mia14x" path="res://Assets/Scenes/Ball/ball.tscn" id="5_340hg"]
+[ext_resource type="Resource" uid="uid://bst336m5t7gut" path="res://Assets/Resources/BallSpawnTimer.tres" id="7_fg6bc"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3b2lm")
 
 [node name="RaquetteSprite" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(-1, 18)
 rotation = -0.698132
 scale = Vector2(0.5, 0.5)
@@ -26,7 +26,7 @@ scale = Vector2(0.5, 0.5)
 [node name="BallSpawner" type="Node2D" parent="." node_paths=PackedStringArray("aiming_arrow")]
 script = ExtResource("4_340hg")
 ball_scene = ExtResource("5_340hg")
-spawn_cooldown = 2
+spawn_cooldown = ExtResource("7_fg6bc")
 fast_spawn_cooldown = 0.5
 aiming_arrow = NodePath("../AimingArrow")
 
