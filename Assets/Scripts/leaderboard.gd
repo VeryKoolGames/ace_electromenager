@@ -1,10 +1,9 @@
-extends Control
+extends CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
+@onready var back_button: TextureButton = $LeftContainer/MarginBackButton/BackButton
+
 func _ready() -> void:
-	pass # Replace with function body.
+	back_button.pressed.connect(transition_to_main_scene)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func transition_to_main_scene() -> void:
+	TransitionManager.play_transition(TransitionManager.MainScenesEnum.START)

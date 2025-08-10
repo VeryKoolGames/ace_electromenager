@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=44 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
+[ext_resource type="Script" uid="uid://boelol5mt86c3" path="res://Assets/Scripts/game_manager.gd" id="1_nfxtm"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="2_32s5x"]
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="3_fd4wd"]
 [ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/washing_machine.tscn" id="3_fh41q"]
@@ -27,6 +28,8 @@
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
+[ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="25_tpyc1"]
+[ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="26_ad0oj"]
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="26_dacag"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="28_ad0oj"]
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
@@ -201,6 +204,7 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_nfxtm")
 
 [node name="ResponsiveLayer" type="CanvasLayer" parent="."]
 
@@ -599,9 +603,9 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 67.0
 offset_top = -448.0
-offset_right = 630.0
+offset_right = 713.0
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
@@ -610,7 +614,8 @@ theme_override_constants/margin_right = 150
 
 [node name="ReplayButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer"]
 layout_mode = 2
-texture_normal = ExtResource("24_tpyc1")
+texture_normal = ExtResource("25_tpyc1")
+texture_pressed = ExtResource("26_ad0oj")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton"]
 layout_mode = 1
@@ -619,6 +624,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton/MarginContainer"]
@@ -632,12 +638,13 @@ vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 
 [node name="LeaderboardButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-texture_normal = ExtResource("24_tpyc1")
+texture_normal = ExtResource("25_tpyc1")
+texture_pressed = ExtResource("26_ad0oj")
 stretch_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton"]

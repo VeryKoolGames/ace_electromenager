@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ace_electromenager"
-run/main_scene="uid://c34k2plt0b38u"
+run/main_scene="uid://dgkq2d5pihdty"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,7 @@ GameState="*res://Assets/Scripts/Globals/GameState.gd"
 OrientationManager="*res://Assets/Scripts/Responsive/orientation_manager.gd"
 PlayerData="*res://player_data.gd"
 SaveSystem="*res://Assets/Scripts/Globals/save_system.gd"
+TransitionManager="*res://Assets/Scenes/Globals/transition_manager.tscn"
 
 [display]
 
