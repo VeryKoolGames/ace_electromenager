@@ -25,7 +25,7 @@ func play_transition(scene_to_transition_to: MainScenesEnum) -> void:
 	transi_screen.position = original_pos
 	transi_screen.rotation = original_rotation
 	var scene = scenes_dict[scene_to_transition_to]
-	var target_position = transi_screen.position.x / 2 + get_tree().root.get_viewport().size.x / 2
+	var target_position = transi_screen.position.x / 2 + get_tree().root.get_visible_rect().size.x / 2
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(transi_screen, "position:x", target_position, 0.4)

@@ -23,6 +23,7 @@ OrientationManager="*res://Assets/Scripts/Responsive/orientation_manager.gd"
 PlayerData="*res://player_data.gd"
 SaveSystem="*res://Assets/Scripts/Globals/save_system.gd"
 TransitionManager="*res://Assets/Scenes/Globals/transition_manager.tscn"
+ParticleCache="*res://Assets/Scripts/Globals/ParticleCache.gd"
 
 [display]
 

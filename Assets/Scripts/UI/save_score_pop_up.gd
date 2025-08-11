@@ -16,10 +16,11 @@ var pseudo: String
 var original_panel_position: Vector2
 
 func _ready() -> void:
-	email_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
-	name_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
-	email_line_edit.text_submitted.connect(unzoom_line_edit)
-	name_line_edit.text_submitted.connect(unzoom_line_edit)
+	if OS.get_name() == "iOS" or OS.get_name() == "Android":
+		email_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
+		name_line_edit.editing_toggled.connect(zoom_on_mail_line_edit)
+		email_line_edit.text_submitted.connect(unzoom_line_edit)
+		name_line_edit.text_submitted.connect(unzoom_line_edit)
 	save_button.pressed.connect(on_save_button_pressed)
 	http_request.request_completed.connect(_on_request_completed)
 	if SaveSystem.has_saved_player():

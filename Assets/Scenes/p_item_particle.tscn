@@ -1,44 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn6ovy2c3xmux"]
+[gd_scene load_steps=3 format=3 uid="uid://bn6ovy2c3xmux"]
 
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="1_4pto4"]
-
-[sub_resource type="Curve" id="Curve_g4vx6"]
-_data = [Vector2(0.792, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7115, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_823pb"]
-curve = SubResource("Curve_g4vx6")
-
-[sub_resource type="Curve" id="Curve_2oqgl"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.168, 1), 0.0, 0.0, 0, 0, Vector2(0.812, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_8pndp"]
-curve = SubResource("Curve_2oqgl")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_soay4"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(32.91, 1, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, -3.65, 0)
-spread = 8.871
-initial_velocity_min = 24.0
-initial_velocity_max = 50.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.05
-scale_max = 0.15
-scale_curve = SubResource("CurveTexture_8pndp")
-color = Color(1, 1, 0.662745, 1)
-alpha_curve = SubResource("CurveTexture_823pb")
-turbulence_noise_strength = 1.63
-turbulence_noise_scale = 1.354
-turbulence_noise_speed = Vector3(1, 0, 0)
-turbulence_noise_speed_random = 0.41
-turbulence_influence_min = 0.01
-turbulence_influence_max = 0.012
-turbulence_initial_displacement_min = 11.8
-turbulence_initial_displacement_max = 46.0
+[ext_resource type="Material" uid="uid://bus8ys0w0jw0e" path="res://Assets/Materials/p_item_particle.tres" id="2_g4vx6"]
 
 [node name="P_ItemParticle" type="Node2D"]
 
@@ -46,4 +9,4 @@ turbulence_initial_displacement_max = 46.0
 amount = 10
 texture = ExtResource("1_4pto4")
 lifetime = 2.11
-process_material = SubResource("ParticleProcessMaterial_soay4")
+process_material = ExtResource("2_g4vx6")
