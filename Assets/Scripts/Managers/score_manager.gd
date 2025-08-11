@@ -10,7 +10,7 @@ var score_buffer := 0
 var buffer_timer: Timer
 var is_transferring_score := false
 var multiplier := 1.0
-
+var score_buffer_tween: Tween
 var score_label_original_position: Vector2
 
 func _ready() -> void:
@@ -28,6 +28,7 @@ func _ready() -> void:
 	score_buffer_label.modulate.a = 0
 	await get_tree().process_frame
 	score_label_original_position = score_buffer_label.global_position
+	print(score_label_original_position)
 
 func on_score_received(score_value: int) -> void:
 	if score_buffer >= 10:
@@ -37,8 +38,10 @@ func on_score_received(score_value: int) -> void:
 	score_buffer += score_value
 	
 	if score_buffer > 0:
-		score_buffer_label.position = score_label_original_position
+		if score_buffer_tween and score_buffer_tween.is_running():
+			score_buffer_tween.kill()
 		score_buffer_label.text = "+" + str(score_buffer)
+		score_buffer_label.global_position = score_label_original_position
 		score_buffer_label.modulate.a = 1
 		var buffer_tween = create_tween()
 		buffer_tween.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
@@ -55,7 +58,7 @@ func _transfer_buffer_to_score() -> void:
 	var buffer_amount = score_buffer
 	score_buffer = 0
 	
-	var score_buffer_tween = create_tween()
+	score_buffer_tween = create_tween()
 	score_buffer_tween.set_parallel()
 	score_buffer_tween.tween_property(score_buffer_label, "modulate:a", 0, 0.1)
 	var target_position = score_buffer_label.global_position
@@ -94,8 +97,8 @@ func spawn_score_component(machine: Machine) -> void:
 	score_component.show_score(machine.score_value)
 	
 	var target_pos = score_label_original_position
-	target_pos.x += 100
-	target_pos.y -= 30
+	target_pos.x += score_buffer_label.size.x / 4
+	target_pos.y -= score_buffer_label.size.y / 2
 	var tween = create_tween()
 	
 	tween.tween_property(score_component, "global_position", target_pos, 0.2).set_delay(0.4)
