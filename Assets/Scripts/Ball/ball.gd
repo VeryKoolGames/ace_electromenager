@@ -79,6 +79,7 @@ func check_collisions(collision_info: KinematicCollision2D) -> void:
 		else:
 			start_velocity = start_velocity.bounce(collision_info.get_normal())
 			start_velocity *= speed_reduction_on_wall_bounce
+			AudioManager.play_rebound_sound()
 
 func check_if_ball_is_stopped() -> void:
 	if time_since_last_check >= check_interval:

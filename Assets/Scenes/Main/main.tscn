@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=51 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="3_fd4wd"]
 [ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/washing_machine.tscn" id="3_fh41q"]
 [ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scripts/Managers/score_manager.gd" id="3_tmbkf"]
-[ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="4_c83bt"]
 [ext_resource type="Script" uid="uid://d4g0i50hhx6nq" path="res://Assets/Scripts/Managers/game_timer_manager.gd" id="4_tmbkf"]
 [ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="5_o5d14"]
 [ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="5_umyng"]
@@ -22,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="10_qay54"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="10_yehcq"]
 [ext_resource type="PackedScene" uid="uid://b6kkr3s5xpkl0" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="11_jsyd2"]
-[ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
@@ -383,7 +381,7 @@ y_sort_enabled = true
 script = ExtResource("9_7uvyi")
 spawn_control = NodePath("../SpawnZone")
 machines = Array[PackedScene]([ExtResource("10_qay54"), ExtResource("3_fh41q"), ExtResource("11_jsyd2"), ExtResource("9_j3v3k")])
-power_ups = Array[PackedScene]([ExtResource("4_c83bt"), ExtResource("22_nfnlt"), ExtResource("11_oe2gw")])
+power_ups = Array[PackedScene]([ExtResource("22_nfnlt")])
 
 [node name="PowerUpCooldown" type="Timer" parent="ResponsiveLayer/Spawner"]
 wait_time = 120.0
@@ -760,10 +758,7 @@ color = Color(0, 0, 0, 0.607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 3000.0
-offset_top = 500.0
-offset_right = 3000.0
-offset_bottom = 611.0
+offset_bottom = 111.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
@@ -794,9 +789,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -1000.0
+offset_left = 67.0
 offset_top = -448.0
-offset_right = -354.0
+offset_right = 713.0
 grow_vertical = 0
 theme_override_constants/separation = 0
 alignment = 1
@@ -862,9 +857,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 0
-offset_left = -1000.0
+offset_left = 33.0
 offset_top = 167.0
-offset_right = -500.0
+offset_right = 533.0
 offset_bottom = 667.0
 rotation = -0.0872665
 
@@ -1122,10 +1117,7 @@ libraries = {
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -3000.0
-offset_top = 500.0
-offset_right = -3000.0
-offset_bottom = 611.0
+offset_bottom = 111.0
 grow_horizontal = 2
 pivot_offset = Vector2(960, 55.5)
 theme_override_constants/margin_left = 0

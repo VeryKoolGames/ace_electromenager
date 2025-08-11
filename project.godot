@@ -24,6 +24,7 @@ PlayerData="*res://player_data.gd"
 SaveSystem="*res://Assets/Scripts/Globals/save_system.gd"
 TransitionManager="*res://Assets/Scenes/Globals/transition_manager.tscn"
 ParticleCache="*res://Assets/Scripts/Globals/ParticleCache.gd"
+AudioManager="*res://Assets/Scenes/Globals/audio_manager.tscn"
 
 [display]
 

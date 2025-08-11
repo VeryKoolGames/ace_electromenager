@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=3 uid="uid://3yfyjvdskl1u"]
+
+[ext_resource type="Script" uid="uid://cv67vpl8p0pg4" path="res://AudioManager.gd" id="1_4riyp"]
+[ext_resource type="AudioStream" uid="uid://byj23gdxfa7ge" path="res://Assets/Sounds/shoot1.wav" id="2_n5uav"]
+[ext_resource type="AudioStream" uid="uid://nos3eg8svn2b" path="res://Assets/Sounds/shoot2.wav" id="3_3ibbt"]
+[ext_resource type="AudioStream" uid="uid://dx6c7tbdbslix" path="res://Assets/Sounds/shoot3.wav" id="4_2eibv"]
+[ext_resource type="AudioStream" uid="uid://brg1gb323m504" path="res://Assets/Sounds/shoot4.wav" id="5_ap2ab"]
+[ext_resource type="AudioStream" uid="uid://dvi64xhrwfbum" path="res://Assets/Sounds/shoot5.wav" id="6_14voe"]
+[ext_resource type="AudioStream" uid="uid://dk3707hce5rbp" path="res://Assets/Sounds/charge tir.wav" id="7_3ibbt"]
+[ext_resource type="AudioStream" uid="uid://b7q4rmdinlgl7" path="res://Assets/Sounds/rebound1.wav" id="7_7nyse"]
+[ext_resource type="AudioStream" uid="uid://dyqrmt3ax3po5" path="res://Assets/Sounds/rebound2.wav" id="8_83x86"]
+[ext_resource type="AudioStream" uid="uid://bcof2bp7uxn8x" path="res://Assets/Sounds/rebound3.wav" id="9_kxxqw"]
+[ext_resource type="AudioStream" uid="uid://b15fowq8oklth" path="res://Assets/Sounds/rebound4.wav" id="10_xygjl"]
+[ext_resource type="AudioStream" uid="uid://dppasnaco4oa6" path="res://Assets/Sounds/rebound_5.wav" id="11_ws8rg"]
+[ext_resource type="AudioStream" uid="uid://doq2c0s38ww5h" path="res://Assets/Sounds/sifflet.wav" id="13_83x86"]
+
+[node name="AudioManager" type="Node2D" node_paths=PackedStringArray("shoot_sounds", "rebound_sounds", "charge_sound", "whistle_sound")]
+script = ExtResource("1_4riyp")
+shoot_sounds = [NodePath("ShootSounds/AudioStreamPlayer2D"), NodePath("ShootSounds/AudioStreamPlayer2D2"), NodePath("ShootSounds/AudioStreamPlayer2D3"), NodePath("ShootSounds/AudioStreamPlayer2D4"), NodePath("ShootSounds/AudioStreamPlayer2D5")]
+rebound_sounds = [NodePath("ReboundSound/AudioStreamPlayer2D"), NodePath("ReboundSound/AudioStreamPlayer2D2"), NodePath("ReboundSound/AudioStreamPlayer2D3"), NodePath("ReboundSound/AudioStreamPlayer2D4"), NodePath("ReboundSound/AudioStreamPlayer2D5")]
+charge_sound = NodePath("ChargeSound/AudioStreamPlayer2D")
+whistle_sound = NodePath("WhistleSound/WhisteAudioStream")
+
+[node name="ShootSounds" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ShootSounds"]
+stream = ExtResource("2_n5uav")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="ShootSounds"]
+stream = ExtResource("3_3ibbt")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="ShootSounds"]
+stream = ExtResource("4_2eibv")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="ShootSounds"]
+stream = ExtResource("5_ap2ab")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="ShootSounds"]
+stream = ExtResource("6_14voe")
+
+[node name="ReboundSound" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ReboundSound"]
+stream = ExtResource("7_7nyse")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="ReboundSound"]
+stream = ExtResource("8_83x86")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="ReboundSound"]
+stream = ExtResource("9_kxxqw")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="ReboundSound"]
+stream = ExtResource("10_xygjl")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="ReboundSound"]
+stream = ExtResource("11_ws8rg")
+
+[node name="ChargeSound" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ChargeSound"]
+stream = ExtResource("7_3ibbt")
+
+[node name="WhistleSound" type="Node" parent="."]
+
+[node name="WhisteAudioStream" type="AudioStreamPlayer2D" parent="WhistleSound"]
+stream = ExtResource("13_83x86")

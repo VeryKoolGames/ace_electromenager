@@ -72,6 +72,7 @@ func shoot_ball(data: Dictionary) -> void:
 	apply_powerups_to_ball(current_ball)
 	shooting_behavior.shoot(self, get_shoot_direction(data), current_ball)
 	current_ball = null
+	AudioManager.play_shoot_sound()
 
 func apply_powerups_to_ball(ball: Ball) -> void:
 	for powerup_type in active_powerups.keys():

@@ -16,11 +16,14 @@ func _ready() -> void:
 	Events.on_power_up_gathered.connect(remove_power_up)
 	Events.on_game_timer_ended.connect(on_game_ended)
 	Events.on_game_state_advanced.connect(on_game_state_advanced)
+	Events.on_game_started.connect(spawn_initial_machines)
 	
 	# TIL the control node do not have the right position/size at the begining so we need to await a frame
 	await get_tree().process_frame
 	get_spawn_area()
 	generate_grid()
+
+func spawn_initial_machines() -> void:
 	spawn_machines(3)
 
 func on_game_state_advanced() -> void:

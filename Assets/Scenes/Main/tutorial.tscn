@@ -1,25 +1,36 @@
-[gd_scene load_steps=24 format=3 uid="uid://clwemynit8mdd"]
+[gd_scene load_steps=47 format=3 uid="uid://cgk6xxpammumr"]
 
+[ext_resource type="Script" uid="uid://boelol5mt86c3" path="res://Assets/Scripts/game_manager.gd" id="1_3t7ke"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="2_6rwrp"]
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="3_paycb"]
-[ext_resource type="Script" uid="uid://wmghkk13ua2p" path="res://Assets/Scripts/Managers/machine_spawn_manager.gd" id="4_wu0vg"]
+[ext_resource type="Script" uid="uid://5t1cltpvcm24" path="res://Assets/Scripts/Tutorial/tutorial_spawner.gd" id="5_2gxxo"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="5_jrs6e"]
-[ext_resource type="PackedScene" uid="uid://d1ysdhtre3o3c" path="res://Assets/Scenes/Machines/washing_machine.tscn" id="6_tywnt"]
-[ext_resource type="PackedScene" uid="uid://b6kkr3s5xpkl0" path="res://Assets/Scenes/Machines/dishwasher.tscn" id="7_3t7ke"]
-[ext_resource type="PackedScene" uid="uid://bkqrb8awldbnr" path="res://Assets/Scenes/Machines/microwave.tscn" id="8_ht2wp"]
-[ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="9_gejnh"]
-[ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="10_oea5r"]
-[ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_v6o7g"]
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="12_l8q8i"]
 [ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scripts/Managers/score_manager.gd" id="13_w35ne"]
 [ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="14_j2r2r"]
 [ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="15_377uc"]
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="16_ia1vl"]
+[ext_resource type="Script" uid="uid://b48kebaav8b0k" path="res://Assets/Scripts/pause_menu.gd" id="18_ht2wp"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="19_5qcfn"]
+[ext_resource type="Texture2D" uid="uid://cfx6tafkyp2nr" path="res://Assets/sprites/PauseIcon.png" id="19_gejnh"]
+[ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="20_oea5r"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="20_oedxg"]
+[ext_resource type="Script" uid="uid://bq7w2enmpx8oo" path="res://Assets/Scripts/UI/end_game_ui.gd" id="21_t5okx"]
+[ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="22_p6ehi"]
+[ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="23_t1e88"]
+[ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_7hdba"]
+[ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="25_b55my"]
+[ext_resource type="Script" uid="uid://bbl4kprjww6pb" path="res://Assets/Scripts/UI/save_score_pop_up.gd" id="26_eq75x"]
+[ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="26_v6o7g"]
+[ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="27_jlixy"]
+[ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="27_l8q8i"]
+[ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="28_h8mmx"]
+[ext_resource type="Script" uid="uid://b3elnfvlugmuk" path="res://Assets/Scripts/Globals/tutorial_ui.gd" id="29_6rwrp"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="29_o7e8p"]
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="30_c1lqy"]
+[ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="33_w35ne"]
+[ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="34_j2r2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -30,7 +41,258 @@ size = Vector2(29, 2280)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
 size = Vector2(3404, 15)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jb74"]
+texture = ExtResource("20_oea5r")
+texture_margin_left = 15.0
+texture_margin_top = 18.0
+texture_margin_right = 16.5
+texture_margin_bottom = 15.0
+region_rect = Rect2(0, 0, 126, 125.75)
+
+[sub_resource type="Animation" id="Animation_g20yk"]
+resource_name = "star_rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.174533, -6.10865]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oaiys"]
+_data = {
+&"star_rotation": SubResource("Animation_g20yk")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyic7"]
+texture = ExtResource("27_jlixy")
+texture_margin_left = 11.0
+texture_margin_top = 12.5
+texture_margin_right = 11.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(0, 0.75, 126, 143.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8766"]
+texture = ExtResource("28_h8mmx")
+texture_margin_left = 13.5
+texture_margin_top = 18.5
+texture_margin_right = 20.5
+texture_margin_bottom = 18.0
+region_rect = Rect2(4, 4.75, 183, 180.5)
+modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
+
+[sub_resource type="Animation" id="Animation_tpyc1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, 167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(67, 632)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SaveScorePopUp:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nfxtm"]
+resource_name = "show_end_screen"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1000, 167), Vector2(-1000, 167), Vector2(33, 167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1000, 632), Vector2(-1000, 632), Vector2(50, 632)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SaveScorePopUp:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.02, 2.2, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3000, 500), Vector2(0, 500), Vector2(0, 500), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad0oj"]
+_data = {
+&"RESET": SubResource("Animation_tpyc1"),
+&"show_end_screen": SubResource("Animation_nfxtm")
+}
+
+[sub_resource type="Animation" id="Animation_sack4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ns2ik"]
+resource_name = "game_start"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.4, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3000, 500), Vector2(0, 500), Vector2(0, 500), Vector2(-3000, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.95, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8766"]
+_data = {
+&"RESET": SubResource("Animation_sack4"),
+&"game_start": SubResource("Animation_ns2ik")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbeqx"]
+texture = ExtResource("27_jlixy")
+texture_margin_left = 16.0
+texture_margin_top = 14.0
+texture_margin_right = 15.0
+texture_margin_bottom = 49.5
+
 [node name="Main" type="Node2D"]
+script = ExtResource("1_3t7ke")
 
 [node name="ResponsiveLayer" type="CanvasLayer" parent="."]
 
@@ -116,16 +378,27 @@ grow_vertical = 0
 
 [node name="Player" parent="ResponsiveLayer/PlayerPos" instance=ExtResource("3_paycb")]
 
-[node name="Spawner" type="Node2D" parent="ResponsiveLayer" node_paths=PackedStringArray("spawn_control")]
-y_sort_enabled = true
-script = ExtResource("4_wu0vg")
-spawn_control = NodePath("../SpawnZone")
-machines = Array[PackedScene]([ExtResource("5_jrs6e"), ExtResource("6_tywnt"), ExtResource("7_3t7ke"), ExtResource("8_ht2wp")])
-power_ups = Array[PackedScene]([ExtResource("9_gejnh"), ExtResource("10_oea5r"), ExtResource("11_v6o7g")])
+[node name="Control" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PowerUpCooldown" type="Timer" parent="ResponsiveLayer/Spawner"]
-wait_time = 120.0
-one_shot = true
+[node name="FridgeSpawnPos" type="Node2D" parent="ResponsiveLayer/Control"]
+
+[node name="TutorialSpawner" type="Node2D" parent="ResponsiveLayer" node_paths=PackedStringArray("spawn_position")]
+y_sort_enabled = true
+script = ExtResource("5_2gxxo")
+fridge_scene = ExtResource("5_jrs6e")
+spawn_position = NodePath("../Control/FridgeSpawnPos")
 
 [node name="NestPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
@@ -260,6 +533,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
+mouse_filter = 2
 
 [node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
 layout_mode = 1
@@ -310,6 +584,107 @@ vertical_alignment = 1
 [node name="PowerUpContainer" type="Node2D" parent="ResponsiveLayer/GameUI/ScoreManager"]
 position = Vector2(-249, -749)
 
+[node name="PauseMenu" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_ht2wp")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+
+[node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_gejnh")
+
+[node name="Control" type="Control" parent="ResponsiveLayer/PauseMenu"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.580392)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 52.0
+offset_right = 300.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 115)
+theme_override_constants/separation = 30
+
+[node name="Panel" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 64
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 0.196078)
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.819608, 0.819608, 0.67451, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+text = "CLIQUEZ POUR REPRENDRE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PowerUpUI" type="Control" parent="ResponsiveLayer"]
 z_index = 100
 layout_mode = 3
@@ -329,6 +704,467 @@ offset_top = 41.0
 offset_right = 410.0
 offset_bottom = 636.0
 theme_override_constants/separation = 20
+
+[node name="EndGameUI" type="Control" parent="ResponsiveLayer"]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+size_flags_horizontal = 0
+script = ExtResource("21_t5okx")
+
+[node name="Background" type="ColorRect" parent="ResponsiveLayer/EndGameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.607843)
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3000.0
+offset_top = 500.0
+offset_right = 3000.0
+offset_bottom = 611.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+
+[node name="Banner" type="TextureRect" parent="ResponsiveLayer/EndGameUI/MarginContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+texture = ExtResource("22_p6ehi")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/MarginContainer/Banner"]
+modulate = Color(0.960784, 0.447059, 0.329412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 64
+text = "PARTIE TERMINEE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1000.0
+offset_top = -448.0
+offset_right = -354.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 150
+
+[node name="ReplayButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("26_v6o7g")
+texture_pressed = ExtResource("27_l8q8i")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 48
+text = "REJOUER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="LeaderboardButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("26_v6o7g")
+texture_pressed = ExtResource("27_l8q8i")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 48
+text = "CLASSEMENT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star" type="Control" parent="ResponsiveLayer/EndGameUI"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -1000.0
+offset_top = 167.0
+offset_right = -500.0
+offset_bottom = 667.0
+rotation = -0.0872665
+
+[node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/EndGameUI/Star"]
+modulate = Color(0.980392, 0.792157, 0.592157, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.174533
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("25_b55my")
+
+[node name="TextureRect2" type="TextureRect" parent="ResponsiveLayer/EndGameUI/Star"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("25_b55my")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="ResponsiveLayer/EndGameUI/Star"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_constants/line_separation = -30
+theme_override_fonts/normal_font = ExtResource("15_377uc")
+theme_override_fonts/bold_font = ExtResource("16_ia1vl")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 128
+bbcode_enabled = true
+text = "[b]451[/b]
+PTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI/Star"]
+libraries = {
+&"": SubResource("AnimationLibrary_oaiys")
+}
+autoplay = "star_rotation"
+speed_scale = 0.2
+
+[node name="SaveScorePopUp" type="Control" parent="ResponsiveLayer/EndGameUI"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1032.0
+offset_top = 263.0
+offset_right = -100.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(466, 423)
+mouse_filter = 2
+script = ExtResource("26_eq75x")
+
+[node name="Panel" type="Panel" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -117.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(407.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxTexture_iyic7")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+custom_minimum_size = Vector2(815, 659)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("16_ia1vl")
+theme_override_font_sizes/font_size = 64
+text = "Publiez votre score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+text = "et tentez de gagner un prix exclusif !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+text = "L'email et le pseudonyme doivent être remplies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.341176, 0.639216, 0.392157, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+text = "PSEUDONYME (sera public)"
+
+[node name="NameLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 100
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_placeholder_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_t8766")
+placeholder_text = "Ace Challenger Pro Player"
+max_length = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label2" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.341176, 0.639216, 0.392157, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+text = "ADRESSE E-MAIL (reste privée)"
+
+[node name="EmailLineEdit" type="LineEdit" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 100
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_placeholder_color = Color(0.960784, 0.447059, 0.329412, 0.517647)
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_t8766")
+placeholder_text = "example@ace.com"
+max_length = 20
+
+[node name="VBoxContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = -20
+
+[node name="SaveButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("24_7hdba")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 36
+text = "PUBLIER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 64
+text = "Merci, ton score a bien été enregistré"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_ad0oj")
+}
+
+[node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("33_w35ne")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/CountdownStartUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.580392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/CountdownStartUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_t8766")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/CountdownStartUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -3000.0
+offset_top = 500.0
+offset_right = -3000.0
+offset_bottom = 611.0
+grow_horizontal = 2
+pivot_offset = Vector2(960, 55.5)
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+
+[node name="Banner" type="TextureRect" parent="ResponsiveLayer/CountdownStartUI/MarginContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+texture = ExtResource("22_p6ehi")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ResponsiveLayer/CountdownStartUI/MarginContainer/Banner"]
+modulate = Color(0.960784, 0.447059, 0.329412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 64
+text = "TUTORIEL !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RepaireParticlesManager" type="Node" parent="ResponsiveLayer"]
+script = ExtResource("34_j2r2r")
+
+[node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
+
+[node name="TutorialUI" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("29_6rwrp")
+
+[node name="Panel" type="Panel" parent="ResponsiveLayer/TutorialUI"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -716.0
+offset_top = 143.0
+offset_right = -316.0
+offset_bottom = 423.0
+grow_horizontal = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(200, 125)
+theme_override_styles/panel = SubResource("StyleBoxTexture_wbeqx")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/TutorialUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_377uc")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

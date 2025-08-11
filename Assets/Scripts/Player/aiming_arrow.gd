@@ -12,6 +12,7 @@ const MAX_ROT = deg_to_rad( 90)
 
 var bar_value: float = 0.0
 var shot_direction: Vector2
+var scale_down_tween: Tween
 
 func _process(delta):
 	if not GameState.is_in_game_mode():
@@ -42,6 +43,7 @@ func handle_strength(delta) -> void:
 
 func start_charging_shot() -> void:
 	is_player_shooting = true
+	AudioManager.play_charge_sound()
 
 func stop_charging_shot() -> Dictionary:
 	var ret = {
@@ -68,8 +70,8 @@ func animate_shot(is_perfect_shot: bool) -> void:
 	if is_perfect_shot:
 		gpu_particles_2d.emitting = true
 	var scale_factor = Vector2(0.4, 0.4) if is_perfect_shot else Vector2(0.1, 0.1)
-	var tween = create_tween()
+	scale_down_tween = create_tween()
 	var target_scale: Vector2 = scale
-	tween.tween_property(self, "scale", target_scale + scale_factor, 0.1)
-	tween.tween_property(self, "scale", target_scale, 0.1)
-	tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
+	scale_down_tween.tween_property(self, "scale", target_scale + scale_factor, 0.1)
+	scale_down_tween.tween_property(self, "scale", target_scale, 0.1)
+	scale_down_tween.tween_property(self, "scale", Vector2.ZERO, 0.1)

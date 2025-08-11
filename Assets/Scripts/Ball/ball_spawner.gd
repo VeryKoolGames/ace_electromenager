@@ -44,5 +44,8 @@ func on_fast_show_power_up_expired(type: ResPowerUp.PowerUpEnum) -> void:
 		cooldown_timer.wait_time = spawn_cooldown.value
 
 func scale_raquette() -> void:
+	if aiming_arrow.scale_down_tween:
+		aiming_arrow.scale_down_tween.kill()
 	var tween = create_tween()
 	tween.tween_property(aiming_arrow, "scale", aiming_arrow_base_scale, 0.1)
+	tween.tween_callback(func(): aiming_arrow.scale = aiming_arrow_base_scale)
