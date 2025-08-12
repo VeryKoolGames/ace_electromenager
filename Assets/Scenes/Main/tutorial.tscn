@@ -1,10 +1,11 @@
-[gd_scene load_steps=50 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=52 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="2_6rwrp"]
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="3_paycb"]
 [ext_resource type="Script" uid="uid://5t1cltpvcm24" path="res://Assets/Scripts/Tutorial/tutorial_spawner.gd" id="5_2gxxo"]
+[ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="5_jrs6e"]
 [ext_resource type="PackedScene" uid="uid://lblqrq1f3767" path="res://Assets/Scenes/Machines/tutorial_fridge.tscn" id="6_paycb"]
 [ext_resource type="PackedScene" uid="uid://c0e7ig0yj3wpm" path="res://Assets/Scenes/PowerUps/power_up_triple_shot.tscn" id="9_gejnh"]
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="12_l8q8i"]
@@ -32,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dsvbg3xv1on2e" path="res://Assets/Sounds/main_music.mp3" id="30_c1lqy"]
 [ext_resource type="Resource" uid="uid://3go6chxms7sw" path="res://Assets/Resources/TutorialDialogue1.tres" id="30_paycb"]
 [ext_resource type="Resource" uid="uid://c3wngdbaef73w" path="res://Assets/Resources/TutorialDialogue2.tres" id="31_wu0vg"]
+[ext_resource type="Resource" uid="uid://bgsxru22harcc" path="res://Assets/Resources/TutorialDialogue3.tres" id="33_tywnt"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="33_w35ne"]
 [ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="34_j2r2r"]
 
@@ -397,6 +399,12 @@ grow_vertical = 2
 
 [node name="FridgeSpawnPos" type="Node2D" parent="ResponsiveLayer/Control"]
 
+[node name="FridgeSpawnPos2" type="Node2D" parent="ResponsiveLayer/Control"]
+position = Vector2(144, -142)
+
+[node name="FridgeSpawnPos3" type="Node2D" parent="ResponsiveLayer/Control"]
+position = Vector2(-171, -132)
+
 [node name="Control2" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
 anchors_preset = 8
@@ -413,13 +421,16 @@ grow_vertical = 2
 
 [node name="PowerUpSpawnPos" type="Node2D" parent="ResponsiveLayer/Control2"]
 
-[node name="TutorialSpawner" type="Node2D" parent="ResponsiveLayer" node_paths=PackedStringArray("spawn_position", "power_up_spawn_position")]
+[node name="TutorialSpawner" type="Node2D" parent="ResponsiveLayer" node_paths=PackedStringArray("spawn_position", "power_up_spawn_position", "extra_spawn_position", "spawn_control")]
 y_sort_enabled = true
 script = ExtResource("5_2gxxo")
-fridge_scene = ExtResource("6_paycb")
+tutorial_fridge_scene = ExtResource("6_paycb")
+fridge_scene = ExtResource("5_jrs6e")
 power_up_scene = ExtResource("9_gejnh")
 spawn_position = NodePath("../Control/FridgeSpawnPos")
 power_up_spawn_position = NodePath("../Control2/PowerUpSpawnPos")
+extra_spawn_position = [NodePath("../Control/FridgeSpawnPos"), NodePath("../Control/FridgeSpawnPos2"), NodePath("../Control/FridgeSpawnPos3")]
+spawn_control = NodePath("../SpawnZone")
 
 [node name="NestPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
@@ -468,12 +479,11 @@ polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)
 
 [node name="SpawnZone" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
+offset_left = 167.0
 offset_top = 166.0
-offset_right = -200.0
+offset_right = -633.0
 offset_bottom = -466.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1153,6 +1163,7 @@ grow_vertical = 2
 script = ExtResource("29_6rwrp")
 first_dialogue = ExtResource("30_paycb")
 second_dialogue = ExtResource("31_wu0vg")
+third_dialogue = ExtResource("33_tywnt")
 
 [node name="Panel" type="Panel" parent="ResponsiveLayer/TutorialUI"]
 custom_minimum_size = Vector2(200, 200)

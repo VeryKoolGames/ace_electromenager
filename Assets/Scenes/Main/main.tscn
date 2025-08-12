@@ -534,6 +534,7 @@ offset_top = -331.0
 offset_right = 549.0
 offset_bottom = -104.0
 grow_vertical = 0
+pivot_offset = Vector2(150, 113.5)
 theme_override_constants/separation = 0
 script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")

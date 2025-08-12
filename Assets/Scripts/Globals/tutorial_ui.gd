@@ -6,6 +6,7 @@ extends Control
 var tutorial_texts = {}
 @export var first_dialogue: ResDialogue
 @export var second_dialogue: ResDialogue
+@export var third_dialogue: ResDialogue
 
 var current_index := 0
 
@@ -22,6 +23,10 @@ func _ready() -> void:
 		1: {
 			"text": second_dialogue.dialogues_lines,
 			"signal": owner.on_second_part_started,
+		},
+		2: {
+			"text": third_dialogue.dialogues_lines,
+			"signal": owner.on_third_part_started,
 		}
 	}
 

@@ -5,6 +5,7 @@ extends Node2D
 
 signal on_first_part_started
 signal on_second_part_started
+signal on_third_part_started
 
 func _ready() -> void:
 	Events.on_tutorial_progressed.connect(on_tutorial_progressed)

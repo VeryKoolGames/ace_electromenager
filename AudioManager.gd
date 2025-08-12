@@ -11,6 +11,9 @@ func play_shoot_sound() -> void:
 func play_charge_sound() -> void:
 	charge_sound.play()
 
+func stop_charge_sound() -> void:
+	charge_sound.stop()
+
 func play_rebound_sound() -> void:
 	rebound_sounds[randi_range(0, shoot_sounds.size() - 1)].play()
 

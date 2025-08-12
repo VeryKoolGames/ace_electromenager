@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResDialogue" load_steps=2 format=3 uid="uid://bgsxru22harcc"]
+
+[ext_resource type="Script" uid="uid://22s8q8np634p" path="res://ResDialogue.gd" id="1_5do5r"]
+
+[resource]
+script = ExtResource("1_5do5r")
+dialogues_lines = Array[String](["Les pouvoirs ont un temps limité, utilies les bien !", "Tu peux continuer a t'entrainer ici ou retourner au menu pour faire une vraie partie"])
+metadata/_custom_type_script = "uid://22s8q8np634p"

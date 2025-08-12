@@ -50,6 +50,7 @@ func stop_charging_shot() -> Dictionary:
 		"shot_strength": bar_value,
 		"shot_direction": shot_direction.normalized()
 	}
+	AudioManager.stop_charge_sound()
 	if bar_value >= 90:
 		animate_shot(true)
 	else:
