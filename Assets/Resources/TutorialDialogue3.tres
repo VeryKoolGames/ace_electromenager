@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_5do5r")
-dialogues_lines = Array[String](["Les pouvoirs ont un temps limité, utilies les bien !", "Tu peux continuer a t'entrainer ici ou retourner au menu pour faire une vraie partie"])
+dialogues_lines = Array[String](["Les pouvoirs ont un temps limité, utilies les bien !", "Tu peux continuer a t'entrainer ici ou retourner au menu pour faire une vraie partie", "Essaie d'obtenir le meilleur score pour gagner un prix ! Amuses toi bien"])
 metadata/_custom_type_script = "uid://22s8q8np634p"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=54 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
@@ -36,6 +36,8 @@
 [ext_resource type="Resource" uid="uid://bgsxru22harcc" path="res://Assets/Resources/TutorialDialogue3.tres" id="33_tywnt"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="33_w35ne"]
 [ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="34_j2r2r"]
+[ext_resource type="Texture2D" uid="uid://c6k75j71jbvva" path="res://Assets/sprites/ButtonShape3.png" id="35_gejnh"]
+[ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="36_oea5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -1200,6 +1202,40 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="BackButtonContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+pivot_offset = Vector2(117.5, 92)
+
+[node name="BackButton" type="TextureButton" parent="ResponsiveLayer/TutorialUI/BackButtonContainer"]
+layout_mode = 2
+texture_normal = ExtResource("35_gejnh")
+texture_pressed = ExtResource("36_oea5r")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI/BackButtonContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="ResponsiveLayer/TutorialUI/BackButtonContainer/BackButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 28
+text = "RETOUR"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
