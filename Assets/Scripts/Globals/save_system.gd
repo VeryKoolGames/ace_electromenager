@@ -4,15 +4,13 @@ extends Node
 var player_data = {
 	"email": "",
 	"pseudo": "",
-	"save_date": ""
+	"save_date": "",
+	"is_playing_for_the_first_time": true
 }
 
-# File path for saving player data
 const SAVE_FILE_PATH = "user://player_data.save"
 
-# Called when the node enters the scene tree for the first time
 func _ready():
-	# Try to load existing player data when the game starts
 	load_player_from_disc()
 
 func save_player_on_disc(email: String, pseudo: String):
@@ -62,20 +60,17 @@ func load_player_from_disc():
 		print("Error: Invalid save file format")
 		return false
 
-# Get current player data
 func get_player_data():
 	return player_data
 
 func has_saved_player():
 	return FileAccess.file_exists(SAVE_FILE_PATH) and player_data.email != "" and player_data.pseudo != ""
 
-# Clear player data (for logout/reset)
 func clear_player_data():
 	player_data.email = ""
 	player_data.pseudo = ""
 	player_data.save_date = ""
 	
-	# Optionally delete the save file
 	if FileAccess.file_exists(SAVE_FILE_PATH):
 		DirAccess.remove_absolute(SAVE_FILE_PATH)
 		print("Player data cleared")

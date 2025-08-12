@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmr8afsaxl0d7" path="res://Assets/sprites/ButtonShape2.png" id="4_yt2pv"]
 [ext_resource type="Texture2D" uid="uid://i0yiyca3t4tx" path="res://Assets/sprites/ButtonShape2_Clicked.png" id="6_wdajc"]
 
-[node name="Main" type="CanvasLayer"]
+[node name="StartMenu" type="CanvasLayer"]
 
 [node name="StartMenuUI" type="Control" parent="."]
 layout_mode = 3
@@ -99,5 +99,37 @@ theme_override_colors/font_color = Color(0.996078, 0.945098, 0.784314, 1)
 theme_override_fonts/font = ExtResource("3_wdajc")
 theme_override_font_sizes/font_size = 48
 text = "CLASSEMENT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TutorialButton" type="TextureButton" parent="StartMenuUI/TutorialContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tow68")
+texture_pressed = ExtResource("3_tow68")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/TutorialContainer/TutorialButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="StartMenuUI/TutorialContainer/TutorialButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 48
+text = "TUTORIEL"
 horizontal_alignment = 1
 vertical_alignment = 1

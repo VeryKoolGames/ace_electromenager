@@ -16,3 +16,5 @@ signal on_machine_repaired(machine: Machine)
 signal on_shot_released(strength: float)
 
 signal on_game_state_advanced
+
+signal on_tutorial_progressed(state: int)

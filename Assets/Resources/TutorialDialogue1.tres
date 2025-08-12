@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResDialogue" load_steps=2 format=3 uid="uid://3go6chxms7sw"]
+
+[ext_resource type="Script" uid="uid://22s8q8np634p" path="res://ResDialogue.gd" id="1_iticb"]
+
+[resource]
+script = ExtResource("1_iticb")
+dialogues_lines = Array[String](["Bienvenu sur Ace Challenge !", "Le but du jeu est de reparer le plus d'objets possible", "Tenez, essayez ! Visez, appuyez et relachez pour réparer ce frigo"])
+metadata/_custom_type_script = "uid://22s8q8np634p"

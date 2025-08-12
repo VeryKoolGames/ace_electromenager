@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://lblqrq1f3767"]
+
+[ext_resource type="Script" uid="uid://c1hnsw8dxn0jf" path="res://Assets/Scripts/Tutorial/tutorial_fridge.gd" id="1_nyyd6"]
+[ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_onq6i"]
+[ext_resource type="Texture2D" uid="uid://dg0ukne5ouo0v" path="res://Assets/sprites/Frigo.png" id="3_4v7tq"]
+[ext_resource type="PackedScene" uid="uid://k73aey2e7jrd" path="res://Assets/Scenes/SmokeParticles.tscn" id="4_wj5qi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xnqy7"]
+resource_local_to_scene = true
+shader = ExtResource("2_onq6i")
+shader_parameter/white_progress = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e0xt"]
+size = Vector2(80, 167)
+
+[node name="TutorialFridge" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_nyyd6")
+sprite = NodePath("Sprite2D")
+score_value = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xnqy7")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4v7tq")
+
+[node name="SmokeParticles" parent="." instance=ExtResource("4_wj5qi")]
+position = Vector2(10, -58)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["machines"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_6e0xt")

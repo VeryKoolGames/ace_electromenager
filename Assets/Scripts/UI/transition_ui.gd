@@ -5,13 +5,15 @@ extends CanvasLayer
 enum MainScenesEnum {
 	GAME,
 	LEADERBOARD,
-	START
+	START,
+	TUTORIAL
 }
 
 var scenes_dict := {
 	MainScenesEnum.GAME : "res://Assets/Scenes/Main/main.tscn",
 	MainScenesEnum.LEADERBOARD : "res://Assets/Scenes/Main/leaderboard.tscn",
 	MainScenesEnum.START : "res://Assets/Scenes/Main/start_menu.tscn",
+	MainScenesEnum.TUTORIAL : "res://Assets/Scenes/Main/tutorial.tscn",
 }
 
 var original_pos: Vector2
