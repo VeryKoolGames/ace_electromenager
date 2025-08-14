@@ -1,14 +1,14 @@
 extends Control
 
 @onready var http_request: HTTPRequest = $HTTPRequest
-@onready var name_line_edit: LineEdit = $Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer/NameLineEdit
-@onready var email_line_edit: LineEdit = $Panel/ScrollContainer/VBoxContainer/MarginContainer2/HBoxContainer/EmailLineEdit
+@onready var name_line_edit: LineEdit = $Panel/VBoxContainer/MarginContainer2/HBoxContainer/NameLineEdit
+@onready var email_line_edit: LineEdit = $Panel/VBoxContainer/MarginContainer2/HBoxContainer/EmailLineEdit
 
-@onready var margin_container: ScrollContainer = $Panel/ScrollContainer
+@onready var v_box_container: VBoxContainer = $Panel/VBoxContainer
 @onready var label: Label = $Panel/Label
-@onready var error_label: Label = $Panel/ScrollContainer/VBoxContainer/ErrorLabel
+@onready var error_label: Label = $Panel/VBoxContainer/ErrorLabel
 @onready var panel: Panel = $Panel
-@onready var save_button: TextureButton = $Panel/ScrollContainer/VBoxContainer/VBoxContainer/SaveButton
+@onready var save_button: TextureButton = $Panel/VBoxContainer/VBoxContainer/SaveButton
 
 var is_zoomed := false
 var email: String
@@ -53,7 +53,7 @@ func on_save_button_pressed() -> void:
 func _on_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:
 		var data = JSON.parse_string(body.get_string_from_utf8())
-		margin_container.hide()
+		v_box_container.hide()
 		label.show()
 		SaveSystem.save_player_on_disc(email, pseudo)
 	else:

@@ -39,6 +39,13 @@ size = Vector2(29, 2280)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
 size = Vector2(3404, 15)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbeqx"]
+texture = ExtResource("27_jlixy")
+texture_margin_left = 16.0
+texture_margin_top = 14.0
+texture_margin_right = 15.0
+texture_margin_bottom = 49.5
+
 [sub_resource type="Animation" id="Animation_sack4"]
 length = 0.001
 tracks/0/type = "value"
@@ -113,13 +120,6 @@ _data = {
 &"RESET": SubResource("Animation_sack4"),
 &"game_start": SubResource("Animation_ns2ik")
 }
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbeqx"]
-texture = ExtResource("27_jlixy")
-texture_margin_left = 16.0
-texture_margin_top = 14.0
-texture_margin_right = 15.0
-texture_margin_bottom = 49.5
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_6rwrp")
@@ -461,61 +461,6 @@ offset_right = 410.0
 offset_bottom = 636.0
 theme_override_constants/separation = 20
 
-[node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("33_w35ne")
-metadata/_edit_use_anchors_ = true
-
-[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/CountdownStartUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.580392)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/CountdownStartUI"]
-libraries = {
-&"": SubResource("AnimationLibrary_t8766")
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/CountdownStartUI"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 111.0
-grow_horizontal = 2
-pivot_offset = Vector2(960, 55.5)
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 20
-
-[node name="Banner" type="TextureRect" parent="ResponsiveLayer/CountdownStartUI/MarginContainer"]
-modulate = Color(0.996078, 0.945098, 0.784314, 1)
-custom_minimum_size = Vector2(0, 91)
-layout_mode = 2
-texture = ExtResource("22_p6ehi")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="ResponsiveLayer/CountdownStartUI/MarginContainer/Banner"]
-modulate = Color(0.960784, 0.447059, 0.329412, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("23_t1e88")
-theme_override_font_sizes/font_size = 64
-text = "TUTORIEL !"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="RepaireParticlesManager" type="Node" parent="ResponsiveLayer"]
 script = ExtResource("34_j2r2r")
 
@@ -574,7 +519,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="BackButtonContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI"]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -604,6 +548,64 @@ theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
 theme_override_fonts/font = ExtResource("23_t1e88")
 theme_override_font_sizes/font_size = 28
 text = "RETOUR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("33_w35ne")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/CountdownStartUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.580392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/CountdownStartUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_t8766")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/CountdownStartUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -3000.0
+offset_top = 500.0
+offset_right = -3000.0
+offset_bottom = 611.0
+grow_horizontal = 2
+pivot_offset = Vector2(960, 55.5)
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+
+[node name="Banner" type="TextureRect" parent="ResponsiveLayer/CountdownStartUI/MarginContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+texture = ExtResource("22_p6ehi")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ResponsiveLayer/CountdownStartUI/MarginContainer/Banner"]
+modulate = Color(0.960784, 0.447059, 0.329412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_t1e88")
+theme_override_font_sizes/font_size = 64
+text = "TUTORIEL !"
 horizontal_alignment = 1
 vertical_alignment = 1
 

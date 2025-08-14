@@ -4,13 +4,22 @@ var is_paused: bool = false
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var pause_button: TextureButton = $MarginContainer/PauseButton
 @onready var control: Control = $Control
+@onready var quit_button: TextureButton = $Control/VBoxContainer/QuitButton
+var is_mouse_on_button := false
+
 
 func _ready() -> void:
+	quit_button.pressed.connect(on_quit_button_pressed)
+	quit_button.mouse_entered.connect(on_mouse_on_button)
+	quit_button.mouse_exited.connect(on_mouse_on_button)
 	pause_button.pressed.connect(toggle_pause)
 	Events.on_game_started.connect(func(): margin_container.show())
 
+func on_mouse_on_button() -> void:
+	is_mouse_on_button = not is_mouse_on_button
+
 func _input(event):
-	if not is_paused:
+	if not is_paused or is_mouse_on_button:
 		return
 	if event is InputEventScreenTouch and event.is_pressed():
 		toggle_pause()
@@ -28,3 +37,8 @@ func toggle_pause():
 	else:
 		GameState.set_game_mode_after_pause()
 		self.process_mode = Node.PROCESS_MODE_INHERIT
+
+func on_quit_button_pressed() -> void:
+	get_tree().paused = false
+	AudioManager.transition_to_menu_music()
+	TransitionManager.play_transition(TransitionManager.MainScenesEnum.START)
