@@ -14,6 +14,12 @@ var bar_value: float = 0.0
 var shot_direction: Vector2
 var scale_down_tween: Tween
 
+func _ready() -> void:
+	Events.on_game_timer_ended.connect(stop_charge_sound)
+
+func stop_charge_sound() -> void:
+	AudioManager.stop_charge_sound()
+
 func _process(delta):
 	if not GameState.is_in_game_mode():
 		return

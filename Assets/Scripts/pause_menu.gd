@@ -12,9 +12,9 @@ func _ready() -> void:
 func _input(event):
 	if not is_paused:
 		return
-	if event is InputEventScreenTouch and event.is_released():
+	if event is InputEventScreenTouch and event.is_pressed():
 		toggle_pause()
-	elif event is InputEventMouseButton and event.is_released():
+	elif event is InputEventMouseButton and event.is_pressed():
 		toggle_pause()
 
 func toggle_pause():
@@ -22,7 +22,9 @@ func toggle_pause():
 	control.visible = is_paused
 	get_tree().paused = is_paused
 	if is_paused:
+		GameState.set_pause_mode()
 		self.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 		get_viewport().set_input_as_handled()
 	else:
+		GameState.set_game_mode_after_pause()
 		self.process_mode = Node.PROCESS_MODE_INHERIT

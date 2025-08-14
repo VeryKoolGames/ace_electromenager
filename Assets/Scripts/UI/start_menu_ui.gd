@@ -12,7 +12,7 @@ func _ready() -> void:
 	show_or_hide_tutorial_button()
 
 func transition_to_game_scene() -> void:
-	if not SaveSystem.has_saved_player():
+	if SaveSystem.is_playing_for_the_first_time:
 		TransitionManager.play_transition(TransitionManager.MainScenesEnum.TUTORIAL)
 	else:
 		TransitionManager.play_transition(TransitionManager.MainScenesEnum.GAME)
@@ -24,5 +24,7 @@ func transition_to_tutorial_scene() -> void:
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.TUTORIAL)
 
 func show_or_hide_tutorial_button() -> void:
-	if SaveSystem.has_saved_player():
+	if not SaveSystem.is_playing_for_the_first_time:
 		tutorial_container.show()
+	else:
+		tutorial_container.hide()

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResPowerUp" load_steps=3 format=3 uid="uid://b0nuy0mbyu5jq"]
+
+[ext_resource type="Script" uid="uid://1624y4xhog4a" path="res://Assets/Resources/res_power_up.gd" id="1_6s7l1"]
+[ext_resource type="Texture2D" uid="uid://t33ba8532mme" path="res://Assets/sprites/Item_Icon3.png" id="2_y8kf3"]
+
+[resource]
+script = ExtResource("1_6s7l1")
+name = "Tir Triple"
+type = 0
+duration = 45.0
+sprite = ExtResource("2_y8kf3")
+metadata/_custom_type_script = "uid://1624y4xhog4a"

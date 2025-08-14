@@ -8,9 +8,13 @@ var player_data = {
 	"is_playing_for_the_first_time": true
 }
 
+var is_playing_for_the_first_time := true
+
 const SAVE_FILE_PATH = "user://player_data.save"
+const FIRST_TIME_FLAG_PATH = "user://first_time_flag.save"
 
 func _ready():
+	load_first_time_flag()
 	load_player_from_disc()
 
 func save_player_on_disc(email: String, pseudo: String):
@@ -74,3 +78,58 @@ func clear_player_data():
 	if FileAccess.file_exists(SAVE_FILE_PATH):
 		DirAccess.remove_absolute(SAVE_FILE_PATH)
 		print("Player data cleared")
+
+func load_first_time_flag():
+	if not FileAccess.file_exists(FIRST_TIME_FLAG_PATH):
+		print("No first time flag file found - assuming first time player")
+		is_playing_for_the_first_time = true
+		return false
+	
+	var save_file = FileAccess.open(FIRST_TIME_FLAG_PATH, FileAccess.READ)
+	if save_file == null:
+		print("Error: Could not open first time flag file")
+		is_playing_for_the_first_time = true
+		return false
+	
+	var json_string = save_file.get_as_text()
+	save_file.close()
+	
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	
+	if parse_result != OK:
+		print("Error: Could not parse first time flag file")
+		is_playing_for_the_first_time = true
+		return false
+	
+	var loaded_data = json.data
+	if loaded_data.has("is_playing_for_the_first_time"):
+		is_playing_for_the_first_time = loaded_data.is_playing_for_the_first_time
+		print("First time flag loaded: ", is_playing_for_the_first_time)
+		return true
+	else:
+		print("Error: Invalid first time flag file format")
+		is_playing_for_the_first_time = true
+		return false
+
+func save_first_time_flag():
+	var flag_data = {"is_playing_for_the_first_time": is_playing_for_the_first_time}
+	
+	var save_file = FileAccess.open(FIRST_TIME_FLAG_PATH, FileAccess.WRITE)
+	if save_file == null:
+		print("Error: Could not create first time flag file")
+		return false
+	
+	var json_string = JSON.stringify(flag_data)
+	save_file.store_string(json_string)
+	save_file.close()
+	
+	print("First time flag saved: ", is_playing_for_the_first_time)
+	return true
+
+func mark_as_played():
+	"""Call this when the player starts playing (regardless of login status)"""
+	if is_playing_for_the_first_time:
+		is_playing_for_the_first_time = false
+		save_first_time_flag()
+		print("Player marked as having played before")

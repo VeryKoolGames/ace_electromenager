@@ -9,8 +9,14 @@ var grid_size = min_distance
 var has_game_ended := false
 var grid_positions: Dictionary = {}
 
+# Power ups
+var max_power_ups := 3
+var current_power_ups := 0
+var min_power_up_timer := 5
+var max_power_up_timer := 10
+
 func _ready() -> void:
-	power_up_cooldown.start(randf_range(5, 10))
+	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 	power_up_cooldown.timeout.connect(spawn_power_up)
 	Events.on_machine_repaired.connect(replace_machine)
 	Events.on_power_up_gathered.connect(remove_power_up)
@@ -28,6 +34,8 @@ func spawn_initial_machines() -> void:
 
 func on_game_state_advanced() -> void:
 	spawn_machines(2)
+	min_power_up_timer -= 2
+	max_power_up_timer -= 3
 
 func on_game_ended() -> void:
 	has_game_ended = true
@@ -60,14 +68,15 @@ func spawn_machine() -> void:
 	return
 
 func spawn_power_up() -> void:
-	if has_game_ended:
+	if has_game_ended or current_power_ups >= max_power_ups:
 		return
 	var empty_positions = get_empty_positions()
 	if empty_positions.is_empty():
 		return
 	var pos = empty_positions[randi() % empty_positions.size()]
 	spawn_power_up_at(pos)
-	power_up_cooldown.start(randf_range(5, 10))
+	current_power_ups += 1
+	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 	return
 
 func spawn_machines(machine_count: int):
@@ -97,6 +106,7 @@ func remove_power_up(power_up: ResPowerUp):
 	for pos in grid_positions:
 		if grid_positions[pos] == node_to_remove:
 			grid_positions[pos] = null
+			current_power_ups -= 1
 			break
 
 func spawn_machine_at(position: Vector2):
