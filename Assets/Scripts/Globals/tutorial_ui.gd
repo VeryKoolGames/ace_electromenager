@@ -10,12 +10,12 @@ var current_text_index := 0
 var is_writing := false
 var typing_tween: Tween
 var skip_typing_cooldown := false
+var is_starting := true
 @export var char_delay := 0.03
 @export var time_between_dialogues := 1.5
 @onready var scale_on_destroy_component: ScaleOnDestroyComponent = $Panel/ScaleOnDestroyComponent
 
 func _ready() -> void:
-	Events.on_game_started.connect(show_tutorial_pannel)
 	tutorial_texts = {
 		0: {
 			"text": first_dialogue.dialogues_lines,
@@ -30,6 +30,8 @@ func _ready() -> void:
 			"signal": owner.on_third_part_started,
 		}
 	}
+	await get_tree().create_timer(3).timeout
+	is_starting = false
 
 func start_skipping_cooldown() -> void:
 	skip_typing_cooldown = true
@@ -37,6 +39,8 @@ func start_skipping_cooldown() -> void:
 	skip_typing_cooldown = false
 
 func _input(event: InputEvent) -> void:
+	if is_starting:
+		return
 	if event.is_action_pressed("shoot"):
 		if is_writing:
 			skip_typing()
