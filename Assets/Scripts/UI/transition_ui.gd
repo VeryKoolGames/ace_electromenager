@@ -25,6 +25,7 @@ func _ready() -> void:
 
 func play_transition(scene_to_transition_to: MainScenesEnum) -> void:
 	AudioManager.play_transition_sound()
+	transi_screen.show()
 	transi_screen.position = original_pos
 	transi_screen.rotation = original_rotation
 	var scene = scenes_dict[scene_to_transition_to]
@@ -45,3 +46,4 @@ func _play_out_transition(scene: String) -> void:
 	tween.set_parallel()
 	tween.tween_property(transi_screen, "position:x", target_position, 0.4)
 	tween.tween_property(transi_screen, "rotation", deg_to_rad(360), 0.4)
+	tween.tween_callback(func(): transi_screen.hide()).set_delay(0.4)
