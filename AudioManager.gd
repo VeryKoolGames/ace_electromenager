@@ -6,6 +6,7 @@ extends Node
 @export var whistle_sound: AudioStreamPlayer2D
 @onready var menu_music: AudioStreamPlayer2D = $MainMusics/MenuMusic
 @onready var main_music: AudioStreamPlayer2D = $MainMusics/MainMusic
+@onready var transition_sound: AudioStreamPlayer2D = $TransitionSound/TransitionSound
 
 var is_muted := false
 
@@ -45,3 +46,6 @@ func transition_to_menu_music() -> void:
 		await get_tree().create_timer(1.5).timeout
 	menu_music.volume_db = 0
 	menu_music.play()
+
+func play_transition_sound() -> void:
+	transition_sound.play()

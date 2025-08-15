@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://3yfyjvdskl1u"]
+[gd_scene load_steps=17 format=3 uid="uid://3yfyjvdskl1u"]
 
 [ext_resource type="Script" uid="uid://cv67vpl8p0pg4" path="res://AudioManager.gd" id="1_4riyp"]
 [ext_resource type="AudioStream" uid="uid://byj23gdxfa7ge" path="res://Assets/Sounds/shoot1.wav" id="2_n5uav"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://doq2c0s38ww5h" path="res://Assets/Sounds/sifflet.wav" id="13_83x86"]
 [ext_resource type="AudioStream" uid="uid://baqyi45i2086g" path="res://Assets/Sounds/collab-vkg-for-ace-menu-14.8.mp3" id="14_kxxqw"]
 [ext_resource type="AudioStream" uid="uid://cb2ji4yh02ea6" path="res://Assets/Sounds/collab-vkg-for-ace-14.8.mp3" id="15_xygjl"]
+[ext_resource type="AudioStream" uid="uid://dwp4wd3onwim" path="res://Assets/Sounds/transition.wav" id="16_ws8rg"]
 
 [node name="AudioManager" type="Node2D" node_paths=PackedStringArray("shoot_sounds", "rebound_sounds", "charge_sound", "whistle_sound")]
 script = ExtResource("1_4riyp")
@@ -75,3 +76,9 @@ autoplay = true
 
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="MainMusics"]
 stream = ExtResource("15_xygjl")
+
+[node name="TransitionSound" type="Node" parent="."]
+
+[node name="TransitionSound" type="AudioStreamPlayer2D" parent="TransitionSound"]
+stream = ExtResource("16_ws8rg")
+pitch_scale = 1.5

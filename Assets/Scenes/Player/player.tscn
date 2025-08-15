@@ -28,7 +28,7 @@ fill_speed = 350.0
 script = ExtResource("4_340hg")
 ball_scene = ExtResource("5_340hg")
 spawn_cooldown = ExtResource("7_fg6bc")
-fast_spawn_cooldown = 0.5
+fast_spawn_cooldown = 0.2
 aiming_arrow = NodePath("../AimingArrow")
 
 [node name="SpawnPoint" type="Node2D" parent="BallSpawner"]

@@ -24,6 +24,7 @@ func _ready() -> void:
 	original_rotation = transi_screen.rotation
 
 func play_transition(scene_to_transition_to: MainScenesEnum) -> void:
+	AudioManager.play_transition_sound()
 	transi_screen.position = original_pos
 	transi_screen.rotation = original_rotation
 	var scene = scenes_dict[scene_to_transition_to]
@@ -37,6 +38,7 @@ func play_transition(scene_to_transition_to: MainScenesEnum) -> void:
 func _play_out_transition(scene: String) -> void:
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file(scene)
+	AudioManager.play_transition_sound()
 	transi_screen.rotation = original_rotation
 	var tween = create_tween()
 	var target_position = get_tree().root.get_viewport().size.x

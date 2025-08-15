@@ -1,4 +1,4 @@
-extends Camera2D
+extends CanvasLayer
 
 @export var randomStrenght: float = 30
 @export var shakeFade: float = 10.0
@@ -11,9 +11,9 @@ func _ready() -> void:
 
 func apply_shake(strength: float):
 	if strength >= 90:
-		shakeStrenght = 30
-	else:
 		shakeStrenght = 15
+	else:
+		shakeStrenght = 5
 
 func _process(delta):
 	if shakeStrenght > 0:

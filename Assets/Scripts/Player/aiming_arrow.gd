@@ -6,6 +6,7 @@ class_name AimingArrow
 @export var fill_speed := 0.0
 var fill_direction = 1
 var is_player_shooting := false
+var camera: Camera2D
 
 const MIN_ROT = deg_to_rad(-90)
 const MAX_ROT = deg_to_rad( 90)
@@ -15,6 +16,7 @@ var shot_direction: Vector2
 var scale_down_tween: Tween
 
 func _ready() -> void:
+	camera = get_tree().root.get_camera_2d()
 	Events.on_game_timer_ended.connect(stop_charge_sound)
 
 func stop_charge_sound() -> void:
@@ -37,9 +39,16 @@ func rotate_arrow() -> void:
 		var from_up = raw + deg_to_rad(90)
 		rotation = clamp(from_up, MIN_ROT, MAX_ROT)
 	else:
-		rotation = (MIN_ROT if shot_direction.x < 0 else MAX_ROT)
+		shot_direction *= -1
+		var raw = shot_direction.angle()
+		var from_up = raw + deg_to_rad(90)
+		rotation = clamp(from_up, MIN_ROT, MAX_ROT)
 
 func handle_strength(delta) -> void:
+	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
+		var tween = create_tween()
+		tween.tween_property(strength_texture_bar, "value", strength_texture_bar.max_value, 0.1)
+		return
 	if strength_texture_bar.value <= strength_texture_bar.min_value:
 		fill_direction = 1
 	elif strength_texture_bar.value >= strength_texture_bar.max_value:
@@ -48,22 +57,35 @@ func handle_strength(delta) -> void:
 	strength_texture_bar.value = bar_value
 
 func start_charging_shot() -> void:
+	zoom_camera()
 	is_player_shooting = true
 	AudioManager.play_charge_sound()
 
 func stop_charging_shot() -> Dictionary:
+	unzoom_camera()
+	var shot_strength = bar_value
+	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
+		shot_strength = strength_texture_bar.max_value
 	var ret = {
-		"shot_strength": bar_value,
+		"shot_strength": shot_strength,
 		"shot_direction": shot_direction.normalized()
 	}
 	AudioManager.stop_charge_sound()
-	if bar_value >= 90:
+	if shot_strength >= 90:
 		animate_shot(true)
 	else:
 		animate_shot(false)
 	Events.on_shot_released.emit(bar_value)
 	reset_values()
 	return ret
+
+func zoom_camera() -> void:
+	var tween = create_tween()
+	tween.tween_property(camera, "zoom", camera.zoom + Vector2(0.05, 0.05), 0.1)
+
+func unzoom_camera() -> void:
+	var tween = create_tween()
+	tween.tween_property(camera, "zoom", Vector2.ONE, 0.1)
 
 func reset_values() -> void:
 	is_player_shooting = false
@@ -75,7 +97,7 @@ func reset_values() -> void:
 func animate_shot(is_perfect_shot: bool) -> void:
 	# If the player scored above 90 we want to reward him with a small animation
 	if is_perfect_shot:
-		gpu_particles_2d.emitting = true
+		gpu_particles_2d.restart()
 	var scale_factor = Vector2(0.4, 0.4) if is_perfect_shot else Vector2(0.1, 0.1)
 	scale_down_tween = create_tween()
 	var target_scale: Vector2 = scale

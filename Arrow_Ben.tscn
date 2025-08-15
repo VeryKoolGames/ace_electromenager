@@ -47,7 +47,6 @@ texture_progress = ExtResource("4_hlygf")
 tint_progress = Color(0.984314, 0.462745, 0.223529, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(0, -91)
 emitting = false
 amount = 4
 texture = ExtResource("6_g06xe")

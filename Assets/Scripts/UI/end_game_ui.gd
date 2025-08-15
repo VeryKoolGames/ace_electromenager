@@ -26,6 +26,7 @@ func on_game_ended() -> void:
 	score_label.text = "[b]%d[/b]\nPTS" % score_manager.current_score
 
 func on_replay_button_clicked() -> void:
+	AudioManager.transition_to_game_music()
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.GAME)
 
 func on_leaderboard_button_clicked() -> void:
@@ -33,7 +34,7 @@ func on_leaderboard_button_clicked() -> void:
 
 func show_best_score_rect() -> void:
 	if not SaveSystem.has_saved_player():
-		best_score_rect.show()
+		best_score_rect.hide()
 		return
 	
 	var body = {

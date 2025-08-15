@@ -11,11 +11,12 @@ var aiming_arrow_base_scale: Vector2
 
 func _ready() -> void:
 	aiming_arrow_base_scale = aiming_arrow.scale
-	spawn_ball()
+	aiming_arrow.scale = Vector2.ZERO
 	cooldown_timer.wait_time = spawn_cooldown.value
 	cooldown_timer.timeout.connect(on_cooldown_ended)
 	Events.on_power_up_activated.connect(on_fast_show_power_up_picked_up)
 	Events.on_power_up_expired.connect(on_fast_show_power_up_expired)
+	Events.on_game_started.connect(spawn_ball)
 
 func spawn_ball() -> void:
 	if owner.current_ball:
