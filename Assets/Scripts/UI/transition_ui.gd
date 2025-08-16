@@ -50,12 +50,12 @@ func play_transition(scene_to_transition_to: MainScenesEnum) -> void:
 		0.8
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
-	# Callback
-	tween.tween_callback(_play_out_transition.bind(scene))
+	await tween.finished
+	_play_out_transition(scene)
 
 func _play_out_transition(scene: String) -> void:
-	await get_tree().create_timer(1.3).timeout
 	get_tree().change_scene_to_file(scene)
+	await get_tree().create_timer(1.3).timeout
 	AudioManager.play_transition_sound()
 	transi_screen.rotation = original_rotation
 	var tween = create_tween()

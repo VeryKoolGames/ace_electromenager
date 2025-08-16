@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_kcw35")
-dialogues_lines = Array[String](["Wow quel tir !", "Tu vas gagner le prix a ce rythme la", "Ace !"])
+dialogues_lines = Array[String](["Wow quel tir !", "Tu vas gagner le prix à ce rythme la"])
 metadata/_custom_type_script = "uid://22s8q8np634p"

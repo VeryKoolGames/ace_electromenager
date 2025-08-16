@@ -3,6 +3,7 @@ class_name ScoreManager
 
 var current_score := 0
 var score_buffer := 0
+@export var treshold_to_congratulate_player := 100
 @onready var score_label: Label = $ScoreLabel
 @export var score_ui_component_scene: PackedScene
 @onready var score_buffer_label: Label = $MarginContainer/ScoreBufferLabel
@@ -56,7 +57,7 @@ func _transfer_buffer_to_score() -> void:
 	
 	is_transferring_score = true
 	var buffer_amount = score_buffer
-	if buffer_amount >= 10:
+	if buffer_amount >= treshold_to_congratulate_player:
 		Events.on_player_congratulated.emit()
 	score_buffer = 0
 	
