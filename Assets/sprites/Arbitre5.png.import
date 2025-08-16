@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg8jf6us71k02"
-path="res://.godot/imported/Frame 5.png-8c1154ac803a8eb6c46e8b7986b5f2aa.ctex"
+uid="uid://cbhgcbss53ydv"
+path="res://.godot/imported/Arbitre5.png-3fd5ae70dcd4e543ddf7f2211ea88567.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Frame 5.png"
-dest_files=["res://.godot/imported/Frame 5.png-8c1154ac803a8eb6c46e8b7986b5f2aa.ctex"]
+source_file="res://Assets/sprites/Arbitre5.png"
+dest_files=["res://.godot/imported/Arbitre5.png-3fd5ae70dcd4e543ddf7f2211ea88567.ctex"]
 
 [params]
 
