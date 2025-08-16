@@ -9,7 +9,7 @@ point_count = 2
 curve = SubResource("Curve_muhse")
 
 [sub_resource type="Curve" id="Curve_ff6ec"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.18007, 1), 0.0, 0.0, 0, 0, Vector2(0.708042, 0.992323), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0298013, 1), 0.0, 0.0, 0, 0, Vector2(0.708042, 0.992323), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_muhse"]
@@ -28,6 +28,6 @@ gravity = Vector3(0, 0, 0)
 damping_curve = SubResource("CurveTexture_e2oje")
 scale_min = 0.3
 scale_curve = SubResource("CurveTexture_muhse")
-color = Color(1, 0.956863, 0.141176, 1)
+color = Color(1, 0.792157, 0.262745, 1)
 turbulence_noise_strength = 0.21
 turbulence_noise_scale = 4.56

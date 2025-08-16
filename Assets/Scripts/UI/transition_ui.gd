@@ -30,20 +30,37 @@ func play_transition(scene_to_transition_to: MainScenesEnum) -> void:
 	transi_screen.rotation = original_rotation
 	var scene = scenes_dict[scene_to_transition_to]
 	var target_position = transi_screen.position.x / 2 + get_tree().root.get_visible_rect().size.x / 2
+	
 	var tween = create_tween()
 	tween.set_parallel()
-	tween.tween_property(transi_screen, "position:x", target_position, 0.4)
-	tween.tween_property(transi_screen, "rotation", deg_to_rad(360), 0.4)
+	
+	# Position avec easing
+	tween.tween_property(
+		transi_screen,
+		"position:x",
+		target_position,
+		0.8
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	# Rotation avec easing
+	tween.tween_property(
+		transi_screen,
+		"rotation",
+		deg_to_rad(360),
+		0.8
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	# Callback
 	tween.tween_callback(_play_out_transition.bind(scene))
 
 func _play_out_transition(scene: String) -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.3).timeout
 	get_tree().change_scene_to_file(scene)
 	AudioManager.play_transition_sound()
 	transi_screen.rotation = original_rotation
 	var tween = create_tween()
 	var target_position = get_tree().root.get_viewport().size.x
 	tween.set_parallel()
-	tween.tween_property(transi_screen, "position:x", target_position, 0.4)
-	tween.tween_property(transi_screen, "rotation", deg_to_rad(360), 0.4)
+	tween.tween_property(transi_screen, "position:x", target_position, 0.8)
+	tween.tween_property(transi_screen, "rotation", deg_to_rad(360), 0.8)
 	tween.tween_callback(func(): transi_screen.hide()).set_delay(0.4)

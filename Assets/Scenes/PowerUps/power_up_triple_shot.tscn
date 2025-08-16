@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://63qbcfwhxyb5" path="res://Assets/sprites/Ellipse.png" id="6_up00f"]
 [ext_resource type="Texture2D" uid="uid://cojy23d5qo04y" path="res://Assets/sprites/gradient.png" id="7_0eyuf"]
 [ext_resource type="Texture2D" uid="uid://d3rdka0i7as8y" path="res://Assets/sprites/ItemIcon_Triple.png" id="7_2prq3"]
-[ext_resource type="PackedScene" uid="uid://bn6ovy2c3xmux" path="res://Assets/Scenes/p_item_particle.tscn" id="7_jjjpt"]
+[ext_resource type="PackedScene" uid="uid://bn6ovy2c3xmux" path="res://Assets/Particles/p_item_particle.tscn" id="7_jjjpt"]
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="8_jjjpt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wc742"]
