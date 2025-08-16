@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=15 format=3 uid="uid://drf66dvcj6n1f"]
 
 [ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_li4bx"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="7_q2rrb"]
 [ext_resource type="Texture2D" uid="uid://c6k75j71jbvva" path="res://Assets/sprites/ButtonShape3.png" id="8_vkddw"]
 [ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="9_4yrqk"]
+[ext_resource type="Texture2D" uid="uid://c1f866eq62mg1" path="res://Assets/sprites/ButtonShape3_Hover.png" id="11_li4bx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
 texture = ExtResource("2_mrngu")
@@ -148,6 +149,7 @@ theme_override_constants/margin_top = 105
 layout_mode = 2
 texture_normal = ExtResource("8_vkddw")
 texture_pressed = ExtResource("9_4yrqk")
+texture_hover = ExtResource("11_li4bx")
 
 [node name="Label" type="Label" parent="LeftContainer/MarginBackButton/BackButton"]
 layout_mode = 1
@@ -157,6 +159,7 @@ anchor_bottom = 1.0
 offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
 theme_override_fonts/font = ExtResource("7_q2rrb")
 theme_override_font_sizes/font_size = 28
 text = "RETOUR"

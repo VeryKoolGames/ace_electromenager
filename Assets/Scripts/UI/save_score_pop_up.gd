@@ -5,7 +5,7 @@ extends Control
 @onready var email_line_edit: LineEdit = $Panel/VBoxContainer/MarginContainer2/HBoxContainer/EmailLineEdit
 
 @onready var v_box_container: VBoxContainer = $Panel/VBoxContainer
-@onready var label: Label = $Panel/Label
+@onready var label: Label = $"Panel/ScoreEnregistré"
 @onready var error_label: Label = $Panel/VBoxContainer/ErrorLabel
 @onready var panel: Panel = $Panel
 @onready var save_button: TextureButton = $Panel/VBoxContainer/VBoxContainer/SaveButton

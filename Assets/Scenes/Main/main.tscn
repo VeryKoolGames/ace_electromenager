@@ -42,6 +42,8 @@
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="32_sack4"]
 [ext_resource type="Script" uid="uid://b48kebaav8b0k" path="res://Assets/Scripts/pause_menu.gd" id="33_t8766"]
 [ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="36_s0kou"]
+[ext_resource type="Texture2D" uid="uid://c3ysp4pj4efrm" path="res://Assets/sprites/Vu.png" id="38_wspn0"]
+[ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="39_eqeth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -110,6 +112,106 @@ texture_margin_right = 20.5
 texture_margin_bottom = 18.0
 region_rect = Rect2(4, 4.75, 183, 180.5)
 modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
+
+[sub_resource type="Animation" id="Animation_wspn0"]
+resource_name = "scoreEnregistré"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Etoile:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.0693232, 0.00138414, 1, -0.0373159, 0.00522864, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.566667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Etoile:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.067724, 0.00138414, 1, -0.0362585, 0.000195622, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.566667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vu:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.0730634, 0.00640279, 0.38, -0.0327916, 0.000577718, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 0.666667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vu:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.233333, -0.00426024, 0.101547, -0.00426033, 0.38, -0.0333333, -0.0036875, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 0.666667)
+}
+
+[sub_resource type="Animation" id="Animation_eqeth"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Etoile:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Etoile:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vu:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vu:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvye"]
+_data = {
+&"RESET": SubResource("Animation_eqeth"),
+&"scoreEnregistré": SubResource("Animation_wspn0")
+}
 
 [sub_resource type="Animation" id="Animation_tpyc1"]
 length = 0.001
@@ -1196,21 +1298,70 @@ text = "PUBLIER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+[node name="ScoreEnregistré" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = 56.807
+offset_right = 307.5
+offset_bottom = 202.807
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_constants/line_spacing = -10
 theme_override_fonts/font = ExtResource("5_o5d14")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 57
 text = "Merci, ton score a bien été enregistré"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Etoile" type="TextureRect" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScoreEnregistré"]
+modulate = Color(0.243137, 0.596078, 0.333333, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -381.843
+offset_right = 126.5
+offset_bottom = -131.843
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(126, 125)
+texture = ExtResource("39_eqeth")
+stretch_mode = 4
+
+[node name="Vu" type="TextureRect" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScoreEnregistré"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.91
+offset_top = -374.36
+offset_right = 180.09
+offset_bottom = -124.36
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(172, 125)
+texture = ExtResource("38_wspn0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/ScoreEnregistré"]
+libraries = {
+&"": SubResource("AnimationLibrary_1bvye")
+}
+autoplay = "scoreEnregistré"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 
