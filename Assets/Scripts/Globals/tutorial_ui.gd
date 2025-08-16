@@ -1,6 +1,6 @@
 extends Control
-@onready var panel: Panel = $Panel
-@onready var label: Label = $Panel/MarginContainer/Label
+@onready var panel: PanelContainer = $RefereePanel
+@onready var label: Label = $RefereePanel/Label
 var tutorial_texts = {}
 @export var first_dialogue: ResDialogue
 @export var second_dialogue: ResDialogue
@@ -13,7 +13,8 @@ var skip_typing_cooldown := false
 var is_starting := true
 @export var char_delay := 0.03
 @export var time_between_dialogues := 1.5
-@onready var scale_on_destroy_component: ScaleOnDestroyComponent = $Panel/ScaleOnDestroyComponent
+@onready var scale_on_destroy_component: ScaleOnDestroyComponent = $RefereePanel/ScaleOnDestroyComponent
+@export var referee: Referee
 
 func _ready() -> void:
 	tutorial_texts = {
@@ -57,6 +58,7 @@ func skip_typing() -> void:
 	var current_texts = tutorial_texts[current_index]["text"]
 	if current_text_index < current_texts.size():
 		label.text = current_texts[current_text_index]
+	referee.hide_mouth()
 
 func advance_text() -> void:
 	current_text_index += 1
@@ -71,6 +73,7 @@ func advance_text() -> void:
 		tutorial_texts[current_index]["signal"].emit()
 		GameState.set_game_mode()
 		if current_index == tutorial_texts.size() - 1:
+			referee.stop_talking()
 			await get_tree().create_timer(2).timeout
 			scale_on_destroy_component.destroy()
 
@@ -90,6 +93,7 @@ func write_tutorial_text() -> void:
 	type_text()
 
 func type_text() -> void:
+	referee.start_talking()
 	start_skipping_cooldown()
 	if current_index >= tutorial_texts.size():
 		return
@@ -112,3 +116,4 @@ func type_text() -> void:
 		await get_tree().create_timer(char_delay).timeout
 	
 	is_writing = false
+	referee.hide_mouth()

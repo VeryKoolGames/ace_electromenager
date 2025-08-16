@@ -15,7 +15,6 @@ func _ready() -> void:
 	http_request.request_completed.connect(_on_request_completed)
 
 func on_game_ended() -> void:
-	await get_tree().create_timer(3).timeout
 	PlayerData.score = score_manager.current_score
 	SaveSystem.mark_as_played()
 	show_best_score_rect()
@@ -30,7 +29,7 @@ func on_replay_button_clicked() -> void:
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.GAME)
 
 func on_leaderboard_button_clicked() -> void:
-	
+	AudioManager.transition_to_menu_music()
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.LEADERBOARD)
 
 func show_best_score_rect() -> void:

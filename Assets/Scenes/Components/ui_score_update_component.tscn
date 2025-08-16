@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://kdl6ju7vpr6x"]
+[gd_scene load_steps=4 format=3 uid="uid://kdl6ju7vpr6x"]
 
 [ext_resource type="Script" uid="uid://clukwyfdnwbh3" path="res://Assets/Scripts/Components/ui_score_update_component.gd" id="1_0jutu"]
 [ext_resource type="Texture2D" uid="uid://bbatef436qfxd" path="res://Assets/sprites/Star 7.png" id="2_h21gs"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="3_fusul"]
 
 [node name="UIScoreUpdateComponent" type="Control"]
 custom_minimum_size = Vector2(100, 100)
@@ -15,6 +16,7 @@ pivot_offset = Vector2(50, 50)
 script = ExtResource("1_0jutu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.996078, 0.94902, 0.780392, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +36,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
+theme_override_colors/font_color = Color(1, 0.792157, 0.262745, 1)
+theme_override_fonts/font = ExtResource("3_fusul")
 theme_override_font_sizes/font_size = 32
 text = "+ 5"
 horizontal_alignment = 1

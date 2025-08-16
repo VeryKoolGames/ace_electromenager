@@ -3,6 +3,7 @@ class_name ScoreManager
 
 var current_score := 0
 var score_buffer := 0
+@export var treshold_to_congratulate_player := 100
 @onready var score_label: Label = $ScoreLabel
 @export var score_ui_component_scene: PackedScene
 @onready var score_buffer_label: Label = $MarginContainer/ScoreBufferLabel
@@ -56,6 +57,8 @@ func _transfer_buffer_to_score() -> void:
 	
 	is_transferring_score = true
 	var buffer_amount = score_buffer
+	if buffer_amount >= treshold_to_congratulate_player:
+		Events.on_player_congratulated.emit()
 	score_buffer = 0
 	
 	score_buffer_tween = create_tween()
@@ -92,14 +95,15 @@ func spawn_score_component(machine: Machine) -> void:
 	var score_component = score_ui_component_scene.instantiate() as Control
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var screen_pos = canvas_transform * machine.global_position
+	screen_pos.y -= 150
+	screen_pos.x -= 50
 	score_component.global_position = screen_pos
 	$PowerUpContainer.add_child(score_component)
 	score_component.show_score(machine.score_value)
-	
+
 	var target_pos = score_label_original_position
 	target_pos.x += score_buffer_label.size.x / 4
 	target_pos.y -= score_buffer_label.size.y / 2
 	var tween = create_tween()
-	
 	tween.tween_property(score_component, "global_position", target_pos, 0.2).set_delay(0.4)
 	tween.tween_property(score_component, "scale", Vector2.ZERO, 0.2)

@@ -73,11 +73,19 @@ func stop_charging_shot() -> Dictionary:
 	AudioManager.stop_charge_sound()
 	if shot_strength >= 90:
 		animate_shot(true)
+		try_to_raise_referee_signal_on_ace()
 	else:
 		animate_shot(false)
 	Events.on_shot_released.emit(bar_value)
 	reset_values()
 	return ret
+
+func try_to_raise_referee_signal_on_ace() -> void:
+	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
+		return
+	var should_raise = randi() % 20 < 5
+	if should_raise:
+		Events.on_player_aced.emit()
 
 func zoom_camera() -> void:
 	var tween = create_tween()

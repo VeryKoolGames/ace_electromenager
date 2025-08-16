@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=34 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="5_jrs6e"]
 [ext_resource type="PackedScene" uid="uid://lblqrq1f3767" path="res://Assets/Scenes/Machines/tutorial_fridge.tscn" id="6_paycb"]
 [ext_resource type="PackedScene" uid="uid://k4dtb47wuhcn" path="res://Assets/Scenes/PowerUps/tutorial_power_up_triple_shot.tscn" id="8_6rwrp"]
+[ext_resource type="PackedScene" uid="uid://u71mthgq8u4o" path="res://Assets/Scenes/arbitre.tscn" id="10_ifdon"]
 [ext_resource type="Texture2D" uid="uid://bevmkrhh4178r" path="res://Assets/sprites/Arbitre.png" id="12_l8q8i"]
 [ext_resource type="Script" uid="uid://cjak1xtq8wcro" path="res://Assets/Scripts/Managers/score_manager.gd" id="13_w35ne"]
 [ext_resource type="PackedScene" uid="uid://kdl6ju7vpr6x" path="res://Assets/Scenes/Components/ui_score_update_component.tscn" id="14_j2r2r"]
@@ -16,11 +17,10 @@
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="19_5qcfn"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="20_oedxg"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="22_p6ehi"]
+[ext_resource type="PackedScene" uid="uid://623qimt3u6wg" path="res://Assets/Scenes/UI/referee_panel.tscn" id="22_x4ens"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="23_t1e88"]
-[ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="27_jlixy"]
 [ext_resource type="Script" uid="uid://b3elnfvlugmuk" path="res://Assets/Scripts/Globals/tutorial_ui.gd" id="29_6rwrp"]
 [ext_resource type="Resource" uid="uid://3go6chxms7sw" path="res://Assets/Resources/TutorialDialogue1.tres" id="30_paycb"]
-[ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="30_wu0vg"]
 [ext_resource type="Resource" uid="uid://c3wngdbaef73w" path="res://Assets/Resources/TutorialDialogue2.tres" id="31_wu0vg"]
 [ext_resource type="Resource" uid="uid://bgsxru22harcc" path="res://Assets/Resources/TutorialDialogue3.tres" id="33_tywnt"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="33_w35ne"]
@@ -37,13 +37,6 @@ size = Vector2(29, 2280)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
 size = Vector2(3404, 15)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbeqx"]
-texture = ExtResource("27_jlixy")
-texture_margin_left = 16.0
-texture_margin_top = 14.0
-texture_margin_right = 15.0
-texture_margin_bottom = 49.5
-
 [sub_resource type="Animation" id="Animation_sack4"]
 length = 0.001
 tracks/0/type = "value"
@@ -56,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(3000, 500)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -300,6 +293,15 @@ texture = ExtResource("12_l8q8i")
 position = Vector2(0.5, 28)
 polygon = PackedVector2Array(-52.5, 79, -6.5, -102, 50.5, -101, 51.5, 82)
 
+[node name="Control" type="Control" parent="ResponsiveLayer/RefPos"]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -130.5
+offset_right = 46.0
+offset_bottom = -90.5
+
+[node name="Arbitre" parent="ResponsiveLayer/RefPos/Control" instance=ExtResource("10_ifdon")]
+
 [node name="SpawnZone" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -464,7 +466,7 @@ script = ExtResource("34_j2r2r")
 
 [node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
 
-[node name="TutorialUI" type="Control" parent="ResponsiveLayer"]
+[node name="TutorialUI" type="Control" parent="ResponsiveLayer" node_paths=PackedStringArray("referee")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -475,46 +477,17 @@ script = ExtResource("29_6rwrp")
 first_dialogue = ExtResource("30_paycb")
 second_dialogue = ExtResource("31_wu0vg")
 third_dialogue = ExtResource("33_tywnt")
+referee = NodePath("../RefPos/Control/Arbitre")
 
-[node name="Panel" type="Panel" parent="ResponsiveLayer/TutorialUI"]
-custom_minimum_size = Vector2(200, 200)
+[node name="RefereePanel" parent="ResponsiveLayer/TutorialUI" instance=ExtResource("22_x4ens")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -716.0
-offset_top = 143.0
-offset_right = -316.0
-offset_bottom = 423.0
-grow_horizontal = 0
-scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(200, 125)
-theme_override_styles/panel = SubResource("StyleBoxTexture_wbeqx")
-
-[node name="ScaleOnDestroyComponent" type="Node" parent="ResponsiveLayer/TutorialUI/Panel"]
-script = ExtResource("30_wu0vg")
-metadata/_custom_type_script = "uid://d315g88q7180c"
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 40
-
-[node name="Label" type="Label" parent="ResponsiveLayer/TutorialUI/Panel/MarginContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("15_377uc")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -696.0
+offset_top = -326.0
+offset_right = -315.0
+offset_bottom = -162.5
 
 [node name="BackButtonContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI"]
 layout_mode = 1
@@ -577,7 +550,10 @@ libraries = {
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 111.0
+offset_left = 3000.0
+offset_top = 500.0
+offset_right = 3000.0
+offset_bottom = 611.0
 grow_horizontal = 2
 pivot_offset = Vector2(960, 55.5)
 theme_override_constants/margin_left = 0
@@ -606,3 +582,5 @@ vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[editable path="ResponsiveLayer/TutorialUI/RefereePanel"]

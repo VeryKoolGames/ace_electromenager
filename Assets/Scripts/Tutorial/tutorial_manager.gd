@@ -13,6 +13,7 @@ func _ready() -> void:
 	Events.on_tutorial_progressed.connect(on_tutorial_progressed)
 	on_third_part_started.connect(on_tutorial_ended)
 	back_button.pressed.connect(on_back_button_pressed)
+	await get_tree().create_timer(2).timeout
 	countdown_start_ui.play_start_animation()
 	await get_tree().create_timer(2).timeout
 	start_game()

@@ -17,8 +17,8 @@ func transition_to_game_scene() -> void:
 	if SaveSystem.is_playing_for_the_first_time:
 		TransitionManager.play_transition(TransitionManager.MainScenesEnum.TUTORIAL)
 	else:
-		AudioManager.transition_to_game_music()
 		TransitionManager.play_transition(TransitionManager.MainScenesEnum.GAME)
+		AudioManager.transition_to_game_music()
 
 func transition_to_leaderboard_scene() -> void:
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.LEADERBOARD)

@@ -37,10 +37,14 @@ func _ready() -> void:
 	collision_mask = 1
 	previous_position = global_position
 	Events.on_power_up_expired.connect(remove_power_ups)
+	Events.on_game_timer_ended.connect(destroy_itself)
 
 func remove_power_ups(type: ResPowerUp.PowerUpEnum) -> void:
 	if type == ResPowerUp.PowerUpEnum.REBOUND_SHOT:
 		is_bouncing = false
+
+func destroy_itself() -> void:
+	scale_on_destroy_component.destroy()
 
 func _process(delta: float) -> void:
 	if is_moving:
