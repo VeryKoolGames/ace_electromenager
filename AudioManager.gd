@@ -34,6 +34,7 @@ func transition_to_game_music() -> void:
 	out_tween.tween_property(menu_music, "volume_db", -80, 2)
 	out_tween.tween_callback(func(): menu_music.stop())
 	await out_tween.finished
+	await get_tree().create_timer(1.5).timeout
 	main_music.play()
 
 func transition_to_menu_music() -> void:

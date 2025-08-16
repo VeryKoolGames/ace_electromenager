@@ -15,7 +15,6 @@ func _ready() -> void:
 	http_request.request_completed.connect(_on_request_completed)
 
 func on_game_ended() -> void:
-	await get_tree().create_timer(3).timeout
 	PlayerData.score = score_manager.current_score
 	SaveSystem.mark_as_played()
 	show_best_score_rect()
