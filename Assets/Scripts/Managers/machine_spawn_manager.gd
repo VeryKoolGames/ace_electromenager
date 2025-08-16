@@ -1,4 +1,5 @@
 extends Node
+
 var spawn_area: Rect2
 var min_distance = 150.0
 var grid_size = min_distance
@@ -8,9 +9,16 @@ var grid_size = min_distance
 @export var power_ups: Array[PackedScene]
 var has_game_ended := false
 var grid_positions: Dictionary = {}
+var latest_power_up_type: ResPowerUp.PowerUpEnum
+
+# Region
+var max_power_ups := 3
+var current_power_ups := 0
+var min_power_up_timer := 4
+var max_power_up_timer := 7
 
 func _ready() -> void:
-	power_up_cooldown.start(randf_range(5, 10))
+	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 	power_up_cooldown.timeout.connect(spawn_power_up)
 	Events.on_machine_repaired.connect(replace_machine)
 	Events.on_power_up_gathered.connect(remove_power_up)
@@ -28,6 +36,8 @@ func spawn_initial_machines() -> void:
 
 func on_game_state_advanced() -> void:
 	spawn_machines(2)
+	min_power_up_timer -= 1
+	max_power_up_timer -= 2
 
 func on_game_ended() -> void:
 	has_game_ended = true
@@ -60,15 +70,15 @@ func spawn_machine() -> void:
 	return
 
 func spawn_power_up() -> void:
-	if has_game_ended:
+	if has_game_ended or current_power_ups >= max_power_ups:
 		return
 	var empty_positions = get_empty_positions()
 	if empty_positions.is_empty():
 		return
 	var pos = empty_positions[randi() % empty_positions.size()]
 	spawn_power_up_at(pos)
-	power_up_cooldown.start(randf_range(5, 10))
-	return
+	current_power_ups += 1
+	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 
 func spawn_machines(machine_count: int):
 	var empty_positions = get_empty_positions()
@@ -76,6 +86,7 @@ func spawn_machines(machine_count: int):
 	
 	for i in range(min(machine_count, empty_positions.size())):
 		spawn_machine_at(empty_positions[i])
+		await get_tree().create_timer(0.2).timeout
 
 func get_empty_positions() -> Array:
 	var empty = []
@@ -97,6 +108,7 @@ func remove_power_up(power_up: ResPowerUp):
 	for pos in grid_positions:
 		if grid_positions[pos] == node_to_remove:
 			grid_positions[pos] = null
+			current_power_ups -= 1
 			break
 
 func spawn_machine_at(position: Vector2):
@@ -106,7 +118,11 @@ func spawn_machine_at(position: Vector2):
 	grid_positions[position] = obj
 
 func spawn_power_up_at(position: Vector2):
-	var obj = get_random_power_up().instantiate() as Node
+	var obj = get_random_power_up().instantiate() as PowerUp
+	while obj.res_power_up.type == latest_power_up_type:
+		obj = get_random_power_up().instantiate() as PowerUp
+	latest_power_up_type = obj.res_power_up.type
+	obj.res_power_up.type
 	obj.global_position = position
 	add_child(obj)
 	grid_positions[position] = obj

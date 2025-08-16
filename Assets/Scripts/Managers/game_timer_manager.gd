@@ -9,7 +9,7 @@ var game_states_tresholds: Dictionary
 func _ready() -> void:
 	game_states_tresholds = {
 		int(game_length.value / 2): false,
-		int(game_length.value / 3): false,
+		int(game_length.value / 4): false,
 	}
 	game_timer.timeout.connect(end_game)
 	game_timer.wait_time = game_length.value

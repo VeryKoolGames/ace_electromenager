@@ -9,6 +9,7 @@ var active_powerups: Dictionary = {}
 var borders_size := 150
 
 func _ready() -> void:
+	borders_size = get_viewport_rect().size.x / 12
 	shooting_behavior = BasicShot.new()
 	Events.on_power_up_gathered.connect(on_power_up_picked_up)
 

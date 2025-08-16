@@ -7,6 +7,6 @@
 script = ExtResource("1_r27jd")
 name = "Tir Triple"
 type = 0
-duration = 10.0
+duration = 7.0
 sprite = ExtResource("2_sextf")
 metadata/_custom_type_script = "uid://1624y4xhog4a"

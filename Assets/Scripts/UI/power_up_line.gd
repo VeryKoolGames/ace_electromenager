@@ -28,7 +28,7 @@ func init(power_up: ResPowerUp):
 	power_up_name = power_up.name
 
 func _process(_delta: float) -> void:
-	if not duration_timer.is_stopped():
+	if GameState.is_in_game_mode() and not duration_timer.is_stopped():
 		progress_bar.value = duration_timer.time_left
 
 func reset_progress_duration():

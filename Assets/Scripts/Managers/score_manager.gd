@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func on_score_received(score_value: int) -> void:
 	if score_buffer >= 10:
-		var multiplier_tier = min(int(score_buffer / 10), 9)
+		var multiplier_tier = clamp(score_buffer / 10, 1.5, 5)
 		multiplier = multiplier_tier
 		score_value *= multiplier
 	score_buffer += score_value

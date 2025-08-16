@@ -18,6 +18,7 @@ func repair() -> void:
 	# Switch layers so the ball does not stuck to the machine
 	static_body.collision_layer = 4
 	static_body.collision_mask = 4
+	smoke_particles.queue_free()
 
 	switch_texture_to_white()
 	scale_up_and_down()

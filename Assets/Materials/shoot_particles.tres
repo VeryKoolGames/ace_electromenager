@@ -1,29 +1,20 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://c3gcgju4x0r8b"]
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://c3gcgju4x0r8b"]
 
-[sub_resource type="Curve" id="Curve_2u67p"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.530242, 0.884681), 0.0, 0.0, 0, 0, Vector2(0.989919, 0.00426471), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_pedw5"]
+_data = [Vector2(0.0111111, 1), 0.0, 0.0, 0, 0, Vector2(0.758333, 1), 0.0, 0.0, 0, 0, Vector2(0.994444, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_b720g"]
-curve = SubResource("Curve_2u67p")
-
-[sub_resource type="Gradient" id="Gradient_1yd8r"]
-offsets = PackedFloat32Array(0.00226244, 0.995475)
-colors = PackedColorArray(0.815686, 0.188235, 0.196078, 1, 1, 0.792157, 0.266667, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_x472e"]
-gradient = SubResource("Gradient_1yd8r")
+[sub_resource type="CurveTexture" id="CurveTexture_oicgd"]
+curve = SubResource("Curve_pedw5")
 
 [resource]
 resource_local_to_scene = true
-particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 180.0
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 120.0
 initial_velocity_max = 180.0
-gravity = Vector3(0, 98, 0)
+damping_max = 2.89
 scale_min = 0.6
 scale_max = 0.8
-scale_over_velocity_max = 141.08
 color = Color(1, 0.792157, 0.262745, 1)
-color_initial_ramp = SubResource("GradientTexture1D_x472e")
-alpha_curve = SubResource("CurveTexture_b720g")
+alpha_curve = SubResource("CurveTexture_oicgd")

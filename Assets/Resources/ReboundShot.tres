@@ -7,6 +7,6 @@
 script = ExtResource("1_e73ak")
 name = "Tir Rebond"
 type = 1
-duration = 10.0
+duration = 7.0
 sprite = ExtResource("2_e73ak")
 metadata/_custom_type_script = "uid://1624y4xhog4a"

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_bkmm8")
-dialogues_lines = Array[String](["Bravo ! Plus la fleche est remplie plus vous tirez fort", "Tu trouveras egalement plusieurs pouvoir qui modifieront tes balls"])
+dialogues_lines = Array[String](["Bravo ! Plus la fleche est remplie plus ton tir sera puissant", "Tu trouveras également plusieurs pouvoir qui modifieront tes tirs"])
 metadata/_custom_type_script = "uid://22s8q8np634p"
