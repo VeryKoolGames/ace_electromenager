@@ -38,6 +38,7 @@ func start_referee_cooldown() -> void:
 
 func show_pannel_with_text(text_to_write: String) -> void:
 	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(referee_panel, "scale", Vector2.ONE, 0.2).finished.connect(func():
 		write_referee_text(text_to_write)
 	)
@@ -53,15 +54,7 @@ func write_referee_text(text_to_write: String) -> void:
 	referee.stop_talking()
 	hide_pannel()
 
-func stop_shake_effect() -> void:
-	if shake_tween:
-		shake_tween.kill()
-		shake_tween = null
-	
-	var reset_tween = create_tween()
-	reset_tween.tween_property(referee_panel, "position", original_panel_position, 0.1)
-
 func hide_pannel() -> void:
 	var tween = create_tween()
 	tween.tween_property(referee_panel, "scale", Vector2.ZERO, 0.2)
-	tween.tween_callback(func(): referee_panel.text = "")
+	tween.tween_callback(func(): label.text = "")

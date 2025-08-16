@@ -290,7 +290,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(3000, 500)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1249,7 +1249,10 @@ libraries = {
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 111.0
+offset_left = 3000.0
+offset_top = 500.0
+offset_right = 3000.0
+offset_bottom = 611.0
 grow_horizontal = 2
 pivot_offset = Vector2(960, 55.5)
 theme_override_constants/margin_left = 0
@@ -1280,5 +1283,3 @@ vertical_alignment = 1
 script = ExtResource("36_s0kou")
 
 [node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
-
-[node name="Node2D" type="Node2D" parent="."]
