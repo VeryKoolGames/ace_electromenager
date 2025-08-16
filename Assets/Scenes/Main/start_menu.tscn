@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=29 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Texture2D" uid="uid://d280amj7mfcet" path="res://Assets/sprites/BackgroundMainMenu.png" id="2_dph0j"]
+[ext_resource type="Texture2D" uid="uid://ct4bn414yk3ev" path="res://Assets/sprites/AudioIconOff.png" id="2_k7tfi"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="2_tow68"]
 [ext_resource type="Texture2D" uid="uid://bovnjxspn4gib" path="res://Assets/sprites/TitleLogo.png" id="3_dph0j"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="3_tow68"]
@@ -353,6 +354,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_dph0j")
+mute_button_activated_texture = ExtResource("2_k7tfi")
 
 [node name="TextureRect2" type="TextureRect" parent="StartMenuUI"]
 layout_mode = 1
@@ -635,8 +637,8 @@ anchor_bottom = 1.0
 offset_top = -73.0
 offset_right = 84.0
 grow_vertical = 0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_bottom = 60
 
 [node name="TextureRect" type="TextureRect" parent="StartMenuUI/MarginContainer"]
 layout_mode = 2

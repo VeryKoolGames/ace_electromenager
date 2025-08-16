@@ -5,8 +5,13 @@ extends Control
 @onready var tutorial_container: MarginContainer = $TutorialContainer
 @onready var tutorial_button: TextureButton = $TutorialContainer/TutorialButton
 @onready var mute_button: TextureButton = $Mute/MuteButton
+@export var mute_button_activated_texture: Texture2D
+var mute_button_deactivated_texture: Texture2D
+
+var is_mute := false
 
 func _ready() -> void:
+	mute_button_deactivated_texture = mute_button.texture_normal
 	mute_button.pressed.connect(on_mute_button_pressed)
 	start_button.pressed.connect(transition_to_game_scene)
 	leaderboard_button.pressed.connect(transition_to_leaderboard_scene)
@@ -33,4 +38,9 @@ func show_or_hide_tutorial_button() -> void:
 		tutorial_container.hide()
 
 func on_mute_button_pressed() -> void:
+	is_mute = not is_mute
+	if is_mute:
+		mute_button.texture_normal = mute_button_activated_texture
+	else:
+		mute_button.texture_normal = mute_button_deactivated_texture
 	AudioManager.mute_all_sounds()

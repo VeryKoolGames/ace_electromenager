@@ -7,6 +7,7 @@ extends Node
 @onready var menu_music: AudioStreamPlayer2D = $MainMusics/MenuMusic
 @onready var main_music: AudioStreamPlayer2D = $MainMusics/MainMusic
 @onready var transition_sound: AudioStreamPlayer2D = $TransitionSound/TransitionSound
+@onready var end_menu_music: AudioStreamPlayer2D = $EndMenuMusic/EndMenuMusic
 
 var is_muted := false
 
@@ -50,3 +51,9 @@ func transition_to_menu_music() -> void:
 
 func play_transition_sound() -> void:
 	transition_sound.play()
+
+func play_end_menu_music() -> void:
+	end_menu_music.play()
+
+func stop_end_menu_music() -> void:
+	end_menu_music.stop()

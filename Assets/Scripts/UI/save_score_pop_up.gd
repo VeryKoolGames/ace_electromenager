@@ -9,6 +9,7 @@ extends Control
 @onready var error_label: Label = $Panel/VBoxContainer/ErrorLabel
 @onready var panel: Panel = $Panel
 @onready var save_button: TextureButton = $Panel/VBoxContainer/VBoxContainer/SaveButton
+@onready var animation_player: AnimationPlayer = $Panel/ScoreEnregistré/AnimationPlayer
 
 var is_zoomed := false
 var email: String
@@ -55,6 +56,7 @@ func _on_request_completed(_result, response_code, _headers, body):
 		var data = JSON.parse_string(body.get_string_from_utf8())
 		v_box_container.hide()
 		label.show()
+		animation_player.play("scoreEnregistré")
 		SaveSystem.save_player_on_disc(email, pseudo)
 	else:
 		save_button.disabled = false

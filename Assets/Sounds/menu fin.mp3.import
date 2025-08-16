@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmfu20newwpsl"
+path="res://.godot/imported/menu fin.mp3-cac0bc38e2dd221a19a77370f9681295.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/menu fin.mp3"
+dest_files=["res://.godot/imported/menu fin.mp3-cac0bc38e2dd221a19a77370f9681295.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=1.0
+bpm=0
+beat_count=0
+bar_beats=4

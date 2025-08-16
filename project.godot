@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ace_electromenager"
+config/name="Ace Challenge"
 run/main_scene="uid://dgkq2d5pihdty"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"

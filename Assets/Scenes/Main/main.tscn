@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=62 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -113,53 +113,6 @@ texture_margin_bottom = 18.0
 region_rect = Rect2(4, 4.75, 183, 180.5)
 modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
 
-[sub_resource type="Animation" id="Animation_wspn0"]
-resource_name = "scoreEnregistré"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Etoile:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.0693232, 0.00138414, 1, -0.0373159, 0.00522864, 0.25, 0),
-"times": PackedFloat32Array(0, 0.433333, 0.566667)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Etoile:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.067724, 0.00138414, 1, -0.0362585, 0.000195622, 0.25, 0),
-"times": PackedFloat32Array(0, 0.433333, 0.566667)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Vu:scale:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.0730634, 0.00640279, 0.38, -0.0327916, 0.000577718, 0.25, 0),
-"times": PackedFloat32Array(0, 0.533333, 0.666667)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Vu:scale:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.233333, -0.00426024, 0.101547, -0.00426033, 0.38, -0.0333333, -0.0036875, 0.25, 0),
-"times": PackedFloat32Array(0, 0.533333, 0.666667)
-}
-
 [sub_resource type="Animation" id="Animation_eqeth"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -205,6 +158,53 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wspn0"]
+resource_name = "scoreEnregistré"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Etoile:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.0693232, 0.00138414, 1, -0.0373159, 0.00522864, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.566667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Etoile:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.067724, 0.00138414, 1, -0.0362585, 0.000195622, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.566667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vu:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.0730634, 0.00640279, 0.38, -0.0327916, 0.000577718, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 0.666667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vu:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.233333, -0.00426024, 0.101547, -0.00426033, 0.38, -0.0333333, -0.0036875, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 0.666667)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvye"]
@@ -594,11 +594,12 @@ congratulations_texts = ExtResource("15_1bvye")
 
 [node name="RefereePanel" parent="ResponsiveLayer/RefPos" instance=ExtResource("15_eqeth")]
 layout_mode = 1
-offset_left = -393.0
-offset_top = -410.5
-offset_right = -12.0
-offset_bottom = -247.0
-grow_vertical = 1
+anchors_preset = -1
+offset_left = -273.0
+offset_top = -312.5
+offset_right = -43.0
+offset_bottom = -149.0
+scale = Vector2(1e-05, 1e-05)
 
 [node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
 
@@ -1361,7 +1362,6 @@ texture = ExtResource("38_wspn0")
 libraries = {
 &"": SubResource("AnimationLibrary_1bvye")
 }
-autoplay = "scoreEnregistré"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 
