@@ -1,12 +1,345 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=28 format=3 uid="uid://dgkq2d5pihdty"]
 
-[ext_resource type="Texture2D" uid="uid://cqpmhqpk2fvbt" path="res://Assets/sprites/LogoAce@2x.png" id="1_doiw6"]
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
+[ext_resource type="Texture2D" uid="uid://d280amj7mfcet" path="res://Assets/sprites/BackgroundMainMenu.png" id="2_dph0j"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="2_tow68"]
+[ext_resource type="Texture2D" uid="uid://bovnjxspn4gib" path="res://Assets/sprites/TitleLogo.png" id="3_dph0j"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="3_tow68"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="3_wdajc"]
 [ext_resource type="Texture2D" uid="uid://bmr8afsaxl0d7" path="res://Assets/sprites/ButtonShape2.png" id="4_yt2pv"]
+[ext_resource type="Texture2D" uid="uid://bfex0bycpmubg" path="res://Assets/sprites/ButtonShape1_Hover.png" id="6_prxno"]
 [ext_resource type="Texture2D" uid="uid://i0yiyca3t4tx" path="res://Assets/sprites/ButtonShape2_Clicked.png" id="6_wdajc"]
+[ext_resource type="Texture2D" uid="uid://c6tw8itlwg1w0" path="res://Assets/sprites/AudioIcon.png" id="9_0tgrq"]
+[ext_resource type="Texture2D" uid="uid://co72kr6b8shh8" path="res://Assets/sprites/ButtonShape2_Hover.png" id="10_3gras"]
+[ext_resource type="Texture2D" uid="uid://i4pr74u81hc8" path="res://Assets/sprites/Tete_Perso.png" id="10_jaqwr"]
+[ext_resource type="Texture2D" uid="uid://diiwcpmtxxwky" path="res://Assets/sprites/Sourcil_Perso.png" id="11_2k3mp"]
+[ext_resource type="Texture2D" uid="uid://qscbjtfyf70j" path="res://Assets/sprites/RadialGradientStar.png" id="11_6or7f"]
+[ext_resource type="Texture2D" uid="uid://8m0jo7oq30n3" path="res://Assets/sprites/Bras2_Perso.png" id="11_cr766"]
+[ext_resource type="Texture2D" uid="uid://cr3tj7kovy3cj" path="res://Assets/sprites/Corps_Perso.png" id="12_2k3mp"]
+[ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="12_ra8of"]
+[ext_resource type="Texture2D" uid="uid://da1uk2asaoslk" path="res://Assets/sprites/Bras1_Perso.png" id="13_ra8of"]
+[ext_resource type="Texture2D" uid="uid://c3obcfycliv40" path="res://Assets/sprites/BulleMenu.png" id="16_ra8of"]
+[ext_resource type="Texture2D" uid="uid://xq5lpehhkd0u" path="res://Assets/sprites/AceLogo.png" id="20_w18hl"]
+
+[sub_resource type="Animation" id="Animation_6or7f"]
+resource_name = "ArbitreMenu_Idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartMenuUI/Arbitre/Bras1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.349066, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.349066, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.03333, 2.03333, 3.03578, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartMenuUI/Arbitre/Bras2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.174533, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.56667, 4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartMenuUI/Arbitre/Tete:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.174533, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.13302, 4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartMenuUI/Arbitre/Corps:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.0523599, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.7, 4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartMenuUI/Arbitre/Bulle:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.52, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.52, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.52, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.633333, 1.26667, 1.93333, 2.63333, 3.36667, 4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartMenuUI/Arbitre/Bulle:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.52, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.52, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.52, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.633333, 1.26667, 1.93333, 2.63333, 3.36667, 4)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StartMenuUI/Arbitre/Tete/Sourcil1:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-0.0925822, -0.25, 0, 0.25, 0, -0.00523599, -0.25, 0, 0.25, 0, -0.0925822, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.877129, 2.44058)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StartMenuUI/Arbitre/Tete/Sourcil2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-0.201432, -0.25, 0, 0.25, 0, -0.113446, -0.25, 0, 0.25, 0, -0.201432, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.4, 4)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StartMenuUI/Arbitre/Tete/Bouche:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.24133, 2.351, 3.45315, 4)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StartMenuUI/Arbitre/Tete/Bouche:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.24133, 2.351, 3.45315, 4)
+}
+
+[sub_resource type="Animation" id="Animation_prxno"]
+resource_name = "GradientAnimation_Menu"
+length = 18.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartMenuUI/Arbitre/gradient:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 6.28319, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 17.9872)
+}
+
+[sub_resource type="Animation" id="Animation_3gras"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartMenuUI/Arbitre/gradient:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.28319, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartMenuUI/Arbitre/Bras1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.349066, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartMenuUI/Arbitre/Bras2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.174533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartMenuUI/Arbitre/Tete:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.174533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartMenuUI/Arbitre/Corps:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0174533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartMenuUI/Arbitre/Bulle:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.55, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StartMenuUI/Arbitre/Bulle:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.55, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StartMenuUI/Arbitre/Tete/Sourcil1:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.00523599, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StartMenuUI/Arbitre/Tete/Sourcil2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.0261799, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StartMenuUI/Arbitre/Tete/Bouche:scale:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("StartMenuUI/Arbitre/Tete/Bouche:scale:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prxno"]
+_data = {
+&"ArbitreMenu_Idle": SubResource("Animation_6or7f"),
+&"GradientAnimation_Menu": SubResource("Animation_prxno"),
+&"RESET": SubResource("Animation_3gras")
+}
+
+[sub_resource type="Animation" id="Animation_0tgrq"]
+resource_name = "MainTitle_Idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.53, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.53, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4)
+}
+
+[sub_resource type="Animation" id="Animation_84a87"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymdpl"]
+_data = {
+&"MainTitle_Idle": SubResource("Animation_0tgrq"),
+&"RESET": SubResource("Animation_84a87")
+}
 
 [node name="StartMenu" type="CanvasLayer"]
 
@@ -17,28 +350,162 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_dph0j")
 
-[node name="ColorRect" type="ColorRect" parent="StartMenuUI"]
+[node name="TextureRect2" type="TextureRect" parent="StartMenuUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.00784314, 0.678431, 0.486275, 1)
+texture = ExtResource("2_dph0j")
+expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="StartMenuUI"]
+[node name="Arbitre" type="Control" parent="StartMenuUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -322.0
+offset_top = -544.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="gradient" type="TextureRect" parent="StartMenuUI/Arbitre"]
+layout_mode = 0
+offset_left = -1223.0
+offset_top = -1000.0
+offset_right = 1625.0
+offset_bottom = 1848.0
+rotation = 6.28319
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(1424, 1424)
+texture = ExtResource("11_6or7f")
+
+[node name="Tete" type="TextureRect" parent="StartMenuUI/Arbitre"]
+layout_mode = 0
+offset_left = -117.0
+offset_top = -299.0
+offset_right = 346.0
+offset_bottom = 317.0
+rotation = -0.174533
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(231, 616)
+texture = ExtResource("10_jaqwr")
+
+[node name="Sourcil1" type="TextureRect" parent="StartMenuUI/Arbitre/Tete"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 234.0
+offset_right = 157.0
+offset_bottom = 274.0
+rotation = -0.00523599
+texture = ExtResource("11_2k3mp")
+
+[node name="Sourcil2" type="TextureRect" parent="StartMenuUI/Arbitre/Tete"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 194.0
+offset_right = 375.0
+offset_bottom = 234.0
+rotation = -0.0261799
+pivot_offset = Vector2(102, 0)
+texture = ExtResource("11_2k3mp")
+
+[node name="Bouche" type="TextureRect" parent="StartMenuUI/Arbitre/Tete"]
+modulate = Color(0.415686, 0.356863, 0.356863, 1)
+layout_mode = 0
+offset_left = 171.0
+offset_top = 436.0
+offset_right = 273.0
+offset_bottom = 492.0
+rotation = 0.0770814
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(51, 28)
+texture = ExtResource("12_ra8of")
+
+[node name="Bras2" type="TextureRect" parent="StartMenuUI/Arbitre"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 266.0
+offset_right = 621.0
+offset_bottom = 728.0
+rotation = -0.174533
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_cr766")
+
+[node name="Corps" type="TextureRect" parent="StartMenuUI/Arbitre"]
+layout_mode = 0
+offset_left = -113.0
+offset_top = 101.0
+offset_right = 447.0
+offset_bottom = 774.0
+rotation = 0.0174533
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(280, 336)
+texture = ExtResource("12_2k3mp")
+
+[node name="Bras1" type="TextureRect" parent="StartMenuUI/Arbitre"]
+layout_mode = 0
+offset_left = -192.0
+offset_top = 312.0
+offset_right = 119.0
+offset_bottom = 513.0
+rotation = 0.349066
+pivot_offset = Vector2(311, 0)
+texture = ExtResource("13_ra8of")
+
+[node name="Bulle" type="TextureRect" parent="StartMenuUI/Arbitre"]
+layout_mode = 0
+offset_left = -968.0
+offset_top = -100.0
+offset_right = 25.0
+offset_bottom = 271.0
+rotation = 0.126225
+scale = Vector2(0.55, 0.55)
+pivot_offset = Vector2(993, 371)
+texture = ExtResource("16_ra8of")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartMenuUI/Arbitre"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_prxno")
+}
+autoplay = "ArbitreMenu_Idle"
+
+[node name="GradientAnimation" type="AnimationPlayer" parent="StartMenuUI/Arbitre"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_prxno")
+}
+autoplay = "GradientAnimation_Menu"
+
+[node name="MainTitle" type="TextureRect" parent="StartMenuUI"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -591.0
-offset_top = 100.0
-offset_right = 591.0
-offset_bottom = 467.0
+anchor_bottom = 0.323
+offset_left = -1062.0
+offset_top = -131.0
+offset_right = 1062.0
+offset_bottom = 460.16
 grow_horizontal = 2
-texture = ExtResource("1_doiw6")
+scale = Vector2(0.48, 0.48)
+pivot_offset = Vector2(1062, 415)
+texture = ExtResource("3_dph0j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartMenuUI/MainTitle"]
+libraries = {
+&"": SubResource("AnimationLibrary_ymdpl")
+}
+autoplay = "MainTitle_Idle"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StartMenuUI"]
 layout_mode = 1
@@ -47,18 +514,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-offset_bottom = -67.0
+offset_left = -345.0
+offset_top = -428.17
+offset_right = 345.0
+offset_bottom = -18.1699
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = -20
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(345, 190)
+theme_override_constants/separation = 10
 
 [node name="StartButton" type="TextureButton" parent="StartMenuUI/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_tow68")
 texture_pressed = ExtResource("3_tow68")
+texture_hover = ExtResource("6_prxno")
 stretch_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/VBoxContainer/StartButton"]
@@ -83,6 +553,7 @@ vertical_alignment = 1
 layout_mode = 2
 texture_normal = ExtResource("4_yt2pv")
 texture_pressed = ExtResource("6_wdajc")
+texture_hover = ExtResource("10_3gras")
 
 [node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/VBoxContainer/LeaderboardButton"]
 layout_mode = 1
@@ -103,13 +574,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI"]
+visible = false
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+offset_left = -496.0
+offset_top = -200.0
 grow_horizontal = 0
+grow_vertical = 0
 
 [node name="TutorialButton" type="TextureButton" parent="StartMenuUI/TutorialContainer"]
 layout_mode = 2
@@ -134,37 +609,35 @@ text = "TUTORIEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TutorialContainer2" type="MarginContainer" parent="StartMenuUI"]
+[node name="Mute" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -496.0
-offset_top = -200.0
+offset_left = -339.0
+offset_bottom = 278.0
 grow_horizontal = 0
-grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(339, 0)
+theme_override_constants/margin_top = 130
+theme_override_constants/margin_right = 40
 
-[node name="MuteButton" type="TextureButton" parent="StartMenuUI/TutorialContainer2"]
+[node name="MuteButton" type="TextureButton" parent="StartMenuUI/Mute"]
 layout_mode = 2
-texture_normal = ExtResource("2_tow68")
-texture_pressed = ExtResource("3_tow68")
+texture_normal = ExtResource("9_0tgrq")
+stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/TutorialContainer2/MuteButton"]
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_bottom = 20
+offset_top = -73.0
+offset_right = 84.0
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="Label" type="Label" parent="StartMenuUI/TutorialContainer2/MuteButton/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="StartMenuUI/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
-theme_override_fonts/font = ExtResource("3_wdajc")
-theme_override_font_sizes/font_size = 48
-text = "MUTE"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("20_w18hl")

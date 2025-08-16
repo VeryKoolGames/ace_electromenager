@@ -4,7 +4,7 @@ extends Control
 @onready var leaderboard_button: TextureButton = $VBoxContainer/LeaderboardButton
 @onready var tutorial_container: MarginContainer = $TutorialContainer
 @onready var tutorial_button: TextureButton = $TutorialContainer/TutorialButton
-@onready var mute_button: TextureButton = $TutorialContainer2/MuteButton
+@onready var mute_button: TextureButton = $Mute/MuteButton
 
 func _ready() -> void:
 	mute_button.pressed.connect(on_mute_button_pressed)
