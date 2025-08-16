@@ -1,6 +1,6 @@
 extends Node
 
-@export var particle_scene = preload("res://Assets/Scenes/p_réparation.tscn")
+@export var particle_scene = preload("res://Assets/Particles/p_réparation.tscn")
 @onready var particles_container: Node2D = $ParticlesContainer
 
 

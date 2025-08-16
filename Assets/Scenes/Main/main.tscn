@@ -109,111 +109,196 @@ modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
 
 [sub_resource type="Animation" id="Animation_tpyc1"]
 length = 0.001
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Star:position")
+tracks/0/path = NodePath("MarginContainer:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(33, 167)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/path = NodePath("MarginContainer:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(67, 632)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(500, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
-tracks/2/type = "value"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SaveScorePopUp:scale")
+tracks/2/path = NodePath("MarginContainer:scale:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.7, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
-tracks/3/type = "value"
+tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer:position")
+tracks/3/path = NodePath("Star:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(23.36, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SaveScorePopUp:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SaveScorePopUp:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_nfxtm"]
 resource_name = "show_end_screen"
 length = 3.0
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Star:position")
+tracks/0/path = NodePath("MarginContainer:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-1000, 167), Vector2(-1000, 167), Vector2(33, 167)]
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2000, -0.25, 0, 0.5, -2.3125, 0, -0.533333, 2, 0.25, 0, 0, -0.533333, 2, 0.25, 0),
+"times": PackedFloat32Array(0, 0.666667, 1.26667)
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/path = NodePath("MarginContainer:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.8, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-1000, 632), Vector2(-1000, 632), Vector2(50, 632)]
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(500, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.443421, -1.81155, 9.52, -0.448246, 6.34045, 0.25, 0),
+"times": PackedFloat32Array(0, 0.666667, 1.26667, 1.9)
 }
-tracks/2/type = "value"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SaveScorePopUp:scale")
+tracks/2/path = NodePath("MarginContainer:scale:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.02, 2.2, 2.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.64, -0.25, 0, 0.1, 0.00490344, 0.708461, -0.1, -0.00453991, 0.25, 0, 1.23, -0.25, 0, 0.070207, -0.00399506, 0.96, -0.029793, 0.00178522, 0.0439463, 0.00269318, 1, -0.0631264, -0.000988007, 0.0631757, -0.00280386),
+"times": PackedFloat32Array(0, 0.2, 0.7, 0.833333, 0.933333)
 }
-tracks/3/type = "value"
+tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer:position")
+tracks/3/path = NodePath("Star:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(3000, 500), Vector2(0, 500), Vector2(0, 500), Vector2(0, 0)]
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-544.547, -0.25, 0, 0.533333, 8.07446, 23.36, -0.733333, 21.8849, 0.25, 0),
+"times": PackedFloat32Array(1.53333, 2.33333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-654.39, -0.25, 0, 0.487635, 9.80389, 0, -0.528607, 9.00334, 0.25, 0),
+"times": PackedFloat32Array(1.63333, 2.3)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SaveScorePopUp:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.19209e-07, -0.25, 0, 0.25, 0, 1.11837, -0.25, 0, 0.190519, 0.00472951, 1, -0.0761478, -0.000535905, 0.25, 0),
+"times": PackedFloat32Array(1.96667, 2.46667, 2.7)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SaveScorePopUp:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.19209e-07, -0.25, 0, 0.25, 0, 1.11572, -0.25259, -0.00530851, 0.180744, 0.0132715, 1.00689, -0.0761478, 0, 0.25, 0),
+"times": PackedFloat32Array(1.96667, 2.46667, 2.7)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ad0oj"]
 _data = {
 &"RESET": SubResource("Animation_tpyc1"),
 &"show_end_screen": SubResource("Animation_nfxtm")
+}
+
+[sub_resource type="Animation" id="Animation_sack4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ns2ik"]
@@ -256,33 +341,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_sack4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8766"]
@@ -624,16 +682,17 @@ grow_vertical = 2
 script = ExtResource("33_t8766")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -48.9399
+offset_right = 48.0601
+offset_bottom = 115.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
+scale = Vector2(0.5, 0.5)
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 45
 
 [node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
 layout_mode = 2
@@ -761,11 +820,11 @@ color = Color(0, 0, 0, 0.607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 3000.0
 offset_top = 500.0
-offset_right = 3000.0
 offset_bottom = 611.0
 grow_horizontal = 2
+scale = Vector2(1, 0.7)
+pivot_offset = Vector2(0, 55)
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 
@@ -786,7 +845,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("10_yehcq")
 theme_override_font_sizes/font_size = 64
-text = "PARTIE TERMINEE"
+text = "PARTIE TERMINÉE !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -795,9 +854,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -1000.0
 offset_top = -448.0
-offset_right = -354.0
+offset_right = 646.0
 grow_vertical = 0
 theme_override_constants/separation = 0
 alignment = 1
@@ -863,9 +921,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 0
-offset_left = -1000.0
+offset_left = 23.36
 offset_top = 167.0
-offset_right = -500.0
+offset_right = 523.36
 offset_bottom = 667.0
 rotation = -0.0872665
 
@@ -877,7 +935,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.174533
+rotation = -3.23293
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
@@ -889,6 +947,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 3.40747
 pivot_offset = Vector2(250, 250)
 texture = ExtResource("9_g20yk")
 
@@ -930,6 +989,7 @@ offset_right = -100.0
 offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 pivot_offset = Vector2(466, 423)
 mouse_filter = 2
 script = ExtResource("10_iyic7")
@@ -1123,10 +1183,7 @@ libraries = {
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 3000.0
-offset_top = 500.0
-offset_right = 3000.0
-offset_bottom = 611.0
+offset_bottom = 111.0
 grow_horizontal = 2
 pivot_offset = Vector2(960, 55.5)
 theme_override_constants/margin_left = 0

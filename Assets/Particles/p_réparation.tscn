@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://coqi8ccvui312"]
+
+[ext_resource type="Texture2D" uid="uid://cejlij7pycc2g" path="res://Assets/sprites/SP_Star.png" id="1_ff6ec"]
+[ext_resource type="Material" uid="uid://n3q7rqqdttyq" path="res://Assets/Materials/p_réparation.tres" id="2_muhse"]
+[ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="3_jgcjm"]
+[ext_resource type="Texture2D" uid="uid://g4q8lw7n0mmh" path="res://Assets/sprites/Pique.png" id="4_4ea7c"]
+
+[sub_resource type="Curve" id="Curve_4ea7c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4xqde"]
+curve = SubResource("Curve_4ea7c")
+
+[sub_resource type="Curve" id="Curve_vlpxw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_40fq4"]
+curve = SubResource("Curve_vlpxw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x6lx"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_40fq4")
+alpha_curve = SubResource("CurveTexture_4xqde")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlpxw"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.199998
+radial_accel_max = 0.199998
+
+[node name="P_Réparation" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 3
+texture = ExtResource("1_ff6ec")
+one_shot = true
+explosiveness = 0.75
+process_material = ExtResource("2_muhse")
+
+[node name="Cercle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+texture = ExtResource("3_jgcjm")
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource("ParticleProcessMaterial_8x6lx")
+
+[node name="Piques" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 4
+texture = ExtResource("4_4ea7c")
+lifetime = 0.12
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource("ParticleProcessMaterial_vlpxw")

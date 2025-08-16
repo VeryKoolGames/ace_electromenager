@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c1hnsw8dxn0jf" path="res://Assets/Scripts/Tutorial/tutorial_fridge.gd" id="1_nyyd6"]
 [ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_onq6i"]
 [ext_resource type="Texture2D" uid="uid://dg0ukne5ouo0v" path="res://Assets/sprites/Frigo.png" id="3_4v7tq"]
-[ext_resource type="PackedScene" uid="uid://k73aey2e7jrd" path="res://Assets/Scenes/SmokeParticles.tscn" id="4_wj5qi"]
+[ext_resource type="PackedScene" uid="uid://k73aey2e7jrd" path="res://Assets/Particles/SmokeParticles.tscn" id="4_wj5qi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xnqy7"]
 resource_local_to_scene = true
