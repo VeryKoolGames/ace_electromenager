@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=35 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
@@ -19,7 +19,6 @@
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="23_t1e88"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="27_jlixy"]
 [ext_resource type="Script" uid="uid://b3elnfvlugmuk" path="res://Assets/Scripts/Globals/tutorial_ui.gd" id="29_6rwrp"]
-[ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="29_o7e8p"]
 [ext_resource type="Resource" uid="uid://3go6chxms7sw" path="res://Assets/Resources/TutorialDialogue1.tres" id="30_paycb"]
 [ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="30_wu0vg"]
 [ext_resource type="Resource" uid="uid://c3wngdbaef73w" path="res://Assets/Resources/TutorialDialogue2.tres" id="31_wu0vg"]
@@ -578,10 +577,7 @@ libraries = {
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -3000.0
-offset_top = 500.0
-offset_right = -3000.0
-offset_bottom = 611.0
+offset_bottom = 111.0
 grow_horizontal = 2
 pivot_offset = Vector2(960, 55.5)
 theme_override_constants/margin_left = 0
@@ -610,4 +606,3 @@ vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-script = ExtResource("29_o7e8p")

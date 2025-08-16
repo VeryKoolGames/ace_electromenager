@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="4_r3xmk"]
 [ext_resource type="Texture2D" uid="uid://63qbcfwhxyb5" path="res://Assets/sprites/Ellipse.png" id="5_4h7q6"]
 [ext_resource type="Texture2D" uid="uid://cojy23d5qo04y" path="res://Assets/sprites/gradient.png" id="6_poar8"]
-[ext_resource type="PackedScene" uid="uid://bn6ovy2c3xmux" path="res://Assets/Scenes/p_item_particle.tscn" id="7_cjmh3"]
+[ext_resource type="PackedScene" uid="uid://bn6ovy2c3xmux" path="res://Assets/Particles/p_item_particle.tscn" id="7_cjmh3"]
 [ext_resource type="Texture2D" uid="uid://d3rdka0i7as8y" path="res://Assets/sprites/ItemIcon_Triple.png" id="8_pejqt"]
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="9_dwyl2"]
 

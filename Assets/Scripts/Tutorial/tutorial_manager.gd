@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func start_game() -> void:
 	GameState.set_tutorial_mode()
+	Events.on_game_started.emit()
 	tutorial_ui.show_tutorial_pannel()
 
 func on_tutorial_progressed() -> void:

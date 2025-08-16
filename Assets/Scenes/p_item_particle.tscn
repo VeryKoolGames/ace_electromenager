@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bidl2d25kxyk8"]
+
+[ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="1_4pto4"]
+[ext_resource type="Material" uid="uid://bus8ys0w0jw0e" path="res://Assets/Materials/p_item_particle.tres" id="2_g4vx6"]
+
+[node name="P_ItemParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+texture = ExtResource("1_4pto4")
+lifetime = 2.11
+process_material = ExtResource("2_g4vx6")

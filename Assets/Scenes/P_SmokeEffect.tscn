@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cppp2buatxiht"]
+
+[ext_resource type="Texture2D" uid="uid://bqu81cje3ht2t" path="res://Assets/sprites/SP_Rond.png" id="1_vrsvj"]
+[ext_resource type="Texture2D" uid="uid://c1s5gv6dvyx7e" path="res://Assets/sprites/SP_Etincelle.png" id="2_fe0hk"]
+
+[sub_resource type="Curve" id="Curve_qk128"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 102.618), 0.0, 0.0, 0, 0, Vector2(1, -29.0938), -271.644, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fe0hk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.234303, 1), 0.0, 0.0, 0, 0, Vector2(0.739663, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Particules_Smoke" type="Node2D"]
+
+[node name="Etincelles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -15)
+amount = 3
+texture = ExtResource("2_fe0hk")
+lifetime = 0.85
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 21.53
+spread = 48.63
+gravity = Vector2(0, 300)
+initial_velocity_min = 95.07
+initial_velocity_max = 158.05
+angular_velocity_min = -53.95
+angular_velocity_max = 124.5
+angle_min = 1.0
+angle_max = 1.0
+angle_curve = SubResource("Curve_qk128")
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_fe0hk")
+color = Color(1, 0.792157, 0.262745, 1)
+
+[node name="Fumée" type="CPUParticles2D" parent="."]
+amount = 7
+texture = ExtResource("1_vrsvj")
+lifetime = 1.2
+emission_shape = 1
+emission_sphere_radius = 21.53
+gravity = Vector2(0, -104.74)
+damping_min = 4.18
+damping_max = 10.932
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_fe0hk")
+color = Color(0.419608, 0.419608, 0.419608, 1)
