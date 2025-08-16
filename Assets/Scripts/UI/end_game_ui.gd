@@ -30,7 +30,7 @@ func on_replay_button_clicked() -> void:
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.GAME)
 
 func on_leaderboard_button_clicked() -> void:
-	
+	AudioManager.transition_to_menu_music()
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.LEADERBOARD)
 
 func show_best_score_rect() -> void:

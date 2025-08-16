@@ -92,14 +92,15 @@ func spawn_score_component(machine: Machine) -> void:
 	var score_component = score_ui_component_scene.instantiate() as Control
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var screen_pos = canvas_transform * machine.global_position
+	screen_pos.y -= 150
+	screen_pos.x -= 50
 	score_component.global_position = screen_pos
 	$PowerUpContainer.add_child(score_component)
 	score_component.show_score(machine.score_value)
-	
+
 	var target_pos = score_label_original_position
 	target_pos.x += score_buffer_label.size.x / 4
 	target_pos.y -= score_buffer_label.size.y / 2
 	var tween = create_tween()
-	
 	tween.tween_property(score_component, "global_position", target_pos, 0.2).set_delay(0.4)
 	tween.tween_property(score_component, "scale", Vector2.ZERO, 0.2)
