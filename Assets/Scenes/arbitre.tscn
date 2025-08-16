@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxa0f40gvtrua"]
+[gd_scene load_steps=14 format=3 uid="uid://u71mthgq8u4o"]
 
+[ext_resource type="Script" uid="uid://cj8uiiwy0g25a" path="res://Assets/Scripts/referee.gd" id="1_8xlpf"]
 [ext_resource type="Texture2D" uid="uid://b8hcd8jqo0eok" path="res://Assets/sprites/Arbitre1.png" id="1_rhqlw"]
+[ext_resource type="Texture2D" uid="uid://sxarejvxxran" path="res://Assets/sprites/Arbitre2.png" id="2_0rx0e"]
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="2_8xlpf"]
+[ext_resource type="Texture2D" uid="uid://bumqe71g1snkr" path="res://Assets/sprites/Arbitre3.png" id="3_j1u8m"]
+[ext_resource type="Texture2D" uid="uid://cg8jf6us71k02" path="res://Assets/sprites/Arbitre4.png" id="4_m21p7"]
+[ext_resource type="Texture2D" uid="uid://cbhgcbss53ydv" path="res://Assets/sprites/Arbitre5.png" id="5_a2n6q"]
 
 [sub_resource type="Animation" id="Animation_rhqlw"]
 resource_name = "Arbitre_Idle"
@@ -61,8 +66,48 @@ _data = {
 &"RESET": SubResource("Animation_8xlpf")
 }
 
+[sub_resource type="Animation" id="Animation_2kxgj"]
+resource_name = "talk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bouche:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_v6yfa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bouche:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_il1ny"]
+_data = {
+&"RESET": SubResource("Animation_v6yfa"),
+&"talk": SubResource("Animation_2kxgj")
+}
+
 [node name="Arbitre" type="Node2D"]
 scale = Vector2(1.1, 1.1)
+script = ExtResource("1_8xlpf")
+talking_positions = Array[Texture2D]([ExtResource("2_0rx0e"), ExtResource("3_j1u8m"), ExtResource("4_m21p7"), ExtResource("5_a2n6q")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rhqlw")
@@ -79,3 +124,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_2kxgj")
 }
 autoplay = "Arbitre_Idle"
+
+[node name="MouthAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_il1ny")
+}

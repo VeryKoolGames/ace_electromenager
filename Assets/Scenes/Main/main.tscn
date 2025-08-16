@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=57 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -25,7 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
-[ext_resource type="PackedScene" uid="uid://cxa0f40gvtrua" path="res://Assets/Scenes/arbitre.tscn" id="15_3jb74"]
+[ext_resource type="Script" uid="uid://cb1cepe42jf7g" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
+[ext_resource type="Resource" uid="uid://cs3s73hydc5bk" path="res://Assets/Resources/CongratulationDialogue.tres" id="15_1bvye"]
+[ext_resource type="PackedScene" uid="uid://u71mthgq8u4o" path="res://Assets/Scenes/arbitre.tscn" id="15_3jb74"]
+[ext_resource type="PackedScene" uid="uid://623qimt3u6wg" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="Texture2D" uid="uid://cfx6tafkyp2nr" path="res://Assets/sprites/PauseIcon.png" id="21_iroru"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="22_3jb74"]
@@ -484,6 +487,16 @@ offset_right = -262.0
 offset_bottom = 32.5
 grow_horizontal = 0
 grow_vertical = 2
+script = ExtResource("14_wspn0")
+congratulations_texts = ExtResource("15_1bvye")
+
+[node name="RefereePanel" parent="ResponsiveLayer/RefPos" instance=ExtResource("15_eqeth")]
+layout_mode = 1
+offset_left = -393.0
+offset_top = -410.5
+offset_right = -12.0
+offset_bottom = -247.0
+grow_vertical = 1
 
 [node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
 
@@ -506,7 +519,6 @@ offset_right = 45.08
 offset_bottom = -93.91
 
 [node name="Arbitre" parent="ResponsiveLayer/RefPos/RefChair/Control" instance=ExtResource("15_3jb74")]
-scale = Vector2(0.5, 0.5)
 
 [node name="SpawnZone" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
@@ -1154,7 +1166,7 @@ theme_override_fonts/font = ExtResource("5_o5d14")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_t8766")
 placeholder_text = "example@ace.com"
-max_length = 20
+max_length = 40
 select_all_on_focus = true
 
 [node name="VBoxContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]

@@ -56,6 +56,8 @@ func _transfer_buffer_to_score() -> void:
 	
 	is_transferring_score = true
 	var buffer_amount = score_buffer
+	if buffer_amount >= 10:
+		Events.on_player_congratulated.emit()
 	score_buffer = 0
 	
 	score_buffer_tween = create_tween()

@@ -3,6 +3,7 @@ extends Node
 @warning_ignore_start("unused_signal")
 signal on_ball_stopped
 signal on_player_scored(score_value: int)
+signal on_player_congratulated
 signal on_game_timer_ended
 signal on_game_started
 

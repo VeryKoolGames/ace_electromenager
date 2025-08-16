@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResDialogue" load_steps=2 format=3 uid="uid://cs3s73hydc5bk"]
+
+[ext_resource type="Script" uid="uid://22s8q8np634p" path="res://ResDialogue.gd" id="1_kcw35"]
+
+[resource]
+script = ExtResource("1_kcw35")
+dialogues_lines = Array[String](["Wow quel tir !", "Tu vas gagner le prix a ce rythme la", "Ace !"])
+metadata/_custom_type_script = "uid://22s8q8np634p"

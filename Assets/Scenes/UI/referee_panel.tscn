@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://623qimt3u6wg"]
+
+[ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="1_4jm8e"]
+[ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="2_oe1ir"]
+[ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="3_tweyk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbeqx"]
+texture = ExtResource("1_4jm8e")
+texture_margin_left = 16.0
+texture_margin_top = 14.0
+texture_margin_right = 15.0
+texture_margin_bottom = 49.5
+
+[node name="RefereePanel" type="PanelContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1920.0
+offset_right = -1539.0
+offset_bottom = 163.5
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(190.5, 56.75)
+theme_override_styles/panel = SubResource("StyleBoxTexture_wbeqx")
+
+[node name="ScaleOnDestroyComponent" type="Node" parent="."]
+script = ExtResource("2_oe1ir")
+metadata/_custom_type_script = "uid://d315g88q7180c"
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tweyk")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
