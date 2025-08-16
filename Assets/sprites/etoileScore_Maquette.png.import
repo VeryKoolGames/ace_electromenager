@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8hcd8jqo0eok"
-path="res://.godot/imported/Frame 2.png-459c66a78f6d13b1d1e988d4c1b8c111.ctex"
+uid="uid://dbpwngb0hp8on"
+path="res://.godot/imported/etoileScore_Maquette.png-ad82fbafccaca043e9f2804a220b4e5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Frame 2.png"
-dest_files=["res://.godot/imported/Frame 2.png-459c66a78f6d13b1d1e988d4c1b8c111.ctex"]
+source_file="res://Assets/sprites/etoileScore_Maquette.png"
+dest_files=["res://.godot/imported/etoileScore_Maquette.png-ad82fbafccaca043e9f2804a220b4e5c.ctex"]
 
 [params]
 
