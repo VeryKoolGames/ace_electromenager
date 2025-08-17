@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1ysdhtre3o3c"]
+[gd_scene load_steps=8 format=3 uid="uid://d1ysdhtre3o3c"]
 
 [ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/Machines/machine.gd" id="1_cel1a"]
 [ext_resource type="Texture2D" uid="uid://r4narwpo7eac" path="res://Assets/sprites/MachineALaver.png" id="2_cel1a"]
-[ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_wqhpu"]
+[ext_resource type="Shader" uid="uid://dh704qwj2oxsw" path="res://Assets/Shaders/SlidingOverlay.gdshader" id="2_d43yx"]
+[ext_resource type="Texture2D" uid="uid://cs244uraohn8h" path="res://Assets/sprites/Reflet.png" id="3_d43yx"]
 [ext_resource type="PackedScene" uid="uid://k73aey2e7jrd" path="res://Assets/Particles/SmokeParticles.tscn" id="4_d43yx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ww8f6"]
 resource_local_to_scene = true
-shader = ExtResource("2_wqhpu")
-shader_parameter/white_progress = 0.0
+shader = ExtResource("2_d43yx")
+shader_parameter/overlay_tex = ExtResource("3_d43yx")
+shader_parameter/progress = -1.0
+shader_parameter/blend_strength = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e0xt"]
 size = Vector2(77, 97)
@@ -19,6 +22,7 @@ sprite = NodePath("Sprite2D")
 score_value = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
 material = SubResource("ShaderMaterial_ww8f6")
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_cel1a")

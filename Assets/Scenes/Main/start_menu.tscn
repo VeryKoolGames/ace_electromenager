@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=31 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Texture2D" uid="uid://d280amj7mfcet" path="res://Assets/sprites/BackgroundMainMenu.png" id="2_dph0j"]
@@ -18,8 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="12_ra8of"]
 [ext_resource type="Texture2D" uid="uid://da1uk2asaoslk" path="res://Assets/sprites/Bras1_Perso.png" id="13_ra8of"]
 [ext_resource type="Texture2D" uid="uid://c3obcfycliv40" path="res://Assets/sprites/BulleMenu.png" id="16_ra8of"]
+[ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="19_k7tfi"]
+[ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="20_q44k4"]
 [ext_resource type="PackedScene" uid="uid://pwk02sdfwf24" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="20_q44k4"]
 [ext_resource type="Texture2D" uid="uid://xq5lpehhkd0u" path="res://Assets/sprites/AceLogo.png" id="20_w18hl"]
+[ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="21_xx3ku"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
 resource_name = "ArbitreMenu_Idle"
@@ -517,9 +520,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -345.0
-offset_top = -428.17
+offset_top = -403.0
 offset_right = 345.0
-offset_bottom = -18.1699
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.8, 0.8)
@@ -576,37 +579,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI"]
-visible = false
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -496.0
-offset_top = -200.0
+offset_left = -499.0
+offset_right = -3.0
+offset_bottom = 200.0
 grow_horizontal = 0
-grow_vertical = 0
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 165
 
 [node name="TutorialButton" type="TextureButton" parent="StartMenuUI/TutorialContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_tow68")
-texture_pressed = ExtResource("3_tow68")
+texture_normal = ExtResource("19_k7tfi")
+texture_pressed = ExtResource("20_q44k4")
+texture_hover = ExtResource("21_xx3ku")
 
 [node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/TutorialContainer/TutorialButton"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.726
 anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -56.096
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 110
 
 [node name="Label" type="Label" parent="StartMenuUI/TutorialContainer/TutorialButton/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
 theme_override_fonts/font = ExtResource("3_wdajc")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 39
 text = "TUTORIEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -617,7 +624,7 @@ offset_bottom = 308.0
 theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 120
 
-[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI"]
+[node name="ACE_Logo" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -628,6 +635,6 @@ grow_vertical = 0
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="TextureRect" type="TextureRect" parent="StartMenuUI/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="StartMenuUI/ACE_Logo"]
 layout_mode = 2
 texture = ExtResource("20_w18hl")
