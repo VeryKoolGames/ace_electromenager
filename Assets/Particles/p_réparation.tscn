@@ -1,63 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://coqi8ccvui312"]
+[gd_scene load_steps=8 format=3 uid="uid://coqi8ccvui312"]
 
 [ext_resource type="Texture2D" uid="uid://cejlij7pycc2g" path="res://Assets/sprites/SP_Star.png" id="1_ff6ec"]
+[ext_resource type="Script" uid="uid://cgdfvuycxjkpe" path="res://Assets/Scripts/Machines/repair_particles.gd" id="1_vlpxw"]
 [ext_resource type="Material" uid="uid://n3q7rqqdttyq" path="res://Assets/Materials/p_réparation.tres" id="2_muhse"]
 [ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="3_jgcjm"]
 [ext_resource type="Texture2D" uid="uid://g4q8lw7n0mmh" path="res://Assets/sprites/Pique.png" id="4_4ea7c"]
-[ext_resource type="AudioStream" uid="uid://c4wx85snoo3os" path="res://Assets/Sounds/arbitre-v2.wav" id="5_vlpxw"]
-
-[sub_resource type="Curve" id="Curve_4ea7c"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_4xqde"]
-curve = SubResource("Curve_4ea7c")
-
-[sub_resource type="Curve" id="Curve_vlpxw"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_40fq4"]
-curve = SubResource("Curve_vlpxw")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x6lx"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-scale_min = 1.5
-scale_max = 1.5
-scale_curve = SubResource("CurveTexture_40fq4")
-alpha_curve = SubResource("CurveTexture_4xqde")
-
-[sub_resource type="Curve" id="Curve_8x6lx"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.360927, 1), 0.0, 0.0, 0, 0, Vector2(0.701987, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_4ea7c"]
-curve = SubResource("Curve_8x6lx")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlpxw"]
-particle_flag_align_y = true
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(5, 5, 5)
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 15.0
-emission_ring_inner_radius = 14.0
-emission_ring_cone_angle = 90.0
-spread = 180.0
-initial_velocity_min = 0.1
-initial_velocity_max = 0.1
-radial_velocity_min = 0.999978
-radial_velocity_max = 0.999978
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -2.23517e-06
-radial_accel_max = -2.23517e-06
-scale_min = 0.5
-scale_max = 0.7
-scale_curve = SubResource("CurveTexture_4ea7c")
+[ext_resource type="Material" uid="uid://gmaj5075ns6b" path="res://Assets/Materials/p_spike_repair.tres" id="5_aymxm"]
+[ext_resource type="Material" uid="uid://33qmrxlup6hc" path="res://Assets/Materials/p_circle_repair.tres" id="7_b5amv"]
 
 [node name="P_Réparation" type="Node2D"]
+script = ExtResource("1_vlpxw")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -68,26 +20,20 @@ one_shot = true
 explosiveness = 0.73
 process_material = ExtResource("2_muhse")
 
-[node name="Cercle" type="GPUParticles2D" parent="GPUParticles2D"]
-emitting = false
-amount = 1
-texture = ExtResource("3_jgcjm")
-lifetime = 0.35
-one_shot = true
-explosiveness = 0.75
-process_material = SubResource("ParticleProcessMaterial_8x6lx")
-
-[node name="Piques" type="GPUParticles2D" parent="GPUParticles2D/Cercle"]
+[node name="Piques" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 4
 texture = ExtResource("4_4ea7c")
 lifetime = 0.18
 one_shot = true
 explosiveness = 0.75
-process_material = SubResource("ParticleProcessMaterial_vlpxw")
+process_material = ExtResource("5_aymxm")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_vlpxw")
-pitch_scale = 1.36
-autoplay = true
-panning_strength = 1.7
+[node name="Cercle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+texture = ExtResource("3_jgcjm")
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.75
+process_material = ExtResource("7_b5amv")

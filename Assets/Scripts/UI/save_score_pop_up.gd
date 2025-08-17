@@ -6,10 +6,10 @@ extends Control
 
 @onready var v_box_container: VBoxContainer = $Panel/VBoxContainer
 @onready var label: Label = $"Panel/ScoreEnregistré"
-@onready var error_label: Label = $Panel/VBoxContainer/ErrorLabel
 @onready var panel: Panel = $Panel
 @onready var save_button: TextureButton = $Panel/VBoxContainer/VBoxContainer/SaveButton
 @onready var animation_player: AnimationPlayer = $Panel/ScoreEnregistré/AnimationPlayer
+@onready var error_label: Label = $Panel/ErrorLabel
 
 var is_zoomed := false
 var email: String

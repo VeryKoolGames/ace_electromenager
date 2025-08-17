@@ -1,67 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7rouckrgu4is"]
+[gd_scene load_steps=6 format=3 uid="uid://c7rouckrgu4is"]
 
+[ext_resource type="Script" uid="uid://josn1gm6512" path="res://Assets/Scripts/PowerUps/power_up_particles_manager.gd" id="1_enesh"]
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="1_hfqum"]
 [ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="2_ise0s"]
-
-[sub_resource type="Curve" id="Curve_hfqum"]
-_data = [Vector2(0.479522, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.930386, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ise0s"]
-curve = SubResource("Curve_hfqum")
-
-[sub_resource type="Curve" id="Curve_ise0s"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.521311, 0), 0.0, 0.0, 0, 0, Vector2(0.862295, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_enesh"]
-curve = SubResource("Curve_ise0s")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfqum"]
-particle_flag_disable_z = true
-radial_velocity_min = 124.31
-radial_velocity_max = 579.75
-gravity = Vector3(0, 0, 0)
-scale_min = 0.6
-scale_curve = SubResource("CurveTexture_ise0s")
-scale_over_velocity_min = 83.92
-scale_over_velocity_max = 251.75
-color = Color(1, 1, 0.662745, 1)
-turbulence_enabled = true
-turbulence_noise_strength = 11.12
-turbulence_noise_scale = 50.0
-turbulence_noise_speed_random = 0.88
-turbulence_influence_min = 0.49
-turbulence_influence_max = 0.49
-turbulence_influence_over_life = SubResource("CurveTexture_enesh")
-
-[sub_resource type="Curve" id="Curve_enesh"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.496587, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_tuxvo"]
-curve = SubResource("Curve_enesh")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ebab"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_tuxvo")
-color = Color(1, 0.768627, 0.411765, 0.356863)
+[ext_resource type="Material" uid="uid://bbl7st78eukru" path="res://Assets/Materials/p_power_up_bubbles.tres" id="3_6ebab"]
+[ext_resource type="Material" uid="uid://bbeuxpkq5jxxj" path="res://Assets/Materials/p_power_up_circle.tres" id="5_0vjdj"]
 
 [node name="P_PowerUp" type="Node2D"]
+script = ExtResource("1_enesh")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 10
 texture = ExtResource("1_hfqum")
 lifetime = 0.7
+one_shot = true
 explosiveness = 0.8
-process_material = SubResource("ParticleProcessMaterial_hfqum")
+process_material = ExtResource("3_6ebab")
 
 [node name="Gradient" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 1
 texture = ExtResource("2_ise0s")
 lifetime = 0.7
+one_shot = true
 explosiveness = 0.8
-process_material = SubResource("ParticleProcessMaterial_6ebab")
+process_material = ExtResource("5_0vjdj")

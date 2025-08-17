@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=33 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Texture2D" uid="uid://d280amj7mfcet" path="res://Assets/sprites/BackgroundMainMenu.png" id="2_dph0j"]
@@ -18,11 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="12_ra8of"]
 [ext_resource type="Texture2D" uid="uid://da1uk2asaoslk" path="res://Assets/sprites/Bras1_Perso.png" id="13_ra8of"]
 [ext_resource type="Texture2D" uid="uid://c3obcfycliv40" path="res://Assets/sprites/BulleMenu.png" id="16_ra8of"]
+[ext_resource type="PackedScene" uid="uid://cfdx4h1vbvnsp" path="res://Assets/Scenes/Components/button_sound_manager.tscn" id="16_xx3ku"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="19_k7tfi"]
-[ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="20_q44k4"]
 [ext_resource type="PackedScene" uid="uid://pwk02sdfwf24" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="20_q44k4"]
+[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="20_uk28k"]
 [ext_resource type="Texture2D" uid="uid://xq5lpehhkd0u" path="res://Assets/sprites/AceLogo.png" id="20_w18hl"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="21_xx3ku"]
+[ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="22_mf8ek"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
 resource_name = "ArbitreMenu_Idle"
@@ -554,6 +556,8 @@ text = "JOUER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSoundManager" parent="StartMenuUI/VBoxContainer/StartButton" instance=ExtResource("16_xx3ku")]
+
 [node name="LeaderboardButton" type="TextureButton" parent="StartMenuUI/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_yt2pv")
@@ -578,22 +582,26 @@ text = "CLASSEMENT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/VBoxContainer/LeaderboardButton"]
+script = ExtResource("20_uk28k")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
+
 [node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -499.0
-offset_right = -3.0
+offset_right = 2.0
 offset_bottom = 200.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 28
-theme_override_constants/margin_right = 165
+theme_override_constants/margin_right = 190
 
 [node name="TutorialButton" type="TextureButton" parent="StartMenuUI/TutorialContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_k7tfi")
-texture_pressed = ExtResource("20_q44k4")
+texture_pressed = ExtResource("22_mf8ek")
 texture_hover = ExtResource("21_xx3ku")
 
 [node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/TutorialContainer/TutorialButton"]
@@ -617,6 +625,10 @@ theme_override_font_sizes/font_size = 39
 text = "TUTORIEL"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/TutorialContainer/TutorialButton"]
+script = ExtResource("20_uk28k")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="MuteButtonContainer" parent="StartMenuUI" instance=ExtResource("20_q44k4")]
 layout_mode = 1

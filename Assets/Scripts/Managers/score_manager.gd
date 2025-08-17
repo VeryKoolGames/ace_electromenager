@@ -32,6 +32,7 @@ func _ready() -> void:
 	print(score_label_original_position)
 
 func on_score_received(score_value: int) -> void:
+	AudioManager.play_repair_sound()
 	if score_buffer >= 10:
 		var multiplier_tier = clamp(score_buffer / 10, 1.5, 5)
 		multiplier = multiplier_tier
@@ -54,7 +55,7 @@ func on_score_received(score_value: int) -> void:
 func _transfer_buffer_to_score() -> void:
 	if score_buffer <= 0 or is_transferring_score:
 		return
-	
+	AudioManager.reset_repair_sound_pitch()
 	is_transferring_score = true
 	var buffer_amount = score_buffer
 	if buffer_amount >= treshold_to_congratulate_player:

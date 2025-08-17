@@ -7,6 +7,7 @@ extends Control
 @onready var leaderboard_button: TextureButton = $VBoxContainer/MarginContainer2/LeaderboardButton
 @onready var best_score_rect: TextureRect = $Star/BestScoreRect
 @onready var http_request: HTTPRequest = $HTTPRequest
+@onready var save_score_request: HTTPRequest = $SaveScoreRequest
 
 var final_score := 0
 
@@ -24,9 +25,9 @@ func on_game_ended() -> void:
 	show()
 	await get_tree().create_timer(1.5).timeout
 	score_label.text = "[b]%d[/b]\nPTS" % score_manager.current_score
-	print("final score ", final_score)
 	PlayerData.score = score_manager.current_score
 	AudioManager.play_end_menu_music()
+	save_score()
 
 func on_replay_button_clicked() -> void:
 	AudioManager.stop_end_menu_music()
@@ -46,7 +47,7 @@ func show_best_score_rect() -> void:
 	var body = {
 		"email": SaveSystem.player_data.get("email"),
 		"pseudo": SaveSystem.player_data.get("pseudo"),
-		"score": final_score,
+		"score": PlayerData.score,
 	}
 	var json = JSON.stringify(body)
 	var headers = ["Content-Type: application/json"]
@@ -57,3 +58,11 @@ func _on_request_completed(_result, response_code, _headers, body):
 		var data = JSON.parse_string(body.get_string_from_utf8())
 		if data.get("is_highest"):
 			best_score_rect.show()
+
+func save_score() -> void:
+	var body = {
+		"score": PlayerData.score,
+	}
+	var json = JSON.stringify(body)
+	var headers = ["Content-Type: application/json"]
+	save_score_request.request("https://niseko-backend.onrender.com/save_score", headers, HTTPClient.METHOD_POST, json)

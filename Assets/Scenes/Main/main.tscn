@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=82 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -25,10 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
-[ext_resource type="Script" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
+[ext_resource type="Script" uid="uid://cb1cepe42jf7g" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
 [ext_resource type="Resource" uid="uid://cs3s73hydc5bk" path="res://Assets/Resources/CongratulationDialogue.tres" id="15_1bvye"]
 [ext_resource type="PackedScene" uid="uid://u71mthgq8u4o" path="res://Assets/Scenes/arbitre.tscn" id="15_3jb74"]
-[ext_resource type="PackedScene" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
+[ext_resource type="PackedScene" uid="uid://623qimt3u6wg" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="Texture2D" uid="uid://cfx6tafkyp2nr" path="res://Assets/sprites/PauseIcon.png" id="21_iroru"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="22_3jb74"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://co72kr6b8shh8" path="res://Assets/sprites/ButtonShape2_Hover.png" id="36_6hdr7"]
 [ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="36_s0kou"]
 [ext_resource type="Texture2D" uid="uid://c3ysp4pj4efrm" path="res://Assets/sprites/Vu.png" id="38_wspn0"]
+[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="39_17h7s"]
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="39_eqeth"]
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="43_cn3ei"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="44_72nnc"]
@@ -1193,6 +1194,10 @@ text = "REJOUER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSoundComponent" type="Node" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton"]
+script = ExtResource("39_17h7s")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
+
 [node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 0
@@ -1222,6 +1227,10 @@ theme_override_font_sizes/font_size = 48
 text = "CLASSEMENT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonSoundComponent" type="Node" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton"]
+script = ExtResource("39_17h7s")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="Star" type="Control" parent="ResponsiveLayer/EndGameUI"]
 custom_minimum_size = Vector2(500, 500)
@@ -1367,15 +1376,6 @@ text = "et tentez de gagner un prix exclusif !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
-theme_override_fonts/font = ExtResource("5_o5d14")
-text = "L'email et le pseudonyme doivent être remplies"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
@@ -1460,6 +1460,10 @@ text = "PUBLIER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSoundComponent" type="Node" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer/VBoxContainer/SaveButton"]
+script = ExtResource("39_17h7s")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
+
 [node name="ScoreEnregistré" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 visible = false
 layout_mode = 1
@@ -1524,6 +1528,22 @@ libraries = {
 &"": SubResource("AnimationLibrary_1bvye")
 }
 
+[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+offset_right = 503.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "le pseudonyme et l'e-mail doivent être remplis."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI"]
@@ -1532,6 +1552,8 @@ libraries = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
+
+[node name="SaveScoreRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
 
 [node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
 z_index = 2
@@ -1592,10 +1614,10 @@ text = "C'EST PARTI !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RepaireParticlesManager" type="Node" parent="ResponsiveLayer"]
+[node name="ParticlesManager" type="Node" parent="ResponsiveLayer"]
 script = ExtResource("36_s0kou")
 
-[node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
+[node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/ParticlesManager"]
 
 [node name="Piques" type="GPUParticles2D" parent="."]
 position = Vector2(824, 522)
