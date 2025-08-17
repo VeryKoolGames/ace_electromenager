@@ -5,7 +5,6 @@ class_name Ball
 @onready var scale_on_destroy_component: ScaleOnDestroyComponent = $ScaleOnDestroyComponent
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var trail: Line2D = $Trail
-
 @export var sprite: Sprite2D
 
 # Ball properties
@@ -27,6 +26,7 @@ var movement_threshold: float = 20.0
 @export var min_scale_multiplier: float = 0.8
 @export var scale_speed_threshold: float = 2000.0
 @export var scale_lerp_speed: float = 8.0
+@export var trail_perfect_shot_color: Color
 
 var target_scale: Vector2
 
@@ -102,4 +102,4 @@ func shoot_ball(velocity: Vector2) -> void:
 	is_moving = true
 
 func set_trail_on_perfect_shot() -> void:
-	trail.default_color = Color.RED
+	trail.default_color = trail_perfect_shot_color

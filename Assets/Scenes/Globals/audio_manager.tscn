@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://3yfyjvdskl1u"]
+[gd_scene load_steps=26 format=3 uid="uid://3yfyjvdskl1u"]
 
 [ext_resource type="Script" uid="uid://cv67vpl8p0pg4" path="res://AudioManager.gd" id="1_4riyp"]
 [ext_resource type="AudioStream" uid="uid://byj23gdxfa7ge" path="res://Assets/Sounds/shoot1.wav" id="2_n5uav"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dql10nbn5h67b" path="res://Assets/Sounds/HoverSound.wav" id="22_rfq7n"]
 [ext_resource type="AudioStream" uid="uid://bbmm5172o8mx" path="res://Assets/Sounds/ButtonClicked.mp3" id="23_30w1h"]
 [ext_resource type="AudioStream" uid="uid://c7bp1ldnb63lx" path="res://Assets/Sounds/PowerUP!.mp3" id="24_30w1h"]
+[ext_resource type="AudioStream" uid="uid://dmqmhnl82q8l8" path="res://Assets/Sounds/fire_sound.wav" id="25_qjsna"]
 
 [node name="AudioManager" type="Node2D" node_paths=PackedStringArray("shoot_sounds", "rebound_sounds", "charge_sound", "whistle_sound")]
 script = ExtResource("1_4riyp")
@@ -124,3 +125,8 @@ stream = ExtResource("23_30w1h")
 
 [node name="PowerUpSound" type="AudioStreamPlayer2D" parent="PowerUp"]
 stream = ExtResource("24_30w1h")
+
+[node name="FireSound" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="FireSound"]
+stream = ExtResource("25_qjsna")

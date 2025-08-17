@@ -10,4 +10,4 @@ func destroy() -> void:
 	var tween = create_tween()
 	tween.tween_property(target, "scale", target.scale + Vector2(scale_factor, scale_factor), size_increase_speed)
 	tween.tween_property(target, "scale", Vector2.ZERO, size_decrease_speed)
-	tween.tween_callback(func(): target.queue_free())
+	tween.tween_callback(func(): target.queue_free()).set_delay(0.5)

@@ -15,6 +15,7 @@ extends Node
 @onready var hover_sound: AudioStreamPlayer2D = $Buttons/HoverSound
 @onready var click_sound: AudioStreamPlayer2D = $Buttons/ClickSound
 @onready var power_up_sound: AudioStreamPlayer2D = $PowerUp/PowerUpSound
+@onready var fire_sound: AudioStreamPlayer2D = $FireSound/AudioStreamPlayer2D
 
 var is_muted := false
 var repair_pitch_scale := 0.0
@@ -113,3 +114,7 @@ func play_button_click_sound() -> void:
 func play_power_up_sound() -> void:
 	power_up_sound.pitch_scale = randf_range(0.8, 1.2)
 	power_up_sound.play()
+
+func play_fire_sound(pitch: float) -> void:
+	fire_sound.pitch_scale += pitch
+	fire_sound.play()

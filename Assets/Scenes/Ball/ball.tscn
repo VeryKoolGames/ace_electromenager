@@ -18,6 +18,7 @@ gravity_scale = 0.0
 script = ExtResource("1_3vq5u")
 sprite = NodePath("Sprite2D")
 base_scale = Vector2(0.5, 0.5)
+trail_perfect_shot_color = Color(0.694118, 0.917647, 1, 0.658824)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3vq5u")
