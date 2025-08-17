@@ -7,7 +7,7 @@ var score_buffer := 0
 @onready var score_label: Label = $ScoreLabel
 @export var score_ui_component_scene: PackedScene
 @onready var score_buffer_label: Label = $MarginContainer/ScoreBufferLabel
-@onready var multiplier_label: Label = $HBoxContainer2/HBoxContainer/MultiplierLabel
+@onready var multiplier_label: Label = $HBoxContainer2/HBoxContainer/Control/MultiplierLabel
 @export var multiplier_enabled_color: Color
 @export var multiplier_base_color: Color
 @export var fire_textures: Array[TextureRect]
@@ -25,13 +25,11 @@ func _ready() -> void:
 	Events.on_machine_repaired.connect(spawn_score_component)
 	Events.on_perfect_shot.connect(on_perfect_shot)
 	Events.on_normal_shot.connect(on_normal_shot)
-	
 	buffer_timer = Timer.new()
 	buffer_timer.wait_time = 1.0
 	buffer_timer.one_shot = true
 	buffer_timer.timeout.connect(_transfer_buffer_to_score)
 	add_child(buffer_timer)
-	
 	score_label.text = str(current_score)
 	score_buffer_label.text = ""
 	score_buffer_label.modulate.a = 0
@@ -45,9 +43,14 @@ func on_perfect_shot() -> void:
 	current_number_of_perfect_shot += 1
 	await display_fire()
 	scale_up_fires_on_perfect_shot()
+	modify_label()
 
 func modify_label() -> void:
-	pass
+	multiplier_label.text = "x" + str(current_number_of_perfect_shot)
+	if current_number_of_perfect_shot == 0:
+		multiplier_label.modulate = multiplier_base_color
+	else:
+		multiplier_label.modulate = multiplier_enabled_color
 
 func scale_up_fires_on_perfect_shot() -> void:
 	var target_increase = current_number_of_perfect_shot * 0.2
@@ -55,12 +58,14 @@ func scale_up_fires_on_perfect_shot() -> void:
 	for fire in fire_textures:
 		if fire.visible:
 			fire.scale = target_scale
+	multiplier_label.scale = target_scale
 
 func scale_down_fires_on_perfect_shot() -> void:
 	var target_decrease = current_number_of_perfect_shot * 0.2
 	for fire in fire_textures:
 		if fire.visible:
 			fire.scale -= Vector2(0.2, 0.2)
+	multiplier_label.scale -= Vector2(0.2, 0.2)
 
 func on_normal_shot() -> void:
 	if current_number_of_perfect_shot - 1 < 0:
@@ -68,6 +73,7 @@ func on_normal_shot() -> void:
 	scale_down_fires_on_perfect_shot()
 	current_number_of_perfect_shot -= 1
 	hide_fire()
+	modify_label()
 
 func hide_fire() -> void:
 	var fire = fire_textures[current_number_of_perfect_shot]
@@ -81,7 +87,7 @@ func display_fire() -> void:
 	fire.show()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(fire, "scale", Vector2(1.5, 1.5), 0.1)
+	tween.tween_property(fire, "scale", Vector2(3, 3), 0.1)
 	tween.tween_property(fire, "scale", Vector2.ONE, 0.2)
 	await tween.finished
 
