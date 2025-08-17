@@ -9,6 +9,7 @@ var is_gathered: bool = false
 
 func _ready() -> void:
 	res_power_up.node = self
+	res_power_up.global_position = global_position
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("ball") and not is_gathered:

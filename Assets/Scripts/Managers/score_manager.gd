@@ -42,10 +42,21 @@ func on_perfect_shot() -> void:
 	AudioManager.play_fire_sound(current_number_of_perfect_shot * 0.1)
 	current_number_of_perfect_shot += 1
 	display_fire()
+	scale_up_fires_on_perfect_shot()
+
+func scale_up_fires_on_perfect_shot() -> void:
+	for fire in fire_textures:
+		if fire.visible:
+			fire.scale += Vector2(0.1, 0.1)
+
+func scale_down_fires_on_perfect_shot() -> void:
+	for fire in fire_textures:
+		fire.scale -= Vector2(0.1, 0.1)
 
 func on_normal_shot() -> void:
 	if current_number_of_perfect_shot - 1 < 0:
 		return
+	scale_down_fires_on_perfect_shot()
 	current_number_of_perfect_shot -= 1
 	hide_fire()
 
@@ -53,22 +64,23 @@ func hide_fire() -> void:
 	var fire = fire_textures[current_number_of_perfect_shot]
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(fire, "scale", Vector2.ZERO, 0.2)
+	tween.tween_property(fire, "scale", Vector2.ZERO, 0.5)
+	tween.tween_callback(func(): fire.hide())
 
 func display_fire() -> void:
 	var fire = fire_textures[current_number_of_perfect_shot - 1]
+	fire.show()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(fire, "scale", Vector2.ONE, 0.2)
+	tween.tween_property(fire, "scale", Vector2(1.5, 1.5), 0.2)
+	tween.tween_property(fire, "scale", Vector2.ONE, 0.1)
 
 func on_score_received(score_value: int) -> void:
 	AudioManager.play_repair_sound()
-	if score_buffer >= 10:
-		var multiplier_tier = clamp(score_buffer / 10, 1.5, 5)
-		multiplier = multiplier_tier
-		score_value *= multiplier
+	multiplier = 1.0 + current_number_of_perfect_shot
+	score_value *= multiplier
 	score_buffer += score_value
-	
+
 	if score_buffer > 0:
 		if score_buffer_tween and score_buffer_tween.is_running():
 			score_buffer_tween.kill()

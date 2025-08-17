@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://coqi8ccvui312"]
 
 [ext_resource type="Texture2D" uid="uid://cejlij7pycc2g" path="res://Assets/sprites/SP_Star.png" id="1_ff6ec"]
-[ext_resource type="Script" path="res://Assets/Scripts/Machines/repair_particles.gd" id="1_vlpxw"]
+[ext_resource type="Script" uid="uid://cgdfvuycxjkpe" path="res://Assets/Scripts/Machines/repair_particles.gd" id="1_vlpxw"]
 [ext_resource type="Material" uid="uid://n3q7rqqdttyq" path="res://Assets/Materials/p_réparation.tres" id="2_muhse"]
 [ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="3_jgcjm"]
 [ext_resource type="Texture2D" uid="uid://c1s5gv6dvyx7e" path="res://Assets/sprites/SP_Etincelle.png" id="4_aymxm"]

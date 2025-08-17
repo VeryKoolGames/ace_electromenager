@@ -19,6 +19,7 @@ var previous_position: Vector2
 var time_since_last_check: float = 0.0
 var check_interval: float = 0.7
 var movement_threshold: float = 20.0
+var perfect_threshold: float = 50.0
 
 # Dynamic scaling properties
 @export var base_scale: Vector2 = Vector2.ONE
@@ -28,7 +29,11 @@ var movement_threshold: float = 20.0
 @export var scale_lerp_speed: float = 8.0
 @export var trail_perfect_shot_color: Color
 
+@onready var fire_sprite: Sprite2D = $Fire
+
 var target_scale: Vector2
+@export var max_rebound := 2
+var current_rebound := 0
 
 @export var rotation_speed_multiplier: float = 5.0
 @export var min_rotation_speed: float = 0.8
@@ -67,6 +72,8 @@ func update_rotation_based_on_velocity(delta: float) -> void:
 	var current_speed = start_velocity.length()
 	var rotation_speed = max(current_speed * rotation_speed_multiplier * 0.001, min_rotation_speed)
 	sprite.rotation += rotation_speed * delta * randf_range(0.8, 1.2)
+	if start_velocity.length() > 0.1:
+		fire_sprite.rotation = start_velocity.angle() + deg_to_rad(-90)
 
 func start_bouncing_behavior() -> void:
 	is_bouncing = true
@@ -76,17 +83,24 @@ func check_collisions(collision_info: KinematicCollision2D) -> void:
 		var collider = collision_info.get_collider()
 		if collider.is_in_group("machines"):
 			collider.owner.repair()
-			if is_bouncing:
-				start_velocity = start_velocity.bounce(collision_info.get_normal())
-				start_velocity *= speed_acceleration_on_machine_bounce
-			else:
-				queue_free()
+			handle_bouncing_behavior(collision_info)
 		else:
 			if collider.is_in_group("ref"):
 				Events.on_ref_hit.emit()
 			start_velocity = start_velocity.bounce(collision_info.get_normal())
 			start_velocity *= speed_reduction_on_wall_bounce
 			AudioManager.play_rebound_sound()
+
+func handle_bouncing_behavior(collision_info: KinematicCollision2D) -> void:
+	if is_bouncing:
+		current_rebound += 1
+		if current_rebound > max_rebound:
+			queue_free()
+			set_process(false)
+		start_velocity = start_velocity.bounce(collision_info.get_normal())
+		start_velocity *= speed_acceleration_on_machine_bounce
+	else:
+		queue_free()
 
 func check_if_ball_is_stopped() -> void:
 	if time_since_last_check >= check_interval:
@@ -96,6 +110,8 @@ func check_if_ball_is_stopped() -> void:
 			scale_on_destroy_component.destroy()
 		else:
 			previous_position = global_position
+		if distance_moved >= perfect_threshold:
+			fire_sprite.hide()
 
 func shoot_ball(velocity: Vector2) -> void:
 	start_velocity = velocity * 4
@@ -103,3 +119,4 @@ func shoot_ball(velocity: Vector2) -> void:
 
 func set_trail_on_perfect_shot() -> void:
 	trail.default_color = trail_perfect_shot_color
+	fire_sprite.show()

@@ -347,11 +347,13 @@ base_scale = Vector2(0.5, 0.5)
 trail_perfect_shot_color = Color(0.694118, 0.917647, 1, 0.658824)
 
 [node name="Fire" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_5ucs8")
-position = Vector2(-5.72205e-06, 15)
+position = Vector2(0.952957, -0.946458)
 rotation = -3.14159
 scale = Vector2(115, 130.25)
 texture = ExtResource("3_53lfh")
+offset = Vector2(0, -0.122)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3vq5u")

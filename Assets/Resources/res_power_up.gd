@@ -14,3 +14,4 @@ enum PowerUpEnum {
 
 # Node to which this resource is attached
 var node: Node
+var global_position: Vector2

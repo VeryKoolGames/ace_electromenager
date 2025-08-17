@@ -118,3 +118,6 @@ func play_power_up_sound() -> void:
 func play_fire_sound(pitch: float) -> void:
 	fire_sound.pitch_scale += pitch
 	fire_sound.play()
+
+func reset_fire_sound_pitch() -> void:
+	fire_sound.pitch_scale = 1.0
