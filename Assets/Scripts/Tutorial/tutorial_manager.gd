@@ -1,4 +1,5 @@
 extends Node2D
+class_name Tutorial
 
 @onready var countdown_start_ui: Control = $ResponsiveLayer/CountdownStartUI
 @onready var tutorial_ui: Control = $ResponsiveLayer/TutorialUI
@@ -8,6 +9,9 @@ extends Node2D
 signal on_first_part_started
 signal on_second_part_started
 signal on_third_part_started
+signal on_fourth_part_started
+
+var is_tutorial = true
 
 func _ready() -> void:
 	Events.on_tutorial_progressed.connect(on_tutorial_progressed)

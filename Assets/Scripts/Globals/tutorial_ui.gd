@@ -5,6 +5,7 @@ var tutorial_texts = {}
 @export var first_dialogue: ResDialogue
 @export var second_dialogue: ResDialogue
 @export var third_dialogue: ResDialogue
+@export var forth_dialogue: ResDialogue
 var current_index := 0
 var current_text_index := 0
 var is_writing := false
@@ -27,6 +28,10 @@ func _ready() -> void:
 			"signal": owner.on_second_part_started,
 		},
 		2: {
+			"text": forth_dialogue.dialogues_lines,
+			"signal": owner.on_fourth_part_started,
+		},
+		3: {
 			"text": third_dialogue.dialogues_lines,
 			"signal": owner.on_third_part_started,
 		}

@@ -19,12 +19,11 @@ var is_transferring_score := false
 var multiplier := 1.0
 var score_buffer_tween: Tween
 var score_label_original_position: Vector2
+var is_tutorial := false
 
 func _ready() -> void:
 	Events.on_player_scored.connect(on_score_received)
 	Events.on_machine_repaired.connect(spawn_score_component)
-	Events.on_perfect_shot.connect(on_perfect_shot)
-	Events.on_normal_shot.connect(on_normal_shot)
 	buffer_timer = Timer.new()
 	buffer_timer.wait_time = 1.0
 	buffer_timer.one_shot = true
@@ -35,10 +34,23 @@ func _ready() -> void:
 	score_buffer_label.modulate.a = 0
 	await get_tree().process_frame
 	score_label_original_position = score_buffer_label.global_position
+	if not owner is Tutorial:
+		Events.on_perfect_shot.connect(on_perfect_shot)
+		Events.on_normal_shot.connect(on_normal_shot)
+	else:
+		owner.on_fourth_part_started.connect(connect_signals_on_tutorial_mode)
+
+func connect_signals_on_tutorial_mode() -> void:
+	Events.on_perfect_shot.connect(on_perfect_shot)
+	Events.on_normal_shot.connect(on_normal_shot)
+	is_tutorial = true
 
 func on_perfect_shot() -> void:
 	if current_number_of_perfect_shot + 1 > fire_textures.size():
 		return
+	if is_tutorial:
+		Events.on_tutorial_progressed.emit()
+		is_tutorial = false
 	AudioManager.play_fire_sound(current_number_of_perfect_shot * 0.1)
 	current_number_of_perfect_shot += 1
 	await display_fire()

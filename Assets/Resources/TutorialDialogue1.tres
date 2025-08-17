@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_iticb")
-dialogues_lines = Array[String](["Bienvenue sur Ace Challenge !", "Le but du jeu est de réparer le plus d'objets possible en un temps limité", "Tiens, essaie ! Vise, appuie et relâche pour réparer ce frigo"])
+dialogues_lines = Array[String](["Bienvenue sur Ace Challenge !", "Après des années de recherche, les équipes d’Ace Électroménager ont mis au point des balles de tennis réparatrices", "Le but du jeu est de réparer le plus d'objets possible en un temps limité grâce à ces balles", "Tiens, essaie ! Vise, appuie et relâche pour réparer ce frigo"])
 metadata/_custom_type_script = "uid://22s8q8np634p"

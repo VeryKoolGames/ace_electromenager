@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResDialogue" load_steps=2 format=3 uid="uid://dyfv8b2e1l8lv"]
+
+[ext_resource type="Script" uid="uid://22s8q8np634p" path="res://ResDialogue.gd" id="1_hdng1"]
+
+[resource]
+script = ExtResource("1_hdng1")
+dialogues_lines = Array[String](["Bravo ! Plus la flèche est remplie, plus ton tir sera puissant", "Si ta flèche est suffisamment pleine, tu réaliseras un \"Tir Parfait\"", "Réussir un tir parfait augmente ton multiplicateur de score, vas-y, essaie !"])
+metadata/_custom_type_script = "uid://22s8q8np634p"
