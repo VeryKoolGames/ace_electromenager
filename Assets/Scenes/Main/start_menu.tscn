@@ -1,8 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=37 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
-[ext_resource type="Texture2D" uid="uid://d280amj7mfcet" path="res://Assets/sprites/BackgroundMainMenu.png" id="2_dph0j"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="2_tow68"]
+[ext_resource type="Texture2D" uid="uid://cyu14y5c3dx7g" path="res://Assets/sprites/MainMenuBackground2.png" id="2_xx3ku"]
 [ext_resource type="Texture2D" uid="uid://bovnjxspn4gib" path="res://Assets/sprites/TitleLogo.png" id="3_dph0j"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="3_tow68"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="3_wdajc"]
@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="20_q44k4"]
 [ext_resource type="Texture2D" uid="uid://xq5lpehhkd0u" path="res://Assets/sprites/AceLogo.png" id="20_w18hl"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="21_xx3ku"]
+[ext_resource type="Texture2D" uid="uid://qugmvd58u118" path="res://Assets/sprites/ball1.png" id="24_mf8ek"]
+[ext_resource type="Texture2D" uid="uid://bdm84vt2pj85r" path="res://Assets/sprites/ball2.png" id="25_wk347"]
+[ext_resource type="Texture2D" uid="uid://cca5oajla42fv" path="res://Assets/sprites/Balle.png" id="26_wk347"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
 resource_name = "ArbitreMenu_Idle"
@@ -344,6 +347,86 @@ _data = {
 &"RESET": SubResource("Animation_84a87")
 }
 
+[sub_resource type="Animation" id="Animation_wk347"]
+resource_name = "ball_menu"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 1),
+"points": PackedFloat32Array(-1163, 0, 0, 0, 0, 1293, 0, 0, 0, 0),
+"times": PackedFloat32Array(4.03333, 4.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(1, 1),
+"points": PackedFloat32Array(594, 0, 0, 0, 0, -883, 0, 0, 0, 0),
+"times": PackedFloat32Array(4.03333, 4.7)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(1, 1),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 2.96706, 0, 0, 0, 0),
+"times": PackedFloat32Array(4.03333, 4.7)
+}
+
+[sub_resource type="Animation" id="Animation_at10o"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(952, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-629, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.0472, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y78t4"]
+_data = {
+&"RESET": SubResource("Animation_at10o"),
+&"ball_menu": SubResource("Animation_wk347")
+}
+
 [node name="StartMenu" type="CanvasLayer"]
 
 [node name="StartMenuUI" type="Control" parent="."]
@@ -358,13 +441,14 @@ size_flags_vertical = 3
 script = ExtResource("1_dph0j")
 
 [node name="TextureRect2" type="TextureRect" parent="StartMenuUI"]
+z_index = -2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_dph0j")
+texture = ExtResource("2_xx3ku")
 expand_mode = 1
 
 [node name="Arbitre" type="Control" parent="StartMenuUI"]
@@ -648,3 +732,80 @@ theme_override_constants/margin_bottom = 60
 [node name="TextureRect" type="TextureRect" parent="StartMenuUI/ACE_Logo"]
 layout_mode = 2
 texture = ExtResource("20_w18hl")
+
+[node name="TennisBalls" type="Control" parent="StartMenuUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="StartMenuUI/TennisBalls"]
+layout_mode = 0
+offset_left = -754.0
+offset_top = 37.0
+offset_right = -648.0
+offset_bottom = 114.0
+texture = ExtResource("24_mf8ek")
+
+[node name="TextureRect2" type="TextureRect" parent="StartMenuUI/TennisBalls"]
+layout_mode = 0
+offset_left = -475.0
+offset_top = 58.0
+offset_right = -369.0
+offset_bottom = 135.0
+texture = ExtResource("24_mf8ek")
+
+[node name="TextureRect4" type="TextureRect" parent="StartMenuUI/TennisBalls"]
+layout_mode = 0
+offset_left = 775.0
+offset_top = -294.0
+offset_right = 881.0
+offset_bottom = -217.0
+texture = ExtResource("24_mf8ek")
+
+[node name="TextureRect3" type="TextureRect" parent="StartMenuUI/TennisBalls"]
+layout_mode = 0
+offset_left = -720.0
+offset_top = 115.0
+offset_right = -615.0
+offset_bottom = 183.0
+texture = ExtResource("25_wk347")
+stretch_mode = 4
+
+[node name="TennisBalls_Anim" type="Control" parent="StartMenuUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="StartMenuUI/TennisBalls_Anim"]
+z_index = -1
+layout_mode = 0
+offset_left = 952.0
+offset_top = -629.0
+offset_right = 1018.0
+offset_bottom = -563.0
+rotation = 1.0472
+texture = ExtResource("26_wk347")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartMenuUI/TennisBalls_Anim"]
+libraries = {
+&"": SubResource("AnimationLibrary_y78t4")
+}
+autoplay = "ball_menu"

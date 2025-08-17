@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://coqi8ccvui312"]
+[gd_scene load_steps=13 format=3 uid="uid://coqi8ccvui312"]
 
 [ext_resource type="Texture2D" uid="uid://cejlij7pycc2g" path="res://Assets/sprites/SP_Star.png" id="1_ff6ec"]
 [ext_resource type="Material" uid="uid://n3q7rqqdttyq" path="res://Assets/Materials/p_réparation.tres" id="2_muhse"]
 [ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="3_jgcjm"]
 [ext_resource type="Texture2D" uid="uid://g4q8lw7n0mmh" path="res://Assets/sprites/Pique.png" id="4_4ea7c"]
-[ext_resource type="AudioStream" uid="uid://c4wx85snoo3os" path="res://Assets/Sounds/arbitre-v2.wav" id="5_vlpxw"]
 
 [sub_resource type="Curve" id="Curve_4ea7c"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -85,9 +84,3 @@ lifetime = 0.18
 one_shot = true
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_vlpxw")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_vlpxw")
-pitch_scale = 1.36
-autoplay = true
-panning_strength = 1.7

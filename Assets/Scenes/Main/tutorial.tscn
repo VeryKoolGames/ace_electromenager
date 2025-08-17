@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=36 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" path="res://Assets/Scenes/UI/referee_panel.tscn" id="22_x4ens"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="23_t1e88"]
 [ext_resource type="Texture2D" uid="uid://c1f866eq62mg1" path="res://Assets/sprites/ButtonShape3_Hover.png" id="25_ifdon"]
+[ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="27_2gxxo"]
 [ext_resource type="Script" uid="uid://b3elnfvlugmuk" path="res://Assets/Scripts/Globals/tutorial_ui.gd" id="29_6rwrp"]
 [ext_resource type="Resource" uid="uid://3go6chxms7sw" path="res://Assets/Resources/TutorialDialogue1.tres" id="30_paycb"]
 [ext_resource type="Resource" uid="uid://c3wngdbaef73w" path="res://Assets/Resources/TutorialDialogue2.tres" id="31_wu0vg"]
@@ -501,6 +502,7 @@ grow_vertical = 0
 pivot_offset = Vector2(117.5, 92)
 
 [node name="BackButton" type="TextureButton" parent="ResponsiveLayer/TutorialUI/BackButtonContainer"]
+z_index = 2
 layout_mode = 2
 texture_normal = ExtResource("35_gejnh")
 texture_pressed = ExtResource("36_oea5r")
@@ -524,7 +526,14 @@ text = "RETOUR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/TutorialUI/BackButtonContainer"]
+modulate = Color(0.00784314, 0.72549, 0.517647, 1)
+z_index = 1
+layout_mode = 2
+texture = ExtResource("27_2gxxo")
+
 [node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
