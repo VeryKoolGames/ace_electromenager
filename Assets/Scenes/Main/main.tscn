@@ -1,4 +1,4 @@
-[gd_scene load_steps=200 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=84 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -25,10 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
-[ext_resource type="Script" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
+[ext_resource type="Script" uid="uid://cb1cepe42jf7g" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
 [ext_resource type="Resource" uid="uid://cs3s73hydc5bk" path="res://Assets/Resources/CongratulationDialogue.tres" id="15_1bvye"]
 [ext_resource type="PackedScene" uid="uid://u71mthgq8u4o" path="res://Assets/Scenes/arbitre.tscn" id="15_3jb74"]
-[ext_resource type="PackedScene" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
+[ext_resource type="PackedScene" uid="uid://623qimt3u6wg" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="Texture2D" uid="uid://cfx6tafkyp2nr" path="res://Assets/sprites/PauseIcon.png" id="21_iroru"]
 [ext_resource type="Texture2D" uid="uid://d21t5xwjkwlic" path="res://Assets/sprites/rond_feu.png" id="21_usd82"]
@@ -40,9 +40,12 @@
 [ext_resource type="Texture2D" uid="uid://bxdyg81ejdeqo" path="res://Assets/sprites/Mask.png" id="24_jhbcg"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="25_tpyc1"]
+[ext_resource type="PackedScene" uid="uid://dydiqjbr7irlt" path="res://Assets/Scenes/Components/scale_down_on_game_end_component.tscn" id="25_usd82"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="26_ad0oj"]
 [ext_resource type="Texture2D" uid="uid://dwu3uu70q8i2i" path="res://Assets/sprites/FireTex/T_VFX_MarbleNoise_tiled.png" id="26_jhbcg"]
+[ext_resource type="PackedScene" uid="uid://pwk02sdfwf24" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="27_vv0dk"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="28_ad0oj"]
+[ext_resource type="Script" uid="uid://uxey12hoixl" path="res://Assets/Scripts/Components/scale_down_on_game_end_component.gd" id="28_jhbcg"]
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
 [ext_resource type="Texture2D" uid="uid://ceejaliuib6fc" path="res://Assets/sprites/MeilleurScore.png" id="31_3jb74"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="32_sack4"]
@@ -51,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://co72kr6b8shh8" path="res://Assets/sprites/ButtonShape2_Hover.png" id="36_6hdr7"]
 [ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="36_s0kou"]
 [ext_resource type="Texture2D" uid="uid://c3ysp4pj4efrm" path="res://Assets/sprites/Vu.png" id="38_wspn0"]
+[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="39_17h7s"]
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="39_eqeth"]
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="43_cn3ei"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="44_72nnc"]
@@ -1640,9 +1644,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -40.0
+offset_top = -138.0
 offset_right = 20.0
-offset_bottom = -98.0
+offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -1696,11 +1700,12 @@ congratulations_texts = ExtResource("15_1bvye")
 
 [node name="RefereePanel" parent="ResponsiveLayer/RefPos" instance=ExtResource("15_eqeth")]
 layout_mode = 1
-offset_left = -393.0
-offset_top = -410.5
-offset_right = -12.0
-offset_bottom = -247.0
-grow_vertical = 1
+anchors_preset = -1
+offset_left = -273.0
+offset_top = -312.5
+offset_right = -93.0
+offset_bottom = -169.0
+scale = Vector2(1e-05, 1e-05)
 
 [node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
 
@@ -1708,7 +1713,7 @@ grow_vertical = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_fd4wd")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="ResponsiveLayer/RefPos/RefChair"]
+[node name="StaticBody2D" type="StaticBody2D" parent="ResponsiveLayer/RefPos/RefChair" groups=["ref"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ResponsiveLayer/RefPos/RefChair/StaticBody2D"]
 position = Vector2(0.5, 28)
@@ -1982,6 +1987,8 @@ vertical_alignment = 1
 [node name="PowerUpContainer" type="Node2D" parent="ResponsiveLayer/GameUI/ScoreManager"]
 position = Vector2(-249, -749)
 
+[node name="ScaleDownOnGameEndComponent" parent="ResponsiveLayer/GameUI/ScoreManager" instance=ExtResource("25_usd82")]
+
 [node name="GameTimerManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
 layout_mode = 1
 anchors_preset = 3
@@ -2022,6 +2029,10 @@ vertical_alignment = 1
 wait_time = 120.0
 one_shot = true
 
+[node name="ScaleDownOnGameEnd" type="Node" parent="ResponsiveLayer/GameUI/GameTimerManager"]
+script = ExtResource("28_jhbcg")
+metadata/_custom_type_script = "uid://uxey12hoixl"
+
 [node name="PauseMenu" type="Control" parent="ResponsiveLayer"]
 z_index = 10
 layout_mode = 3
@@ -2037,13 +2048,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.9399
-offset_right = 48.0601
-offset_bottom = 115.0
+offset_left = -112.0
+offset_right = 50.0
+offset_bottom = 180.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
-theme_override_constants/margin_top = 45
-theme_override_constants/margin_right = 45
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
 
 [node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
 layout_mode = 2
@@ -2067,6 +2078,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.580392)
+
+[node name="MuteButtonContainer" parent="ResponsiveLayer/PauseMenu/Control" instance=ExtResource("27_vv0dk")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 330.0
+grow_horizontal = 1
+pivot_offset = Vector2(0, 0)
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
 layout_mode = 1
@@ -2268,6 +2292,10 @@ text = "REJOUER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSoundComponent" type="Node" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton"]
+script = ExtResource("39_17h7s")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
+
 [node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 0
@@ -2297,6 +2325,10 @@ theme_override_font_sizes/font_size = 48
 text = "CLASSEMENT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonSoundComponent" type="Node" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton"]
+script = ExtResource("39_17h7s")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="Star" type="Control" parent="ResponsiveLayer/EndGameUI"]
 custom_minimum_size = Vector2(500, 500)
@@ -2442,15 +2474,6 @@ text = "et tentez de gagner un prix exclusif !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
-theme_override_fonts/font = ExtResource("5_o5d14")
-text = "L'email et le pseudonyme doivent être remplies"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MarginContainer2" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
@@ -2535,6 +2558,10 @@ text = "PUBLIER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSoundComponent" type="Node" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer/VBoxContainer/SaveButton"]
+script = ExtResource("39_17h7s")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
+
 [node name="ScoreEnregistré" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
 visible = false
 layout_mode = 1
@@ -2598,7 +2625,22 @@ texture = ExtResource("38_wspn0")
 libraries = {
 &"": SubResource("AnimationLibrary_1bvye")
 }
-autoplay = "scoreEnregistré"
+
+[node name="ErrorLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+offset_right = 503.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "le pseudonyme et l'e-mail doivent être remplis."
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 
@@ -2608,6 +2650,8 @@ libraries = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
+
+[node name="SaveScoreRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
 
 [node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
 visible = false
@@ -2669,10 +2713,10 @@ text = "C'EST PARTI !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RepaireParticlesManager" type="Node" parent="ResponsiveLayer"]
+[node name="ParticlesManager" type="Node" parent="ResponsiveLayer"]
 script = ExtResource("36_s0kou")
 
-[node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
+[node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/ParticlesManager"]
 
 [node name="Piques" type="GPUParticles2D" parent="."]
 position = Vector2(824, 522)

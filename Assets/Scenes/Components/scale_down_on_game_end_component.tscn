@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dydiqjbr7irlt"]
+
+[ext_resource type="Script" uid="uid://uxey12hoixl" path="res://Assets/Scripts/Components/scale_down_on_game_end_component.gd" id="1_3lj5b"]
+
+[node name="ScaleDownOnGameEndComponent" type="Node"]
+script = ExtResource("1_3lj5b")

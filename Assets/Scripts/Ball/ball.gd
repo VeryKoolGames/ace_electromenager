@@ -4,6 +4,7 @@ class_name Ball
 # Components
 @onready var scale_on_destroy_component: ScaleOnDestroyComponent = $ScaleOnDestroyComponent
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var trail: Line2D = $Trail
 
 @export var sprite: Sprite2D
 
@@ -81,6 +82,8 @@ func check_collisions(collision_info: KinematicCollision2D) -> void:
 			else:
 				queue_free()
 		else:
+			if collider.is_in_group("ref"):
+				Events.on_ref_hit.emit()
 			start_velocity = start_velocity.bounce(collision_info.get_normal())
 			start_velocity *= speed_reduction_on_wall_bounce
 			AudioManager.play_rebound_sound()
@@ -97,3 +100,6 @@ func check_if_ball_is_stopped() -> void:
 func shoot_ball(velocity: Vector2) -> void:
 	start_velocity = velocity * 4
 	is_moving = true
+
+func set_trail_on_perfect_shot() -> void:
+	trail.default_color = Color.RED

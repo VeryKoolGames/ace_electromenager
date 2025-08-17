@@ -71,6 +71,8 @@ func rebuild_shooting_behavior() -> void:
 func shoot_ball(data: Dictionary) -> void:
 	ball_spawner.start_cooldown()
 	apply_powerups_to_ball(current_ball)
+	if data.get("is_perfect_shot"):
+		current_ball.set_trail_on_perfect_shot()
 	shooting_behavior.shoot(self, get_shoot_direction(data), current_ball)
 	current_ball = null
 	AudioManager.play_shoot_sound()

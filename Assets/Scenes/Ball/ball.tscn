@@ -29,7 +29,7 @@ texture = ExtResource("2_3vq5u")
 [node name="Trail" type="Line2D" parent="."]
 width = 60.0
 width_curve = SubResource("Curve_g2nwa")
-default_color = Color(1, 1, 1, 0.52549)
+default_color = Color(0.690196, 1, 0.631373, 0.52549)
 script = ExtResource("3_kp77b")
 
 [node name="ScaleOnSpawnComponent" parent="." instance=ExtResource("4_ku2c1")]

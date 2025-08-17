@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drf66dvcj6n1f"]
+[gd_scene load_steps=16 format=3 uid="uid://drf66dvcj6n1f"]
 
 [ext_resource type="Script" uid="uid://c1vwktp8facb3" path="res://Assets/Scripts/leaderboard.gd" id="1_li4bx"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="1_ry3e1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c6k75j71jbvva" path="res://Assets/sprites/ButtonShape3.png" id="8_vkddw"]
 [ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="9_4yrqk"]
 [ext_resource type="Texture2D" uid="uid://c1f866eq62mg1" path="res://Assets/sprites/ButtonShape3_Hover.png" id="11_li4bx"]
+[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="12_lv1jd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
 texture = ExtResource("2_mrngu")
@@ -165,6 +166,10 @@ theme_override_font_sizes/font_size = 28
 text = "RETOUR"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonSoundComponent" type="Node" parent="LeftContainer/MarginBackButton/BackButton"]
+script = ExtResource("12_lv1jd")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="MarginGlobalButton" type="MarginContainer" parent="LeftContainer"]
 visible = false

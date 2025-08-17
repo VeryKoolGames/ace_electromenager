@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("ball") and not is_gathered:
+		AudioManager.play_power_up_sound()
 		is_gathered = true
 		Events.on_power_up_gathered.emit(res_power_up)
 		scale_on_destroy_component.destroy()

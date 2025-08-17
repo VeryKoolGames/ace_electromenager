@@ -54,6 +54,7 @@ func skip_typing() -> void:
 		return
 	if typing_tween:
 		typing_tween.kill()
+	AudioManager.stop_ref_long_talk()
 	is_writing = false
 	var current_texts = tutorial_texts[current_index]["text"]
 	if current_text_index < current_texts.size():
@@ -93,6 +94,7 @@ func write_tutorial_text() -> void:
 	type_text()
 
 func type_text() -> void:
+	AudioManager.play_ref_long_talk()
 	referee.start_talking()
 	start_skipping_cooldown()
 	if current_index >= tutorial_texts.size():
@@ -117,3 +119,4 @@ func type_text() -> void:
 	
 	is_writing = false
 	referee.hide_mouth()
+	AudioManager.stop_ref_long_talk()
