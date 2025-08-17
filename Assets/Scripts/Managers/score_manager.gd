@@ -29,7 +29,6 @@ func _ready() -> void:
 	score_buffer_label.modulate.a = 0
 	await get_tree().process_frame
 	score_label_original_position = score_buffer_label.global_position
-	print(score_label_original_position)
 
 func on_score_received(score_value: int) -> void:
 	AudioManager.play_repair_sound()

@@ -15,6 +15,7 @@ func on_machine_repaired(machine: Machine) -> void:
 	particles_container.add_child(scene)
 
 func on_power_up_gathered(power_up: ResPowerUp) -> void:
+	var target_position = power_up.node.global_position
 	var scene = power_up_particles_scene.instantiate() as Node2D
-	scene.global_position = power_up.node.global_position
+	scene.global_position = target_position
 	particles_container.add_child(scene)
