@@ -38,6 +38,7 @@ window/handheld/orientation=4
 
 machines=""
 ball=""
+ref=""
 
 [input]
 

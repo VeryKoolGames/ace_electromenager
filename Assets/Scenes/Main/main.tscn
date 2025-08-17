@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=63 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="25_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="26_ad0oj"]
+[ext_resource type="PackedScene" uid="uid://pwk02sdfwf24" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="27_vv0dk"]
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="28_ad0oj"]
 [ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="29_ns2ik"]
 [ext_resource type="Texture2D" uid="uid://ceejaliuib6fc" path="res://Assets/sprites/MeilleurScore.png" id="31_3jb74"]
@@ -538,9 +539,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -40.0
+offset_top = -138.0
 offset_right = 20.0
-offset_bottom = -98.0
+offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -597,8 +598,8 @@ layout_mode = 1
 anchors_preset = -1
 offset_left = -273.0
 offset_top = -312.5
-offset_right = -43.0
-offset_bottom = -149.0
+offset_right = -93.0
+offset_bottom = -169.0
 scale = Vector2(1e-05, 1e-05)
 
 [node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
@@ -607,7 +608,7 @@ scale = Vector2(1e-05, 1e-05)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_fd4wd")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="ResponsiveLayer/RefPos/RefChair"]
+[node name="StaticBody2D" type="StaticBody2D" parent="ResponsiveLayer/RefPos/RefChair" groups=["ref"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ResponsiveLayer/RefPos/RefChair/StaticBody2D"]
 position = Vector2(0.5, 28)
@@ -817,13 +818,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.9399
-offset_right = 48.0601
-offset_bottom = 115.0
+offset_left = -112.0
+offset_right = 50.0
+offset_bottom = 180.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
-theme_override_constants/margin_top = 45
-theme_override_constants/margin_right = 45
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
 
 [node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
 layout_mode = 2
@@ -847,6 +848,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.580392)
+
+[node name="MuteButtonContainer" parent="ResponsiveLayer/PauseMenu/Control" instance=ExtResource("27_vv0dk")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 330.0
+grow_horizontal = 1
+pivot_offset = Vector2(0, 0)
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
 layout_mode = 1

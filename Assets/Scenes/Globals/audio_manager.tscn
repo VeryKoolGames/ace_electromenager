@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://3yfyjvdskl1u"]
+[gd_scene load_steps=21 format=3 uid="uid://3yfyjvdskl1u"]
 
 [ext_resource type="Script" uid="uid://cv67vpl8p0pg4" path="res://AudioManager.gd" id="1_4riyp"]
 [ext_resource type="AudioStream" uid="uid://byj23gdxfa7ge" path="res://Assets/Sounds/shoot1.wav" id="2_n5uav"]
@@ -17,6 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://cb2ji4yh02ea6" path="res://Assets/Sounds/collab-vkg-for-ace-14.8.mp3" id="15_xygjl"]
 [ext_resource type="AudioStream" uid="uid://dwp4wd3onwim" path="res://Assets/Sounds/transition.wav" id="16_ws8rg"]
 [ext_resource type="AudioStream" uid="uid://cmfu20newwpsl" path="res://Assets/Sounds/menu fin.mp3" id="17_i2fq3"]
+[ext_resource type="AudioStream" uid="uid://cvio5btp1yd57" path="res://Assets/Sounds/referee_long_talk.wav" id="18_xh0um"]
+[ext_resource type="AudioStream" uid="uid://8icx4ilh8m66" path="res://Assets/Sounds/referee_ace.wav" id="19_tfl0t"]
+[ext_resource type="AudioStream" uid="uid://cmcpvfmoexgk1" path="res://Assets/Sounds/referee_hurt.wav" id="20_1jlrk"]
 
 [node name="AudioManager" type="Node2D" node_paths=PackedStringArray("shoot_sounds", "rebound_sounds", "charge_sound", "whistle_sound")]
 script = ExtResource("1_4riyp")
@@ -88,3 +91,14 @@ pitch_scale = 1.5
 
 [node name="EndMenuMusic" type="AudioStreamPlayer2D" parent="EndMenuMusic"]
 stream = ExtResource("17_i2fq3")
+
+[node name="Ref" type="Node" parent="."]
+
+[node name="RefLongTalk" type="AudioStreamPlayer2D" parent="Ref"]
+stream = ExtResource("18_xh0um")
+
+[node name="RefAce" type="AudioStreamPlayer2D" parent="Ref"]
+stream = ExtResource("19_tfl0t")
+
+[node name="RefHurt" type="AudioStreamPlayer2D" parent="Ref"]
+stream = ExtResource("20_1jlrk")

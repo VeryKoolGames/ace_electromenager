@@ -6,16 +6,20 @@ var is_paused: bool = false
 @onready var control: Control = $Control
 @onready var quit_button: TextureButton = $Control/VBoxContainer/QuitButton
 var is_mouse_on_button := false
+@onready var mute_button_container: MarginContainer = $Control/MuteButtonContainer
 
 
 func _ready() -> void:
 	quit_button.pressed.connect(on_quit_button_pressed)
 	quit_button.mouse_entered.connect(on_mouse_on_button)
 	quit_button.mouse_exited.connect(on_mouse_on_button)
+	mute_button_container.mouse_entered.connect(on_mouse_on_button)
+	mute_button_container.mouse_exited.connect(on_mouse_on_button)
 	pause_button.pressed.connect(toggle_pause)
 	Events.on_game_started.connect(func(): margin_container.show())
 
 func on_mouse_on_button() -> void:
+	print("mouse on button")
 	is_mouse_on_button = not is_mouse_on_button
 
 func _input(event):

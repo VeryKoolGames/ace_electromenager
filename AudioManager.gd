@@ -8,6 +8,9 @@ extends Node
 @onready var main_music: AudioStreamPlayer2D = $MainMusics/MainMusic
 @onready var transition_sound: AudioStreamPlayer2D = $TransitionSound/TransitionSound
 @onready var end_menu_music: AudioStreamPlayer2D = $EndMenuMusic/EndMenuMusic
+@onready var ref_ace: AudioStreamPlayer2D = $Ref/RefAce
+@onready var ref_hurt: AudioStreamPlayer2D = $Ref/RefHurt
+@onready var ref_long_talk: AudioStreamPlayer2D = $Ref/RefLongTalk
 
 var is_muted := false
 
@@ -57,3 +60,17 @@ func play_end_menu_music() -> void:
 
 func stop_end_menu_music() -> void:
 	end_menu_music.stop()
+
+func play_ref_long_talk() -> void:
+	ref_long_talk.play()
+
+func stop_ref_long_talk() -> void:
+	ref_long_talk.stop()
+
+func play_ref_hurt() -> void:
+	ref_hurt.pitch_scale = randf_range(0.9, 1.1)
+	ref_hurt.play()
+
+func play_ref_ace() -> void:
+	ref_ace.pitch_scale = randf_range(0.9, 1.1)
+	ref_ace.play()
