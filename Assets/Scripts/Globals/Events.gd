@@ -25,3 +25,7 @@ signal on_shot_released(strength: float)
 signal on_game_state_advanced
 
 signal on_tutorial_progressed(state: int)
+
+#shot
+signal on_perfect_shot
+signal on_normal_shot

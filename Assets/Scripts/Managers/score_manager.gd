@@ -8,6 +8,10 @@ var score_buffer := 0
 @export var score_ui_component_scene: PackedScene
 @onready var score_buffer_label: Label = $MarginContainer/ScoreBufferLabel
 
+@export var fire_textures: Array[TextureRect]
+
+var current_number_of_perfect_shot := 0
+
 var buffer_timer: Timer
 var is_transferring_score := false
 var multiplier := 1.0
@@ -17,6 +21,8 @@ var score_label_original_position: Vector2
 func _ready() -> void:
 	Events.on_player_scored.connect(on_score_received)
 	Events.on_machine_repaired.connect(spawn_score_component)
+	Events.on_perfect_shot.connect(on_perfect_shot)
+	Events.on_normal_shot.connect(on_normal_shot)
 	
 	buffer_timer = Timer.new()
 	buffer_timer.wait_time = 1.0
@@ -29,6 +35,31 @@ func _ready() -> void:
 	score_buffer_label.modulate.a = 0
 	await get_tree().process_frame
 	score_label_original_position = score_buffer_label.global_position
+
+func on_perfect_shot() -> void:
+	if current_number_of_perfect_shot + 1 > fire_textures.size():
+		return
+	AudioManager.play_fire_sound(current_number_of_perfect_shot * 0.1)
+	current_number_of_perfect_shot += 1
+	display_fire()
+
+func on_normal_shot() -> void:
+	if current_number_of_perfect_shot - 1 < 0:
+		return
+	current_number_of_perfect_shot -= 1
+	hide_fire()
+
+func hide_fire() -> void:
+	var fire = fire_textures[current_number_of_perfect_shot]
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(fire, "scale", Vector2.ZERO, 0.2)
+
+func display_fire() -> void:
+	var fire = fire_textures[current_number_of_perfect_shot - 1]
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(fire, "scale", Vector2.ONE, 0.2)
 
 func on_score_received(score_value: int) -> void:
 	AudioManager.play_repair_sound()

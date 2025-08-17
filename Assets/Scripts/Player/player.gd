@@ -73,6 +73,9 @@ func shoot_ball(data: Dictionary) -> void:
 	apply_powerups_to_ball(current_ball)
 	if data.get("is_perfect_shot"):
 		current_ball.set_trail_on_perfect_shot()
+		Events.on_perfect_shot.emit()
+	else:
+		Events.on_normal_shot.emit()
 	shooting_behavior.shoot(self, get_shoot_direction(data), current_ball)
 	current_ball = null
 	AudioManager.play_shoot_sound()

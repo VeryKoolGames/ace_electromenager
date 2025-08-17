@@ -1,4 +1,4 @@
-[gd_scene load_steps=204 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=200 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -58,7 +58,6 @@
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="39_eqeth"]
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="43_cn3ei"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="44_72nnc"]
-[ext_resource type="Texture2D" uid="uid://g4q8lw7n0mmh" path="res://Assets/sprites/Pique.png" id="49_72nnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -1532,35 +1531,6 @@ _data = {
 &"game_start": SubResource("Animation_ns2ik")
 }
 
-[sub_resource type="Curve" id="Curve_kt4ds"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.360927, 1), 0.0, 0.0, 0, 0, Vector2(0.701987, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_aymxm"]
-curve = SubResource("Curve_kt4ds")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pkhjk"]
-particle_flag_align_y = true
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(5, 5, 5)
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 15.0
-emission_ring_inner_radius = 14.0
-emission_ring_cone_angle = 90.0
-spread = 180.0
-initial_velocity_min = 0.1
-initial_velocity_max = 0.1
-radial_velocity_min = 0.999978
-radial_velocity_max = 0.999978
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -2.23517e-06
-radial_accel_max = -2.23517e-06
-scale_min = 0.5
-scale_max = 0.7
-scale_curve = SubResource("CurveTexture_aymxm")
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_nfxtm")
 
@@ -1819,7 +1789,7 @@ pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 mouse_filter = 2
 
-[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
+[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI" node_paths=PackedStringArray("fire_textures")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1833,6 +1803,7 @@ pivot_offset = Vector2(150, 113.5)
 theme_override_constants/separation = 0
 script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")
+fire_textures = [NodePath("HBoxContainer/TextureRect/FEU"), NodePath("HBoxContainer/TextureRect2/FEU"), NodePath("HBoxContainer/TextureRect3/FEU"), NodePath("HBoxContainer/TextureRect4/FEU"), NodePath("HBoxContainer/TextureRect5/FEU")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
 layout_mode = 2
@@ -1859,7 +1830,8 @@ offset_right = 29.5
 offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(29, 34)
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
 [node name="TextureRect2" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
@@ -1881,7 +1853,8 @@ offset_right = 29.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(22, 23)
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
 [node name="TextureRect3" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
@@ -1903,7 +1876,8 @@ offset_right = 29.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(22, 23)
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
 [node name="TextureRect4" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
@@ -1925,7 +1899,8 @@ offset_right = 29.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(22, 23)
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
 [node name="TextureRect5" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
@@ -1947,7 +1922,8 @@ offset_right = 29.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(22, 23)
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
 [node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
@@ -2713,13 +2689,3 @@ vertical_alignment = 1
 script = ExtResource("36_s0kou")
 
 [node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/ParticlesManager"]
-
-[node name="Piques" type="GPUParticles2D" parent="."]
-position = Vector2(824, 522)
-emitting = false
-amount = 4
-texture = ExtResource("49_72nnc")
-lifetime = 0.18
-one_shot = true
-explosiveness = 0.75
-process_material = SubResource("ParticleProcessMaterial_pkhjk")
