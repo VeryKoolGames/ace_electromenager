@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=40 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="2_tow68"]
@@ -18,15 +18,16 @@
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="12_ra8of"]
 [ext_resource type="Texture2D" uid="uid://da1uk2asaoslk" path="res://Assets/sprites/Bras1_Perso.png" id="13_ra8of"]
 [ext_resource type="Texture2D" uid="uid://c3obcfycliv40" path="res://Assets/sprites/BulleMenu.png" id="16_ra8of"]
-[ext_resource type="PackedScene" uid="uid://cfdx4h1vbvnsp" path="res://Assets/Scenes/Components/button_sound_manager.tscn" id="16_xx3ku"]
+[ext_resource type="PackedScene" path="res://Assets/Scenes/Components/button_sound_manager.tscn" id="16_xx3ku"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="19_k7tfi"]
-[ext_resource type="PackedScene" uid="uid://pwk02sdfwf24" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="20_q44k4"]
-[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="20_uk28k"]
+[ext_resource type="PackedScene" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="20_q44k4"]
+[ext_resource type="Script" path="res://Assets/Scripts/Components/button_sound_component.gd" id="20_uk28k"]
 [ext_resource type="Texture2D" uid="uid://xq5lpehhkd0u" path="res://Assets/sprites/AceLogo.png" id="20_w18hl"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="21_xx3ku"]
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="22_mf8ek"]
 [ext_resource type="Texture2D" uid="uid://qugmvd58u118" path="res://Assets/sprites/ball1.png" id="24_mf8ek"]
 [ext_resource type="Texture2D" uid="uid://bdm84vt2pj85r" path="res://Assets/sprites/ball2.png" id="25_wk347"]
+[ext_resource type="Texture2D" uid="uid://b4gy7kyr806vx" path="res://Assets/sprites/VerykoolLogo.png" id="26_qjj8o"]
 [ext_resource type="Texture2D" uid="uid://cca5oajla42fv" path="res://Assets/sprites/Balle.png" id="26_wk347"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
@@ -462,8 +463,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -322.0
-offset_top = -544.0
+offset_left = -270.0
+offset_top = -551.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -606,9 +607,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -345.0
-offset_top = -403.0
+offset_top = -439.0
 offset_right = 345.0
-offset_bottom = 7.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.8, 0.8)
@@ -668,7 +669,6 @@ vertical_alignment = 1
 
 [node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/VBoxContainer/LeaderboardButton"]
 script = ExtResource("20_uk28k")
-metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1
@@ -712,7 +712,6 @@ vertical_alignment = 1
 
 [node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/TutorialContainer/TutorialButton"]
 script = ExtResource("20_uk28k")
-metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="MuteButtonContainer" parent="StartMenuUI" instance=ExtResource("20_q44k4")]
 layout_mode = 1
@@ -734,6 +733,24 @@ theme_override_constants/margin_bottom = 60
 [node name="TextureRect" type="TextureRect" parent="StartMenuUI/ACE_Logo"]
 layout_mode = 2
 texture = ExtResource("20_w18hl")
+
+[node name="ACE_Logo2" type="MarginContainer" parent="StartMenuUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -73.0
+offset_right = 84.0
+grow_vertical = 0
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="StartMenuUI/ACE_Logo2"]
+custom_minimum_size = Vector2(181.03, 174.88)
+layout_mode = 2
+texture = ExtResource("26_qjj8o")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="TennisBalls" type="Control" parent="StartMenuUI"]
 layout_mode = 1
