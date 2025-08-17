@@ -18,6 +18,7 @@ extends Node
 
 var is_muted := false
 var repair_pitch_scale := 0.0
+var is_pitch_scaling := false
 
 func play_shoot_sound() -> void:
 	shoot_sounds[randi_range(0, shoot_sounds.size() - 1)].play()
@@ -81,15 +82,23 @@ func play_ref_ace() -> void:
 	ref_ace.play()
 
 func play_repair_sound() -> void:
-	if repair_pitch_scale == 0.0:
-		repair_stream.pitch_scale = randf_range(0.9, 1.1)
+	if not is_pitch_scaling:
+		_play_single_repair_sound()
+		is_pitch_scaling = true
+	else:
+		_play_pitched_repair_sound()
+
+func _play_single_repair_sound() -> void:
+	repair_stream.pitch_scale = randf_range(0.9, 1.1)
 	repair_stream.play()
-	if repair_pitch_scale == 0.0:
-		repair_stream.pitch_scale = 1.0
+
+func _play_pitched_repair_sound() -> void:
+	repair_stream.play()
 	repair_stream.pitch_scale = clamp(repair_pitch_scale + repair_stream.pitch_scale, 1.0, 2.5)
 	repair_pitch_scale += 0.1
 
 func reset_repair_sound_pitch() -> void:
+	is_pitch_scaling = false
 	repair_pitch_scale = 0.0
 	repair_stream.pitch_scale = 1.0
 

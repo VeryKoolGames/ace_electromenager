@@ -15,6 +15,8 @@ func _ready() -> void:
 	back_button.pressed.connect(on_back_button_pressed)
 	await get_tree().create_timer(2).timeout
 	countdown_start_ui.play_start_animation()
+	await get_tree().create_timer(0.9).timeout
+	AudioManager.play_whistle_sound()
 	await get_tree().create_timer(2).timeout
 	start_game()
 
