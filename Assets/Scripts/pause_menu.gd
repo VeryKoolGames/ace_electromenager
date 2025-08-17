@@ -4,7 +4,7 @@ var is_paused: bool = false
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var pause_button: TextureButton = $MarginContainer/PauseButton
 @onready var control: Control = $Control
-@onready var quit_button: TextureButton = $Control/VBoxContainer/QuitButton
+@onready var quit_button: TextureButton = $Control/QuitButton
 var is_mouse_on_button := false
 @onready var mute_button_container: MarginContainer = $Control/MuteButtonContainer
 

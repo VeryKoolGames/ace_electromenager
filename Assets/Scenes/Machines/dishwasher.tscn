@@ -21,7 +21,7 @@ size = Vector2(63, 81)
 [node name="WashingMachine" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_dc80v")
 sprite = NodePath("Sprite2D")
-score_value = 5
+score_value = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_8267b")

@@ -19,7 +19,7 @@ size = Vector2(77, 97)
 [node name="WashingMachine" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cel1a")
 sprite = NodePath("Sprite2D")
-score_value = 3
+score_value = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2

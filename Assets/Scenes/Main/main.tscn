@@ -2060,12 +2060,41 @@ anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 0.0
+offset_top = 172.0
 offset_right = 330.0
+offset_bottom = 450.0
 grow_horizontal = 1
 pivot_offset = Vector2(0, 0)
 theme_override_constants/margin_left = 90
 theme_override_constants/margin_top = 90
 theme_override_constants/margin_right = 0
+
+[node name="QuitButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+offset_right = 336.0
+offset_bottom = 200.0
+texture_normal = ExtResource("24_tpyc1")
+texture_pressed = ExtResource("43_cn3ei")
+texture_hover = ExtResource("44_72nnc")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu/Control/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/QuitButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 47
+text = "Quitter"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
 layout_mode = 1
@@ -2121,30 +2150,6 @@ theme_override_colors/font_color = Color(0.819608, 0.819608, 0.67451, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
 theme_override_font_sizes/font_size = 32
 text = "CLIQUEZ POUR REPRENDRE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="QuitButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("25_tpyc1")
-texture_pressed = ExtResource("26_ad0oj")
-stretch_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/QuitButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_bottom = 20
-
-[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/QuitButton/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
-theme_override_fonts/font = ExtResource("10_yehcq")
-theme_override_font_sizes/font_size = 64
-text = "Quitter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
