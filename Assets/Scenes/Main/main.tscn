@@ -1803,19 +1803,24 @@ pivot_offset = Vector2(150, 113.5)
 theme_override_constants/separation = 0
 script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")
-fire_textures = [NodePath("HBoxContainer/TextureRect/FEU"), NodePath("HBoxContainer/TextureRect2/FEU"), NodePath("HBoxContainer/TextureRect3/FEU"), NodePath("HBoxContainer/TextureRect4/FEU"), NodePath("HBoxContainer/TextureRect5/FEU")]
+multiplier_enabled_color = Color(0.54902, 0.956863, 1, 1)
+multiplier_base_color = Color(0.909804, 0.4, 0.282353, 1)
+fire_textures = [NodePath("HBoxContainer2/HBoxContainer/TextureRect/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect2/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect3/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect4/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect5/FEU")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 18
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("21_usd82")
-stretch_mode = 4
+stretch_mode = 3
 
-[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer/TextureRect"]
+[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer/TextureRect"]
 visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_eusm5")
@@ -1835,11 +1840,12 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
-[node name="TextureRect2" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("21_usd82")
+stretch_mode = 3
 
-[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer/TextureRect2"]
+[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer/TextureRect2"]
 visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_17h7s")
@@ -1859,11 +1865,12 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
-[node name="TextureRect3" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("21_usd82")
+stretch_mode = 3
 
-[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer/TextureRect3"]
+[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer/TextureRect3"]
 visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_uagdq")
@@ -1883,11 +1890,12 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
-[node name="TextureRect4" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("21_usd82")
+stretch_mode = 3
 
-[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer/TextureRect4"]
+[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer/TextureRect4"]
 visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_6evfp")
@@ -1907,11 +1915,12 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
 
-[node name="TextureRect5" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer"]
+[node name="TextureRect5" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("21_usd82")
+stretch_mode = 3
 
-[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer/TextureRect5"]
+[node name="FEU" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer/TextureRect5"]
 visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_17h7s")
@@ -1930,6 +1939,17 @@ grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(29.5, 50)
 texture = ExtResource("24_1flc6")
+
+[node name="MultiplierLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.909804, 0.4, 0.282353, 1)
+theme_override_fonts/font = ExtResource("6_yehcq")
+theme_override_font_sizes/font_size = 32
+text = "x0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
 z_index = 1
@@ -2636,7 +2656,6 @@ libraries = {
 [node name="SaveScoreRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
 
 [node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
-visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 15

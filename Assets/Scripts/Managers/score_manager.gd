@@ -7,7 +7,9 @@ var score_buffer := 0
 @onready var score_label: Label = $ScoreLabel
 @export var score_ui_component_scene: PackedScene
 @onready var score_buffer_label: Label = $MarginContainer/ScoreBufferLabel
-
+@onready var multiplier_label: Label = $HBoxContainer2/HBoxContainer/MultiplierLabel
+@export var multiplier_enabled_color: Color
+@export var multiplier_base_color: Color
 @export var fire_textures: Array[TextureRect]
 
 var current_number_of_perfect_shot := 0
@@ -41,17 +43,24 @@ func on_perfect_shot() -> void:
 		return
 	AudioManager.play_fire_sound(current_number_of_perfect_shot * 0.1)
 	current_number_of_perfect_shot += 1
-	display_fire()
+	await display_fire()
 	scale_up_fires_on_perfect_shot()
 
+func modify_label() -> void:
+	pass
+
 func scale_up_fires_on_perfect_shot() -> void:
+	var target_increase = current_number_of_perfect_shot * 0.2
+	var target_scale = Vector2(1 + target_increase, 1 + target_increase)
 	for fire in fire_textures:
 		if fire.visible:
-			fire.scale += Vector2(0.1, 0.1)
+			fire.scale = target_scale
 
 func scale_down_fires_on_perfect_shot() -> void:
+	var target_decrease = current_number_of_perfect_shot * 0.2
 	for fire in fire_textures:
-		fire.scale -= Vector2(0.1, 0.1)
+		if fire.visible:
+			fire.scale -= Vector2(0.2, 0.2)
 
 func on_normal_shot() -> void:
 	if current_number_of_perfect_shot - 1 < 0:
@@ -72,8 +81,9 @@ func display_fire() -> void:
 	fire.show()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(fire, "scale", Vector2(1.5, 1.5), 0.2)
-	tween.tween_property(fire, "scale", Vector2.ONE, 0.1)
+	tween.tween_property(fire, "scale", Vector2(1.5, 1.5), 0.1)
+	tween.tween_property(fire, "scale", Vector2.ONE, 0.2)
+	await tween.finished
 
 func on_score_received(score_value: int) -> void:
 	AudioManager.play_repair_sound()

@@ -139,7 +139,6 @@ offset_top = -251.0
 offset_right = 69.0
 offset_bottom = -8.0
 pivot_offset = Vector2(70, 243)
-value = 38.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("4_hlygf")
