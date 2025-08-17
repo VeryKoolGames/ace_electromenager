@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c6k75j71jbvva" path="res://Assets/sprites/ButtonShape3.png" id="8_vkddw"]
 [ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="9_4yrqk"]
 [ext_resource type="Texture2D" uid="uid://c1f866eq62mg1" path="res://Assets/sprites/ButtonShape3_Hover.png" id="11_li4bx"]
-[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="12_lv1jd"]
+[ext_resource type="Script" path="res://Assets/Scripts/Components/button_sound_component.gd" id="12_lv1jd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkddw"]
 texture = ExtResource("2_mrngu")
@@ -169,7 +169,6 @@ vertical_alignment = 1
 
 [node name="ButtonSoundComponent" type="Node" parent="LeftContainer/MarginBackButton/BackButton"]
 script = ExtResource("12_lv1jd")
-metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="MarginGlobalButton" type="MarginContainer" parent="LeftContainer"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://bbl7st78eukru"]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://i6glw0a81kh3"]
 
 [sub_resource type="Curve" id="Curve_hfqum"]
 _data = [Vector2(0.479522, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.930386, 0.0, 0, 0]
@@ -25,7 +25,6 @@ scale_curve = SubResource("CurveTexture_ise0s")
 scale_over_velocity_min = 83.92
 scale_over_velocity_max = 251.75
 color = Color(1, 1, 0.662745, 1)
-turbulence_enabled = true
 turbulence_noise_strength = 11.12
 turbulence_noise_scale = 50.0
 turbulence_noise_speed_random = 0.88

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7rouckrgu4is"]
 
-[ext_resource type="Script" uid="uid://josn1gm6512" path="res://Assets/Scripts/PowerUps/power_up_particles_manager.gd" id="1_enesh"]
+[ext_resource type="Script" path="res://Assets/Scripts/PowerUps/power_up_particles_manager.gd" id="1_enesh"]
 [ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="1_hfqum"]
 [ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="2_ise0s"]
-[ext_resource type="Material" uid="uid://bbl7st78eukru" path="res://Assets/Materials/p_power_up_bubbles.tres" id="3_6ebab"]
-[ext_resource type="Material" uid="uid://bbeuxpkq5jxxj" path="res://Assets/Materials/p_power_up_circle.tres" id="5_0vjdj"]
+[ext_resource type="Material" uid="uid://i6glw0a81kh3" path="res://Assets/Materials/p_power_up_bubbles.tres" id="3_6ebab"]
+[ext_resource type="Material" uid="uid://d3mpp6eigia23" path="res://Assets/Materials/p_power_up_circle.tres" id="5_0vjdj"]
 
 [node name="P_PowerUp" type="Node2D"]
 script = ExtResource("1_enesh")
