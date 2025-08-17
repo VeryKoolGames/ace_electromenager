@@ -15,11 +15,13 @@ var shake_tween: Tween
 func _ready() -> void:
 	Events.on_player_congratulated.connect(make_referee_congratulate_on_high_core)
 	Events.on_player_aced.connect(make_referee_congratulate_on_ace)
+	Events.on_ref_hit.connect(make_referee_hurt)
 	original_panel_position = referee_panel.position
 
 func make_referee_congratulate_on_high_core() -> void:
 	if is_on_cooldown:
 		return
+	AudioManager.play_ref_ace()
 	start_referee_cooldown()
 	var text = congratulations_texts.dialogues_lines[randi_range(0, congratulations_texts.dialogues_lines.size() - 1)]
 	show_pannel_with_text(text)
@@ -27,8 +29,19 @@ func make_referee_congratulate_on_high_core() -> void:
 func make_referee_congratulate_on_ace() -> void:
 	if is_on_cooldown:
 		return
+	AudioManager.play_ref_ace()
 	start_referee_cooldown()
 	var text = "Ace !"
+	show_pannel_with_text(text)
+
+func make_referee_hurt() -> void:
+	if is_on_cooldown:
+		return
+	if randi() % 20 > 5:
+		return
+	AudioManager.play_ref_hurt()
+	start_referee_cooldown()
+	var text = "Aie !"
 	show_pannel_with_text(text)
 
 func start_referee_cooldown() -> void:

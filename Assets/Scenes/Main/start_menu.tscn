@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bmr8afsaxl0d7" path="res://Assets/sprites/ButtonShape2.png" id="4_yt2pv"]
 [ext_resource type="Texture2D" uid="uid://bfex0bycpmubg" path="res://Assets/sprites/ButtonShape1_Hover.png" id="6_prxno"]
 [ext_resource type="Texture2D" uid="uid://i0yiyca3t4tx" path="res://Assets/sprites/ButtonShape2_Clicked.png" id="6_wdajc"]
-[ext_resource type="Texture2D" uid="uid://c6tw8itlwg1w0" path="res://Assets/sprites/AudioIcon.png" id="9_0tgrq"]
 [ext_resource type="Texture2D" uid="uid://co72kr6b8shh8" path="res://Assets/sprites/ButtonShape2_Hover.png" id="10_3gras"]
 [ext_resource type="Texture2D" uid="uid://i4pr74u81hc8" path="res://Assets/sprites/Tete_Perso.png" id="10_jaqwr"]
 [ext_resource type="Texture2D" uid="uid://diiwcpmtxxwky" path="res://Assets/sprites/Sourcil_Perso.png" id="11_2k3mp"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c3obcfycliv40" path="res://Assets/sprites/BulleMenu.png" id="16_ra8of"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="19_k7tfi"]
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="20_q44k4"]
+[ext_resource type="PackedScene" uid="uid://pwk02sdfwf24" path="res://Assets/Scenes/UI/mute_button_container.tscn" id="20_q44k4"]
 [ext_resource type="Texture2D" uid="uid://xq5lpehhkd0u" path="res://Assets/sprites/AceLogo.png" id="20_w18hl"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="21_xx3ku"]
 
@@ -351,6 +351,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -616,23 +618,11 @@ text = "TUTORIEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Mute" type="MarginContainer" parent="StartMenuUI"]
+[node name="MuteButtonContainer" parent="StartMenuUI" instance=ExtResource("20_q44k4")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -339.0
-offset_bottom = 278.0
-grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(339, 0)
-theme_override_constants/margin_top = 130
-theme_override_constants/margin_right = 40
-
-[node name="MuteButton" type="TextureButton" parent="StartMenuUI/Mute"]
-layout_mode = 2
-texture_normal = ExtResource("9_0tgrq")
-stretch_mode = 4
+offset_bottom = 308.0
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
 
 [node name="ACE_Logo" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1

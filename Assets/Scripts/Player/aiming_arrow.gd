@@ -66,12 +66,14 @@ func stop_charging_shot() -> Dictionary:
 	var shot_strength = bar_value
 	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
 		shot_strength = strength_texture_bar.max_value
+	var is_perfect_shot = shot_strength >= 90
 	var ret = {
 		"shot_strength": shot_strength,
-		"shot_direction": shot_direction.normalized()
+		"shot_direction": shot_direction.normalized(),
+		"is_perfect_shot": is_perfect_shot
 	}
 	AudioManager.stop_charge_sound()
-	if shot_strength >= 90:
+	if is_perfect_shot:
 		animate_shot(true)
 		try_to_raise_referee_signal_on_ace()
 	else:

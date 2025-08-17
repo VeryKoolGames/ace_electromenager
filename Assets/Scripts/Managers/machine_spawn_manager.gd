@@ -18,7 +18,6 @@ var min_power_up_timer := 4
 var max_power_up_timer := 7
 
 func _ready() -> void:
-	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 	power_up_cooldown.timeout.connect(spawn_power_up)
 	Events.on_machine_repaired.connect(replace_machine)
 	Events.on_power_up_gathered.connect(remove_power_up)
@@ -32,6 +31,7 @@ func _ready() -> void:
 	generate_grid()
 
 func spawn_initial_machines() -> void:
+	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 	spawn_machines(3)
 
 func on_game_state_advanced() -> void:

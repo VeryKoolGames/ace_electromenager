@@ -7,6 +7,7 @@ signal on_player_scored(score_value: int)
 # Referee signals
 signal on_player_congratulated
 signal on_player_aced
+signal on_ref_hit
 
 # Game States
 signal on_game_timer_ended
