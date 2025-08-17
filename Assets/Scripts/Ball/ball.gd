@@ -19,7 +19,7 @@ var previous_position: Vector2
 var time_since_last_check: float = 0.0
 var check_interval: float = 0.7
 var movement_threshold: float = 20.0
-var perfect_threshold: float = 50.0
+var perfect_threshold: float = 30.0
 
 # Dynamic scaling properties
 @export var base_scale: Vector2 = Vector2.ONE

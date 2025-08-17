@@ -2,6 +2,7 @@ extends Node
 
 @export var shoot_sounds: Array[AudioStreamPlayer2D]
 @export var rebound_sounds: Array[AudioStreamPlayer2D]
+@export var perfect_shot_sounds: Array[AudioStreamPlayer2D]
 @export var charge_sound: AudioStreamPlayer2D
 @export var whistle_sound: AudioStreamPlayer2D
 @onready var menu_music: AudioStreamPlayer2D = $MainMusics/MenuMusic
@@ -23,6 +24,9 @@ var is_pitch_scaling := false
 
 func play_shoot_sound() -> void:
 	shoot_sounds[randi_range(0, shoot_sounds.size() - 1)].play()
+
+func play_perfect_shoot_sound() -> void:
+	perfect_shot_sounds[randi_range(0, perfect_shot_sounds.size() - 1)].play()
 
 func play_charge_sound() -> void:
 	charge_sound.play()

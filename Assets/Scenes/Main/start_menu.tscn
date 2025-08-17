@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=41 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="2_tow68"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bdm84vt2pj85r" path="res://Assets/sprites/ball2.png" id="25_wk347"]
 [ext_resource type="Texture2D" uid="uid://b4gy7kyr806vx" path="res://Assets/sprites/VerykoolLogo.png" id="26_qjj8o"]
 [ext_resource type="Texture2D" uid="uid://cca5oajla42fv" path="res://Assets/sprites/Balle.png" id="26_wk347"]
+[ext_resource type="Script" uid="uid://b4xcp0i8yswcs" path="res://Assets/Scripts/UI/scale_tennis_balls.gd" id="27_jphq5"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
 resource_name = "ArbitreMenu_Idle"
@@ -752,7 +753,7 @@ texture = ExtResource("26_qjj8o")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TennisBalls" type="Control" parent="StartMenuUI"]
+[node name="TennisBalls" type="Control" parent="StartMenuUI" node_paths=PackedStringArray("texture_rects")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -765,6 +766,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("27_jphq5")
+texture_rects = [NodePath("TextureRect"), NodePath("TextureRect2"), NodePath("TextureRect4"), NodePath("TextureRect3")]
 
 [node name="TextureRect" type="TextureRect" parent="StartMenuUI/TennisBalls"]
 layout_mode = 0

@@ -1,6 +1,8 @@
 extends Node2D
 class_name AimingArrow
 
+@onready var impact_normal_shot: GPUParticles2D = $Impact_NormalShot
+@onready var cercle: GPUParticles2D = $Impact_PerfectShot/Cercle
 @onready var gpu_particles_2d: GPUParticles2D = $Impact_PerfectShot
 @onready var strength_texture_bar: TextureProgressBar = $Mask/StrengthTextureBar
 @export var fill_speed := 0.0
@@ -97,6 +99,10 @@ func unzoom_camera() -> void:
 	var tween = create_tween()
 	tween.tween_property(camera, "zoom", Vector2.ONE, 0.1)
 
+func freeze_on_perfect_shot() -> void:
+	await get_tree().create_timer(0.2).timeout
+	freeze(0.15)
+
 func reset_values() -> void:
 	is_player_shooting = false
 	fill_direction = 1
@@ -108,9 +114,17 @@ func animate_shot(is_perfect_shot: bool) -> void:
 	# If the player scored above 90 we want to reward him with a small animation
 	if is_perfect_shot:
 		gpu_particles_2d.restart()
+		cercle.restart()
+	else:
+		impact_normal_shot.restart()
 	var scale_factor = Vector2(0.4, 0.4) if is_perfect_shot else Vector2(0.1, 0.1)
 	scale_down_tween = create_tween()
 	var target_scale: Vector2 = scale
 	scale_down_tween.tween_property(self, "scale", target_scale + scale_factor, 0.1)
 	scale_down_tween.tween_property(self, "scale", target_scale, 0.1)
 	scale_down_tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
+
+func freeze(time: float, slowdown: float = 0.0) -> void:
+	Engine.time_scale = slowdown
+	await get_tree().create_timer(time, true, true, true).timeout
+	Engine.time_scale = 1.0
