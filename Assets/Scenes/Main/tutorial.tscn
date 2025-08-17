@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=35 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
@@ -17,8 +17,9 @@
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="19_5qcfn"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="20_oedxg"]
 [ext_resource type="Texture2D" uid="uid://duih57ttxxww5" path="res://Assets/sprites/Banderole.png" id="22_p6ehi"]
-[ext_resource type="PackedScene" uid="uid://623qimt3u6wg" path="res://Assets/Scenes/UI/referee_panel.tscn" id="22_x4ens"]
+[ext_resource type="PackedScene" path="res://Assets/Scenes/UI/referee_panel.tscn" id="22_x4ens"]
 [ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="23_t1e88"]
+[ext_resource type="Texture2D" uid="uid://c1f866eq62mg1" path="res://Assets/sprites/ButtonShape3_Hover.png" id="25_ifdon"]
 [ext_resource type="Script" uid="uid://b3elnfvlugmuk" path="res://Assets/Scripts/Globals/tutorial_ui.gd" id="29_6rwrp"]
 [ext_resource type="Resource" uid="uid://3go6chxms7sw" path="res://Assets/Resources/TutorialDialogue1.tres" id="30_paycb"]
 [ext_resource type="Resource" uid="uid://c3wngdbaef73w" path="res://Assets/Resources/TutorialDialogue2.tres" id="31_wu0vg"]
@@ -503,6 +504,7 @@ pivot_offset = Vector2(117.5, 92)
 layout_mode = 2
 texture_normal = ExtResource("35_gejnh")
 texture_pressed = ExtResource("36_oea5r")
+texture_hover = ExtResource("25_ifdon")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI/BackButtonContainer/BackButton"]
 layout_mode = 1

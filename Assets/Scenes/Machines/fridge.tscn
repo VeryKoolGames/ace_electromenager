@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://jpu8tq6f64pl"]
+[gd_scene load_steps=8 format=3 uid="uid://jpu8tq6f64pl"]
 
 [ext_resource type="Script" uid="uid://dp006q620j8hm" path="res://Assets/Scripts/Machines/machine.gd" id="1_xnqy7"]
-[ext_resource type="Shader" uid="uid://bvufbg801hrf6" path="res://Assets/Shaders/turn_white.gdshader" id="2_rp12w"]
+[ext_resource type="Shader" uid="uid://dh704qwj2oxsw" path="res://Assets/Shaders/SlidingOverlay.gdshader" id="2_rp12w"]
 [ext_resource type="Texture2D" uid="uid://dg0ukne5ouo0v" path="res://Assets/sprites/Frigo.png" id="3_xnqy7"]
 [ext_resource type="PackedScene" uid="uid://k73aey2e7jrd" path="res://Assets/Particles/SmokeParticles.tscn" id="4_pf0sq"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xnqy7"]
-resource_local_to_scene = true
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rp12w"]
+load_path = "res://.godot/imported/Reflet.png-ed121d26a4aa3875dcd2789ab813e0b7.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pf0sq"]
 shader = ExtResource("2_rp12w")
-shader_parameter/white_progress = 0.0
+shader_parameter/overlay_tex = SubResource("CompressedTexture2D_rp12w")
+shader_parameter/progress = -1.0
+shader_parameter/blend_strength = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e0xt"]
 size = Vector2(80, 167)
@@ -19,7 +23,7 @@ sprite = NodePath("Sprite2D")
 score_value = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_xnqy7")
+material = SubResource("ShaderMaterial_pf0sq")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_xnqy7")
 

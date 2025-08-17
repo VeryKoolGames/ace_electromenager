@@ -27,7 +27,7 @@ func repair() -> void:
 
 func switch_texture_to_white() -> void:
 	var tween: Tween = create_tween()
-	tween.tween_property(sprite, "material:shader_parameter/white_progress", 0, 0.5).from(1)
+	tween.tween_property(sprite, "material:shader_parameter/progress", 1.0, 0.3).from(-1.0)
 
 func scale_up_and_down() -> void:
 	var tween = create_tween()

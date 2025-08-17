@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=80 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -25,14 +25,16 @@
 [ext_resource type="PackedScene" uid="uid://bfmol8xs0h0u0" path="res://Assets/Scenes/PowerUps/power_up_rebound_shot.tscn" id="11_oe2gw"]
 [ext_resource type="Script" uid="uid://ywv20fbqmhuo" path="res://Assets/Scripts/UI/power_up_ui_manager.gd" id="13_cl72i"]
 [ext_resource type="PackedScene" uid="uid://18cfkcpcdxsb" path="res://Assets/Scenes/UI/power_up_line_ui.tscn" id="14_d2pdc"]
-[ext_resource type="Script" uid="uid://cb1cepe42jf7g" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
+[ext_resource type="Script" path="res://Assets/Scripts/referee_manager.gd" id="14_wspn0"]
 [ext_resource type="Resource" uid="uid://cs3s73hydc5bk" path="res://Assets/Resources/CongratulationDialogue.tres" id="15_1bvye"]
 [ext_resource type="PackedScene" uid="uid://u71mthgq8u4o" path="res://Assets/Scenes/arbitre.tscn" id="15_3jb74"]
-[ext_resource type="PackedScene" uid="uid://623qimt3u6wg" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
+[ext_resource type="PackedScene" path="res://Assets/Scenes/UI/referee_panel.tscn" id="15_eqeth"]
 [ext_resource type="Script" uid="uid://dqf24e5p7812r" path="res://Assets/Scripts/camera.gd" id="19_oaiys"]
 [ext_resource type="Texture2D" uid="uid://cfx6tafkyp2nr" path="res://Assets/sprites/PauseIcon.png" id="21_iroru"]
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="22_3jb74"]
 [ext_resource type="PackedScene" uid="uid://bsupmiojogari" path="res://Assets/Scenes/PowerUps/power_up_fast_spawn_shot.tscn" id="22_nfnlt"]
+[ext_resource type="Shader" uid="uid://dm54r1bjxoci4" path="res://Assets/Shaders/fireShader.gdshader" id="23_pkhjk"]
+[ext_resource type="Texture2D" uid="uid://xg3tjrk4v5pe" path="res://Assets/sprites/round.png" id="24_1flc6"]
 [ext_resource type="Texture2D" uid="uid://dlw06n5bdqaqr" path="res://Assets/sprites/ButtonShape4.png" id="24_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="25_tpyc1"]
 [ext_resource type="Texture2D" uid="uid://uc6fkb412528" path="res://Assets/sprites/ButtonShape1_Clicked.png" id="26_ad0oj"]
@@ -41,9 +43,14 @@
 [ext_resource type="Texture2D" uid="uid://ceejaliuib6fc" path="res://Assets/sprites/MeilleurScore.png" id="31_3jb74"]
 [ext_resource type="Script" uid="uid://dgxbhmryomxn7" path="res://Assets/Scripts/UI/countdown_start_ui.gd" id="32_sack4"]
 [ext_resource type="Script" uid="uid://b48kebaav8b0k" path="res://Assets/Scripts/pause_menu.gd" id="33_t8766"]
+[ext_resource type="Texture2D" uid="uid://bfex0bycpmubg" path="res://Assets/sprites/ButtonShape1_Hover.png" id="35_vv0dk"]
+[ext_resource type="Texture2D" uid="uid://co72kr6b8shh8" path="res://Assets/sprites/ButtonShape2_Hover.png" id="36_6hdr7"]
 [ext_resource type="Script" uid="uid://c5ox2b3omevq0" path="res://Assets/Scripts/repaire_particles_manager.gd" id="36_s0kou"]
 [ext_resource type="Texture2D" uid="uid://c3ysp4pj4efrm" path="res://Assets/sprites/Vu.png" id="38_wspn0"]
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="39_eqeth"]
+[ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="43_cn3ei"]
+[ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="44_72nnc"]
+[ext_resource type="Texture2D" uid="uid://g4q8lw7n0mmh" path="res://Assets/sprites/Pique.png" id="49_72nnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -53,6 +60,27 @@ size = Vector2(29, 2280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe2gw"]
 size = Vector2(3404, 15)
+
+[sub_resource type="Gradient" id="Gradient_17h7s"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_usd82"]
+gradient = SubResource("Gradient_17h7s")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jhbcg"]
+frequency = 0.0014
+offset = Vector3(-612.24, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhjia"]
+noise = SubResource("FastNoiseLite_jhbcg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oearl"]
+shader = ExtResource("23_pkhjk")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_nhjia")
+shader_parameter/gradient_tex = SubResource("GradientTexture2D_usd82")
+shader_parameter/brighter_color = Color(0.861629, 0.733462, 0.757721, 1)
+shader_parameter/middle_color = Color(0.858861, 0.92228, 1, 1)
+shader_parameter/darker_color = Color(0.64, 0.2, 0.05, 1)
+shader_parameter/spread = 0.525
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jb74"]
 texture = ExtResource("22_3jb74")
@@ -96,6 +124,63 @@ _data = {
 &"star_rotation": SubResource("Animation_g20yk")
 }
 
+[sub_resource type="Animation" id="Animation_72nnc"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_cn3ei"]
+resource_name = "bestScore_Idle"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.500975, 0.995933)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.500975, 0.995933)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kt4ds"]
+_data = {
+&"RESET": SubResource("Animation_72nnc"),
+&"bestScore_Idle": SubResource("Animation_cn3ei")
+}
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyic7"]
 texture = ExtResource("28_ad0oj")
 texture_margin_left = 11.0
@@ -112,53 +197,6 @@ texture_margin_right = 20.5
 texture_margin_bottom = 18.0
 region_rect = Rect2(4, 4.75, 183, 180.5)
 modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
-
-[sub_resource type="Animation" id="Animation_wspn0"]
-resource_name = "scoreEnregistré"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Etoile:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.0693232, 0.00138414, 1, -0.0373159, 0.00522864, 0.25, 0),
-"times": PackedFloat32Array(0, 0.433333, 0.566667)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Etoile:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.067724, 0.00138414, 1, -0.0362585, 0.000195622, 0.25, 0),
-"times": PackedFloat32Array(0, 0.433333, 0.566667)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Vu:scale:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.0730634, 0.00640279, 0.38, -0.0327916, 0.000577718, 0.25, 0),
-"times": PackedFloat32Array(0, 0.533333, 0.666667)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Vu:scale:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.233333, -0.00426024, 0.101547, -0.00426033, 0.38, -0.0333333, -0.0036875, 0.25, 0),
-"times": PackedFloat32Array(0, 0.533333, 0.666667)
-}
 
 [sub_resource type="Animation" id="Animation_eqeth"]
 length = 0.001
@@ -205,6 +243,53 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wspn0"]
+resource_name = "scoreEnregistré"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Etoile:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.0693232, 0.00138414, 1, -0.0373159, 0.00522864, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.566667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Etoile:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.18, -0.25, 0, 0.067724, 0.00138414, 1, -0.0362585, 0.000195622, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.566667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vu:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.0730634, 0.00640279, 0.38, -0.0327916, 0.000577718, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 0.666667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vu:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.5, -0.233333, -0.00426024, 0.101547, -0.00426033, 0.38, -0.0333333, -0.0036875, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 0.666667)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvye"]
@@ -454,6 +539,35 @@ _data = {
 &"RESET": SubResource("Animation_sack4"),
 &"game_start": SubResource("Animation_ns2ik")
 }
+
+[sub_resource type="Curve" id="Curve_kt4ds"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.360927, 1), 0.0, 0.0, 0, 0, Vector2(0.701987, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_aymxm"]
+curve = SubResource("Curve_kt4ds")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pkhjk"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 15.0
+emission_ring_inner_radius = 14.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+radial_velocity_min = 0.999978
+radial_velocity_max = 0.999978
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_aymxm")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_nfxtm")
@@ -728,6 +842,7 @@ script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")
 
 [node name="ScoreLabel2" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
+z_index = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
 theme_override_fonts/font = ExtResource("5_o5d14")
@@ -737,6 +852,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="ResponsiveLayer/GameUI/ScoreManager"]
+z_index = 1
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.815686, 0.313726, 0.196078, 1)
@@ -745,6 +861,24 @@ theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ResponsiveLayer/GameUI/ScoreManager/ScoreLabel"]
+z_index = -1
+material = SubResource("ShaderMaterial_oearl")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -199.5
+offset_right = 162.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(165, 165)
+texture = ExtResource("24_1flc6")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
 layout_mode = 2
@@ -803,6 +937,7 @@ wait_time = 120.0
 one_shot = true
 
 [node name="PauseMenu" type="Control" parent="ResponsiveLayer"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1022,6 +1157,7 @@ theme_override_constants/margin_right = 150
 layout_mode = 2
 texture_normal = ExtResource("25_tpyc1")
 texture_pressed = ExtResource("26_ad0oj")
+texture_hover = ExtResource("35_vv0dk")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer/ReplayButton"]
 layout_mode = 1
@@ -1051,6 +1187,7 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 texture_normal = ExtResource("25_tpyc1")
 texture_pressed = ExtResource("26_ad0oj")
+texture_hover = ExtResource("36_6hdr7")
 stretch_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/VBoxContainer/MarginContainer2/LeaderboardButton"]
@@ -1143,7 +1280,15 @@ offset_right = 47.5305
 offset_bottom = 75.9452
 grow_horizontal = 0
 rotation = 0.261799
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(141, 41)
 texture = ExtResource("31_3jb74")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI/Star/BestScoreRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_kt4ds")
+}
+autoplay = "bestScore_Idle"
 
 [node name="SaveScorePopUp" type="Control" parent="ResponsiveLayer/EndGameUI"]
 layout_mode = 1
@@ -1279,6 +1424,8 @@ theme_override_constants/margin_top = -50
 [node name="SaveButton" type="TextureButton" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("24_tpyc1")
+texture_pressed = ExtResource("43_cn3ei")
+texture_hover = ExtResource("44_72nnc")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer/VBoxContainer/SaveButton"]
 layout_mode = 1
@@ -1373,6 +1520,7 @@ libraries = {
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
 
 [node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1434,3 +1582,13 @@ vertical_alignment = 1
 script = ExtResource("36_s0kou")
 
 [node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/RepaireParticlesManager"]
+
+[node name="Piques" type="GPUParticles2D" parent="."]
+position = Vector2(824, 522)
+emitting = false
+amount = 4
+texture = ExtResource("49_72nnc")
+lifetime = 0.18
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource("ParticleProcessMaterial_pkhjk")
