@@ -1,7 +1,7 @@
 extends Node2D
 class_name AimingArrow
 
-@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
+@onready var gpu_particles_2d: GPUParticles2D = $Piques2
 @onready var strength_texture_bar: TextureProgressBar = $Mask/StrengthTextureBar
 @export var fill_speed := 0.0
 var fill_direction = 1
