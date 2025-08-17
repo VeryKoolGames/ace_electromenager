@@ -8,5 +8,5 @@ shader = ExtResource("1_7ld2t")
 shader_parameter/my_texture = ExtResource("2_tqwp0")
 shader_parameter/speed = Vector2(0, 0.34)
 shader_parameter/tiling = 3.5
-shader_parameter/color_a = Color(1, 0.698039, 0.415686, 1)
-shader_parameter/color_b = Color(0.960784, 0.447059, 0.333333, 1)
+shader_parameter/color_a = Color(0.710632, 0.691945, 0.67821, 1)
+shader_parameter/color_b = Color(0.76451, 0.764511, 0.764511, 1)
