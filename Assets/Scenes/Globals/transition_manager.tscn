@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc3ddgs78y6a1"]
+[gd_scene load_steps=4 format=3 uid="uid://cc3ddgs78y6a1"]
 
 [ext_resource type="Script" uid="uid://c7mrxtnp6msn" path="res://Assets/Scripts/UI/transition_ui.gd" id="1_wykoa"]
 [ext_resource type="Texture2D" uid="uid://du1ad2baoir4g" path="res://Assets/sprites/Transition.png" id="2_p410w"]
+[ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="3_p410w"]
 
 [node name="TransitionManager" type="CanvasLayer"]
 layer = 10
@@ -29,3 +30,27 @@ scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(2257, 2257)
 texture = ExtResource("2_p410w")
 expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 80
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p410w")
+theme_override_font_sizes/font_size = 32
+text = "Ace Electromenager a ete fondé par un ancien joueur de tennis professionel"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

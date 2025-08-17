@@ -1074,6 +1074,14 @@ shader_parameter/Texture_3 = SubResource("CompressedTexture2D_41tdy")
 shader_parameter/Texture_4 = SubResource("GradientTexture2D_cnixg")
 shader_parameter/Texture_5 = SubResource("GradientTexture1D_vywdv")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jb74"]
+texture = ExtResource("22_3jb74")
+texture_margin_left = 15.0
+texture_margin_top = 18.0
+texture_margin_right = 16.5
+texture_margin_bottom = 15.0
+region_rect = Rect2(0, 0, 126, 125.75)
+
 [sub_resource type="Animation" id="Animation_g20yk"]
 resource_name = "star_rotation"
 length = 4.0
@@ -1448,14 +1456,6 @@ _data = {
 &"RESET": SubResource("Animation_tpyc1"),
 &"show_end_screen": SubResource("Animation_nfxtm")
 }
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jb74"]
-texture = ExtResource("22_3jb74")
-texture_margin_left = 15.0
-texture_margin_top = 18.0
-texture_margin_right = 16.5
-texture_margin_bottom = 15.0
-region_rect = Rect2(0, 0, 126, 125.75)
 
 [sub_resource type="Animation" id="Animation_sack4"]
 length = 0.001
@@ -2073,6 +2073,153 @@ offset_right = 410.0
 offset_bottom = 636.0
 theme_override_constants/separation = 20
 
+[node name="PauseMenu" type="Control" parent="ResponsiveLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("33_t8766")
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -151.0
+offset_bottom = 177.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 60
+
+[node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("34_ukt1f")
+texture_pressed = ExtResource("35_ukt1f")
+texture_hover = ExtResource("35_ukt1f")
+
+[node name="Control" type="Control" parent="ResponsiveLayer/PauseMenu"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.580392)
+
+[node name="QuitButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+offset_right = 336.0
+offset_bottom = 200.0
+texture_normal = ExtResource("24_tpyc1")
+texture_pressed = ExtResource("43_cn3ei")
+texture_hover = ExtResource("44_72nnc")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu/Control/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/QuitButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 47
+text = "Quitter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 52.0
+offset_right = 300.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 115)
+theme_override_constants/separation = 30
+
+[node name="Panel" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
+modulate = Color(0.996078, 0.945098, 0.784314, 1)
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
+theme_override_fonts/font = ExtResource("10_yehcq")
+theme_override_font_sizes/font_size = 64
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 0.196078)
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
+
+[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.819608, 0.819608, 0.67451, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 32
+text = "CLIQUEZ POUR REPRENDRE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MuteButtonContainer" parent="ResponsiveLayer/PauseMenu/Control" instance=ExtResource("27_vv0dk")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 172.0
+offset_right = 330.0
+offset_bottom = 450.0
+grow_horizontal = 1
+pivot_offset = Vector2(0, 0)
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 0
+
 [node name="EndGameUI" type="Control" parent="ResponsiveLayer"]
 visible = false
 z_index = 10
@@ -2525,153 +2672,6 @@ libraries = {
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
 
 [node name="SaveScoreRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI"]
-
-[node name="PauseMenu" type="Control" parent="ResponsiveLayer"]
-z_index = 10
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("33_t8766")
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -151.0
-offset_bottom = 177.0
-grow_horizontal = 0
-scale = Vector2(2, 2)
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 60
-
-[node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
-layout_mode = 2
-texture_normal = ExtResource("34_ukt1f")
-texture_pressed = ExtResource("35_ukt1f")
-texture_hover = ExtResource("35_ukt1f")
-
-[node name="Control" type="Control" parent="ResponsiveLayer/PauseMenu"]
-process_mode = 2
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BackgroundRect" type="ColorRect" parent="ResponsiveLayer/PauseMenu/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.580392)
-
-[node name="QuitButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/Control"]
-layout_mode = 1
-offset_right = 336.0
-offset_bottom = 200.0
-texture_normal = ExtResource("24_tpyc1")
-texture_pressed = ExtResource("43_cn3ei")
-texture_hover = ExtResource("44_72nnc")
-stretch_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/PauseMenu/Control/QuitButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_bottom = 20
-
-[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/QuitButton/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
-theme_override_fonts/font = ExtResource("10_yehcq")
-theme_override_font_sizes/font_size = 47
-text = "Quitter"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ResponsiveLayer/PauseMenu/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = 52.0
-offset_right = 300.0
-offset_bottom = 115.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(300, 115)
-theme_override_constants/separation = 30
-
-[node name="Panel" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
-modulate = Color(0.996078, 0.945098, 0.784314, 1)
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
-
-[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.960784, 0.447059, 0.329412, 1)
-theme_override_fonts/font = ExtResource("10_yehcq")
-theme_override_font_sizes/font_size = 64
-text = "PAUSE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="Panel" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer"]
-self_modulate = Color(0, 0, 0, 0.196078)
-custom_minimum_size = Vector2(600, 100)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_3jb74")
-
-[node name="Label" type="Label" parent="ResponsiveLayer/PauseMenu/Control/VBoxContainer/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.819608, 0.819608, 0.67451, 1)
-theme_override_fonts/font = ExtResource("5_o5d14")
-theme_override_font_sizes/font_size = 32
-text = "CLIQUEZ POUR REPRENDRE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MuteButtonContainer" parent="ResponsiveLayer/PauseMenu/Control" instance=ExtResource("27_vv0dk")]
-layout_mode = 1
-anchors_preset = 0
-anchor_left = 0.0
-anchor_right = 0.0
-offset_left = 0.0
-offset_top = 172.0
-offset_right = 330.0
-offset_bottom = 450.0
-grow_horizontal = 1
-pivot_offset = Vector2(0, 0)
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 90
-theme_override_constants/margin_right = 0
 
 [node name="CountdownStartUI" type="Control" parent="ResponsiveLayer"]
 z_index = 2
