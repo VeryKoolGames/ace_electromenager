@@ -768,6 +768,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_jphq5")
 texture_rects = [NodePath("TextureRect"), NodePath("TextureRect2"), NodePath("TextureRect4"), NodePath("TextureRect3")]
+scale_speed = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="StartMenuUI/TennisBalls"]
 layout_mode = 0

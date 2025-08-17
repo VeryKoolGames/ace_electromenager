@@ -7,6 +7,9 @@ var cicle_repair_particles = preload("res://Assets/Materials/p_circle_repair.tre
 var spike_repair_particles = preload("res://Assets/Materials/p_spike_repair.tres")
 var power_up_circle = preload("res://Assets/Materials/p_power_up_circle.tres")
 var power_up_bubbles = preload("res://Assets/Materials/p_power_up_bubbles.tres")
+var perfect_shot_circle = preload("res://Assets/Materials/perfect_shot_circle.tres")
+var perfect_shot_impact = preload("res://Assets/Materials/perfect_shot_impact.tres")
+var normal_shot = preload("res://Assets/Materials/normal_shot_particles.tres")
 
 var materials = [
 	repair_particles,
@@ -14,7 +17,10 @@ var materials = [
 	shoot_particles,
 	cicle_repair_particles,
 	power_up_circle,
-	power_up_bubbles
+	power_up_bubbles,
+	perfect_shot_circle,
+	perfect_shot_impact,
+	normal_shot
 ]
 
 func _ready() -> void:

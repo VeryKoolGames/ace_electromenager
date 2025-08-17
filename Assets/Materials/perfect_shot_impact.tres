@@ -1,0 +1,31 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://dvger0s8nxh77"]
+
+[sub_resource type="Curve" id="Curve_g06xe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.400662, 1), 0.0, 0.0, 0, 0, Vector2(0.817881, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_tdx7o"]
+curve = SubResource("Curve_g06xe")
+
+[resource]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 15.0
+emission_ring_inner_radius = 14.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+radial_velocity_min = 171.66
+radial_velocity_max = 449.44
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_tdx7o")
+color = Color(0.54902, 0.956863, 1, 1)

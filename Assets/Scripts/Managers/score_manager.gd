@@ -20,8 +20,11 @@ var multiplier := 1.0
 var score_buffer_tween: Tween
 var score_label_original_position: Vector2
 var is_tutorial := false
+var base_shader_speed := 0.0
 
 func _ready() -> void:
+	var shader_material = fire_textures[0].material as ShaderMaterial
+	base_shader_speed = shader_material.get_shader_parameter("Speed").y
 	Events.on_player_scored.connect(on_score_received)
 	Events.on_machine_repaired.connect(spawn_score_component)
 	buffer_timer = Timer.new()
@@ -70,6 +73,10 @@ func scale_up_fires_on_perfect_shot() -> void:
 	for fire in fire_textures:
 		if fire.visible:
 			fire.scale = target_scale
+			if current_number_of_perfect_shot == fire_textures.size():
+				Events.on_max_fire_reached.emit()
+				var target = Vector2(0.0, 1)
+				fire.material.set_shader_parameter("Speed", target)
 	multiplier_label.scale = target_scale
 
 func scale_down_fires_on_perfect_shot() -> void:
@@ -77,6 +84,8 @@ func scale_down_fires_on_perfect_shot() -> void:
 	for fire in fire_textures:
 		if fire.visible:
 			fire.scale -= Vector2(0.2, 0.2)
+			var target = Vector2(0.0, base_shader_speed)
+			fire.material.set_shader_parameter("Speed", target)
 	multiplier_label.scale -= Vector2(0.2, 0.2)
 
 func on_normal_shot() -> void:

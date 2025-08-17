@@ -26,6 +26,10 @@ signal on_game_state_advanced
 
 signal on_tutorial_progressed(state: int)
 
+signal on_max_fire_reached
+
 #shot
 signal on_perfect_shot
 signal on_normal_shot
+
+signal on_game_timer_last_seconds_reached

@@ -13,8 +13,6 @@ config_version=5
 config/name="Ace Challenge"
 run/main_scene="uid://dgkq2d5pihdty"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(0.125153, 0.125988, 0.235892, 1)
-boot_splash/image="uid://b4gy7kyr806vx"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -32,6 +30,7 @@ AudioManager="*res://Assets/Scenes/Globals/audio_manager.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4

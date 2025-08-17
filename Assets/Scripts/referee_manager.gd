@@ -16,7 +16,27 @@ func _ready() -> void:
 	Events.on_player_congratulated.connect(make_referee_congratulate_on_high_core)
 	Events.on_player_aced.connect(make_referee_congratulate_on_ace)
 	Events.on_ref_hit.connect(make_referee_hurt)
+	Events.on_max_fire_reached.connect(make_referee_congratulate_on_full_fire)
+	Events.on_game_timer_last_seconds_reached.connect(make_referee_congratulate_on_end)
 	original_panel_position = referee_panel.position
+
+func make_referee_congratulate_on_full_fire() -> void:
+	if is_on_cooldown:
+		return
+	if randi() % 20 > 5:
+		return
+	AudioManager.play_ref_ace()
+	start_referee_cooldown()
+	var text = "T'es en feu !"
+	show_pannel_with_text(text)
+
+func make_referee_congratulate_on_end() -> void:
+	if is_on_cooldown:
+		return
+	AudioManager.play_ref_ace()
+	start_referee_cooldown()
+	var text = "Fonce !!"
+	show_pannel_with_text(text)
 
 func make_referee_congratulate_on_high_core() -> void:
 	if is_on_cooldown:
