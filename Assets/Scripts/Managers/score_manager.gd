@@ -91,6 +91,7 @@ func scale_down_fires_on_perfect_shot() -> void:
 func on_normal_shot() -> void:
 	if current_number_of_perfect_shot - 1 < 0:
 		return
+	AudioManager.reset_fire_sound_pitch(current_number_of_perfect_shot * 0.1)
 	scale_down_fires_on_perfect_shot()
 	current_number_of_perfect_shot -= 1
 	hide_fire()

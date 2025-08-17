@@ -120,8 +120,8 @@ func play_power_up_sound() -> void:
 	power_up_sound.play()
 
 func play_fire_sound(pitch: float) -> void:
-	fire_sound.pitch_scale += pitch
+	fire_sound.pitch_scale = clamp(pitch + fire_sound.pitch_scale, 1.0, 1.5)
 	fire_sound.play()
 
-func reset_fire_sound_pitch() -> void:
-	fire_sound.pitch_scale = 1.0
+func reset_fire_sound_pitch(pitch: float) -> void:
+	fire_sound.pitch_scale = clamp(fire_sound.pitch_scale - pitch, 1.0, 1.5)

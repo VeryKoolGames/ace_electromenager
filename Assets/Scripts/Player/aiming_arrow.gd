@@ -87,6 +87,7 @@ func stop_charging_shot() -> Dictionary:
 func try_to_raise_referee_signal_on_ace() -> void:
 	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
 		return
+	freeze_on_perfect_shot()
 	var should_raise = randi() % 20 < 5
 	if should_raise:
 		Events.on_player_aced.emit()
@@ -100,8 +101,7 @@ func unzoom_camera() -> void:
 	tween.tween_property(camera, "zoom", Vector2.ONE, 0.1)
 
 func freeze_on_perfect_shot() -> void:
-	await get_tree().create_timer(0.2).timeout
-	freeze(0.15)
+	freeze(0.03)
 
 func reset_values() -> void:
 	is_player_shooting = false
