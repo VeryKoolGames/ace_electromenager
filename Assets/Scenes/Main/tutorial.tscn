@@ -1667,11 +1667,14 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -696.0
-offset_top = -262.0
-offset_right = -315.0
-offset_bottom = -98.5
+offset_left = -754.0
+offset_top = -268.0
+offset_right = -304.0
+offset_bottom = -104.5
 scale = Vector2(1e-05, 1e-05)
+
+[node name="Label" parent="ResponsiveLayer/TutorialUI/RefereePanel" index="1"]
+custom_minimum_size = Vector2(150, 80)
 
 [node name="BackButtonContainer" type="MarginContainer" parent="ResponsiveLayer/TutorialUI"]
 layout_mode = 1

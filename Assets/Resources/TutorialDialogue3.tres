@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_5do5r")
-dialogues_lines = Array[String](["Bien joué ! Mais attention : si tu rates ton tir, tu perdras une partie de ton multiplicateur.", "Essaie d'obtenir le meilleur score pour gagner un prix", "Tu peux continuer à t'entrainer ici ou retourner au menu pour faire une vraie partie !", "Amuse-toi bien !"])
+dialogues_lines = Array[String](["Bien joué ! Mais attention : si tu rates ton tir parfait, tu perdras une partie de ton multiplicateur.", "Essaie d'obtenir le meilleur score pour gagner un prix", "Tu peux continuer à t'entrainer ici ou retourner au menu pour faire une vraie partie !", "Amuse-toi bien !"])
 metadata/_custom_type_script = "uid://22s8q8np634p"
