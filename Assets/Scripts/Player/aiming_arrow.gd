@@ -94,7 +94,6 @@ func stop_charging_shot() -> Dictionary:
 func try_to_raise_referee_signal_on_ace() -> void:
 	if _is_fast_spawn_active():
 		return
-	freeze_on_perfect_shot()
 	var should_raise = randi() % 20 < 5
 	if should_raise:
 		Events.on_player_aced.emit()
@@ -106,9 +105,6 @@ func zoom_camera() -> void:
 func unzoom_camera() -> void:
 	var tween = create_tween()
 	tween.tween_property(camera, "zoom", Vector2.ONE, 0.1)
-
-func freeze_on_perfect_shot() -> void:
-	freeze(0.04)
 
 func reset_values() -> void:
 	is_player_shooting = false
@@ -130,8 +126,3 @@ func animate_shot(is_perfect_shot: bool) -> void:
 	scale_down_tween.tween_property(self, "scale", target_scale + scale_factor, 0.1)
 	scale_down_tween.tween_property(self, "scale", target_scale, 0.1)
 	scale_down_tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
-
-func freeze(time: float, slowdown: float = 0.0) -> void:
-	Engine.time_scale = slowdown
-	await get_tree().create_timer(time, true, true, true).timeout
-	Engine.time_scale = 1.0
