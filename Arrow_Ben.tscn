@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dt4px3bfwa856" path="res://Assets/sprites/Rectangle 153.png" id="4_hlygf"]
 [ext_resource type="Material" uid="uid://cecrbc2mxgwrs" path="res://Assets/Shaders/M_UV_Tiling.tres" id="5_g06xe"]
 [ext_resource type="Texture2D" uid="uid://c1s5gv6dvyx7e" path="res://Assets/sprites/SP_Etincelle.png" id="7_g06xe"]
-[ext_resource type="Material" uid="uid://dvger0s8nxh77" path="res://Assets/Materials/perfect_shot_impact.tres" id="8_1yd8r"]
+[ext_resource type="Material" uid="uid://dmsylkrep5pr8" path="res://Assets/Materials/perfect_shot_impact.tres" id="8_1yd8r"]
 [ext_resource type="Texture2D" uid="uid://dnsdusbi6tp0b" path="res://Assets/sprites/Cercle.png" id="8_tdx7o"]
-[ext_resource type="Material" uid="uid://b8x7x4hknojkh" path="res://Assets/Materials/perfect_shot_circle.tres" id="10_x472e"]
-[ext_resource type="Material" uid="uid://455ddohmpbco" path="res://Assets/Materials/normal_shot_particles.tres" id="11_ubv2x"]
+[ext_resource type="Material" uid="uid://box4w4u05duxs" path="res://Assets/Materials/perfect_shot_circle.tres" id="10_x472e"]
+[ext_resource type="Material" uid="uid://bgpf3g3qoieli" path="res://Assets/Materials/normal_shot_particles.tres" id="11_ubv2x"]
 
 [node name="AimingArrow" type="Node2D"]
 script = ExtResource("1_rtyix")

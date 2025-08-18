@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode blend_mix;
 
 uniform sampler2D overlay_tex;
-uniform float progress : hint_range(-1.0, 1.0) = -1.0; 
+uniform float progress : hint_range(-1.0, 1.0) = -1.0;
 uniform float blend_strength : hint_range(0.0, 1.0) = 1.0;
 
 void fragment() {

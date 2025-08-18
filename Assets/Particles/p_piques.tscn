@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://m4ypxpjjsc34"]
+[gd_scene load_steps=3 format=3 uid="uid://bu8opa0bqy6jg"]
 
 [ext_resource type="Texture2D" uid="uid://g4q8lw7n0mmh" path="res://Assets/sprites/Pique.png" id="1_a8njr"]
 [ext_resource type="Material" uid="uid://bkcldvmb8kvgn" path="res://Assets/Materials/p_spike_repair.tres" id="2_rbcg1"]
