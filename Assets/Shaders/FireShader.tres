@@ -21,7 +21,7 @@ source = 5
 texture = ExtResource("1_d4rnp")
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_najj6"]
-size = Vector2(666, 761)
+size = Vector2(416, 203)
 title = "Texture"
 tint_color_enabled = true
 tint_color = Color(0.189453, 0.658051, 1, 0.75)
@@ -89,14 +89,14 @@ source = 5
 texture = ExtResource("1_d4rnp")
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_vysl5"]
-size = Vector2(666, 1341)
+size = Vector2(416, 783)
 title = "Texture"
 tint_color_enabled = true
 tint_color = Color(0.189453, 0.658051, 1, 0.75)
 attached_nodes = PackedInt32Array(2, 3)
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_6m60q"]
-size = Vector2(666, 1141)
+size = Vector2(416, 583)
 title = "Texture"
 tint_color_enabled = true
 tint_color = Color(0.189453, 0.658051, 1, 0.75)
@@ -224,7 +224,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-898.164, -67.8443)
 mode = 1
 flags/unshaded = true
 flags/light_only = false
