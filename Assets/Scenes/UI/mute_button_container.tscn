@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://pwk02sdfwf24"]
+[gd_scene load_steps=7 format=3 uid="uid://pwk02sdfwf24"]
 
-[ext_resource type="Texture2D" uid="uid://c6tw8itlwg1w0" path="res://Assets/sprites/AudioIcon.png" id="1_j2xat"]
 [ext_resource type="Script" uid="uid://cqhvl1vcnrtxv" path="res://Assets/Scripts/UI/mute_button_container.gd" id="1_ydwoq"]
-[ext_resource type="Texture2D" uid="uid://ct4bn414yk3ev" path="res://Assets/sprites/AudioIconOff.png" id="2_lfhgu"]
+[ext_resource type="Texture2D" uid="uid://db51v8m68gowd" path="res://Assets/sprites/MuteOff.png" id="2_j18b6"]
+[ext_resource type="Texture2D" uid="uid://dg8lgewi3aq3" path="res://Assets/sprites/Mute.png" id="3_md2q3"]
+[ext_resource type="Texture2D" uid="uid://bh2dnhi3hsrts" path="res://Assets/sprites/MuteOffHover.png" id="3_v3eut"]
+[ext_resource type="Texture2D" uid="uid://c587amykptf1n" path="res://Assets/sprites/MuteHover.png" id="4_j18b6"]
+[ext_resource type="Script" uid="uid://j4426e4r0arh" path="res://Assets/Scripts/Components/button_sound_component.gd" id="6_v3eut"]
 
 [node name="MuteButtonContainer" type="MarginContainer"]
 anchors_preset = 1
@@ -14,9 +17,16 @@ grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(339, 0)
 script = ExtResource("1_ydwoq")
-mute_button_activated_texture = ExtResource("2_lfhgu")
+mute_button_activated_texture = ExtResource("2_j18b6")
+mute_button_activated_texture_pressed = ExtResource("3_v3eut")
 
 [node name="MuteButton" type="TextureButton" parent="."]
 layout_mode = 2
-texture_normal = ExtResource("1_j2xat")
+texture_normal = ExtResource("3_md2q3")
+texture_pressed = ExtResource("4_j18b6")
+texture_hover = ExtResource("4_j18b6")
 stretch_mode = 4
+
+[node name="ButtonSoundComponent" type="Node" parent="MuteButton"]
+script = ExtResource("6_v3eut")
+metadata/_custom_type_script = "uid://j4426e4r0arh"

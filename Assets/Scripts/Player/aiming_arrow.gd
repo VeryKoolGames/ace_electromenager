@@ -6,6 +6,7 @@ class_name AimingArrow
 @onready var gpu_particles_2d: GPUParticles2D = $Impact_PerfectShot
 @onready var strength_texture_bar: TextureProgressBar = $Mask/StrengthTextureBar
 @export var fill_speed := 0.0
+@export var perfect_shot_treshold := 80
 var fill_direction = 1
 var is_player_shooting := false
 var camera: Camera2D
@@ -68,21 +69,21 @@ func stop_charging_shot() -> Dictionary:
 	var shot_strength = bar_value
 	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
 		shot_strength = strength_texture_bar.max_value
-	var is_perfect_shot = shot_strength >= 90
-	var ret = {
-		"shot_strength": shot_strength,
-		"shot_direction": shot_direction.normalized(),
-		"is_perfect_shot": is_perfect_shot
-	}
+	var is_perfect_shot = shot_strength >= perfect_shot_treshold
 	AudioManager.stop_charge_sound()
 	if is_perfect_shot:
+		shot_strength *= 1.1
 		animate_shot(true)
 		try_to_raise_referee_signal_on_ace()
 	else:
 		animate_shot(false)
 	Events.on_shot_released.emit(bar_value)
 	reset_values()
-	return ret
+	return {
+		"shot_strength": shot_strength,
+		"shot_direction": shot_direction.normalized(),
+		"is_perfect_shot": is_perfect_shot
+	}
 
 func try_to_raise_referee_signal_on_ace() -> void:
 	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
@@ -101,7 +102,7 @@ func unzoom_camera() -> void:
 	tween.tween_property(camera, "zoom", Vector2.ONE, 0.1)
 
 func freeze_on_perfect_shot() -> void:
-	freeze(0.03)
+	freeze(0.04)
 
 func reset_values() -> void:
 	is_player_shooting = false

@@ -717,8 +717,7 @@ script = ExtResource("20_uk28k")
 [node name="MuteButtonContainer" parent="StartMenuUI" instance=ExtResource("20_q44k4")]
 layout_mode = 1
 offset_bottom = 308.0
-theme_override_constants/margin_top = 120
-theme_override_constants/margin_right = 120
+theme_override_constants/margin_top = 70
 
 [node name="ACE_Logo" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1

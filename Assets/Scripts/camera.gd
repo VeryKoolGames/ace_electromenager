@@ -10,8 +10,8 @@ func _ready() -> void:
 	Events.on_shot_released.connect(apply_shake)
 
 func apply_shake(strength: float):
-	if strength >= 90:
-		shakeStrenght = 15
+	if strength >= 80:
+		shakeStrenght = 20
 	else:
 		shakeStrenght = 5
 
