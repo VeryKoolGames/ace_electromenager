@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 var repair_particles = preload("res://Assets/Materials/p_réparation.tres")
 var item_particles = preload("res://Assets/Materials/p_item_particle.tres")
@@ -24,10 +24,10 @@ var materials = [
 ]
 
 func _ready() -> void:
+	await get_tree().create_timer(0.5).timeout
 	for material in materials:
 		var instance = GPUParticles2D.new()
 		instance.process_material = material
 		instance.one_shot = true
-		instance.modulate = Color(1,1,1,0)
 		instance.emitting = true
 		add_child(instance)

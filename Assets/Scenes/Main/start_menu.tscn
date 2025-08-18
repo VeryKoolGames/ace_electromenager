@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=42 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
+[ext_resource type="Script" uid="uid://03811ollgwwd" path="res://Assets/Scripts/Globals/ParticleCache.gd" id="1_g7qw8"]
 [ext_resource type="Texture2D" uid="uid://p42u587xblhv" path="res://Assets/sprites/ButtonShape1.png" id="2_tow68"]
 [ext_resource type="Texture2D" uid="uid://cyu14y5c3dx7g" path="res://Assets/sprites/MainMenuBackground2.png" id="2_xx3ku"]
 [ext_resource type="Texture2D" uid="uid://bovnjxspn4gib" path="res://Assets/sprites/TitleLogo.png" id="3_dph0j"]
@@ -432,6 +433,10 @@ _data = {
 }
 
 [node name="StartMenu" type="CanvasLayer"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(929, 579)
+script = ExtResource("1_g7qw8")
 
 [node name="StartMenuUI" type="Control" parent="."]
 layout_mode = 3
