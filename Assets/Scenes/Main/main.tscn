@@ -1,4 +1,4 @@
-[gd_scene load_steps=201 format=3 uid="uid://c34k2plt0b38u"]
+[gd_scene load_steps=202 format=3 uid="uid://c34k2plt0b38u"]
 
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="1_amwe0"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="1_gkykh"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://crafi13s3n6ns" path="res://Assets/sprites/StarMedium.png" id="39_eqeth"]
 [ext_resource type="Texture2D" uid="uid://baclmjqf5v85b" path="res://Assets/sprites/ButtonShape4_Clicked.png" id="43_cn3ei"]
 [ext_resource type="Texture2D" uid="uid://bojvw5ks2pf72" path="res://Assets/sprites/ButtonShape4_Hover.png" id="44_72nnc"]
+[ext_resource type="Texture2D" uid="uid://neqnb3ubwlhw" path="res://Assets/sprites/BoutonHover_Valider.png" id="56_1i44w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83bt"]
 size = Vector2(762, 11)
@@ -2561,7 +2562,7 @@ theme_override_constants/margin_top = -50
 layout_mode = 2
 texture_normal = ExtResource("24_tpyc1")
 texture_pressed = ExtResource("43_cn3ei")
-texture_hover = ExtResource("44_72nnc")
+texture_hover = ExtResource("56_1i44w")
 
 [node name="MarginContainer" type="MarginContainer" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel/VBoxContainer/VBoxContainer/SaveButton"]
 layout_mode = 1
