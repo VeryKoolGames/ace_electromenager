@@ -13,6 +13,9 @@ config_version=5
 config/name="Ace Challenge"
 run/main_scene="uid://dgkq2d5pihdty"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.960784, 0.447059, 0.333333, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://b4gy7kyr806vx"
 config/icon="res://icon.svg"
 
 [autoload]
