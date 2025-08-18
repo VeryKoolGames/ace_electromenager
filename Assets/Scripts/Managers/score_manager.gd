@@ -115,7 +115,7 @@ func display_fire() -> void:
 
 func on_score_received(score_value: int) -> void:
 	AudioManager.play_repair_sound()
-	multiplier = 1.0 + current_number_of_perfect_shot
+	multiplier = 1.0 + (current_number_of_perfect_shot - 1)
 	score_value *= multiplier
 	score_buffer += score_value
 
