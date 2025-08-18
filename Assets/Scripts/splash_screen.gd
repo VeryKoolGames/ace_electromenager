@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var animation_player: AnimationPlayer = $Logo/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Control/Logo/AnimationPlayer
 
 func _ready() -> void:
 	await animation_player.animation_finished

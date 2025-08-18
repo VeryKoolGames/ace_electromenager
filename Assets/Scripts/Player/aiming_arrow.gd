@@ -11,6 +11,8 @@ var fill_direction = 1
 var is_player_shooting := false
 var camera: Camera2D
 
+var had_fast_spawn_on_charge := false
+
 const MIN_ROT = deg_to_rad(-90)
 const MAX_ROT = deg_to_rad( 90)
 
@@ -47,8 +49,11 @@ func rotate_arrow() -> void:
 		var from_up = raw + deg_to_rad(90)
 		rotation = clamp(from_up, MIN_ROT, MAX_ROT)
 
+func _is_fast_spawn_active() -> bool:
+	return had_fast_spawn_on_charge or owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT)
+
 func handle_strength(delta) -> void:
-	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
+	if _is_fast_spawn_active():
 		var tween = create_tween()
 		tween.tween_property(strength_texture_bar, "value", strength_texture_bar.max_value, 0.1)
 		return
@@ -61,13 +66,14 @@ func handle_strength(delta) -> void:
 
 func start_charging_shot() -> void:
 	zoom_camera()
+	had_fast_spawn_on_charge = owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT)
 	is_player_shooting = true
 	AudioManager.play_charge_sound()
 
 func stop_charging_shot() -> Dictionary:
 	unzoom_camera()
 	var shot_strength = bar_value
-	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
+	if _is_fast_spawn_active():
 		shot_strength = strength_texture_bar.max_value
 	var is_perfect_shot = shot_strength >= perfect_shot_treshold
 	AudioManager.stop_charge_sound()
@@ -86,7 +92,7 @@ func stop_charging_shot() -> Dictionary:
 	}
 
 func try_to_raise_referee_signal_on_ace() -> void:
-	if owner.has_power_up(ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT):
+	if _is_fast_spawn_active():
 		return
 	freeze_on_perfect_shot()
 	var should_raise = randi() % 20 < 5
