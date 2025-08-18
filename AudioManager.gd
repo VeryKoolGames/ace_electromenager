@@ -23,6 +23,7 @@ var repair_pitch_scale := 0.0
 var is_pitch_scaling := false
 
 func start_menu_music() -> void:
+	await get_tree().create_timer(2.5).timeout
 	menu_music.play()
 
 func play_shoot_sound() -> void:
