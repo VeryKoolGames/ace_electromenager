@@ -22,6 +22,9 @@ var is_muted := false
 var repair_pitch_scale := 0.0
 var is_pitch_scaling := false
 
+func start_menu_music() -> void:
+	menu_music.play()
+
 func play_shoot_sound() -> void:
 	shoot_sounds[randi_range(0, shoot_sounds.size() - 1)].play()
 

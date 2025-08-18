@@ -2087,13 +2087,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -151.0
-offset_right = -20.0
-offset_bottom = 87.0
+offset_left = -122.1
+offset_top = 0.24
+offset_right = 8.90002
+offset_bottom = 87.24
 grow_horizontal = 0
-scale = Vector2(2, 2)
+scale = Vector2(1.48, 1.48)
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_right = 0
 
 [node name="PauseButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/MarginContainer"]
 layout_mode = 2

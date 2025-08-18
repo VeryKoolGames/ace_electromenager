@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgug6ocoxkpmn"]
+[gd_scene load_steps=8 format=3 uid="uid://cgug6ocoxkpmn"]
 
 [ext_resource type="Script" uid="uid://b78oa8br4eanm" path="res://Assets/Scripts/splash_screen.gd" id="1_46lhc"]
 [ext_resource type="Texture2D" uid="uid://c7lsobypg80fs" path="res://Assets/sprites/FireTex/T_1_pixel.jpg" id="2_0l16w"]
 [ext_resource type="Texture2D" uid="uid://b4gy7kyr806vx" path="res://Assets/sprites/VerykoolLogo.png" id="3_33io5"]
+[ext_resource type="AudioStream" uid="uid://rlpe03ubirmg" path="res://Assets/Sounds/SplashScreenSound.mp3" id="3_dctcg"]
 
 [sub_resource type="Animation" id="Animation_ggylc"]
 resource_name = "LogoSplashScreen"
@@ -62,6 +63,18 @@ tracks/4/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.122173, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0.133333, 0.300508, 0.6)
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_dctcg"]
 length = 0.001
@@ -120,6 +133,18 @@ tracks/4/keys = {
 "points": PackedFloat32Array(-0.261799, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5m6x8"]
 _data = {
@@ -155,9 +180,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -149.0
-offset_top = -212.68
+offset_top = -131.414
 offset_right = 149.0
-offset_bottom = 78.32
+offset_bottom = 159.586
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.261799
@@ -171,3 +196,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_5m6x8")
 }
 autoplay = "LogoSplashScreen"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dctcg")

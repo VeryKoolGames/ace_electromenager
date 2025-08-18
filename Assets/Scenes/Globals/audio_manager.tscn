@@ -87,7 +87,6 @@ stream = ExtResource("13_83x86")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="MainMusics"]
 stream = ExtResource("14_kxxqw")
-autoplay = true
 
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="MainMusics"]
 stream = ExtResource("15_xygjl")

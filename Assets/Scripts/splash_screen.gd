@@ -9,3 +9,4 @@ func _ready() -> void:
 
 func transition_to_start_scene() -> void:
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.START)
+	AudioManager.start_menu_music()
