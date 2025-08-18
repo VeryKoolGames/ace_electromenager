@@ -1790,7 +1790,7 @@ pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 0
 mouse_filter = 2
 
-[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI"]
+[node name="ScoreManager" type="VBoxContainer" parent="ResponsiveLayer/GameUI" node_paths=PackedStringArray("fire_textures")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1806,6 +1806,7 @@ script = ExtResource("3_tmbkf")
 score_ui_component_scene = ExtResource("5_umyng")
 multiplier_enabled_color = Color(0.54902, 0.956863, 1, 1)
 multiplier_base_color = Color(0.909804, 0.4, 0.282353, 1)
+fire_textures = [NodePath("HBoxContainer2/HBoxContainer/TextureRect/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect2/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect3/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect4/FEU"), NodePath("HBoxContainer2/HBoxContainer/TextureRect5/FEU")]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ResponsiveLayer/GameUI/ScoreManager"]
 layout_mode = 2
