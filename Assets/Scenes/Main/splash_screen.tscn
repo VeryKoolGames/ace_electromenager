@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgug6ocoxkpmn"]
+[gd_scene load_steps=7 format=3 uid="uid://cgug6ocoxkpmn"]
 
-[ext_resource type="Texture2D" uid="uid://c7lsobypg80fs" path="res://Assets/sprites/FireTex/T_1_pixel.jpg" id="1_ggylc"]
-[ext_resource type="Texture2D" uid="uid://b4gy7kyr806vx" path="res://Assets/sprites/VerykoolLogo.png" id="2_dctcg"]
+[ext_resource type="Script" uid="uid://b78oa8br4eanm" path="res://Assets/Scripts/splash_screen.gd" id="1_46lhc"]
+[ext_resource type="Texture2D" uid="uid://c7lsobypg80fs" path="res://Assets/sprites/FireTex/T_1_pixel.jpg" id="2_0l16w"]
+[ext_resource type="Texture2D" uid="uid://b4gy7kyr806vx" path="res://Assets/sprites/VerykoolLogo.png" id="3_33io5"]
 
 [sub_resource type="Animation" id="Animation_ggylc"]
 resource_name = "LogoSplashScreen"
 length = 2.5
-loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,6 +134,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_46lhc")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.960784, 0.447059, 0.333333, 1)
@@ -143,7 +144,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ggylc")
+texture = ExtResource("2_0l16w")
 
 [node name="Logo" type="TextureRect" parent="."]
 modulate = Color(0.960784, 1, 1, 1)
@@ -162,7 +163,7 @@ grow_vertical = 2
 rotation = -0.261799
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(149, 145)
-texture = ExtResource("2_dctcg")
+texture = ExtResource("3_33io5")
 expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
