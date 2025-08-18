@@ -13,8 +13,8 @@ config_version=5
 config/name="Ace Challenge"
 run/main_scene="uid://cgug6ocoxkpmn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/show_image=false
 boot_splash/fullsize=false
+boot_splash/image="uid://bovnjxspn4gib"
 config/icon="uid://bshk1p7lfpmx1"
 
 [autoload]

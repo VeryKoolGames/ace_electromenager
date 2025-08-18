@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var animation_player: AnimationPlayer = $Logo/AnimationPlayer
 
