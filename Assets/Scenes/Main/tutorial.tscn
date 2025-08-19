@@ -1,10 +1,9 @@
-[gd_scene load_steps=166 format=3 uid="uid://cgk6xxpammumr"]
+[gd_scene load_steps=165 format=3 uid="uid://cgk6xxpammumr"]
 
 [ext_resource type="Script" uid="uid://dand0jshhavd4" path="res://Assets/Scripts/Tutorial/tutorial_manager.gd" id="1_6rwrp"]
 [ext_resource type="Texture2D" uid="uid://dm7rgdb11qix7" path="res://Assets/sprites/Barrières.png" id="1_wbeqx"]
 [ext_resource type="Texture2D" uid="uid://brrvj0sm0bo5d" path="res://Assets/sprites/Terrain.png" id="2_6rwrp"]
 [ext_resource type="PackedScene" uid="uid://ch6ioi1a5wa3a" path="res://Assets/Scenes/Player/player.tscn" id="3_paycb"]
-[ext_resource type="Texture2D" uid="uid://b4bnyb6l8auar" path="res://Assets/sprites/pubs.png" id="4_gejnh"]
 [ext_resource type="Script" uid="uid://5t1cltpvcm24" path="res://Assets/Scripts/Tutorial/tutorial_spawner.gd" id="5_2gxxo"]
 [ext_resource type="PackedScene" uid="uid://jpu8tq6f64pl" path="res://Assets/Scenes/Machines/fridge.tscn" id="5_jrs6e"]
 [ext_resource type="PackedScene" uid="uid://lblqrq1f3767" path="res://Assets/Scenes/Machines/tutorial_fridge.tscn" id="6_paycb"]
@@ -1198,23 +1197,6 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 texture = ExtResource("2_6rwrp")
 expand_mode = 1
-
-[node name="Pubs" type="MarginContainer" parent="ResponsiveLayer/Decors"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 280
-theme_override_constants/margin_top = 35
-theme_override_constants/margin_right = 280
-
-[node name="Edges" type="TextureRect" parent="ResponsiveLayer/Decors/Pubs"]
-layout_mode = 2
-texture = ExtResource("4_gejnh")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="PlayerPos" type="Control" parent="ResponsiveLayer"]
 layout_mode = 3
