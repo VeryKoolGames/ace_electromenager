@@ -11,6 +11,8 @@ var has_game_ended := false
 var grid_positions: Dictionary = {}
 var latest_power_up_type: ResPowerUp.PowerUpEnum
 
+var is_last_state := false
+
 # Region
 var max_power_ups := 3
 var current_power_ups := 0
@@ -34,8 +36,12 @@ func spawn_initial_machines() -> void:
 	power_up_cooldown.start(randf_range(min_power_up_timer, max_power_up_timer))
 	spawn_machines(3)
 
-func on_game_state_advanced() -> void:
-	spawn_machines(2)
+func on_game_state_advanced(state: int) -> void:
+	if state == 0:
+		spawn_machines(2)
+	else:
+		spawn_machines(4)
+	is_last_state = true
 	min_power_up_timer -= 1
 	max_power_up_timer -= 2
 
@@ -49,7 +55,6 @@ func generate_grid():
 	grid_positions.clear()
 	var cols = int(spawn_area.size.x / grid_size)
 	var rows = int(spawn_area.size.y / grid_size)
-	
 	for x in range(cols):
 		for y in range(rows):
 			var pos = Vector2(
@@ -64,7 +69,6 @@ func spawn_machine() -> void:
 	var empty_positions = get_empty_positions()
 	if empty_positions.is_empty():
 		return
-	
 	var pos = empty_positions[randi() % empty_positions.size()]
 	spawn_machine_at(pos)
 	return
@@ -109,7 +113,6 @@ func remove_power_up(power_up: ResPowerUp):
 		if grid_positions[pos] == node_to_remove:
 			grid_positions[pos] = null
 			current_power_ups -= 1
-			print("removed power up: left: ", current_power_ups)
 			break
 
 func spawn_machine_at(position: Vector2):

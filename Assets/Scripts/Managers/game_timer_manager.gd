@@ -3,14 +3,15 @@ extends Node
 @onready var timer_label: Label = $Label
 @onready var game_timer: Timer = $Timer
 @export var game_length: ResFloatValue
+var current_game_state := 0
 var is_first_event := true
 
 var game_states_tresholds: Dictionary
 
 func _ready() -> void:
 	game_states_tresholds = {
-		int(game_length.value / 2): false,
-		int(game_length.value / 4): false,
+		40: false,
+		int(game_length.value / 3): false,
 	}
 	game_timer.timeout.connect(end_game)
 	game_timer.wait_time = game_length.value
@@ -32,7 +33,8 @@ func check_game_states_tresholds() -> void:
 			if not is_first_event:
 				Events.on_game_timer_last_seconds_reached.emit()
 			is_first_event = false
-			Events.on_game_state_advanced.emit()
+			Events.on_game_state_advanced.emit(current_game_state)
+			current_game_state += 1
 			game_states_tresholds[key] = true
 
 func start_timer() -> void:

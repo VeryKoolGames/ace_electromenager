@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://623qimt3u6wg"]
+[gd_scene load_steps=7 format=3 uid="uid://623qimt3u6wg"]
 
 [ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="1_4jm8e"]
 [ext_resource type="Script" uid="uid://d315g88q7180c" path="res://Assets/Scripts/Components/scale_on_destroy_component.gd" id="2_oe1ir"]
 [ext_resource type="FontFile" uid="uid://dcpralwchfa01" path="res://Assets/Fonts/Dienstag_Medium.otf" id="3_tweyk"]
 [ext_resource type="Texture2D" uid="uid://dv748cw3m2q6f" path="res://Assets/sprites/Bulle_Virgule.png" id="4_oe1ir"]
+[ext_resource type="Texture2D" uid="uid://pp7xit02ymtv" path="res://Assets/sprites/FlecheSkip.png" id="5_tweyk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbeqx"]
 texture = ExtResource("1_4jm8e")
@@ -57,3 +58,20 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 8
 texture = ExtResource("4_oe1ir")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = -10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+visible = false
+modulate = Color(0.980392, 0.792157, 0.592157, 1)
+custom_minimum_size = Vector2(20, 15)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("5_tweyk")
+expand_mode = 1

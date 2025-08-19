@@ -2130,8 +2130,13 @@ color = Color(0, 0, 0, 0.580392)
 
 [node name="QuitButton" type="TextureButton" parent="ResponsiveLayer/PauseMenu/Control"]
 layout_mode = 1
-offset_right = 336.0
-offset_bottom = 200.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_top = -200.0
+offset_right = 395.0
+grow_vertical = 0
 texture_normal = ExtResource("24_tpyc1")
 texture_pressed = ExtResource("43_cn3ei")
 texture_hover = ExtResource("44_72nnc")
@@ -2215,14 +2220,17 @@ vertical_alignment = 1
 
 [node name="MuteButtonContainer" parent="ResponsiveLayer/PauseMenu/Control" instance=ExtResource("27_vv0dk")]
 layout_mode = 1
-anchors_preset = 0
+anchors_preset = 2
 anchor_left = 0.0
+anchor_top = 1.0
 anchor_right = 0.0
-offset_left = 0.0
-offset_top = 172.0
-offset_right = 330.0
-offset_bottom = 450.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -368.0
+offset_right = 512.0
+offset_bottom = 0.0
 grow_horizontal = 1
+grow_vertical = 0
 pivot_offset = Vector2(0, 0)
 theme_override_constants/margin_left = 90
 theme_override_constants/margin_top = 90

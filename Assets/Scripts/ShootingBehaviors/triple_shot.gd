@@ -17,7 +17,6 @@ func shoot(shooter: Node2D, direction: Vector2, ball: Ball) -> void:
 	var right_ball = ball.duplicate()
 	left_ball.global_position = ball.position
 	right_ball.global_position = ball.position
-	print(ball.global_position)
 	
 	shooter.apply_powerups_to_ball(left_ball)
 	shooter.apply_powerups_to_ball(right_ball)

@@ -12,10 +12,12 @@ var is_writing := false
 var typing_tween: Tween
 var skip_typing_cooldown := false
 var is_starting := true
+var is_finished := false
 @export var char_delay := 0.03
 @export var time_between_dialogues := 1.5
 @onready var scale_on_destroy_component: ScaleOnDestroyComponent = $RefereePanel/ScaleOnDestroyComponent
 @export var referee: Referee
+@onready var pass_rect: TextureRect = $RefereePanel/MarginContainer/TextureRect
 
 func _ready() -> void:
 	tutorial_texts = {
@@ -36,7 +38,7 @@ func _ready() -> void:
 			"signal": owner.on_third_part_started,
 		}
 	}
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(7).timeout
 	is_starting = false
 
 func start_skipping_cooldown() -> void:
@@ -45,8 +47,9 @@ func start_skipping_cooldown() -> void:
 	skip_typing_cooldown = false
 
 func _input(event: InputEvent) -> void:
-	if is_starting:
+	if is_starting or is_finished:
 		return
+	print(is_starting)
 	if event.is_action_pressed("shoot"):
 		if is_writing:
 			skip_typing()
@@ -65,20 +68,25 @@ func skip_typing() -> void:
 	if current_text_index < current_texts.size():
 		label.text = current_texts[current_text_index]
 	referee.hide_mouth()
+	pass_rect.show()
 
 func advance_text() -> void:
+	if is_finished:
+		return
 	current_text_index += 1
 	var current_texts = tutorial_texts[current_index]["text"]
 	
 	if current_text_index > current_texts.size() + 1:
 		return
 	
+	pass_rect.hide()
 	if current_text_index < current_texts.size():
 		await type_text()
 	if current_text_index == current_texts.size() - 1:
 		tutorial_texts[current_index]["signal"].emit()
 		GameState.set_game_mode()
 		if current_index == tutorial_texts.size() - 1:
+			is_finished = true
 			referee.stop_talking()
 			await get_tree().create_timer(2).timeout
 			scale_on_destroy_component.destroy()
@@ -123,5 +131,6 @@ func type_text() -> void:
 		await get_tree().create_timer(char_delay).timeout
 	
 	is_writing = false
+	pass_rect.show()
 	referee.hide_mouth()
 	AudioManager.stop_ref_long_talk()

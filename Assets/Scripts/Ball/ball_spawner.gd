@@ -17,6 +17,7 @@ func _ready() -> void:
 	Events.on_power_up_activated.connect(on_fast_show_power_up_picked_up)
 	Events.on_power_up_expired.connect(on_fast_show_power_up_expired)
 	Events.on_game_started.connect(spawn_ball)
+	Events.on_game_state_advanced.connect(on_game_state_advanced)
 
 func spawn_ball() -> void:
 	if owner.current_ball:
@@ -39,6 +40,11 @@ func on_fast_show_power_up_picked_up(power_up: ResPowerUp) -> void:
 	if power_up.type == ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT:
 		cooldown_timer.wait_time = fast_spawn_cooldown
 		spawn_ball()
+
+func on_game_state_advanced(state: int) -> void:
+	if state == 0:
+		return
+	cooldown_timer.wait_time = fast_spawn_cooldown
 
 func on_fast_show_power_up_expired(type: ResPowerUp.PowerUpEnum) -> void:
 	if type == ResPowerUp.PowerUpEnum.FAST_SPAWN_SHOT:
