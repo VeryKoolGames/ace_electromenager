@@ -23,7 +23,7 @@ func _ready() -> void:
 func make_referee_congratulate_on_full_fire() -> void:
 	if is_on_cooldown:
 		return
-	if randi() % 20 > 5:
+	if randi() % 100 > 10:
 		return
 	AudioManager.play_ref_ace()
 	start_referee_cooldown()
@@ -49,6 +49,8 @@ func make_referee_congratulate_on_high_core() -> void:
 func make_referee_congratulate_on_ace() -> void:
 	if is_on_cooldown:
 		return
+	if randi() % 100 > 10:
+		return
 	AudioManager.play_ref_ace()
 	start_referee_cooldown()
 	var text = "Ace !"
@@ -71,8 +73,7 @@ func start_referee_cooldown() -> void:
 
 func show_pannel_with_text(text_to_write: String) -> void:
 	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(referee_panel, "scale", Vector2.ONE, 0.2).finished.connect(func():
+	tween.tween_property(referee_panel, "scale", Vector2.ONE, 0.1).finished.connect(func():
 		write_referee_text(text_to_write)
 	)
 
@@ -89,5 +90,5 @@ func write_referee_text(text_to_write: String) -> void:
 
 func hide_pannel() -> void:
 	var tween = create_tween()
-	tween.tween_property(referee_panel, "scale", Vector2.ZERO, 0.2)
+	tween.tween_property(referee_panel, "scale", Vector2.ZERO, 0.1)
 	tween.tween_callback(func(): label.text = "")

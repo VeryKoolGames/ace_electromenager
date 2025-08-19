@@ -8,7 +8,9 @@ func _ready() -> void:
 	button.pressed.connect(play_click_sound)
 
 func play_hover_sound() -> void:
-	AudioManager.play_button_hover_sound()
+	if not button.disabled:
+		AudioManager.play_button_hover_sound()
 
 func play_click_sound() -> void:
-	AudioManager.play_button_click_sound()
+	if not button.disabled:
+		AudioManager.play_button_click_sound()

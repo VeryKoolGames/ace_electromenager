@@ -94,9 +94,7 @@ func stop_charging_shot() -> Dictionary:
 func try_to_raise_referee_signal_on_ace() -> void:
 	if _is_fast_spawn_active():
 		return
-	var should_raise = randi() % 20 < 5
-	if should_raise:
-		Events.on_player_aced.emit()
+	Events.on_player_aced.emit()
 
 func zoom_camera() -> void:
 	var tween = create_tween()

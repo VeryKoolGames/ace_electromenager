@@ -34,6 +34,7 @@ var perfect_threshold: float = 30.0
 var target_scale: Vector2
 @export var max_rebound := 2
 var current_rebound := 0
+var is_destroying_itself := false
 
 @export var rotation_speed_multiplier: float = 5.0
 @export var min_rotation_speed: float = 0.8
@@ -50,10 +51,11 @@ func remove_power_ups(type: ResPowerUp.PowerUpEnum) -> void:
 		is_bouncing = false
 
 func destroy_itself() -> void:
+	is_destroying_itself = true
 	scale_on_destroy_component.destroy()
 
 func _process(delta: float) -> void:
-	if is_moving:
+	if is_moving and not is_destroying_itself:
 		time_since_last_check += delta
 		check_if_ball_is_stopped()
 		start_velocity *= 0.99
@@ -62,6 +64,8 @@ func _process(delta: float) -> void:
 		check_collisions(move_and_collide(start_velocity * delta))
 
 func update_scale_based_on_velocity(delta: float) -> void:
+	if is_destroying_itself:
+		return
 	var current_speed = start_velocity.length()
 	var speed_ratio = clamp(current_speed / scale_speed_threshold, 0.0, 1.0)
 	var scale_multiplier = lerp(min_scale_multiplier, max_scale_multiplier, speed_ratio)
@@ -107,6 +111,7 @@ func check_if_ball_is_stopped() -> void:
 		time_since_last_check = 0.0
 		var distance_moved = global_position.distance_to(previous_position)
 		if distance_moved <= movement_threshold:
+			is_destroying_itself = true
 			scale_on_destroy_component.destroy()
 		else:
 			previous_position = global_position
