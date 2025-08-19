@@ -1673,11 +1673,16 @@ congratulations_texts = ExtResource("15_1bvye")
 [node name="RefereePanel" parent="ResponsiveLayer/RefPos" instance=ExtResource("15_eqeth")]
 layout_mode = 1
 anchors_preset = -1
-offset_left = -273.0
-offset_top = -312.5
-offset_right = -93.0
-offset_bottom = -169.0
+offset_left = -215.0
+offset_top = -263.5
+offset_right = -65.0
+offset_bottom = -140.0
 scale = Vector2(1e-05, 1e-05)
+
+[node name="Label" parent="ResponsiveLayer/RefPos/RefereePanel" index="1"]
+custom_minimum_size = Vector2(60, 60)
+theme_override_fonts/font = ExtResource("6_yehcq")
+autowrap_mode = 0
 
 [node name="RefChair" type="Node2D" parent="ResponsiveLayer/RefPos"]
 
@@ -2740,4 +2745,5 @@ script = ExtResource("36_s0kou")
 
 [node name="ParticlesContainer" type="Node2D" parent="ResponsiveLayer/ParticlesManager"]
 
+[editable path="ResponsiveLayer/RefPos/RefereePanel"]
 [editable path="ResponsiveLayer/PauseMenu/Control/MuteButtonContainer"]
