@@ -49,7 +49,6 @@ func start_skipping_cooldown() -> void:
 func _input(event: InputEvent) -> void:
 	if is_starting or is_finished:
 		return
-	print(is_starting)
 	if event.is_action_pressed("shoot"):
 		if is_writing:
 			skip_typing()

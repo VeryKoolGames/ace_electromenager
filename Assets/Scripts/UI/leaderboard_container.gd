@@ -25,9 +25,6 @@ func _process_players_data(data: Array) -> void:
 		leaderboard_line_container.add_child(line)
 		line.populate_line(line_data)
 
-func _retrieve_global_scores_data() -> void:
-	http_request.request("https://niseko-backend.onrender.com/get_all_scores")
-
 func _on_request_completed(result, response_code, headers, body):
 	loading_label.hide()
 	if response_code == 200:
@@ -38,10 +35,7 @@ func _on_request_completed(result, response_code, headers, body):
 
 func _retrieve_player_scores_data() -> void:
 	loading_label.show()
-	http_request.request("https://niseko-backend.onrender.com/get_all_players")
+	http_request.request("https://niseko-backend.onrender.com/get_leaderboard")
 
 func check_if_self(data: Dictionary) -> bool:
-	if data.get("email") == SaveSystem.get_player_data().get("email"):
-		return true
-	return false
-	
+	return data.get("is_self") == true

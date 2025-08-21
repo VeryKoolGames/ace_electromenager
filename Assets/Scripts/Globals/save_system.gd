@@ -2,10 +2,8 @@ extends Node
 
 # Player data structure
 var player_data = {
-	"email": "",
+	"player_token": "",
 	"pseudo": "",
-	"save_date": "",
-	"is_playing_for_the_first_time": true
 }
 
 var is_playing_for_the_first_time := true
@@ -17,22 +15,18 @@ func _ready():
 	load_first_time_flag()
 	load_player_from_disc()
 
-func save_player_on_disc(email: String, pseudo: String):
-	player_data.email = email
+func save_player_on_disc(token: String, pseudo: String):
+	player_data.player_token = token
 	player_data.pseudo = pseudo
-	player_data.save_date = Time.get_datetime_string_from_system()
 	
 	var save_file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	if save_file == null:
-		print("Error: Could not create save file")
 		return false
 	
 	var json_string = JSON.stringify(player_data)
 	save_file.store_string(json_string)
 	save_file.close()
 	
-	print("Player data saved successfully!")
-	print("Email: ", email, " | Pseudo: ", pseudo)
 	return true
 
 func load_player_from_disc():
@@ -55,9 +49,8 @@ func load_player_from_disc():
 		print("Error: Could not parse save file")
 		return false
 	
-	# Load the data
 	var loaded_data = json.data
-	if loaded_data.has("email") and loaded_data.has("pseudo"):
+	if loaded_data.has("player_token") and loaded_data.has("pseudo"):
 		player_data = loaded_data
 		return true
 	else:
@@ -71,23 +64,19 @@ func has_saved_player():
 	return FileAccess.file_exists(SAVE_FILE_PATH) and player_data.email != "" and player_data.pseudo != ""
 
 func clear_player_data():
-	player_data.email = ""
 	player_data.pseudo = ""
-	player_data.save_date = ""
+	player_data.player_token = ""
 	
 	if FileAccess.file_exists(SAVE_FILE_PATH):
 		DirAccess.remove_absolute(SAVE_FILE_PATH)
-		print("Player data cleared")
 
 func load_first_time_flag():
 	if not FileAccess.file_exists(FIRST_TIME_FLAG_PATH):
-		print("No first time flag file found - assuming first time player")
 		is_playing_for_the_first_time = true
 		return false
 	
 	var save_file = FileAccess.open(FIRST_TIME_FLAG_PATH, FileAccess.READ)
 	if save_file == null:
-		print("Error: Could not open first time flag file")
 		is_playing_for_the_first_time = true
 		return false
 	
@@ -98,17 +87,14 @@ func load_first_time_flag():
 	var parse_result = json.parse(json_string)
 	
 	if parse_result != OK:
-		print("Error: Could not parse first time flag file")
 		is_playing_for_the_first_time = true
 		return false
 	
 	var loaded_data = json.data
 	if loaded_data.has("is_playing_for_the_first_time"):
 		is_playing_for_the_first_time = loaded_data.is_playing_for_the_first_time
-		print("First time flag loaded: ", is_playing_for_the_first_time)
 		return true
 	else:
-		print("Error: Invalid first time flag file format")
 		is_playing_for_the_first_time = true
 		return false
 
@@ -117,14 +103,12 @@ func save_first_time_flag():
 	
 	var save_file = FileAccess.open(FIRST_TIME_FLAG_PATH, FileAccess.WRITE)
 	if save_file == null:
-		print("Error: Could not create first time flag file")
 		return false
 	
 	var json_string = JSON.stringify(flag_data)
 	save_file.store_string(json_string)
 	save_file.close()
 	
-	print("First time flag saved: ", is_playing_for_the_first_time)
 	return true
 
 func mark_as_played():
@@ -132,4 +116,3 @@ func mark_as_played():
 	if is_playing_for_the_first_time:
 		is_playing_for_the_first_time = false
 		save_first_time_flag()
-		print("Player marked as having played before")

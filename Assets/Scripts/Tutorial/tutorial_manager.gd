@@ -15,7 +15,6 @@ var is_tutorial = true
 
 func _ready() -> void:
 	Events.on_tutorial_progressed.connect(on_tutorial_progressed)
-	on_third_part_started.connect(on_tutorial_ended)
 	back_button.pressed.connect(on_back_button_pressed)
 	await get_tree().create_timer(2).timeout
 	countdown_start_ui.play_start_animation()
@@ -32,12 +31,6 @@ func start_game() -> void:
 
 func on_tutorial_progressed() -> void:
 	tutorial_ui.move_to_next_tutorial_step()
-
-func on_tutorial_ended() -> void:
-	var tween = create_tween()
-	back_button_container.scale = Vector2.ZERO
-	back_button_container.show()
-	tween.tween_property(back_button_container, "scale", Vector2.ONE, 0.2)
 
 func on_back_button_pressed() -> void:
 	AudioManager.stop_ref_long_talk()

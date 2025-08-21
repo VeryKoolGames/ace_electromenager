@@ -45,7 +45,7 @@ func show_best_score_rect() -> void:
 		return
 
 	var body = {
-		"email": SaveSystem.player_data.get("email"),
+		"player_token": SaveSystem.player_data.get("player_token"),
 		"pseudo": SaveSystem.player_data.get("pseudo"),
 		"score": PlayerData.score,
 	}
@@ -65,4 +65,4 @@ func save_score() -> void:
 	}
 	var json = JSON.stringify(body)
 	var headers = ["Content-Type: application/json"]
-	save_score_request.request("https://niseko-backend.onrender.com/save_score", headers, HTTPClient.METHOD_POST, json)
+	save_score_request.request("https://niseko-backend.onrender.com/log_play", headers, HTTPClient.METHOD_POST, json)

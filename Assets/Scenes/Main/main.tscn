@@ -1712,9 +1712,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 200.0
-offset_top = 166.0
+offset_top = 134.0
 offset_right = -200.0
-offset_bottom = -466.0
+offset_bottom = -522.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -2678,7 +2678,26 @@ text = "le pseudonyme et l'e-mail doivent être remplis."
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="LegalLabel" type="Label" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 0.166677
+offset_top = -144.333
+offset_right = 503.167
+offset_bottom = -0.333374
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.160784, 0, 1)
+theme_override_fonts/font = ExtResource("5_o5d14")
+theme_override_font_sizes/font_size = 20
+text = "En publiant votre score, vous acceptez que votre pseudo, votre adresse e-mail et votre score soient enregistrés afin d’apparaître dans le classement"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="HTTPRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
+
+[node name="AlreadySavedRequest" type="HTTPRequest" parent="ResponsiveLayer/EndGameUI/SaveScorePopUp"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ResponsiveLayer/EndGameUI"]
 libraries = {

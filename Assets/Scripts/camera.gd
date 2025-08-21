@@ -5,15 +5,23 @@ extends CanvasLayer
 var rng = RandomNumberGenerator.new();
 var shakeStrenght: float = 0.0
 var shake_cooldown := 0.5
+@export var normal_shot_shake_strength := 5
+@export var perfect_shot_shake_strength := 20
 
 func _ready() -> void:
 	Events.on_shot_released.connect(apply_shake)
+	Events.on_game_state_advanced.connect(on_game_progressed)
 
 func apply_shake(strength: float):
 	if strength >= 80:
-		shakeStrenght = 20
+		shakeStrenght = perfect_shot_shake_strength
 	else:
-		shakeStrenght = 5
+		shakeStrenght = normal_shot_shake_strength
+
+func on_game_progressed(state: int):
+	if state == 0:
+		return
+	perfect_shot_shake_strength += 15
 
 func _process(delta):
 	if shakeStrenght > 0:
