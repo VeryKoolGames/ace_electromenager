@@ -12,6 +12,7 @@ const SAVE_FILE_PATH = "user://player_data.save"
 const FIRST_TIME_FLAG_PATH = "user://first_time_flag.save"
 
 func _ready():
+	print(player_data)
 	load_first_time_flag()
 	load_player_from_disc()
 
@@ -61,7 +62,7 @@ func get_player_data():
 	return player_data
 
 func has_saved_player():
-	return FileAccess.file_exists(SAVE_FILE_PATH) and player_data.email != "" and player_data.pseudo != ""
+	return FileAccess.file_exists(SAVE_FILE_PATH) and player_data.player_token != "" and player_data.pseudo != ""
 
 func clear_player_data():
 	player_data.pseudo = ""

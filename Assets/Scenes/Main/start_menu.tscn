@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=59 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Script" uid="uid://03811ollgwwd" path="res://Assets/Scripts/Globals/ParticleCache.gd" id="1_g7qw8"]
@@ -31,6 +31,20 @@
 [ext_resource type="Texture2D" uid="uid://b4gy7kyr806vx" path="res://Assets/sprites/VerykoolLogo.png" id="26_qjj8o"]
 [ext_resource type="Texture2D" uid="uid://cca5oajla42fv" path="res://Assets/sprites/Balle.png" id="26_wk347"]
 [ext_resource type="Script" uid="uid://b4xcp0i8yswcs" path="res://Assets/Scripts/UI/scale_tennis_balls.gd" id="27_jphq5"]
+[ext_resource type="Texture2D" uid="uid://dj7igjbwymiwu" path="res://Assets/sprites/conf_icon.png" id="32_anrc7"]
+[ext_resource type="Texture2D" uid="uid://dghfc2jd2d11d" path="res://Assets/sprites/conf_icon_hover.png" id="33_mdmj5"]
+[ext_resource type="Script" uid="uid://dkea1n6lfx88q" path="res://Assets/Scenes/Main/conf_menu_manager.gd" id="34_6poie"]
+[ext_resource type="Texture2D" uid="uid://cjld02n6rulqs" path="res://Assets/sprites/Pannel1.png" id="34_on462"]
+[ext_resource type="Texture2D" uid="uid://xxk4m6u0i0ut" path="res://Assets/sprites/BaseRectPannel.png" id="35_y7k15"]
+[ext_resource type="FontFile" uid="uid://beqh1umr2231" path="res://Assets/Fonts/Dienstag_Light.otf" id="36_6poie"]
+[ext_resource type="FontFile" uid="uid://d2qxqeaq1e1rw" path="res://Assets/Fonts/Dienstag_Black.otf" id="37_goas4"]
+[ext_resource type="Texture2D" uid="uid://cdpqwtxd22bvv" path="res://Assets/sprites/bouton5.png" id="38_g6tdr"]
+[ext_resource type="Texture2D" uid="uid://pcpoous18vt5" path="res://Assets/sprites/bouton5_hover.png" id="39_x5nsd"]
+[ext_resource type="Texture2D" uid="uid://bybsvaecx3w4" path="res://Assets/sprites/bouton5_clicked.png" id="40_toy7r"]
+[ext_resource type="Texture2D" uid="uid://c6k75j71jbvva" path="res://Assets/sprites/ButtonShape3.png" id="41_h0vqj"]
+[ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="42_1e5jo"]
+[ext_resource type="Texture2D" uid="uid://c1f866eq62mg1" path="res://Assets/sprites/ButtonShape3_Hover.png" id="43_k8ell"]
+[ext_resource type="Script" uid="uid://b7tom0mmgxgpt" path="res://Assets/Scenes/Main/confirmation_pop_up.gd" id="45_goas4"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
 resource_name = "ArbitreMenu_Idle"
@@ -432,6 +446,29 @@ _data = {
 &"ball_menu": SubResource("Animation_wk347")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pa71k"]
+texture = ExtResource("34_on462")
+texture_margin_left = 14.5
+texture_margin_top = 17.0
+texture_margin_right = 14.5
+texture_margin_bottom = 46.5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3nfh4"]
+texture = ExtResource("35_y7k15")
+texture_margin_left = 24.5
+texture_margin_top = 25.5
+texture_margin_right = 25.5
+texture_margin_bottom = 30.5
+modulate_color = Color(0.980392, 0.792157, 0.592157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6poie"]
+texture = ExtResource("35_y7k15")
+texture_margin_left = 22.5
+texture_margin_top = 30.0
+texture_margin_right = 28.5
+texture_margin_bottom = 31.0
+modulate_color = Color(0.996078, 0.94902, 0.780392, 1)
+
 [node name="StartMenu" type="CanvasLayer"]
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -676,54 +713,6 @@ vertical_alignment = 1
 [node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/VBoxContainer/LeaderboardButton"]
 script = ExtResource("20_uk28k")
 
-[node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -499.0
-offset_right = 2.0
-offset_bottom = 200.0
-grow_horizontal = 0
-theme_override_constants/margin_top = 28
-theme_override_constants/margin_right = 190
-
-[node name="TutorialButton" type="TextureButton" parent="StartMenuUI/TutorialContainer"]
-layout_mode = 2
-texture_normal = ExtResource("19_k7tfi")
-texture_pressed = ExtResource("22_mf8ek")
-texture_hover = ExtResource("21_xx3ku")
-
-[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/TutorialContainer/TutorialButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.726
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = -56.096
-offset_bottom = -57.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 110
-
-[node name="Label" type="Label" parent="StartMenuUI/TutorialContainer/TutorialButton/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
-theme_override_fonts/font = ExtResource("3_wdajc")
-theme_override_font_sizes/font_size = 39
-text = "TUTORIEL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/TutorialContainer/TutorialButton"]
-script = ExtResource("20_uk28k")
-
-[node name="MuteButtonContainer" parent="StartMenuUI" instance=ExtResource("20_q44k4")]
-layout_mode = 1
-offset_bottom = 308.0
-theme_override_constants/margin_top = 70
-
 [node name="ACE_Logo" type="MarginContainer" parent="StartMenuUI"]
 layout_mode = 1
 anchors_preset = 2
@@ -836,3 +825,355 @@ libraries = {
 &"": SubResource("AnimationLibrary_y78t4")
 }
 autoplay = "ball_menu"
+
+[node name="ConfMenu" type="Control" parent="StartMenuUI"]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("34_6poie")
+
+[node name="PanelContainer" type="PanelContainer" parent="StartMenuUI/ConfMenu"]
+visible = false
+custom_minimum_size = Vector2(100, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(593.5, 500)
+theme_override_styles/panel = SubResource("StyleBoxTexture_pa71k")
+
+[node name="Label" type="Label" parent="StartMenuUI/ConfMenu/PanelContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 64
+text = "Politique de confidentialité"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/ConfMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 120
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StartMenuUI/ConfMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3nfh4")
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartMenuUI/ConfMenu/PanelContainer/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/normal_font = ExtResource("36_6poie")
+theme_override_fonts/bold_font = ExtResource("37_goas4")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]Politique de confidentialité[/b]
+Dernière mise à jour : 21.08.2025
+
+[b]1. Données collectées[/b]
+
+Lorsque vous utilisez l’application, nous collectons uniquement les informations suivantes :
+
+Pseudo : pour afficher votre nom dans le classement.
+
+Adresse e-mail : obligatoire lors de l’enregistrement, utilisée uniquement pour associer vos scores à votre compte et, si nécessaire, vous contacter.
+
+Scores : pour établir le classement.
+
+Identifiant de joueur (token) : généré automatiquement par l’application, il sert uniquement à reconnaître votre compte sans avoir à ressaisir vos informations.
+
+Statistiques de parties anonymes : nombre de parties jouées et dates, sans lien avec votre compte.
+
+[b]2. Finalité de la collecte[/b]
+
+Les données collectées servent exclusivement à :
+
+Afficher le classement des joueurs.
+
+Associer vos parties et vos scores à votre profil (pseudo + e-mail).
+
+Compter le nombre de parties jouées (statistiques globales, anonymes).
+
+Nous n’utilisons pas vos données à des fins publicitaires, commerciales, ni de suivi entre applications/sites tiers.
+
+[b]3. Conservation et sécurité[/b]
+
+Votre adresse e-mail est chiffré/e et stockée de façon sécurisée sur nos serveurs (hébergés chez Render).
+
+Vos données sont conservées tant que votre compte est actif.
+
+En cas de suppression de votre compte, toutes vos données (pseudo, e-mail, scores) sont effacées définitivement.
+
+[b]4. Suppression de vos données[/b]
+
+Les données seront supprimées à la fin de l'événement
+
+Vous pouvez supprimer vos données à tout moment :
+
+Directement depuis l’application, via le bouton « Supprimer mes données ».
+
+Ou en nous contactant par e-mail à : victorvermot@gmail.com.
+
+[b]5. Partage des données[/b]
+
+Nous ne partageons, ne vendons et ne louons aucune de vos données personnelles à des tiers.
+
+6. Vos droits
+
+Conformément au Règlement général sur la protection des données (RGPD), vous disposez d’un droit d’accès, de rectification, et de suppression de vos données personnelles.
+
+Pour toute demande, contactez-nous à : victorvermot@gmail.com."
+fit_content = true
+autowrap_mode = 2
+
+[node name="DeleteDataButton" type="TextureButton" parent="StartMenuUI/ConfMenu/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("38_g6tdr")
+texture_pressed = ExtResource("39_x5nsd")
+texture_hover = ExtResource("40_toy7r")
+
+[node name="Label" type="Label" parent="StartMenuUI/ConfMenu/PanelContainer/DeleteDataButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 28
+text = "SUPPRIMER MES DONNEES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmationContainer" type="MarginContainer" parent="StartMenuUI/ConfMenu/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 40
+
+[node name="ConfirmationLabel" type="Label" parent="StartMenuUI/ConfMenu/PanelContainer/ConfirmationContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("37_goas4")
+theme_override_font_sizes/font_size = 32
+text = "Vos données ont bien été supprimées"
+horizontal_alignment = 2
+
+[node name="BackButton" type="TextureButton" parent="StartMenuUI/ConfMenu/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("41_h0vqj")
+texture_pressed = ExtResource("42_1e5jo")
+texture_hover = ExtResource("43_k8ell")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/ConfMenu/PanelContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="StartMenuUI/ConfMenu/PanelContainer/BackButton/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 28
+text = "RETOUR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmationPopUp" type="Control" parent="StartMenuUI/ConfMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("45_goas4")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="StartMenuUI/ConfMenu/ConfirmationPopUp"]
+
+[node name="ColorRect" type="ColorRect" parent="StartMenuUI/ConfMenu/ConfirmationPopUp"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.584314)
+
+[node name="PanelContainer" type="PanelContainer" parent="StartMenuUI/ConfMenu/ConfirmationPopUp"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -20.0
+offset_right = 349.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(349, 199)
+theme_override_styles/panel = SubResource("StyleBoxTexture_6poie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.596078, 0.333333, 1)
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 32
+text = "Voulez vous-vraiment supprimer vos données ? Vous n'apparaitrez plus dans le leaderboard"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="NoButton" type="TextureButton" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("41_h0vqj")
+texture_pressed = ExtResource("42_1e5jo")
+texture_hover = ExtResource("43_k8ell")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer/HBoxContainer/NoButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer/HBoxContainer/NoButton/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 48
+text = "NON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesButton" type="TextureButton" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("41_h0vqj")
+texture_pressed = ExtResource("42_1e5jo")
+texture_hover = ExtResource("43_k8ell")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer/HBoxContainer/YesButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="StartMenuUI/ConfMenu/ConfirmationPopUp/PanelContainer/VBoxContainer/HBoxContainer/YesButton/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 48
+text = "OUI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenuUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/separation = -30
+
+[node name="TutorialContainer" type="MarginContainer" parent="StartMenuUI/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="TutorialButton" type="TextureButton" parent="StartMenuUI/HBoxContainer/TutorialContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_k7tfi")
+texture_pressed = ExtResource("22_mf8ek")
+texture_hover = ExtResource("21_xx3ku")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuUI/HBoxContainer/TutorialContainer/TutorialButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="StartMenuUI/HBoxContainer/TutorialContainer/TutorialButton/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.94902, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_wdajc")
+theme_override_font_sizes/font_size = 39
+text = "TUTORIEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/HBoxContainer/TutorialContainer/TutorialButton"]
+script = ExtResource("20_uk28k")
+
+[node name="TextureButton" type="TextureButton" parent="StartMenuUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("32_anrc7")
+texture_pressed = ExtResource("33_mdmj5")
+texture_hover = ExtResource("33_mdmj5")
+
+[node name="ButtonSoundComponent" type="Node" parent="StartMenuUI/HBoxContainer/TextureButton"]
+script = ExtResource("20_uk28k")
+metadata/_custom_type_script = "uid://j4426e4r0arh"
+
+[node name="MuteButtonContainer" parent="StartMenuUI/HBoxContainer" instance=ExtResource("20_q44k4")]
+layout_mode = 2
+
+[node name="MuteButton" parent="StartMenuUI/HBoxContainer/MuteButtonContainer" index="0"]
+custom_minimum_size = Vector2(200, 100)
+ignore_texture_size = true
+stretch_mode = 0
+
+[editable path="StartMenuUI/HBoxContainer/MuteButtonContainer"]

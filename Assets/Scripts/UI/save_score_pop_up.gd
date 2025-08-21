@@ -76,6 +76,7 @@ func _on_request_already_saved_completed(_result, response_code, _headers, body)
 	if response_code == 200:
 		var data = JSON.parse_string(body.get_string_from_utf8())
 		v_box_container.hide()
+		legal_label.hide()
 		label.show()
 		animation_player.play("scoreEnregistré")
 	else:

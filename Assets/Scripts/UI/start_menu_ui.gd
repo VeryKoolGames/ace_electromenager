@@ -2,8 +2,8 @@ extends Control
 
 @onready var start_button: TextureButton = $VBoxContainer/StartButton
 @onready var leaderboard_button: TextureButton = $VBoxContainer/LeaderboardButton
-@onready var tutorial_container: MarginContainer = $TutorialContainer
-@onready var tutorial_button: TextureButton = $TutorialContainer/TutorialButton
+@onready var tutorial_button: TextureButton = $HBoxContainer/TutorialContainer/TutorialButton
+@onready var tutorial_container: MarginContainer = $HBoxContainer/TutorialContainer
 
 func _ready() -> void:
 	start_button.pressed.connect(transition_to_game_scene)

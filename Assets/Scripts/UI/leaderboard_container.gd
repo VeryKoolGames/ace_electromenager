@@ -35,7 +35,12 @@ func _on_request_completed(result, response_code, headers, body):
 
 func _retrieve_player_scores_data() -> void:
 	loading_label.show()
-	http_request.request("https://niseko-backend.onrender.com/get_leaderboard")
+	var body := {}
+	if SaveSystem.has_saved_player():
+		body["player_token"] = SaveSystem.player_data.get("player_token")
+	var json = JSON.stringify(body)
+	var headers = ["Content-Type: application/json"]
+	http_request.request("https://niseko-backend.onrender.com/get_leaderboard", headers, HTTPClient.METHOD_POST, json)
 
 func check_if_self(data: Dictionary) -> bool:
 	return data.get("is_self") == true
