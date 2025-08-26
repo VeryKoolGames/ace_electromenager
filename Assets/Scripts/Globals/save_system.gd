@@ -4,6 +4,7 @@ extends Node
 var player_data = {
 	"player_token": "",
 	"pseudo": "",
+	"email": "",
 }
 
 var is_playing_for_the_first_time := true
@@ -12,13 +13,13 @@ const SAVE_FILE_PATH = "user://player_data.save"
 const FIRST_TIME_FLAG_PATH = "user://first_time_flag.save"
 
 func _ready():
-	print(player_data)
 	load_first_time_flag()
 	load_player_from_disc()
 
-func save_player_on_disc(token: String, pseudo: String):
+func save_player_on_disc(token: String, pseudo: String, email: String):
 	player_data.player_token = token
 	player_data.pseudo = pseudo
+	player_data.email = email
 	
 	var save_file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	if save_file == null:
@@ -32,12 +33,10 @@ func save_player_on_disc(token: String, pseudo: String):
 
 func load_player_from_disc():
 	if not FileAccess.file_exists(SAVE_FILE_PATH):
-		print("No save file found - new player")
 		return false
 	
 	var save_file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	if save_file == null:
-		print("Error: Could not open save file")
 		return false
 	
 	var json_string = save_file.get_as_text()
@@ -47,7 +46,6 @@ func load_player_from_disc():
 	var parse_result = json.parse(json_string)
 	
 	if parse_result != OK:
-		print("Error: Could not parse save file")
 		return false
 	
 	var loaded_data = json.data
@@ -55,7 +53,6 @@ func load_player_from_disc():
 		player_data = loaded_data
 		return true
 	else:
-		print("Error: Invalid save file format")
 		return false
 
 func get_player_data():

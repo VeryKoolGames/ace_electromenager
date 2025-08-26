@@ -6,6 +6,7 @@ class_name Tutorial
 @onready var back_button: TextureButton = $ResponsiveLayer/TutorialUI/BackButtonContainer/BackButton
 @onready var back_button_container: MarginContainer = $ResponsiveLayer/TutorialUI/BackButtonContainer
 
+@warning_ignore_start("unused_signal")
 signal on_first_part_started
 signal on_second_part_started
 signal on_third_part_started

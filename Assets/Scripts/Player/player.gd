@@ -17,10 +17,10 @@ func _input(event: InputEvent) -> void:
 	check_if_click_is_outside_borders()
 	if not GameState.is_in_game_mode():
 		return
-	if current_ball and event.is_action_pressed("shoot") and check_if_click_is_outside_borders():
+	if current_ball and event.is_action_pressed("shoot"):
 		aiming_arrow.start_charging_shot()
 		raquette.play_prepare_raquette_shoot_anim()
-	elif current_ball and event.is_action_released("shoot") and aiming_arrow.is_player_shooting and check_if_click_is_outside_borders():
+	elif current_ball and event.is_action_released("shoot") and aiming_arrow.is_player_shooting:
 		shoot_ball(aiming_arrow.stop_charging_shot())
 		raquette.play_raquette_shoot_anim()
 

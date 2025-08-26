@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvw6flfptx8jg"]
+
+[ext_resource type="Script" uid="uid://8yj4jq63j8uj" path="res://Assets/Scripts/orientation_hint.gd" id="1_1a3uw"]
+[ext_resource type="FontFile" uid="uid://bo5oa4tksb3yi" path="res://Assets/Fonts/Dienstag_BlackItalic.otf" id="1_5632o"]
+
+[node name="OrientationHint" type="CanvasLayer"]
+layer = 1000
+script = ExtResource("1_1a3uw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.243137, 0.596078, 0.333333, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -901.5
+offset_top = -29.0
+offset_right = 901.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_5632o")
+theme_override_font_sizes/font_size = 48
+text = "Mets ton téléphone en mode paysage pour profiter du jeu au mieux !"

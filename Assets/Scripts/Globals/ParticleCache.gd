@@ -25,9 +25,9 @@ var materials = [
 
 func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
-	for material in materials:
+	for material_to_load in materials:
 		var instance = GPUParticles2D.new()
-		instance.process_material = material
+		instance.process_material = material_to_load
 		instance.one_shot = true
 		instance.emitting = true
 		add_child(instance)

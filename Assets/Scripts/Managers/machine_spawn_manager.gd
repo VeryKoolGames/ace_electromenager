@@ -126,7 +126,6 @@ func spawn_power_up_at(position: Vector2):
 	while obj.res_power_up.type == latest_power_up_type:
 		obj = get_random_power_up().instantiate() as PowerUp
 	latest_power_up_type = obj.res_power_up.type
-	obj.res_power_up.type
 	obj.global_position = position
 	add_child(obj)
 	grid_positions[position] = obj

@@ -25,7 +25,7 @@ func _process_players_data(data: Array) -> void:
 		leaderboard_line_container.add_child(line)
 		line.populate_line(line_data)
 
-func _on_request_completed(result, response_code, headers, body):
+func _on_request_completed(_result, response_code, _headers, body):
 	loading_label.hide()
 	if response_code == 200:
 		var data = JSON.parse_string(body.get_string_from_utf8())
