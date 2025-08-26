@@ -11,6 +11,7 @@ class_name ConfirmationPopUpUI
 
 func _ready() -> void:
 	no_button.pressed.connect(hide_conf_menu)
+	yes_button.pressed.connect(delete_player_data)
 	http_request.request_completed.connect(_on_request_completed)
 
 func _on_request_completed(result, response_code, headers, body):
@@ -18,6 +19,7 @@ func _on_request_completed(result, response_code, headers, body):
 		hide_conf_menu()
 		delete_data_button.hide()
 		confirmation_container.show()
+		SaveSystem.clear_player_data()
 		var data = JSON.parse_string(body.get_string_from_utf8())
 
 func show_conf_menu() -> void:

@@ -6,6 +6,7 @@ extends Control
 @onready var confirmation_container: MarginContainer = $PanelContainer/ConfirmationContainer
 @onready var confirmation_pop_up: ConfirmationPopUpUI = $ConfirmationPopUp
 @onready var conf_button: TextureButton = $"../HBoxContainer/TextureButton"
+@onready var color_rect: ColorRect = $ColorRect
 
 func _ready() -> void:
 	conf_button.pressed.connect(show_conf_menu)
@@ -13,6 +14,7 @@ func _ready() -> void:
 	back_button.pressed.connect(hide_conf_menu)
 
 func show_conf_menu() -> void:
+	color_rect.show()
 	display_delete_data_button()
 	var tween = create_tween()
 	panel_container.scale = Vector2.ZERO
@@ -26,6 +28,7 @@ func display_delete_data_button() -> void:
 		delete_data_button.hide()
 
 func hide_conf_menu() -> void:
+	color_rect.hide()
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0.2)
 	tween.tween_callback(func(): panel_container.hide())
