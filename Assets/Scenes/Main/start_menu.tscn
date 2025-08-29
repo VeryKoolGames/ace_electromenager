@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dgkq2d5pihdty"]
+[gd_scene load_steps=61 format=3 uid="uid://dgkq2d5pihdty"]
 
 [ext_resource type="Script" uid="uid://b3ssvipi3crt2" path="res://Assets/Scripts/UI/start_menu_ui.gd" id="1_dph0j"]
 [ext_resource type="Script" uid="uid://03811ollgwwd" path="res://Assets/Scripts/Globals/ParticleCache.gd" id="1_g7qw8"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://bja2y4seta0xy" path="res://Assets/sprites/ButtonShape3_Clicked.png" id="42_1e5jo"]
 [ext_resource type="Script" uid="uid://b7tom0mmgxgpt" path="res://Assets/Scenes/Main/confirmation_pop_up.gd" id="45_goas4"]
 [ext_resource type="Script" uid="uid://8yj4jq63j8uj" path="res://Assets/Scripts/orientation_hint.gd" id="46_g6tdr"]
+[ext_resource type="Texture2D" uid="uid://c644c21rs3us3" path="res://Assets/sprites/RotatePhone.png" id="47_x5nsd"]
 
 [sub_resource type="Animation" id="Animation_6or7f"]
 resource_name = "ArbitreMenu_Idle"
@@ -1205,7 +1206,6 @@ script = ExtResource("20_uk28k")
 metadata/_custom_type_script = "uid://j4426e4r0arh"
 
 [node name="OrientationHint" type="Control" parent="."]
-visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -1228,19 +1228,36 @@ color = Color(0.243137, 0.596078, 0.333333, 1)
 
 [node name="Label" type="Label" parent="OrientationHint"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -901.5
-offset_top = -29.0
-offset_right = 901.5
-offset_bottom = 29.0
+offset_left = -901.0
+offset_top = 180.0
+offset_right = 902.0
+offset_bottom = 337.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_wdajc")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 text = "Mets ton téléphone en mode paysage pour profiter du jeu au mieux !"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PhoneRotationRect" type="TextureRect" parent="OrientationHint"]
+modulate = Color(0.9607843, 0.44705883, 0.33333334, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -673.0
+offset_right = 307.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(306.5, 305)
+texture = ExtResource("47_x5nsd")
 
 [editable path="StartMenuUI/HBoxContainer/MuteButtonContainer"]

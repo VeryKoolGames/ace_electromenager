@@ -8,6 +8,7 @@ var player_data = {
 }
 
 var is_playing_for_the_first_time := true
+var is_launching_for_the_first_time := true
 
 const SAVE_FILE_PATH = "user://player_data.save"
 const FIRST_TIME_FLAG_PATH = "user://first_time_flag.save"

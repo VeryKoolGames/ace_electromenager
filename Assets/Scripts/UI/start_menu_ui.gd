@@ -12,6 +12,7 @@ func _ready() -> void:
 	show_or_hide_tutorial_button()
 
 func transition_to_game_scene() -> void:
+	SaveSystem.is_launching_for_the_first_time = false
 	disable_buttons()
 	if SaveSystem.is_playing_for_the_first_time:
 		TransitionManager.play_transition(TransitionManager.MainScenesEnum.TUTORIAL)
@@ -20,10 +21,12 @@ func transition_to_game_scene() -> void:
 		AudioManager.transition_to_game_music()
 
 func transition_to_leaderboard_scene() -> void:
+	SaveSystem.is_launching_for_the_first_time = false
 	disable_buttons()
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.LEADERBOARD)
 
 func transition_to_tutorial_scene() -> void:
+	SaveSystem.is_launching_for_the_first_time = false
 	disable_buttons()
 	TransitionManager.play_transition(TransitionManager.MainScenesEnum.TUTORIAL)
 
